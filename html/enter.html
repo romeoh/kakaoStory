@@ -81,5 +81,22 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <!--script type="text/javascript" src="../js/firebug-lite.js"></script-->
 <script type="text/javascript" src="../js/kakao.link.js"></script>
 <script type="text/javascript" src="../js/enter.js"></script>
+<script type="text/javascript">
+window.addEventListener('load', function(e) {
+	twttr.anywhere(function(T){
+		T("#msg").followButton("romeohcom");
+	});
+}, false);
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35689154-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
 </body>
 </html>

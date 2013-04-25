@@ -30,7 +30,6 @@ function executeKakaoStoryLink(){
 		,message
 	
 	//idx < 10 ? idx = '0' + idx : idx
-	
 	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
 		alert('성별을 선택해 주세요.');
 		return false;
@@ -64,7 +63,7 @@ function executeKakaoStoryLink(){
         appid : 'funnyApp',
 		appver : '1.0',
 		appname : '연예인과 커피한잔',
-		urlinfo : JSON.stringify({title: resultName + '씨로 부터 메세지', desc: userName + '님 ' + message, imageurl:['https://raw.github.com/romeoh/kakaoStory/gh-pages/img/'+resultPhoto], type:'article'})
+		urlinfo : JSON.stringify({title: resultName + '씨로부터 메세지', desc: userName + '님 ' + message, imageurl:['https://raw.github.com/romeoh/kakaoStory/gh-pages/img/'+resultPhoto], type:'article'})
     });
 }
 
@@ -79,8 +78,6 @@ function executeURLLink() {
 		type: "link"
 	});
 }
-
-
 
 
 dataMale = [
@@ -188,12 +185,4 @@ dataFemale = [
 	{'name': '류덕환', 'photo': 'm49.jpeg', 'msg':''},
 	{'name': '노민우', 'photo': 'm50.jpg', 'msg':''}
 ]
-
-/*
-김태희씨가 김철수님과 커피를 마시고 싶어 합니다.
-받아주실꺼죠?
-
-김태희씨로 부터 메세지
-김철수님 커피한잔 사주실래요? (커피한잔 사주실꺼죠?)
-*/
 
