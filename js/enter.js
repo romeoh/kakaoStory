@@ -60,7 +60,7 @@ function executeKakaoStoryLink(){
 	}
 	
 	kakao.link("story").send({   
-        post : resultName + '씨가 ' + userName + '님과 커피를 마시고 싶어 합니다. \n받아주실꺼죠? \n\nhttp://goo.gl/HD57G',
+        post : resultName + '씨가 ' + userName + '님과 커피를 마시고 싶어 합니다. \n받아주실꺼죠? \n\nhttp://goo.gl/RPVB5',
         appid : 'funnyApp',
 		appver : '1.0',
 		appname : '연예인과 커피한잔',
@@ -72,7 +72,7 @@ function executeKakaoStoryLink(){
 function executeURLLink() {
 	kakao.link("talk").send({
 		msg: "커피한잔 하실래요?",
-		url: "http://goo.gl/HD57G",
+		url: "http://goo.gl/RPVB5",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "연예인과 커피한잔",
