@@ -27,6 +27,7 @@ function executeKakaoStoryLink(){
 		,userName = document.querySelector('#userName').value
 		,idx = Math.floor(Math.random()*50) + 1
 		,resultName, resultPhoto, resultMsg
+		,message
 	
 	//idx < 10 ? idx = '0' + idx : idx
 	
@@ -50,39 +51,31 @@ function executeKakaoStoryLink(){
 		resultName = dataMale[idx]['name']
 		resultPhoto = dataMale[idx]['photo']
 		resultMsg = dataMale[idx]['msg']
+		message = '커피한잔 사주실래요?';
 	} else {
 		resultName = dataFemale[idx]['name']
 		resultPhoto = dataFemale[idx]['photo']
 		resultMsg = dataFemale[idx]['msg']
+		message = '커피한잔 마실래요?';
 	}
 	
 	kakao.link("story").send({   
-        post : resultName + '씨가 ' + userName + '님과 커피를 마시고 싶어 합니다. \n받아주실꺼죠? \n\nhttp://goo.gl/ajszk',
+        post : resultName + '씨가 ' + userName + '님과 커피를 마시고 싶어 합니다. \n받아주실꺼죠? \n\nhttp://goo.gl/HD57G',
         appid : 'funnyApp',
 		appver : '1.0',
 		appname : '연예인과 커피한잔',
-		urlinfo : JSON.stringify({title: resultName + '씨로 부터 메세지', desc: userName + '님 커피한잔 사주실래요?', imageurl:['http://ringple.co.kr:8080/mobileweb/user/romeoh/kakao/img/'+resultPhoto], type:'article'})
+		urlinfo : JSON.stringify({title: resultName + '씨로 부터 메세지', desc: userName + '님 ' + message, imageurl:['https://raw.github.com/romeoh/kakaoStory/gh-pages/img/'+resultPhoto], type:'article'})
     });
-    return;
-	
-	kakao.link("story").send({   
-		post : resultName + '씨가 ' + userName + '님과 커피를 마시고 싶어 합니다. \n받아주실꺼죠? \n\nhttp://goo.gl/ajszk',
-		appid : 'funnyApp',
-		appver : '1.0',
-		appname : '나와 커피마시고 싶어하는 연예인',
-		urlinfo : JSON.stringify({title: "씨로 부터 메세지", desc: "김철수님 커피한잔 사주실래요?", imageurl:["http://ringple.co.kr:8080/mobileweb/user/romeoh/kakao/img/f01.jpeg"], type:"article"})
-		//urlinfo : JSON.stringify({title:"당신을 판매해봅시다", desc:"바로 당신의 광고입니다", imageurl:["http://ringple.co.kr:8080/mobileweb/user/romeoh/kakao/img/pic0.jpeg"], type:"article"})
-	});
 }
 
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "바로 당신의 광고입니다.",
-		url: "http://goo.gl/ajszk",
-		appid: "kaiequal.com",
-		appver: "2.0",
-		appname: "당신을 판매해봅시다.",
+		msg: "커피한잔 하실래요?",
+		url: "http://goo.gl/HD57G",
+		appid: "funnyApp",
+		appver: "1.0",
+		appname: "연예인과 커피한잔",
 		type: "link"
 	});
 }
