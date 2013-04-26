@@ -36,7 +36,7 @@ function executeKakaoStoryLink(){
 	}
 	
 	if (userName == '') {
-		alert('이름을 선택해 주세요.');
+		alert('이름을 입력해 주세요.');
 		return false;
 	}
 	
