@@ -24,25 +24,24 @@ function executeKakaoStoryLink(){
 		,dataLevelIdx = Math.floor(Math.random() * dataLevel.length)
 		,postMsg = ''
 		,urlMsg = {
-			title: '냉철한 대기업 인재 사냥꾼',
+			title: dataCompany[companyIdx]['name'] + ' 인사팀',
 			desc: dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 스카웃 하려 합니다.',
-			imageurl: 'http://romeoh.github.io/kakaoStory/imgCom/' + dataCompany[companyIdx]['photo'],
+			imageurl: ['http://romeoh.github.io/kakaoStory/imgCom/' + dataCompany[companyIdx]['photo']],
 			type:'article'
 		}
 	
 	setRandom(dataJogun)
-	postMsg += dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 ' + dataUpjong[dataUpjongIdx] + ' 스카웃 하려 합니다.\n\n'
-	postMsg += '[대우]\n'
+	postMsg += dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 ' + dataUpjong[dataUpjongIdx] + ' 스카웃 하려 합니다.\n\n';
+	postMsg += '[대우]\n';
 	postMsg += '1. 연봉: ' + dataPay[dataPayIdx] + '\n';
-	postMsg += '2. 근무지: ' + dataArea[dataAreaIdx] + '\n'
-	postMsg += '3. 직급: ' + dataLevel[dataLevelIdx] + '\n\n'
-	postMsg += '[조건]\n'
-	postMsg += '1. '+dataJogun[jogeun0]+'\n'
-	postMsg += '2. '+dataJogun[jogeun1]+'\n'
-	postMsg += '3. '+dataJogun[jogeun2]+'\n\n'
-	postMsg += 'http://goo.gl/QWPHM \n'
+	postMsg += '2. 근무지: ' + dataArea[dataAreaIdx] + '\n';
+	postMsg += '3. 직급: ' + dataLevel[dataLevelIdx] + '\n\n';
+	postMsg += '[조건]\n';
+	postMsg += '1. '+dataJogun[jogeun0]+'\n';
+	postMsg += '2. '+dataJogun[jogeun1]+'\n';
+	postMsg += '3. '+dataJogun[jogeun2]+'\n\n';
+	postMsg += 'http://goo.gl/QWPHM';
 	
-	//idx < 10 ? idx = '0' + idx : idx
 	if (age == '') {
 		alert('생년을 입력해 주세요.');
 		return false;
@@ -52,8 +51,7 @@ function executeKakaoStoryLink(){
 		alert('이름을 입력해 주세요.');
 		return false;
 	}
-	console.dir(urlMsg)
-	return
+
 	kakao.link("story").send({   
 		post : postMsg,
         appid : 'funnyApp',
@@ -88,11 +86,11 @@ function setRandom(data){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "커피한잔 하실래요?",
-		url: "http://goo.gl/RPVB5",
+		msg: "냉철한 대기업 인재 사냥꾼",
+		url: "http://goo.gl/QWPHM",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "연예인과 커피한잔",
+		appname: "냉철한 대기업 인재 사냥꾼",
 		type: "link"
 	});
 }
