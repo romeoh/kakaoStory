@@ -52,8 +52,6 @@ function executeKakaoStoryLink(){
 		alert('이름을 입력해 주세요.');
 		return false;
 	}
-	console.log(postMsg)
-	return
 	
 	kakao.link("story").send({   
 		post : postMsg,
