@@ -23,6 +23,12 @@ function executeKakaoStoryLink(){
 		,dataAreaIdx = Math.floor(Math.random() * dataArea.length)
 		,dataLevelIdx = Math.floor(Math.random() * dataLevel.length)
 		,postMsg = ''
+		,urlMsg = {
+			title: '냉철한 대기업 인재 사냥꾼',
+			desc: dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 스카웃 하려 합니다.',
+			imageurl: 'http://romeoh.github.io/kakaoStory/imgCom/' + dataCompany[companyIdx]['photo'],
+			type:'article'
+		}
 	
 	setRandom(dataJogun)
 	postMsg += dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 ' + dataUpjong[dataUpjongIdx] + ' 스카웃 하려 합니다.\n\n'
@@ -33,9 +39,9 @@ function executeKakaoStoryLink(){
 	postMsg += '[조건]\n'
 	postMsg += '1. '+dataJogun[jogeun0]+'\n'
 	postMsg += '2. '+dataJogun[jogeun1]+'\n'
-	postMsg += '3. '+dataJogun[jogeun2]+'\n'
-
-
+	postMsg += '3. '+dataJogun[jogeun2]+'\n\n'
+	postMsg += 'http://goo.gl/QWPHM \n'
+	
 	//idx < 10 ? idx = '0' + idx : idx
 	if (age == '') {
 		alert('생년을 입력해 주세요.');
@@ -47,26 +53,14 @@ function executeKakaoStoryLink(){
 		return false;
 	}
 	console.log(postMsg)
-	//console.log(dataCompany[companyIdx]['name'], dataCompany[companyIdx]['photo'])
 	return
-	/*if (sexType == 'm') {
-		resultName = dataMale[idx]['name']
-		resultPhoto = dataMale[idx]['photo']
-		resultMsg = dataMale[idx]['msg']
-		message = '커피한잔 사주실래요?';
-	} else {
-		resultName = dataFemale[idx]['name']
-		resultPhoto = dataFemale[idx]['photo']
-		resultMsg = dataFemale[idx]['msg']
-		message = '커피한잔 마실래요?';
-	}*/
 	
 	kakao.link("story").send({   
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
 		appname : '냉철한 대기업 인재 사냥꾼',
-		urlinfo : JSON.stringify({title: resultName + '씨로부터 메세지', desc: userName + '님 ' + message, imageurl:['https://raw.github.com/romeoh/kakaoStory/gh-pages/img/'+resultPhoto], type:'article'})
+		urlinfo : JSON.stringify(urlMsg)
     });
 }
 
