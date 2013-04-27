@@ -53,7 +53,7 @@ function executeKakaoStoryLink(){
 		photo = 'babyGirl.jpg';
 	}
 
-	postMsg += userName + '아기는 10년뒤 ' + dataJob[dataJobRan] + '\n\n';
+	postMsg += userName + ' 아기는 10년뒤 ' + dataJob[dataJobRan] + '\n\n';
 	postMsg += '성격: ' + dataStar[ran0] + '\n';
 	postMsg += '지능: ' + dataStar[ran1] + '\n';
 	postMsg += '키: ' + dataStar[ran2] + '\n';
@@ -61,15 +61,13 @@ function executeKakaoStoryLink(){
 	postMsg += '매력도: ' + dataStar[ran4] + '\n\n';
 	postMsg += 'http://goo.gl/D9B88\n';
 
-
-
 	urlMsg = {
 		title: '10년뒤 내 아기모습',
-		desc: userName + ' 아기는 ' + dataJob[dataJobRan],
+		desc: userName + '는 ' + dataJob[dataJobRan],
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + photo ],
 		type:'article'
 	}
-console.log(urlMsg)
+
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
