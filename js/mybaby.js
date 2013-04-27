@@ -28,9 +28,12 @@ function executeKakaoStoryLink(){
 		,resultName, resultPhoto, resultMsg
 		,message
 		,postMsg = ''
-		,dataDrinkRan = Math.floor(Math.random() * dataDrink.length)
-		,dataMountRan = Math.floor(Math.random() * dataMount.length)
-		,dataActionRan = Math.floor(Math.random() * dataAction.length)
+		,dataJobRan = Math.floor(Math.random() * dataJob.length)
+		,ran0 = Math.floor(Math.random() * dataStar.length)
+		,ran1 = Math.floor(Math.random() * dataStar.length)
+		,ran2 = Math.floor(Math.random() * dataStar.length)
+		,ran3 = Math.floor(Math.random() * dataStar.length)
+		,ran4 = Math.floor(Math.random() * dataStar.length)
 	
 	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
 		alert('성별을 선택해 주세요.');
@@ -42,32 +45,36 @@ function executeKakaoStoryLink(){
 		return false;
 	}
 	
-	postMsg += '김철수는 10년뒤 천재바이얼리니스트가 됩니다.';
-	postMsg += '성격: ★★☆☆☆';
-	postMsg += '지능: ';
-	postMsg += '키: ';
-	postMsg += '외모: ';
-	postMsg += '매력도: ';
-	postMsg += '';
-
-
-	postMsg += userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.\n\n';
-	postMsg += '주량: ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '\n';
-	postMsg += '주사: ' + dataAction[dataActionRan] + '\n\n';
-	postMsg += 'http://goo.gl/BCCnn';
-
-	urlMsg = {
-		title: '나의 주량 알아보기',
-		desc: userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgDrink/' + dataDrink[dataDrinkRan]['photo'] ],
-		type:'article'
+	if (boySelect.className == 'checked') {
+		// 남자일 경우
+		photo = 'babyBoy.jpg';
+	} else if (girlSelect.className == 'checked') {
+		// 여자일 경우
+		photo = 'babyGirl.jpg';
 	}
 
+	postMsg += userName + '아기는 10년뒤 ' + dataJob[dataJobRan] + '\n\n';
+	postMsg += '성격: ' + dataStar[ran0] + '\n';
+	postMsg += '지능: ' + dataStar[ran1] + '\n';
+	postMsg += '키: ' + dataStar[ran2] + '\n';
+	postMsg += '외모: ' + dataStar[ran3] + '\n';
+	postMsg += '매력도: ' + dataStar[ran4] + '\n\n';
+	postMsg += 'http://goo.gl/D9B88\n';
+
+
+
+	urlMsg = {
+		title: '10년뒤 내 아기모습',
+		desc: userName + ' 아기는 ' + dataJob[dataJobRan],
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + photo ],
+		type:'article'
+	}
+console.log(urlMsg)
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '나와 스캔들날 연예인',
+		appname : '10년뒤 내 아기모습',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
@@ -75,11 +82,11 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "커피한잔 하실래요?",
-		url: "http://goo.gl/FSBT3",
+		msg: "10년뒤 내 아기모습",
+		url: "http://goo.gl/D9B88",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "연예인과 커피한잔",
+		appname: "10년뒤 내 아기모습",
 		type: "link"
 	});
 }
@@ -87,51 +94,32 @@ function executeURLLink() {
 
 
 
-dataMale = [
-	'',
-	'',
-	'',
-	'',
-	'',
-	'',
-	'',
-	'',
-	'',
-	'',
+dataJob = [
+	'천재 바이얼리니스트가 됩니다.',
+	'천재 골퍼가 됩니다.',
+	'천재 축구선수가 됩니다.',
+	'천재 야구선수가 됩니다.',
+	'천재 피겨스케이터가 됩니다.',
+	'천재 수영선수가 됩니다.',
+	'천재 체조선수가 됩니다.',
+	'천재 과학자가 됩니다.',
+	'천재 수학자가 됩니다.',
+	'최고 얼짱이 됩니다.',
+	'천재 연기자가 됩니다.',
+	'천재 컴퓨터 프로그래머가 됩니다.'
 ]
 
-dataMount = [
-	'한잔',
-	'두잔',
-	'세잔',
-	'한병',
-	'두병',
-	'세병',
-	'네병',
-	'다섯병',
-	'열병',
-	'한짝',
-	'두짝',
-	'세짝',
-	'무제한'
+dataStar = [
+	'☆☆☆☆☆',
+	'★☆☆☆☆',
+	'★★★☆☆',
+	'★★★★☆',
+	'★★★★★'
 ]
 
-dataAction = [
-	'옆사람에게 뽀뽀함',
-	'옆사람을 포옹함',
-	'했던말 계속함',
-	'엄마생각하며 울기',
-	'끊임없이 웃음',
-	'똥폼잡음',
-	'줄담배 피기',
-	'조용히 잠자기',
-	'없어져서 친구들이 찾으러 다님',
-	'조용히 집에감',
-	'화장실에서 우엑~',
-	'옆테이블에 시비걸기',
-	'큰소리로 노래부름',
-	'골든벨 울리기'
-]
+
+
+
 
 
 
