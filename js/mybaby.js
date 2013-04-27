@@ -60,7 +60,7 @@ function executeKakaoStoryLink(){
 	postMsg += '외모: ' + dataStar[ran3] + '\n';
 	postMsg += '매력도: ' + dataStar[ran4] + '\n\n';
 	postMsg += 'http://goo.gl/D9B88\n';
-
+console.log(postMsg)
 	urlMsg = {
 		title: '10년뒤 내 아기모습',
 		desc: userName + '는 ' + dataJob[dataJobRan],
@@ -111,7 +111,16 @@ dataStar = [
 	'☆☆☆☆☆',
 	'★☆☆☆☆',
 	'★★★☆☆',
+	'★★★☆☆',
+	'★★★☆☆',
 	'★★★★☆',
+	'★★★★☆',
+	'★★★★☆',
+	'★★★★☆',
+	'★★★★★',
+	'★★★★★',
+	'★★★★★',
+	'★★★★★',
 	'★★★★★'
 ]
 
