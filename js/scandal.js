@@ -44,11 +44,11 @@ function executeKakaoStoryLink(){
 	}
 	
 	if (boySelect.className == 'checked') {
-		// 여자일 경우 여자 연예인
-		data = dataFemale;
-	} else if (girlSelect.className == 'checked') {
 		// 남자일 경우 남자 연예인
 		data = dataMale;
+	} else if (girlSelect.className == 'checked') {
+		// 여자일 경우 여자 연예인
+		data = dataFemale;
 	}
 
 	postMsg += userName + '님과 ' + data[idx]['name'] + '님의 스캔들이 났습니다.\n\n';
