@@ -13,42 +13,25 @@ var  userName
 function executeKakaoStoryLink(){
 	var  sexType
 		,userName = document.querySelector('#userName').value
-		,idx = Math.floor(Math.random()*50) + 1
 		,resultName, resultPhoto, resultMsg
 		,message
 		,postMsg = ''
-		,dataAreaRan = Math.floor(Math.random()*dataArea.length)
-		,dataActionRan = Math.floor(Math.random()*dataAction.length)
+		,dataDrinkRan = Math.floor(Math.random() * dataDrink.length)
+		,dataMountRan = Math.floor(Math.random() * dataMount.length)
+		,dataActionRan = Math.floor(Math.random() * dataAction.length)
 	
-	//idx < 10 ? idx = '0' + idx : idx
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
-		return false;
-	}
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
-		return false;
-	}
-	
-	postMsg += '김철수님의 주량은 소주 10병입니다.';
-	postMsg += '주량: 소주 10병';
-	postMsg += '주사: 옆사람에게 뽀뽀하기';
-	postMsg += '';
-	postMsg += '';
-	postMsg += userName + '님과 ' + data[idx]['name'] + '님의 스캔들이 났습니다.\n\n';
-	postMsg += '상대 연예인: ' + data[idx]['name'] + '\n';
-	postMsg += '목격장소: ' + dataArea[dataAreaRan] + '\n';
-	postMsg += '당시행동: ' + dataAction[dataActionRan] + '\n\n';
-	postMsg += 'http://goo.gl/FSBT3';
+	postMsg += userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.\n\n';
+	postMsg += '주량: ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '\n';
+	postMsg += '주사: ' + dataAction[dataActionRan] + '\n\n';
+	postMsg += 'http://goo.gl/BCCnn';
 
 	urlMsg = {
-		title: '나와 스캔들날 연예인',
-		desc: userName + '님과' + data[idx]['name'] + '님의 스캔들 사건',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[idx]['photo'] ],
+		title: '나의 주량 알아보기',
+		desc: userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.',
+		imageurl: ['http://romeoh.github.io/kakaoStory/imgDrink/' + dataDrink[dataDrinkRan]['photo'] ],
 		type:'article'
 	}
-	
+
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
