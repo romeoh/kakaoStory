@@ -20,6 +20,11 @@ function executeKakaoStoryLink(){
 		,dataMountRan = Math.floor(Math.random() * dataMount.length)
 		,dataActionRan = Math.floor(Math.random() * dataAction.length)
 	
+	if (userName == '') {
+		alert('이름을 입력해 주세요.');
+		return false;
+	}
+	
 	postMsg += userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.\n\n';
 	postMsg += '주량: ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '\n';
 	postMsg += '주사: ' + dataAction[dataActionRan] + '\n\n';
