@@ -54,7 +54,7 @@ function executeKakaoStoryLink(){
 	postMsg += userName + '님과 ' + data[idx]['name'] + '님의 스캔들이 났습니다.\n\n';
 	postMsg += '상대 연예인: ' + data[idx]['name'] + '\n';
 	postMsg += '목격장소: ' + dataArea[dataAreaRan] + '\n';
-	postMsg += '당시행동: ' + dataAction[dataActionRan] + '\n';
+	postMsg += '당시행동: ' + dataAction[dataActionRan] + '\n\n';
 	postMsg += 'http://goo.gl/FSBT3';
 
 	urlMsg = {
