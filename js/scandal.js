@@ -55,8 +55,7 @@ function executeKakaoStoryLink(){
 	postMsg += '상대 연예인: ' + data[idx]['name'] + '\n';
 	postMsg += '목격장소: ' + dataArea[dataAreaRan] + '\n';
 	postMsg += '당시행동: ' + dataAction[dataActionRan] + '\n';
-	
-	postMsg += 'http://goo.gl/1945x'
+	postMsg += 'http://goo.gl/FSBT3';
 
 	urlMsg = {
 		title: '나와 스캔들날 연예인',
@@ -78,7 +77,7 @@ function executeKakaoStoryLink(){
 function executeURLLink() {
 	kakao.link("talk").send({
 		msg: "커피한잔 하실래요?",
-		url: "http://goo.gl/RPVB5",
+		url: "http://goo.gl/FSBT3",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "연예인과 커피한잔",
