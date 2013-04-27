@@ -24,7 +24,7 @@ function executeKakaoStoryLink(){
 		alert('이름을 입력해 주세요.');
 		return false;
 	}
-	
+
 	postMsg += userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.\n\n';
 	postMsg += '주량: ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '\n';
 	postMsg += '주사: ' + dataAction[dataActionRan] + '\n\n';
@@ -100,7 +100,7 @@ dataAction = [
 	'줄담배 피기',
 	'조용히 잠자기',
 	'없어져서 친구들이 찾으러 다님',
-	'집에감',
+	'조용히 집에감',
 	'화장실에서 우엑~',
 	'옆테이블에 시비걸기',
 	'큰소리로 노래부름',
