@@ -39,7 +39,7 @@ function executeKakaoStoryLink(){
 
 	urlMsg = {
 		title: '내아기 전생 알아보기',
-		desc: '내아기는 전생에 ' + dataHuman[dataHumanRan]['name'] + ' 이었습니다.',
+		desc: '내아기는 ' + dataHuman[dataHumanRan]['name'] + ' 이었습니다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + dataHuman[dataHumanRan]['photo'] ],
 		type:'article'
 	}
