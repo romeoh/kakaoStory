@@ -49,11 +49,11 @@ function executeKakaoStoryLink(){
 
 	postMsg += '나는 내' + loverType + ' ' + userName + dataRelation[dataRelationRan]['name'] + '\n';
 	postMsg += '관계: ' + dataRelation[dataRelationRan]['relation'] + '\n\n';
-	postMsg += 'http://goo.gl/dfrtm';
+	postMsg += 'http://goo.gl/urccj';
 
 	urlMsg = {
 		title: '내 '+loverType+'과 나는 전생에 무슨 관계였나',
-		desc: '나와 내'+loverType+'는 ' + dataRelation[dataRelationRan]['relation'] + '관계 였습니다.',
+		desc: '나와 내'+loverType+'과는 ' + dataRelation[dataRelationRan]['relation'] + '관계 였습니다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/relationLover.jpg' ],
 		type:'article'
 	}
@@ -70,11 +70,11 @@ console.log(urlMsg)
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "내애인과 나는 전생에 무슨 관계였나",
-		url: "http://goo.gl/dfrtm",
+		msg: "우리부부는 전생에 무슨관계였나",
+		url: "http://goo.gl/urccj",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "내아기 전생 알아보기",
+		appname: "우리부부 전생 알아보기",
 		type: "link"
 	});
 }
