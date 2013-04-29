@@ -24,7 +24,7 @@ function executeKakaoStoryLink(){
 		return false;
 	}
 
-	postMsg += '나는 내아기 ' + userName + dataRelation[dataRelationRan]['name'] + '\n';
+	postMsg += '나는 전생에 내아기 ' + userName + dataRelation[dataRelationRan]['name'] + '\n';
 	postMsg += '관계: ' + dataRelation[dataRelationRan]['relation'] + '\n\n';
 	postMsg += 'http://goo.gl/KRPGi';
 
