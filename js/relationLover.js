@@ -17,12 +17,14 @@ var  userName
 		girlSelect.className = '';
 		document.querySelector('#userName').placeholder = '남자친구 이름을 입력하세요.'
 		loverType = '남자친구'
+		document.querySelector('h1').innerHTML = '내 남자친구와 나의 전생관계'
 	}, false);
 	girlSelect.addEventListener('click', function(){
 		boySelect.className = '';
 		girlSelect.className = 'checked';
 		document.querySelector('#userName').placeholder = '여자친구 이름을 입력하세요.'
 		loverType = '여자친구'
+		document.querySelector('h1').innerHTML = '내 여자친구와 나의 전생관계'
 	}, false);
 //}
 
