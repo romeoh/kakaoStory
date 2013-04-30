@@ -10,6 +10,8 @@ window.addEventListener('DOMContentLoaded', function(){
 		document.querySelector('#word').innerHTML = dataSay[idx].eng
 		document.querySelector('#korean').innerHTML = dataSay[idx].kor
 		document.querySelector('#speaker').innerHTML = dataSay[idx].esp + ' ' + dataSay[idx].ksp + ' (' + dataSay[idx].job + ')'
+		document.querySelector('#btnStory').innerHTML = '명언 하나 더보기';
+
 	}	
 }, false);
 
