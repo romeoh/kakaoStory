@@ -31,7 +31,7 @@ function executeKakaoStoryLink(){
 	postMsg += '해석보기: ' + result.url;
 
 	urlMsg = {
-		title: '1일 1명언',
+		title: '하루에 하나씩 외우는 명언',
 		desc: result.ksp,
 		imageurl: ['http://romeoh.github.io/kakaoStory/imgSay/' + result.pho ],
 		type:'article'
@@ -42,7 +42,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '나와 스캔들날 연예인',
+		appname : '원데이 명언',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
@@ -57,11 +57,11 @@ function getRand(data){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "커피한잔 하실래요?",
-		url: "http://goo.gl/FSBT3",
+		msg: "원데이 명언",
+		url: "http://goo.gl/Vm86D",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "연예인과 커피한잔",
+		appname: "원데이 명언",
 		type: "link"
 	});
 }
