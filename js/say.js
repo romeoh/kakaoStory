@@ -26,13 +26,13 @@ function executeKakaoStoryLink(){
 		,postMsg = ''
 		,urlMsg
 
-	postMsg += result.eng + '\n';
+	postMsg += result.eng + '\n\n';
 	postMsg += result.esp + ' [' + result.job + ']\n\n'
 	postMsg += '해석보기: ' + result.url;
 
 	urlMsg = {
 		title: '하루에 하나씩 외우는 명언',
-		desc: result.ksp,
+		desc: result.ksp + ' (' + dataSay[idx].job + ')',
 		imageurl: ['http://romeoh.github.io/kakaoStory/imgSay/' + result.pho ],
 		type:'article'
 	}
