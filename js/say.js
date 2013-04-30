@@ -32,7 +32,7 @@ function executeKakaoStoryLink(){
 
 	urlMsg = {
 		title: '하루에 하나씩 외우는 명언',
-		desc: result.ksp + ' (' + dataSay[idx].job + ')',
+		desc: result.ksp + ' (' + result.job + ')',
 		imageurl: ['http://romeoh.github.io/kakaoStory/imgSay/' + result.pho ],
 		type:'article'
 	}
