@@ -1,7 +1,7 @@
 var  dataSay
 	,hash = window.location.hash
 	,idx
-console.log(hash)
+
 window.addEventListener('DOMContentLoaded', function(){
 	if (hash != '') {
 		// 해석보기
@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', function(){
 		idx = hash.replace('#', '')
 		document.querySelector('#word').innerHTML = dataSay[idx].eng
 		document.querySelector('#korean').innerHTML = dataSay[idx].kor
-		document.querySelector('#speaker').innerHTML = dataSay[idx].esp + ' ' + dataSay[idx].ksp + ' (dataSay[idx].job)'
+		document.querySelector('#speaker').innerHTML = dataSay[idx].esp + ' ' + dataSay[idx].ksp + ' (' + dataSay[idx].job + ')'
 	}	
 }, false);
 
@@ -26,41 +26,15 @@ function executeKakaoStoryLink(){
 
 	postMsg += result.eng + '\n';
 	postMsg += result.esp + ' [' + result.job + ']\n\n'
-	postMsg += '해석보기: http://goo.gl/BCCnn';
+	postMsg += '해석보기: ' + result.url;
 
 	urlMsg = {
 		title: '1일 1명언',
-		desc: result.eng,
+		desc: result.ksp,
 		imageurl: ['http://romeoh.github.io/kakaoStory/imgSay/' + result.pho ],
 		type:'article'
 	}
-	console.log(postMsg)
-
-	/*var  sexType
-		,userName = document.querySelector('#userName').value
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-		,dataDrinkRan = Math.floor(Math.random() * dataDrink.length)
-		,dataMountRan = Math.floor(Math.random() * dataMount.length)
-		,dataActionRan = Math.floor(Math.random() * dataAction.length)
 	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
-		return false;
-	}
-
-	postMsg += userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.\n\n';
-	postMsg += '주량: ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '\n';
-	postMsg += '주사: ' + dataAction[dataActionRan] + '\n\n';
-	postMsg += 'http://goo.gl/BCCnn';
-
-	urlMsg = {
-		title: '나의 주량 알아보기',
-		desc: userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgDrink/' + dataDrink[dataDrinkRan]['photo'] ],
-		type:'article'
-	}
 
 	kakao.link("story").send({   
         post : postMsg,
@@ -68,7 +42,7 @@ function executeKakaoStoryLink(){
 		appver : '1.0',
 		appname : '나와 스캔들날 연예인',
 		urlinfo : JSON.stringify(urlMsg)
-    });*/
+    });
 }
 
 function getRand(data){
@@ -104,7 +78,7 @@ dataSay= [
 	'ksp': '아더 쇼펜하우어',
 	'job': '독일 철학자, 1788-1860',
 	'pho': 's01.jpg',
-	'url': ''
+	'url': 'http://goo.gl/ksCrq'
 },
 
 {
@@ -115,7 +89,7 @@ dataSay= [
 	'ksp': '알프레드 테니슨 경',
 	'job': '英시인, 1809-92',
 	'pho': 's02.jpg',
-	'url': ''
+	'url': 'http://goo.gl/MKxyO'
 },
 
 {
@@ -126,7 +100,7 @@ dataSay= [
 	'ksp': '앨버트 아인슈타인',
 	'job': '미국 물리학자, 1879-1955',
 	'pho': 's03.jpg',
-	'url': ''
+	'url': 'http://goo.gl/UlT20'
 },
 
 {
@@ -137,7 +111,7 @@ dataSay= [
 	'ksp': '앨버트 아인슈타인',
 	'job': '美물리학자, 1879-1955',
 	'pho': 's03.jpg',
-	'url': ''
+	'url': 'http://goo.gl/eDFMj'
 },
 
 {
@@ -148,7 +122,7 @@ dataSay= [
 	'ksp': '알베르 카뮈',
 	'job': '프랑스 작가, 1913-1960',
 	'pho': 's05.jpg',
-	'url': ''
+	'url': 'http://goo.gl/4lQM6'
 },
 
 {
@@ -159,7 +133,7 @@ dataSay= [
 	'ksp': '앤 랜더스',
 	'job': '미국 칼럼니스트, 1918-',
 	'pho': 's06.jpg',
-	'url': ''
+	'url': 'http://goo.gl/guxKq'
 },
 
 {
@@ -170,7 +144,7 @@ dataSay= [
 	'ksp': '앙뜨완느 드 쌩떽쥐베리',
 	'job': '프랑스 작가/비행사, 1900-44',
 	'pho': 's07.jpg',
-	'url': ''
+	'url': 'http://goo.gl/mVVLJ'
 },
 
 {
@@ -181,7 +155,7 @@ dataSay= [
 	'ksp': '앙뜨완느 드 쌩떽쥐베리',
 	'job': '프랑스 작가/비행가, 1900-44',
 	'pho': 's07.jpg',
-	'url': ''
+	'url': 'http://goo.gl/z6xwi'
 },
 
 {
@@ -192,7 +166,7 @@ dataSay= [
 	'ksp': '알렉산드르 듀마',
 	'job': '',
 	'pho': 's09.jpg',
-	'url': ''
+	'url': 'http://goo.gl/n1LRz'
 },
 
 {
@@ -203,7 +177,7 @@ dataSay= [
 	'ksp': '앤드류 카네기',
 	'job': '미국 작가, 1835-1919',
 	'pho': 's10.jpg',
-	'url': ''
+	'url': 'http://goo.gl/oSyDa'
 },
 
 {
@@ -214,7 +188,7 @@ dataSay= [
 	'ksp': '알렉산더 솔제니친',
 	'job': '작가, 1918-',
 	'pho': 's11.jpg',
-	'url': ''
+	'url': 'http://goo.gl/M3tS1'
 },
 
 {
@@ -225,7 +199,7 @@ dataSay= [
 	'ksp': '알버르트 슈바이처',
 	'job': '의사 선교사, 1875-1965',
 	'pho': 's12.jpg',
-	'url': ''
+	'url': 'http://goo.gl/lLW3a'
 },
 
 {
@@ -236,7 +210,7 @@ dataSay= [
 	'ksp': '아들라이 스티븐슨',
 	'job': '미국 정치가, 1900-1965',
 	'pho': 's13.jpg',
-	'url': ''
+	'url': 'http://goo.gl/e6sqO'
 },
 
 {
@@ -247,7 +221,7 @@ dataSay= [
 	'ksp': '아나톨 프랑스',
 	'job': '佛작가, 1844-1924',
 	'pho': 's14.jpg',
-	'url': ''
+	'url': 'http://goo.gl/aRNTT'
 },
 
 {
@@ -258,7 +232,7 @@ dataSay= [
 	'ksp': '에이브러햄 링컨',
 	'job': '미국 대통령, 1809-1865',
 	'pho': 's15.jpg',
-	'url': ''
+	'url': 'http://goo.gl/SzINf'
 },
 
 {
@@ -269,7 +243,7 @@ dataSay= [
 	'ksp': '미국도서관협회의 Univac[전자계산기 상품명]에 관한 1964년도 성명서',
 	'job': '미국도서관협회의, 1964년',
 	'pho': 's16.jpg',
-	'url': ''
+	'url': 'http://goo.gl/KKsFv'
 },
 
 {
@@ -280,7 +254,7 @@ dataSay= [
 	'ksp': '앤셀 애덤스',
 	'job': '미국 풍경사진작가, 1902-1984',
 	'pho': 's17.jpg',
-	'url': ''
+	'url': 'http://goo.gl/8vuKF'
 },
 
 {
@@ -291,7 +265,7 @@ dataSay= [
 	'ksp': '아놀드 토인비',
 	'job': '영국史家, 1889-1975',
 	'pho': 's18.jpg',
-	'url': ''
+	'url': 'http://goo.gl/RMbnv'
 },
 
 {
@@ -302,7 +276,7 @@ dataSay= [
 	'ksp': '아리스토틀 오나시스',
 	'job': '그리스 해운업자, 1906-1975',
 	'pho': 's19.jpg',
-	'url': ''
+	'url': 'http://goo.gl/iFwnW'
 },
 
 {
@@ -313,7 +287,7 @@ dataSay= [
 	'ksp': '앤드류 잭슨',
 	'job': '美대통령, 1767-1845',
 	'pho': 's20.jpg',
-	'url': ''
+	'url': 'http://goo.gl/r6Elo'
 },
 
 {
@@ -324,7 +298,7 @@ dataSay= [
 	'ksp': '아트 버크윌드',
 	'job': '美칼럼니스트, 1925-',
 	'pho': 's21.jpg',
-	'url': ''
+	'url': 'http://goo.gl/FFCMN'
 },
 
 {
@@ -335,7 +309,7 @@ dataSay= [
 	'ksp': '보리스 파스테르나크',
 	'job': '러시아 시인/소설가, 1890-1960',
 	'pho': 's22.jpg',
-	'url': ''
+	'url': 'http://goo.gl/k6Gi2'
 },
 
 {
@@ -346,7 +320,7 @@ dataSay= [
 	'ksp': '벤자민 디즈렐리',
 	'job': '영국 정치인/작가, 1804-81',
 	'pho': 's23.jpg',
-	'url': ''
+	'url': 'http://goo.gl/YLk6V'
 },
 
 {
@@ -357,7 +331,7 @@ dataSay= [
 	'ksp': '벤자민 디즈렐리',
 	'job': '영국 정치인/작가, 1804-81',
 	'pho': 's23.jpg',
-	'url': ''
+	'url': 'http://goo.gl/4oDi7'
 },
 
 {
@@ -368,7 +342,7 @@ dataSay= [
 	'ksp': '벤자민 프랭크린',
 	'job': '美정치가/철학자, 1706-1790',
 	'pho': 's25.jpg',
-	'url': ''
+	'url': 'http://goo.gl/5bnsC'
 },
 
 {
@@ -379,7 +353,7 @@ dataSay= [
 	'ksp': '베티 프리단',
 	'job': '여권운동가이자 작가, 1921-',
 	'pho': 's26.jpg',
-	'url': ''
+	'url': 'http://goo.gl/RBQhX'
 },
 
 {
@@ -390,7 +364,7 @@ dataSay= [
 	'ksp': '버트랜드 러셀',
 	'job': '英 철학자, 1872-1970',
 	'pho': 's27.jpg',
-	'url': ''
+	'url': 'http://goo.gl/oHR94'
 },
 
 {
@@ -401,7 +375,7 @@ dataSay= [
 	'ksp': '크리스토퍼 말로우',
 	'job': '영국 시인/극작가, 1564-1593',
 	'pho': 's28.jpg',
-	'url': ''
+	'url': 'http://goo.gl/2TiD1'
 },
 
 {
@@ -412,7 +386,7 @@ dataSay= [
 	'ksp': '샤를르 드골',
 	'job': '프랑스 정치가, 1890-1970',
 	'pho': 's29.jpg',
-	'url': ''
+	'url': 'http://goo.gl/7bGnn'
 },
 
 {
@@ -423,7 +397,7 @@ dataSay= [
 	'ksp': 'C.S. 루이스',
 	'job': '영국 작가, 1898-1963',
 	'pho': 's30.jpg',
-	'url': ''
+	'url': 'http://goo.gl/QxkAY'
 },
 
 {
@@ -434,7 +408,7 @@ dataSay= [
 	'ksp': '샤를르 페기',
 	'job': '佛사상가/시인, 1873-1914',
 	'pho': 's31.jpg',
-	'url': ''
+	'url': 'http://goo.gl/opnNt'
 },
 
 {
@@ -445,7 +419,7 @@ dataSay= [
 	'ksp': '찰스 M. 슐츠',
 	'job': '미국 만화가, 1922-',
 	'pho': 's32.jpg',
-	'url': ''
+	'url': 'http://goo.gl/FWzKr'
 },
 
 {
@@ -456,7 +430,7 @@ dataSay= [
 	'ksp': '공자',
 	'job': '중국 교육자, 551 B.C.-479 B.C.',
 	'pho': 's33.jpg',
-	'url': ''
+	'url': 'http://goo.gl/cKV2Y'
 },
 
 {
@@ -467,7 +441,7 @@ dataSay= [
 	'ksp': '칼 세이건',
 	'job': '',
 	'pho': 's34.jpg',
-	'url': ''
+	'url': 'http://goo.gl/Hftc9'
 },
 
 {
@@ -478,7 +452,7 @@ dataSay= [
 	'ksp': '찰스 다윈',
 	'job': '영국의 박물학자, 1809-1882',
 	'pho': 's35.jpg',
-	'url': ''
+	'url': 'http://goo.gl/oG5dh'
 },
 
 {
@@ -489,7 +463,7 @@ dataSay= [
 	'ksp': '크리스티 매튜슨',
 	'job': '미국 야구스타, 1880-1925',
 	'pho': 's36.jpg',
-	'url': ''
+	'url': 'http://goo.gl/DHX9W'
 },
 
 {
@@ -500,7 +474,7 @@ dataSay= [
 	'ksp': '데시데리우스 에라스무스',
 	'job': '네덜란드 인문주의자, 1466-1536',
 	'pho': 's37.jpg',
-	'url': ''
+	'url': 'http://goo.gl/5t7iA'
 },
 
 {
@@ -511,7 +485,7 @@ dataSay= [
 	'ksp': '더글라스 맥아더',
 	'job': '미국 육군 원수, 1880-1964',
 	'pho': 's38.jpg',
-	'url': ''
+	'url': 'http://goo.gl/GRgm4'
 },
 
 {
@@ -522,7 +496,7 @@ dataSay= [
 	'ksp': '영국 속담',
 	'job': '',
 	'pho': 's39.jpg',
-	'url': ''
+	'url': 'http://goo.gl/KKc8o'
 },
 
 {
@@ -533,7 +507,7 @@ dataSay= [
 	'ksp': '에드워드 기본',
 	'job': '영국 역사가, 1737-94',
 	'pho': 's40.jpg',
-	'url': ''
+	'url': 'http://goo.gl/CVpLL'
 },
 
 {
@@ -544,7 +518,7 @@ dataSay= [
 	'ksp': '에드워드 기본',
 	'job': '영국 역사가, 1737-94',
 	'pho': 's40.jpg',
-	'url': ''
+	'url': 'http://goo.gl/jDPMH'
 },
 
 {
@@ -555,7 +529,7 @@ dataSay= [
 	'ksp': '에릭 프롬',
 	'job': '미국 정신분석학자, 1900-1980',
 	'pho': 's42.jpg',
-	'url': ''
+	'url': 'http://goo.gl/1DvI8'
 },
 
 {
@@ -566,7 +540,7 @@ dataSay= [
 	'ksp': '이디스 워튼',
 	'job': '미국 작가, 1862-1937',
 	'pho': 's43.jpg',
-	'url': ''
+	'url': 'http://goo.gl/x65ZF'
 },
 
 {
@@ -577,7 +551,7 @@ dataSay= [
 	'ksp': '엘리자베스 케이디 스탠튼',
 	'job': '미국 혁명가, 1815-1902',
 	'pho': 's44.jpg',
-	'url': ''
+	'url': 'http://goo.gl/zOz34'
 },
 
 {
@@ -588,7 +562,7 @@ dataSay= [
 	'ksp': 'E.M. 포스터',
 	'job': '작가, 1879-1970',
 	'pho': 's45.jpg',
-	'url': ''
+	'url': 'http://goo.gl/L8QRI'
 },
 
 {
@@ -599,7 +573,7 @@ dataSay= [
 	'ksp': 'E.B. 화이트',
 	'job': '미국 작가, 1899-1985',
 	'pho': 's46.jpg',
-	'url': ''
+	'url': 'http://goo.gl/B7iDw'
 },
 
 {
@@ -610,7 +584,7 @@ dataSay= [
 	'ksp': '에드워드 텔러',
 	'job': '물리학자, 1908-',
 	'pho': 's47.jpg',
-	'url': ''
+	'url': 'http://goo.gl/BYzfJ'
 },
 
 {
@@ -621,7 +595,7 @@ dataSay= [
 	'ksp': '엘리자베스 바렛 브라우닝',
 	'job': '영국시인, 1806-1861',
 	'pho': 's48.jpg',
-	'url': ''
+	'url': 'http://goo.gl/Gh6ho'
 },
 
 {
@@ -632,7 +606,7 @@ dataSay= [
 	'ksp': '에밀 졸라',
 	'job': '佛작가, 1840-1902',
 	'pho': 's49.jpg',
-	'url': ''
+	'url': 'http://goo.gl/yjDHV'
 },
 
 {
@@ -643,7 +617,7 @@ dataSay= [
 	'ksp': 'F. 소코트 피츠제랄드',
 	'job': '미국 작가, 1896-1940',
 	'pho': 's50.jpg',
-	'url': ''
+	'url': 'http://goo.gl/8zcLG'
 },
 
 {
@@ -654,7 +628,7 @@ dataSay= [
 	'ksp': '프랭크 로이드 라이트',
 	'job': '美건축가, 1869-1959',
 	'pho': 's51.jpg',
-	'url': ''
+	'url': 'http://goo.gl/ufx31'
 },
 
 {
@@ -665,7 +639,7 @@ dataSay= [
 	'ksp': '프리드리히 니체',
 	'job': '독일 철학자, 1844-1900',
 	'pho': 's52.jpg',
-	'url': ''
+	'url': 'http://goo.gl/hpGYE'
 },
 
 {
@@ -676,7 +650,7 @@ dataSay= [
 	'ksp': '프랜시스 베이컨',
 	'job': '영국 철학자/수필가, 1561-1626',
 	'pho': 's53.jpg',
-	'url': ''
+	'url': 'http://goo.gl/Z5KUw'
 },
 
 {
@@ -687,7 +661,7 @@ dataSay= [
 	'ksp': '프랜시스 베이컨',
 	'job': '영국 철학자, 1561-1626',
 	'pho': 's53.jpg',
-	'url': ''
+	'url': 'http://goo.gl/kH1Rx'
 },
 
 {
@@ -698,7 +672,7 @@ dataSay= [
 	'ksp': '프랭클린 델라노 루스벨트',
 	'job': '미국 대통령, 1882-1945',
 	'pho': 's55.jpg',
-	'url': ''
+	'url': 'http://goo.gl/hJkkW'
 },
 
 {
@@ -709,7 +683,7 @@ dataSay= [
 	'ksp': '프랭클린 델라노 루즈벨트',
 	'job': '美대통령, 1882-1945',
 	'pho': 's55.jpg',
-	'url': ''
+	'url': 'http://goo.gl/3Tn0z'
 },
 
 {
@@ -720,7 +694,7 @@ dataSay= [
 	'ksp': '조지 메리디스',
 	'job': '영국 시인/소설가, 1828-1909',
 	'pho': 's57.jpg',
-	'url': ''
+	'url': 'http://goo.gl/OOLgm'
 },
 
 {
@@ -731,7 +705,7 @@ dataSay= [
 	'ksp': '조지 오웰',
 	'job': '영국 작가, 1903-50',
 	'pho': 's58.jpg',
-	'url': ''
+	'url': 'http://goo.gl/cTtqK'
 },
 
 {
@@ -742,7 +716,7 @@ dataSay= [
 	'ksp': '죠아키노 로시니',
 	'job': '이태리 작곡가, 1792-1868',
 	'pho': 's59.jpg',
-	'url': ''
+	'url': 'http://goo.gl/VWjta'
 },
 
 {
@@ -753,7 +727,7 @@ dataSay= [
 	'ksp': '괴테',
 	'job': '독일 작가, 1749-1832',
 	'pho': 's60.jpg',
-	'url': ''
+	'url': 'http://goo.gl/NIRme'
 },
 
 {
@@ -764,7 +738,7 @@ dataSay= [
 	'ksp': '그레이엄 그린',
 	'job': '영국 작가, 1904-1991',
 	'pho': 's61.jpg',
-	'url': ''
+	'url': 'http://goo.gl/B62Ro'
 },
 
 {
@@ -775,7 +749,7 @@ dataSay= [
 	'ksp': '조지 버나드 쇼',
 	'job': '영국 극작가, 1856-1950',
 	'pho': 's62.jpg',
-	'url': ''
+	'url': 'http://goo.gl/Cw0PL'
 },
 
 {
@@ -786,7 +760,7 @@ dataSay= [
 	'ksp': '조지 버나드 쇼',
 	'job': '영국 극작가, 1856-1950',
 	'pho': 's62.jpg',
-	'url': ''
+	'url': 'http://goo.gl/U6fUD'
 },
 
 {
@@ -797,7 +771,7 @@ dataSay= [
 	'ksp': '조지 버너드 쇼',
 	'job': '영국 극작가, 1856-1950',
 	'pho': 's62.jpg',
-	'url': ''
+	'url': 'http://goo.gl/Mp8TI'
 },
 
 {
@@ -808,7 +782,7 @@ dataSay= [
 	'ksp': '조지 매컬리 트리블리안',
 	'job': '영국의 역사가, 1876-1962',
 	'pho': 's65.jpg',
-	'url': ''
+	'url': 'http://goo.gl/5AlvL'
 },
 
 {
@@ -819,7 +793,7 @@ dataSay= [
 	'ksp': '게오르그 빌헬름 프리드리히 헤겔',
 	'job': '독일 철학자, 1779-1831',
 	'pho': 's66.jpg',
-	'url': ''
+	'url': 'http://goo.gl/9aMWk'
 },
 
 {
@@ -830,7 +804,7 @@ dataSay= [
 	'ksp': '하이먼 리코버',
 	'job': '美제독/교육자, 1900-1986',
 	'pho': 's67.jpg',
-	'url': ''
+	'url': 'http://goo.gl/aCRsJ'
 },
 
 {
@@ -841,7 +815,7 @@ dataSay= [
 	'ksp': '헨리 브룩스 애덤스',
 	'job': '美작가/역사가, 1838-1918',
 	'pho': 's68.jpg',
-	'url': ''
+	'url': 'http://goo.gl/joKtd'
 },
 
 {
@@ -852,7 +826,7 @@ dataSay= [
 	'ksp': '헨리 브룩스 애덤스',
 	'job': '미국 역사가, 1838-1918',
 	'pho': 's68.jpg',
-	'url': ''
+	'url': 'http://goo.gl/8IRLR'
 },
 
 {
@@ -863,7 +837,7 @@ dataSay= [
 	'ksp': '헥토르 베를리오즈',
 	'job': '프랑스 작곡가, 1803-69',
 	'pho': 's70.jpg',
-	'url': ''
+	'url': 'http://goo.gl/KJO2q'
 },
 
 {
@@ -874,7 +848,7 @@ dataSay= [
 	'ksp': '헨리 포드',
 	'job': '미국 기업인, 1863-1947',
 	'pho': 's71.jpg',
-	'url': ''
+	'url': 'http://goo.gl/NuVbK'
 },
 
 {
@@ -885,7 +859,7 @@ dataSay= [
 	'ksp': '헨리 포드',
 	'job': '미국 기업인, 1863-1947',
 	'pho': 's71.jpg',
-	'url': ''
+	'url': 'http://goo.gl/3Dvhq'
 },
 
 {
@@ -896,7 +870,7 @@ dataSay= [
 	'ksp': '헬렌 켈러',
 	'job': '미국 교육가/작가, 1880-1968',
 	'pho': 's73.jpg',
-	'url': ''
+	'url': 'http://goo.gl/h0gpv'
 },
 
 {
@@ -907,7 +881,7 @@ dataSay= [
 	'ksp': '헬렌 켈러',
 	'job': '美 작가/연사, 1880-1968',
 	'pho': 's73.jpg',
-	'url': ''
+	'url': 'http://goo.gl/vQHLu'
 },
 
 {
@@ -918,7 +892,7 @@ dataSay= [
 	'ksp': '헨리 데이비드 소로',
 	'job': '미국 사상가/작가, 1817-62',
 	'pho': 's75.jpg',
-	'url': ''
+	'url': 'http://goo.gl/xtISz'
 },
 
 {
@@ -929,7 +903,7 @@ dataSay= [
 	'ksp': '헨리 데이빗 소로',
 	'job': '미국 사상가, 1817-1862',
 	'pho': 's75.jpg',
-	'url': ''
+	'url': 'http://goo.gl/9aHIJ'
 },
 
 {
@@ -940,7 +914,7 @@ dataSay= [
 	'ksp': '행크 월리엄스',
 	'job': '미국 작곡가/가수, 1923-1953',
 	'pho': 's77.jpg',
-	'url': ''
+	'url': 'http://goo.gl/5g7Fq'
 },
 
 {
@@ -951,7 +925,7 @@ dataSay= [
 	'ksp': '헨리 제임스',
 	'job': '美작가, 1843-1916',
 	'pho': 's78.jpg',
-	'url': ''
+	'url': 'http://goo.gl/sQJuP'
 },
 
 {
@@ -962,7 +936,7 @@ dataSay= [
 	'ksp': '해리 S. 트루만',
 	'job': '美대통령, 1884-1972',
 	'pho': 's79.jpg',
-	'url': ''
+	'url': 'http://goo.gl/oB5Pn'
 },
 
 {
@@ -973,7 +947,7 @@ dataSay= [
 	'ksp': '호치민',
 	'job': '베트남 지도자, 1890-1969',
 	'pho': 's80.jpg',
-	'url': ''
+	'url': 'http://goo.gl/pzamL'
 },
 
 {
@@ -984,7 +958,7 @@ dataSay= [
 	'ksp': '호세 호아킨 데 올메도',
 	'job': '에콰도르의 정치인',
 	'pho': 's81.jpg',
-	'url': ''
+	'url': 'http://goo.gl/89fBb'
 },
 
 {
@@ -995,7 +969,7 @@ dataSay= [
 	'ksp': '장 꼭또',
 	'job': '프랑스 극작가, 1889-1963',
 	'pho': 's82.jpg',
-	'url': ''
+	'url': 'http://goo.gl/dKONS'
 },
 
 {
@@ -1006,7 +980,7 @@ dataSay= [
 	'ksp': '제임스 볼드윈',
 	'job': '미국 작가, 1924-',
 	'pho': 's83.jpg',
-	'url': ''
+	'url': 'http://goo.gl/iiiZN'
 },
 
 {
@@ -1017,7 +991,7 @@ dataSay= [
 	'ksp': '유대인 격언',
 	'job': '',
 	'pho': 's84.jpg',
-	'url': ''
+	'url': 'http://goo.gl/eyHsB'
 },
 
 {
@@ -1028,7 +1002,7 @@ dataSay= [
 	'ksp': '자와하를랄 네루',
 	'job': '인도 정치가, 1889-1964',
 	'pho': 's85.jpg',
-	'url': ''
+	'url': 'http://goo.gl/4y4mr'
 },
 
 {
@@ -1039,7 +1013,7 @@ dataSay= [
 	'ksp': '제임스 휘트컴 라일리',
 	'job': '미국 시인, 1849-1916',
 	'pho': 's86.jpg',
-	'url': ''
+	'url': 'http://goo.gl/0bSR6'
 },
 
 {
@@ -1050,7 +1024,7 @@ dataSay= [
 	'ksp': '장 폴 사르트르',
 	'job': '프랑스 철학자/작가, 1905-80',
 	'pho': 's87.jpg',
-	'url': ''
+	'url': 'http://goo.gl/qflEY'
 },
 
 {
@@ -1061,7 +1035,7 @@ dataSay= [
 	'ksp': '장 폴 사르트르',
 	'job': '프랑스 철학자, 1905-1980',
 	'pho': 's87.jpg',
-	'url': ''
+	'url': 'http://goo.gl/0I155'
 },
 
 {
@@ -1072,7 +1046,7 @@ dataSay= [
 	'ksp': '존 애덤스',
 	'job': '미국 대통령, 1735-1826',
 	'pho': 's89.jpg',
-	'url': ''
+	'url': 'http://goo.gl/Kb8MA'
 },
 
 {
@@ -1083,7 +1057,7 @@ dataSay= [
 	'ksp': '존 F. 케네디',
 	'job': '미국 대통령, 1917-1963',
 	'pho': 's90.jpg',
-	'url': ''
+	'url': 'http://goo.gl/I6Qqh'
 },
 
 {
@@ -1094,7 +1068,7 @@ dataSay= [
 	'ksp': '존 F. 케네디',
 	'job': '미국 대통령, 1917-1963',
 	'pho': 's90.jpg',
-	'url': ''
+	'url': 'http://goo.gl/24hH0'
 },
 
 {
@@ -1105,7 +1079,7 @@ dataSay= [
 	'ksp': '존 F. 케네디',
 	'job': '미국 대통령, 1917-63',
 	'pho': 's90.jpg',
-	'url': ''
+	'url': 'http://goo.gl/x7vBo'
 },
 
 {
@@ -1116,7 +1090,7 @@ dataSay= [
 	'ksp': '존 레논',
 	'job': '가수/작곡가/전 비틀스 멤버, 1940-1980',
 	'pho': 's93.jpg',
-	'url': ''
+	'url': 'http://goo.gl/Mscj9'
 },
 
 {
@@ -1127,7 +1101,7 @@ dataSay= [
 	'ksp': '존 치아디',
 	'job': '미국 시인/비평가, 1916-1986',
 	'pho': 's94.jpg',
-	'url': ''
+	'url': 'http://goo.gl/e464o'
 },
 
 {
@@ -1138,7 +1112,7 @@ dataSay= [
 	'ksp': '제임스 메디슨',
 	'job': '미국 대통령, 1751-1836',
 	'pho': 's95.jpg',
-	'url': ''
+	'url': 'http://goo.gl/Wkbbn'
 },
 
 {
@@ -1149,7 +1123,7 @@ dataSay= [
 	'ksp': '제임스 조이스',
 	'job': '영국 작가, 1882-1941',
 	'pho': 's96.jpg',
-	'url': ''
+	'url': 'http://goo.gl/fKXbD'
 },
 
 {
@@ -1160,7 +1134,7 @@ dataSay= [
 	'ksp': '줄리어스 시저',
 	'job': '로마 정치가/장군, 102? B.C.-44 B.C.',
 	'pho': 's97.jpg',
-	'url': ''
+	'url': 'http://goo.gl/IWFal'
 },
 
 {
@@ -1171,7 +1145,7 @@ dataSay= [
 	'ksp': '줄리어스 시저',
 	'job': '로마 정치가, 100 B.C.-44 B.C.',
 	'pho': 's97.jpg',
-	'url': ''
+	'url': 'http://goo.gl/mr137'
 },
 
 {
@@ -1182,7 +1156,7 @@ dataSay= [
 	'ksp': '존 로크',
 	'job': '영국 철학자, 1632-1704',
 	'pho': 's99.jpg',
-	'url': ''
+	'url': 'http://goo.gl/P3ec1'
 },
 
 {
@@ -1193,7 +1167,7 @@ dataSay= [
 	'ksp': '조세프 콘라드',
 	'job': '영국 작가, 1857-1924',
 	'pho': 's100.jpg',
-	'url': ''
+	'url': 'http://goo.gl/b27q2'
 }
 
 ]
