@@ -113,8 +113,8 @@ function executeKakaoStoryLink(){
 	console.log(postMsg)
 
 	urlMsg = {
-		title: '하루에 하나씩 외우는 명언',
-		desc: result.ksp + ' (' + result.job + ')',
+		title: '1:100 기출문제',
+		desc: '정답을 맞출기회는 단한번!!!',
 		imageurl: ['http://romeoh.github.io/kakaoStory/imgSay/' + result.pho ],
 		type:'article'
 	}
