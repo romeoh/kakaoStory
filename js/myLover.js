@@ -1,62 +1,64 @@
-var  btnStory = document.querySelector('#btnStory')
+var  boy = document.getElementById('boy')
+	,girl = document.getElementById('girl')
+	,boySelect = document.querySelector('#boyBox a')
+	,girlSelect = document.querySelector('#girlBox a')
+	,btnStory = document.querySelector('#btnStory')
 	,btnKakao = document.querySelector('#btnKakao')
 	,dataDrink, dataMount, dataAction
+	,img
 
 btnStory.addEventListener('click', executeKakaoStoryLink, false);
 btnKakao.addEventListener('click', executeURLLink, false);
+boySelect.addEventListener('click', function(){
+	boySelect.className = 'checked';
+	girlSelect.className = '';
+}, false);
+girlSelect.addEventListener('click', function(){
+	boySelect.className = '';
+	girlSelect.className = 'checked';
+}, false);
+
 
 //  카카오 스토리
 function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-		,dataJobRan = Math.floor(Math.random() * dataJob.length)
-		,ran0 = Math.floor(Math.random() * dataStar.length)
-		,ran1 = Math.floor(Math.random() * dataStar.length)
-		,ran2 = Math.floor(Math.random() * dataStar.length)
-		,ran3 = Math.floor(Math.random() * dataStar.length)
-		,ran4 = Math.floor(Math.random() * dataStar.length)
+	var  postMsg = ''
 	
 	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
 		alert('성별을 선택해 주세요.');
 		return false;
 	}
 	
-	if (userName == '') {
-		alert('아기 이름을 입력해 주세요.');
-		return false;
-	}
-	
+	postMsg += '[내 이상형의 조건]\n\n';
 	if (boySelect.className == 'checked') {
 		// 남자일 경우
-		photo = 'babyBoy.jpg';
+		dataRan = Math.floor(Math.random() * dataFemale.length)
+		data = dataFemale[dataRan]
+		img = 'http://romeoh.github.io/kakaoStory/img/man.jpg'
+		postMsg += '내 남친은이요? 딴건 안봅니다.\n';
 	} else if (girlSelect.className == 'checked') {
 		// 여자일 경우
-		photo = 'babyGirl.jpg';
+		dataRan = Math.floor(Math.random() * dataMale.length)
+		data = dataMale[dataRan]
+		img = 'http://romeoh.github.io/kakaoStory/img/woman.jpg'
+		postMsg += '내 여친은요? 딴건 안봅니다.\n';
 	}
-
-	postMsg += userName + ' 아기는 10년뒤 ' + dataJob[dataJobRan] + '\n\n';
-	postMsg += '성격: ' + dataStar[ran0] + '\n';
-	postMsg += '지능: ' + dataStar[ran1] + '\n';
-	postMsg += '키: ' + dataStar[ran2] + '\n';
-	postMsg += '외모: ' + dataStar[ran3] + '\n';
-	postMsg += '매력도: ' + dataStar[ran4] + '\n\n';
-	postMsg += 'http://goo.gl/D9B88\n';
-console.log(postMsg)
+	
+	postMsg += data + '\n\n';
+	postMsg += 'http://goo.gl/VbOvP\n';
+	
 	urlMsg = {
-		title: '10년뒤 내 아기모습',
-		desc: userName + '는 ' + dataJob[dataJobRan],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + photo ],
+		title: '내 이상형의 조건',
+		desc: '딴건 안봅니다.',
+		imageurl: [img],
 		type:'article'
 	}
+	console.log(postMsg)
 
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '10년뒤 내 아기모습',
+		appname : '내 이상형의 조건',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
@@ -64,49 +66,47 @@ console.log(postMsg)
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "10년뒤 내 아기모습",
-		url: "http://goo.gl/D9B88",
+		msg: "딴건 안봅니다.",
+		url: "http://goo.gl/VbOvP",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "10년뒤 내 아기모습",
+		appname: "내 이상형의 조건",
 		type: "link"
 	});
 }
 
 
 
-
-dataJob = [
-	'천재 바이얼리니스트가 됩니다.',
-	'천재 골퍼가 됩니다.',
-	'천재 축구선수가 됩니다.',
-	'천재 야구선수가 됩니다.',
-	'천재 피겨스케이터가 됩니다.',
-	'천재 수영선수가 됩니다.',
-	'천재 체조선수가 됩니다.',
-	'천재 과학자가 됩니다.',
-	'천재 수학자가 됩니다.',
-	'최고 얼짱이 됩니다.',
-	'천재 연기자가 됩니다.',
-	'천재 컴퓨터 프로그래머가 됩니다.'
+// 내 여친은
+dataMale = [
+	'키만 크면됩니다.',
+	'몸매만 예쁘면 됩니다.',
+	'날씬하기만 하면 됩니다.',
+	'얼굴만 예쁘면 됩니다.',
+	'눈만 크면 됩니다.',
+	'머리만 길면 됩니다.',
+	'청순하기만 하면 됩니다.',
+	'쎅시하기만 하면 됩니다.',
+	'부잣집 외동딸이면 됩니다.',
+	'피부만 하야면 됩니다.',
+	'일편단심이기만 하면 됩니다.',
+	'돈만 잘벌면 됩니다.'
 ]
 
-dataStar = [
-	'☆☆☆☆☆',
-	'★☆☆☆☆',
-	'★★★☆☆',
-	'★★★☆☆',
-	'★★★☆☆',
-	'★★★★☆',
-	'★★★★☆',
-	'★★★★☆',
-	'★★★★☆',
-	'★★★★★',
-	'★★★★★',
-	'★★★★★',
-	'★★★★★',
-	'★★★★★'
+// 내 남친은
+dataFemale = [
+	'키만 크면됩니다.',
+	'돈만 많으면 됩니다.',
+	'재벌2세면 충분합니다.',
+	'BMW만 있으면 되요~',
+	'얼굴만 잘생기면 됩니다.',
+	'근육질이면 됩니다.',
+	'자상하기만 하면 됩니다.',
+	'유머감각만 있으면 됩니다.',
+	'목소리가 좋으면 됩니다.',
+	'섹시한 엉덩이면 충분합니다.'
 ]
+
 
 
 
