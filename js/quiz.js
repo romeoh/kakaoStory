@@ -124,7 +124,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '원데이 명언',
+		appname : '1:100 기출문제',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
@@ -142,17 +142,15 @@ function getRandId(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "원데이 명언",
-		url: "http://goo.gl/Vm86D",
+		msg: "1:100 기출문제",
+		url: "http://goo.gl/37cx7",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "원데이 명언",
+		appname: "정답을 맞출기회는 단한번!!!",
 		type: "link"
 	});
 }
 
-
-answerUrl = "http://romeoh.github.io/kakaoStory/html/relationCouple.html";
 
 function getUrl(hash, idx) {
 	var url = 'http://romeoh.github.io/kakaoStory/html/quiz.html#' + hash
@@ -164,8 +162,6 @@ function getUrl(hash, idx) {
 		} else if (idx == '3') {
 			answer3 = short_url
 		}
-		//console.log(short_url, idx)
-		//return short_url;
 	});
 }
 
@@ -183,8 +179,6 @@ function get_short_url(long_url, login, api_key, func){
 		}
 	);
 }
-
-
 
 
 
