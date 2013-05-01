@@ -110,15 +110,15 @@ function executeKakaoStoryLink(){
 	postMsg += '③ ' + quiz.thr + ' (선택: ' + answer3 + ')\n';
 	//postMsg += '정답: ' + quiz.idx + quiz.ans + qid + '\n';
 
-	console.log(postMsg)
+	//console.log(postMsg)
 
 	urlMsg = {
 		title: '1:100 기출문제',
 		desc: '정답을 맞출기회는 단한번!!!',
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgSay/' + result.pho ],
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/100.jpg' ],
 		type:'article'
 	}
-	
+	console.log(urlMsg)
 
 	kakao.link("story").send({   
         post : postMsg,
@@ -164,7 +164,7 @@ function getUrl(hash, idx) {
 		} else if (idx == '3') {
 			answer3 = short_url
 		}
-		console.log(short_url, idx)
+		//console.log(short_url, idx)
 		//return short_url;
 	});
 }
