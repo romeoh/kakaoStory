@@ -105,10 +105,10 @@ function executeKakaoStoryLink(){
 	postMsg += '[1:100 기출문제]\n';
 	postMsg += 'Q: ' + quiz.que + '\n\n'; 
 
-	postMsg += '① ' + quiz.one + qid + ' (정답: ' + answer1 + ')\n';
-	postMsg += '② ' + quiz.two + qid + ' (정답: ' + answer2 + ')\n';
-	postMsg += '③ ' + quiz.thr + qid + ' (정답: ' + answer3 + ')\n';
-	postMsg += '정답: ' + quiz.idx + quiz.ans + qid + '\n';
+	postMsg += '① ' + quiz.one + ' (선택: ' + answer1 + ')\n';
+	postMsg += '② ' + quiz.two + ' (선택: ' + answer2 + ')\n';
+	postMsg += '③ ' + quiz.thr + ' (선택: ' + answer3 + ')\n';
+	//postMsg += '정답: ' + quiz.idx + quiz.ans + qid + '\n';
 
 	console.log(postMsg)
 
