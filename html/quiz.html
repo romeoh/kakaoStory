@@ -28,8 +28,9 @@ h1 {font-size: 20px; text-align:center}
 #result {display:none;}
 #question {border:3px solid white; background:#1d43ae; color:white;}
 #question p {border:3px solid white; margin:0; padding:10px;}
-#question p.select {border:7px solid #ff00ea}
-#question p.correct {background:white; color:blue; font-size:22px}
+#question p.select {border:7px solid #ff00ea; background:#333}
+#question p.correct {background:white !important; color:blue; font-size:22px}
+#question p.answers {background:#333}
 
 .appList {text-align:left; padding:10px}
 .appList h2 {font-size:20px; line-height:16px; margin:10px; padding:0}
@@ -57,9 +58,9 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		<p id="qResult"></p>
 		<div id="question">
 			<p id="disQuestion"></p>
-			<p id="disOne"></p>
-			<p id="disTwo"></p>
-			<p id="disThr"></p>
+			<p class="answers" id="disOne"></p>
+			<p class="answers" id="disTwo"></p>
+			<p class="answers" id="disThr"></p>
 		</div>
 		<p id="speaker"></p>
 	</div>
