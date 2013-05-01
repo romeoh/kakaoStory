@@ -1,20 +1,94 @@
 var  dataQuiz
-	,hash = window.location.hash
-	,idx
 	,login = 'o_2i5b4gmien'
 	,api_key = 'R_866372890d3c61b40dcf2f91c0f5ba8f'
 	,answerUrl
+	,idx
+	,hash = window.location.hash
+	,questionIdx
+	,selectAnswer
+	,perIdx
+	,count = 5
+	,intervalID
+	,quiz
+	,qid = getRandId()
+	,answer1, answer2, answer3
 
 window.addEventListener('DOMContentLoaded', function(){
+	quiz = getRand(dataQuiz);
+	
+	getUrl(quiz.idx + '1' + qid, 1)
+	getUrl(quiz.idx + '2' + qid, 2)
+	getUrl(quiz.idx + '3' + qid, 3)
+
 	if (hash != '') {
 		// 정답보기
+		idx = hash.replace('#', '');
+		questionIdx = parseInt(idx.substr(0, 3), 10);
+		selectAnswer = idx.substr(3, 1);
+		perIdx = idx.substr(4);
+		
+		// 문제 보기
 		document.querySelector('#result').style.display = 'block';
-		idx = hash.replace('#', '')
-		document.querySelector('#word').innerHTML = dataQuiz[idx].eng
-		document.querySelector('#korean').innerHTML = dataQuiz[idx].kor
-		document.querySelector('#speaker').innerHTML = dataQuiz[idx].esp + ' ' + dataQuiz[idx].ksp + ' (' + dataQuiz[idx].job + ')'
-		document.querySelector('#btnStory').innerHTML = '명언 하나 더보기';
+		document.querySelector('#qResult').innerHTML = selectAnswer + '번을 선택했습니다. 과연 정답은? (5초)'
+		document.querySelector('#disQuestion').innerHTML = dataQuiz[questionIdx].que;
+		document.querySelector('#disOne').innerHTML = dataQuiz[questionIdx].one;
+		document.querySelector('#disTwo').innerHTML = dataQuiz[questionIdx].two;
+		document.querySelector('#disThr').innerHTML = dataQuiz[questionIdx].thr;
 
+		if (localStorage.getItem(perIdx) === 'true') {
+			document.querySelector('#qResult').innerHTML = '이미 정답을 맞추셨습니다.';
+			// 보기 클래스 변경
+			if (dataQuiz[questionIdx].ans == '1') {
+				document.querySelector('#disOne').className = 'select correct'
+			} else if (dataQuiz[questionIdx].ans == '2') {
+				document.querySelector('#disTwo').className = 'select correct'
+			} else if (dataQuiz[questionIdx].ans == '3') {
+				document.querySelector('#disThr').className = 'select correct'
+			}
+
+			return false;
+		} else if(localStorage.getItem(perIdx) === 'false') {
+			document.querySelector('#qResult').innerHTML = '이미 틀렸기 때문에 이 문제에는 기회가 없어요.ㅠ';
+			return false;
+		}
+
+		// 카운터
+		intervalID = setInterval(function(){
+			count--
+			document.querySelector('#qResult').innerHTML = selectAnswer + '번을 선택했습니다. 과연 정답은? ('+count+'초)';
+			
+			// 정답표시
+			if (count == 0) {
+				clearInterval(intervalID);
+				
+				// 보기 클래스 변경
+				if (dataQuiz[questionIdx].ans == '1') {
+					document.querySelector('#disOne').className = document.querySelector('#disOne').className  + ' correct';
+				} else if (dataQuiz[questionIdx].ans == '2') {
+					document.querySelector('#disTwo').className = document.querySelector('#disTwo').className  + ' correct';
+				} else if (dataQuiz[questionIdx].ans == '3') {
+					document.querySelector('#disThr').className = document.querySelector('#disThr').className  + ' correct';
+				}
+
+				// 안내멘트 변경
+				if (dataQuiz[questionIdx].ans == selectAnswer) {
+					// 정답
+					document.querySelector('#qResult').innerHTML = '정답입니다.';
+					localStorage.setItem(perIdx, 'true');
+				} else {
+					document.querySelector('#qResult').innerHTML = '오답입니다.';
+					localStorage.setItem(perIdx, 'false');
+				}
+			}
+		}, 1000)
+
+		if (selectAnswer == '1') {
+			document.querySelector('#disOne').className = 'select';
+		} else if (selectAnswer == '2') {
+			document.querySelector('#disTwo').className = 'select';
+		} else if (selectAnswer == '3') {
+			document.querySelector('#disThr').className = 'select';
+		}
 	}
 }, false);
 
@@ -25,18 +99,16 @@ btnKakao.addEventListener('click', executeURLLink, false);
 
 //  카카오 스토리
 function executeKakaoStoryLink(){
-	var  quiz = getRand(dataQuiz)
-		,postMsg = ''
+	var  postMsg = ''
 		,urlMsg
-		,qid = getRandId()
-
+		
 	postMsg += '[1:100 기출문제]\n';
 	postMsg += 'Q: ' + quiz.que + '\n\n'; 
 
-	postMsg += '① ' + quiz.one + qid + ' (정답: http://bit.ly/1014bIv)\n';
-	postMsg += '② ' + quiz.two + qid + ' (정답: http://bit.ly/1014bIv)\n';
-	postMsg += '③ ' + quiz.thr + qid + ' (정답: http://bit.ly/1014bIv)\n';
-	postMsg += '정답: ' + quiz.ans + qid + '\n';
+	postMsg += '① ' + quiz.one + qid + ' (정답: ' + answer1 + ')\n';
+	postMsg += '② ' + quiz.two + qid + ' (정답: ' + answer2 + ')\n';
+	postMsg += '③ ' + quiz.thr + qid + ' (정답: ' + answer3 + ')\n';
+	postMsg += '정답: ' + quiz.idx + quiz.ans + qid + '\n';
 
 	console.log(postMsg)
 
@@ -82,9 +154,21 @@ function executeURLLink() {
 
 answerUrl = "http://romeoh.github.io/kakaoStory/html/relationCouple.html";
 
-get_short_url(answerUrl, login, api_key, function(short_url) {
-	console.log(short_url);
-});
+function getUrl(hash, idx) {
+	var url = 'http://romeoh.github.io/kakaoStory/html/quiz.html#' + hash
+	get_short_url(url, login, api_key, function(short_url) {
+		if (idx == '1') {
+			answer1 = short_url
+		} else if (idx == '2') {
+			answer2 = short_url
+		} else if (idx == '3') {
+			answer3 = short_url
+		}
+		console.log(short_url, idx)
+		//return short_url;
+	});
+}
+
 function get_short_url(long_url, login, api_key, func){
 	$.getJSON(
 		"http://api.bitly.com/v3/shorten?callback=?", 
@@ -107,7 +191,7 @@ function get_short_url(long_url, login, api_key, func){
 dataQuiz= [
 
 {
-	'idx': '0',
+	'idx': '000',
 	'day': '2008. 3. 11',
 	'cou': '44',
 	'que': '쪽의 의미가 다른 하나는?',
@@ -117,7 +201,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '001',
 	'day': '',
 	'cou': '',
 	'que': '동화 <해님과 달님>에서 썩은 동아줄을 타고 올라가던 호랑이가 떨어진 곳은?',
@@ -127,7 +211,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '002',
 	'day': '',
 	'cou': '',
 	'que': '봄동은 무엇의 종류인가?',
@@ -137,7 +221,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '003',
 	'day': '',
 	'cou': '',
 	'que': '도난당한 적이 없는 작품은?',
@@ -147,7 +231,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '004',
 	'day': '',
 	'cou': '',
 	'que': '비틀즈의 노래 <헤이 주드(Hey Jude)>에서 주드는?',
@@ -157,7 +241,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '005',
 	'day': '',
 	'cou': '',
 	'que': '파이(∏)는?',
@@ -167,7 +251,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '006',
 	'day': '',
 	'cou': '',
 	'que': '<우디 앨런 영화, 크리스타 볼프, 예언자, 트로이전쟁>에서 연상되는 것은?',
@@ -177,7 +261,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '007',
 	'day': '',
 	'cou': '',
 	'que': '<수수방관>에서 첫 번째 수의 뜻은?',
@@ -187,7 +271,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '008',
 	'day': '',
 	'cou': '',
 	'que': '못을 뽑는 도구는?',
@@ -197,7 +281,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '009',
 	'day': '',
 	'cou': '',
 	'que': '식물은?',
@@ -207,7 +291,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '010',
 	'day': '',
 	'cou': '',
 	'que': '동요 <나비야>에 나오지 않는 나비는?',
@@ -217,7 +301,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '011',
 	'day': '',
 	'cou': '',
 	'que': '한,일 라이벌이 아닌 두 사람은?',
@@ -227,7 +311,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '012',
 	'day': '',
 	'cou': '',
 	'que': '<국보 2호>가 있는 곳은?',
@@ -237,7 +321,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '013',
 	'day': '',
 	'cou': '',
 	'que': '우리나라에 없는 것은?',
@@ -247,7 +331,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '014',
 	'day': '',
 	'cou': '',
 	'que': '뱁새는?',
@@ -257,7 +341,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '015',
 	'day': '',
 	'cou': '',
 	'que': '가장 큰 그림은?',
@@ -267,7 +351,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '016',
 	'day': '',
 	'cou': '',
 	'que': '<석봉아, 나는 (이것을 어떻게 할)테니 너는 글을 쓰거라>에서 괄호에 들어 갈 말은?',
@@ -277,7 +361,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '017',
 	'day': '',
 	'cou': '',
 	'que': '1에서 10까지 수를 모두 더했을 때 끝자리 수는?',
@@ -287,7 +371,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '018',
 	'day': '',
 	'cou': '',
 	'que': '일반적으로 맹장이 위치한 자리는? ',
@@ -297,7 +381,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '019',
 	'day': '',
 	'cou': '',
 	'que': '저작권법에 의해 보호되지 않는 것은? ',
@@ -307,7 +391,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '020',
 	'day': '',
 	'cou': '',
 	'que': '군가 <멋진 사나이> 중 <싸움에는 천하무적, (이것)~~>에서 이것은? ',
@@ -317,7 +401,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '021',
 	'day': '',
 	'cou': '',
 	'que': '<서유기>에서 삼장법사 일행이 지나간 사막은? ',
@@ -327,7 +411,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '022',
 	'day': '',
 	'cou': '',
 	'que': '미국의 전설적인 듀오 <사이먼&가펑클>의 데뷔 당시 이름은?',
@@ -337,7 +421,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '023',
 	'day': '',
 	'cou': '',
 	'que': '제2의 노벨상이라 불리며 민주주의와 인권보호를 위해 힘써온 사람이나 단체에 수여하는 상은? ',
@@ -347,7 +431,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '024',
 	'day': '',
 	'cou': '',
 	'que': '실제 부모 자식관계가 아닌 것은?',
@@ -357,7 +441,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '025',
 	'day': '',
 	'cou': '',
 	'que': '가장 진한 것은?',
@@ -367,7 +451,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '026',
 	'day': '',
 	'cou': '',
 	'que': '문화체육관광부(문화부, 문화관광부) 장관이 아니었던 사람은?',
@@ -377,7 +461,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '027',
 	'day': '',
 	'cou': '',
 	'que': '나훈아의 잡초 중 <(이것)이라도 있으면은 님 찾아갈텐데 (이것)이라도 있으면은 님 부를텐데~~>에서 이것은?',
@@ -387,7 +471,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '028',
 	'day': '',
 	'cou': '',
 	'que': '세계 최초의 인공위성인 스푸트니크 1호는?',
@@ -397,7 +481,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '029',
 	'day': '',
 	'cou': '',
 	'que': '<남대문>이라는 상표로 처음 출원된 제품은?',
@@ -407,7 +491,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '030',
 	'day': '',
 	'cou': '',
 	'que': '축구선수 펠레는?',
@@ -417,7 +501,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '031',
 	'day': '',
 	'cou': '',
 	'que': '빙부상은 누구의 상(喪)인가? ',
@@ -427,7 +511,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '032',
 	'day': '',
 	'cou': '',
 	'que': '<당구, 클림트, 록그룹, 시네마 천국>과 공통적으로 관계된 것은? ',
@@ -437,7 +521,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '033',
 	'day': '',
 	'cou': '',
 	'que': '김춘수의 시 <나는 시방 위험한 이것이다. 나의 손이 닿으면 너는 미지의 까마득한 어둠이 된다>에서 이것은?',
@@ -447,7 +531,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '034',
 	'day': '',
 	'cou': '',
 	'que': '없는 것은? ',
@@ -457,7 +541,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '035',
 	'day': '',
 	'cou': '',
 	'que': 'TV 홈쇼핑에서 판매할 수 있는 것은? ',
@@ -467,7 +551,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '036',
 	'day': '',
 	'cou': '',
 	'que': '<만, 억, 조, 경, 해> 다음은?',
@@ -477,7 +561,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '037',
 	'day': '',
 	'cou': '',
 	'que': '기차 <새마을호>의 원래 이름은? ',
@@ -487,7 +571,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '038',
 	'day': '',
 	'cou': '',
 	'que': '동요 <사과같은 내 얼굴>에서 반짝이지 않는 것은? ',
@@ -497,7 +581,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '039',
 	'day': '',
 	'cou': '',
 	'que': '백결선생이 떡방아 찧는 소리를 연주해 부인을 달래준 악기는?',
@@ -507,7 +591,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '040',
 	'day': '',
 	'cou': '',
 	'que': '유로화 지폐 뒷면에 공통적으로 그려져 있는 그림은? ',
@@ -517,7 +601,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '041',
 	'day': '',
 	'cou': '',
 	'que': '전압의 단위는? ',
@@ -527,7 +611,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '042',
 	'day': '',
 	'cou': '',
 	'que': '<삭신이 쑤시다>에서 삭신의 뜻은? ',
@@ -537,7 +621,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '043',
 	'day': '',
 	'cou': '',
 	'que': '송창식의 노래 <우리는 소리 없는 침묵으로도 말할 수 있는 우리는~>에서 우리는 누구인가? ',
@@ -547,7 +631,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '044',
 	'day': '',
 	'cou': '',
 	'que': '없는 것은? ',
@@ -557,7 +641,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '045',
 	'day': '',
 	'cou': '',
 	'que': '지명(地名)이 들어가지 않은 것은? ',
@@ -567,7 +651,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '046',
 	'day': '',
 	'cou': '',
 	'que': '김상용의 시 <남으로 창을 내겠소> 중 <강냉이가 익걸랑 함께 와 자셔도 좋소, 왜 사냐<이것>지요>에서 이것은? ',
@@ -577,7 +661,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '047',
 	'day': '',
 	'cou': '',
 	'que': '나무에 달리는 열매는? ',
@@ -587,7 +671,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '048',
 	'day': '',
 	'cou': '',
 	'que': '<혼인을 하고 나서 친구들에게 한턱내는 일>을 뜻하는 우리말은? ',
@@ -597,7 +681,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '049',
 	'day': '',
 	'cou': '',
 	'que': '인도 뭄바이의 영화산업을 할리우드에 빗대 발리우드라고 한다. 그렇다면 <놀리우드>는 어느나라와 할리우드의 합성어인가? ',
@@ -607,7 +691,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '050',
 	'day': '',
 	'cou': '',
 	'que': '언론단체 <관훈클럽>에서 관훈이란? ',
@@ -617,7 +701,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '051',
 	'day': '',
 	'cou': '',
 	'que': '<흥정은 붙이고 이것은 말리랬다>에서 이것은? ',
@@ -627,7 +711,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '052',
 	'day': '',
 	'cou': '',
 	'que': '세계랭킹 10위권에 든 적이 없는 스포츠 스타는? ',
@@ -637,7 +721,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '053',
 	'day': '',
 	'cou': '',
 	'que': '천상병의 시 <나 하늘로 돌아가리라 아름다운 이 세상 <이것> 끝내는 날 가서 아름다웠다고 말하리라>에서 이것은? ',
@@ -647,7 +731,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '054',
 	'day': '',
 	'cou': '',
 	'que': '최근 숭례문 복원용 목재로 거론된 살아서 1000년, 죽어서 1000년을 간다고 하는 소나무는? ',
@@ -657,7 +741,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '055',
 	'day': '',
 	'cou': '',
 	'que': '홈쇼핑, 대형마트, 신용카드 회사의 미끼상품이나 혜택만을 이용하는 얌체소비자를 일컫는 말은?',
@@ -667,7 +751,7 @@ dataQuiz= [
 	'ans': '1'
 },
 {
-	'idx': '',
+	'idx': '056',
 	'day': '',
 	'cou': '',
 	'que': '배우 장미희는 이 영화로 대종상 여우주연상을 받고 <참 아름다운 밤이에요>라는 수상소감을 발표했다. 이 영화는? ',
@@ -677,7 +761,7 @@ dataQuiz= [
 	'ans': '3'
 },
 {
-	'idx': '',
+	'idx': '057',
 	'day': '',
 	'cou': '',
 	'que': '멍텅구리가 아닌 것은?',
@@ -687,7 +771,7 @@ dataQuiz= [
 	'ans': '2'
 },
 {
-	'idx': '',
+	'idx': '058',
 	'day': '',
 	'cou': '',
 	'que': '아버지와 아들의 관계가 아닌 두 사람은? ',
