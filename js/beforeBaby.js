@@ -1,13 +1,27 @@
-var  userName
+var ua = navigator.userAgent
+	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
+		(/android/gi).test(ua) ? "android" :
+		(/mac/gi).test(ua) ? "macOS" : 
+		(/windows/gi).test(ua) ? "Windows" : "other"
+	,userName
 	,btnStory = document.querySelector('#btnStory')
 	,btnKakao = document.querySelector('#btnKakao')
 	,dataDrink, dataMount, dataAction
 
-//window.addEventListener("load", initPage, false);
-//function initPage(){
+if (os == 'ios' || os == 'android') {
+	//init();
+} else {
+	var  adTop = document.querySelector('#adTop')
+		,adBottom = document.querySelector('#adBottom')
+	document.querySelector('body').removeChild(adTop)
+	document.querySelector('body').removeChild(adBottom)
+}
+
+window.addEventListener("DOMContentLoaded", initPage, false);
+function initPage(){
 	btnStory.addEventListener('click', executeKakaoStoryLink, false);
 	btnKakao.addEventListener('click', executeURLLink, false);
-//}
+}
 
 //  카카오 스토리
 function executeKakaoStoryLink(){
