@@ -20,20 +20,20 @@ if (os == 'ios' || os == 'android') {
 	document.querySelector('body').removeChild(adTop)
 	document.querySelector('body').removeChild(adBottom)
 }
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
+funtion init(){
+	window.addEventListener('DOMContentLoaded', function(){
+		btnStory.addEventListener('click', executeKakaoStoryLink, false);
+		btnKakao.addEventListener('click', executeURLLink, false);
+		boySelect.addEventListener('click', function(){
+			boySelect.className = 'checked';
+			girlSelect.className = '';
+		}, false);
+		girlSelect.addEventListener('click', function(){
+			boySelect.className = '';
+			girlSelect.className = 'checked';
+		}, false);
 	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}, false);
-
+}
 //  카카오 스토리
 function executeKakaoStoryLink(){
 	var  postMsg = ''
