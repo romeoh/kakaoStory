@@ -1,4 +1,9 @@
-var  boy = document.getElementById('boy')
+var  ua = navigator.userAgent
+	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
+		(/android/gi).test(ua) ? "android" :
+		(/mac/gi).test(ua) ? "macOS" : 
+		(/windows/gi).test(ua) ? "Windows" : "other"
+	,boy = document.getElementById('boy')
 	,girl = document.getElementById('girl')
 	,boySelect = document.querySelector('#boyBox a')
 	,girlSelect = document.querySelector('#girlBox a')
@@ -7,17 +12,27 @@ var  boy = document.getElementById('boy')
 	,dataDrink, dataMount, dataAction
 	,img
 
-btnStory.addEventListener('click', executeKakaoStoryLink, false);
-btnKakao.addEventListener('click', executeURLLink, false);
-boySelect.addEventListener('click', function(){
-	boySelect.className = 'checked';
-	girlSelect.className = '';
-}, false);
-girlSelect.addEventListener('click', function(){
-	boySelect.className = '';
-	girlSelect.className = 'checked';
-}, false);
+if (os == 'ios' || os == 'android') {
+	//init();
+} else {
+	var  adTop = document.querySelector('#adTop')
+		,adBottom = document.querySelector('#adBottom')
+	//document.querySelector('body').removeChild(adTop)
+	//document.querySelector('body').removeChild(adBottom)
+}
 
+window.addEventListener('DOMContentLoaded', function(){
+	btnStory.addEventListener('click', executeKakaoStoryLink, false);
+	btnKakao.addEventListener('click', executeURLLink, false);
+	boySelect.addEventListener('click', function(){
+		boySelect.className = 'checked';
+		girlSelect.className = '';
+	}, false);
+	girlSelect.addEventListener('click', function(){
+		boySelect.className = '';
+		girlSelect.className = 'checked';
+	}, false);
+}, false);
 
 //  카카오 스토리
 function executeKakaoStoryLink(){
