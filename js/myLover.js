@@ -28,21 +28,21 @@ function executeKakaoStoryLink(){
 		return false;
 	}
 	
-	postMsg += '[내 이상형의 조건]\n\n';
 	if (boySelect.className == 'checked') {
 		// 남자일 경우
+		postMsg += '[내 남친의 조건]\n\n';
 		dataRan = Math.floor(Math.random() * dataFemale.length)
 		data = dataFemale[dataRan]
 		img = 'http://romeoh.github.io/kakaoStory/img/loverMan.jpg'
-		postMsg += '내 남친은이요? 딴건 안봅니다.\n';
 	} else if (girlSelect.className == 'checked') {
 		// 여자일 경우
+		postMsg += '[내 여친의 조건]\n\n';
 		dataRan = Math.floor(Math.random() * dataMale.length)
 		data = dataMale[dataRan]
 		img = 'http://romeoh.github.io/kakaoStory/img/loverWoman.jpg'
-		postMsg += '내 여친은요? 딴건 안봅니다.\n';
 	}
 	
+	postMsg += '내 이상형이요? 딴건 안봅니다.\n';
 	postMsg += data + '\n\n';
 	postMsg += 'http://goo.gl/VbOvP\n';
 	
