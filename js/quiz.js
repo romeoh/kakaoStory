@@ -1,4 +1,9 @@
-var  dataQuiz
+var ua = navigator.userAgent
+	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
+		(/android/gi).test(ua) ? "android" :
+		(/mac/gi).test(ua) ? "macOS" : 
+		(/windows/gi).test(ua) ? "Windows" : "other"
+	,dataQuiz
 	,login = 'o_2i5b4gmien'
 	,api_key = 'R_866372890d3c61b40dcf2f91c0f5ba8f'
 	,answerUrl
@@ -12,6 +17,15 @@ var  dataQuiz
 	,quiz
 	,qid = getRandId()
 	,answer1, answer2, answer3
+
+if (os == 'ios' || os == 'android') {
+	//init();
+} else {
+	var  adTop = document.querySelector('#adTop')
+		,adBottom = document.querySelector('#adBottom')
+	document.querySelector('body').removeChild(adTop)
+	document.querySelector('body').removeChild(adBottom)
+}
 
 window.addEventListener('DOMContentLoaded', function(){
 	quiz = getRand(dataQuiz);
