@@ -1,6 +1,20 @@
-var  dataSay
+var ua = navigator.userAgent
+	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
+		(/android/gi).test(ua) ? "android" :
+		(/mac/gi).test(ua) ? "macOS" : 
+		(/windows/gi).test(ua) ? "Windows" : "other"
+	,dataSay
 	,hash = window.location.hash
 	,idx
+
+if (os == 'ios' || os == 'android') {
+	//init();
+} else {
+	var  adTop = document.querySelector('#adTop')
+		,adBottom = document.querySelector('#adBottom')
+	document.querySelector('body').removeChild(adTop)
+	document.querySelector('body').removeChild(adBottom)
+}
 
 window.addEventListener('DOMContentLoaded', function(){
 	if (hash != '') {
