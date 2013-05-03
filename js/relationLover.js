@@ -1,4 +1,9 @@
-var  userName
+var ua = navigator.userAgent
+	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
+		(/android/gi).test(ua) ? "android" :
+		(/mac/gi).test(ua) ? "macOS" : 
+		(/windows/gi).test(ua) ? "Windows" : "other"
+	,userName
 	,boy = document.getElementById('boy')
 	,girl = document.getElementById('girl')
 	,boySelect = document.querySelector('#boyBox a')
@@ -8,8 +13,17 @@ var  userName
 	,dataDrink, dataMount, dataAction
 	,loverType = '애인'
 
-//window.addEventListener("load", initPage, false);
-//function initPage(){
+if (os == 'ios' || os == 'android') {
+	//init();
+} else {
+	var  adTop = document.querySelector('#adTop')
+		,adBottom = document.querySelector('#adBottom')
+	document.querySelector('body').removeChild(adTop)
+	document.querySelector('body').removeChild(adBottom)
+}
+
+window.addEventListener("DOMContentLoaded", initPage, false);
+function initPage(){
 	btnStory.addEventListener('click', executeKakaoStoryLink, false);
 	btnKakao.addEventListener('click', executeURLLink, false);
 	boySelect.addEventListener('click', function(){
@@ -26,7 +40,7 @@ var  userName
 		loverType = '여자친구'
 		document.querySelector('h1').innerHTML = '내 여자친구와 나의 전생관계'
 	}, false);
-//}
+}
 
 //  카카오 스토리
 function executeKakaoStoryLink(){
