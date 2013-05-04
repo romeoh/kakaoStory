@@ -45,28 +45,28 @@ function executeKakaoStoryLink(){
 	
 	postMsg += '[나의 매려포인트]\n\n';
 	if (boySelect.className == 'checked') {
-		// 남자일 경우
-		dataRan = Math.floor(Math.random() * dataFemale.length)
-		data = dataFemale[dataRan]
-		img = 'http://romeoh.github.io/kakaoStory/img/loverMan.jpg'
-	} else if (girlSelect.className == 'checked') {
 		// 여자일 경우
 		dataRan = Math.floor(Math.random() * dataMale.length)
 		data = dataMale[dataRan]
 		img = 'http://romeoh.github.io/kakaoStory/img/loverWoman.jpg'
+	} else if (girlSelect.className == 'checked') {
+		// 남자일 경우
+		dataRan = Math.floor(Math.random() * dataFemale.length)
+		data = dataFemale[dataRan]
+		img = 'http://romeoh.github.io/kakaoStory/img/loverMan.jpg'
 	}
 	
 	postMsg += '뭐 딴건 내세울것 없구요.\n';
 	postMsg += data + '\n\n';
-	postMsg += 'http://goo.gl/VbOvP\n';
+	postMsg += 'http://goo.gl/lzbc5\n';
 	
 	urlMsg = {
 		title: '나의 매력포인트',
-		desc: '뭐 내세울게 있나요?',
+		desc: '특별히 내세울게 없네요.',
 		imageurl: [img],
 		type:'article'
 	}
-	console.log(postMsg)
+	console.log(urlMsg)
 
 	kakao.link("story").send({   
         post : postMsg,
@@ -81,7 +81,7 @@ function executeKakaoStoryLink(){
 function executeURLLink() {
 	kakao.link("talk").send({
 		msg: "뭐 내세울게 있나요?",
-		url: "http://goo.gl/VbOvP",
+		url: "http://goo.gl/lzbc5",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "나의 매력포인트",
@@ -98,9 +98,9 @@ dataMale = [
 	'이 정도 직장이면 판,검사 안부러워요.',
 	'노래로 여자좀 울렸어요.',
 	'내 차는 좀 브릴리언트 해요.',
-	'내가 입만 열면 여자들 배꼽이 빠져요.',
+	'내가 입만 열면 여자들 웃느라 눈가에 주금이 자글자글해져요.',
 	'나의 강남삘 스타일에 여자애들 애간장 좀 태우죠.',
-	'나의 부드러운 목소리만 들으면 잠들어 버려요.',
+	'나의 부드러운 목소리만 들으면 여자애들 그냥 잠들어 버려요.',
 	'나의 백만불짜리 몸매는 좀 쩔어요.',
 	'제 쎅시한 엉덩이 때문에 길거리를 걸어다니기 힘들어요.',
 	'나의 호수같은 눈빛에 다들 빠지고 싶어하더라구요.',
