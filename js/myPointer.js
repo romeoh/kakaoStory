@@ -48,12 +48,12 @@ function executeKakaoStoryLink(){
 		// 여자일 경우
 		dataRan = Math.floor(Math.random() * dataMale.length)
 		data = dataMale[dataRan]
-		img = 'http://romeoh.github.io/kakaoStory/img/loverWoman.jpg'
+		img = 'http://romeoh.github.io/kakaoStory/img/pointerMale.jpg'
 	} else if (girlSelect.className == 'checked') {
 		// 남자일 경우
 		dataRan = Math.floor(Math.random() * dataFemale.length)
 		data = dataFemale[dataRan]
-		img = 'http://romeoh.github.io/kakaoStory/img/loverMan.jpg'
+		img = 'http://romeoh.github.io/kakaoStory/img/pointerFemale.jpg'
 	}
 	
 	postMsg += '뭐 딴건 내세울것 없구요.\n';
