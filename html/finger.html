@@ -43,7 +43,8 @@ window.scrollTo(0, 0)
 
 $('#pointer').on('touchstart', start);
 
-function start(){
+function start(evt){
+	evt.preventDefault();
 	$('#pointer').on('touchend', end);
 	intervalId = setInterval(launch, 1000);
 }
