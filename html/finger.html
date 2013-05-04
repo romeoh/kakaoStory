@@ -50,8 +50,10 @@ function start(evt){
 function end(){
 	$('#pointer').off('touchend');
 	if (pressing) {
+		alert('성공')
 		console.log('success')
 	} else {
+		alert('실패')
 		console.log('fail')
 	}
 }
