@@ -19,11 +19,12 @@ if (os == 'ios' || os == 'android') {
 window.addEventListener('DOMContentLoaded', ready, false);
 
 function ready(){
+	window.scrollTo(0, 0)
 	initLayout();
 }
 
 function initLayout(){
-	
+
 }
 
 
