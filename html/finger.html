@@ -7,24 +7,40 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 <style type="text/css">
-body {margin:0}
-.bg {background:#eee}
-.wrapper {position:relative; width:320px; height:380px; border:1px solid blue; margin:0 auto; overflow:hidden;}
-#counter {position:absolute; top:200px; left:100px; width:100px; height:100px;}
-#knife {position:absolute; border:1px solid blue; width:200px; height:400px; left:60px; top:-350px}	/*-350*/
-#pointer {width:100px; height:100px; border:1px solid black; position:absolute; bottom:60px; left:120px}
+body {margin:0; background:#b8e400}
+#adTop {width:100%; height:50px}
+.bg {position:relative; background:#eee; background:url(../imgFinger/bg.png) no-repeat 50% 0}
+.wrapper {position:relative; width:320px; height:380px; margin:0 auto; overflow:hidden;}
+#pointer {position:absolute; width:75px; height:75px; position:absolute; bottom:43px; left:131px; background:url(../imgFinger/circle.png) no-repeat; z-index:100}
+.frame {position:absolute; width:320px; height:380px; background:url(../imgFinger/frame.png) no-repeat; z-index:90}
+#knife {position:absolute; width:149px; height:296px; left:93px; top:-195px; background:url(../imgFinger/knife.png) no-repeat; z-index:80}	/*12px ~ -195px*/
+
+.popCount {position:absolute; background:url(../imgFinger/popCount.png) no-repeat; width:129px; height:77px; top:110px; left:100px; z-index:120; color:#ffb600; font-size: 49px; text-align:center; padding-top:25px; display:none;}
+#popup {position:absolute; background:url(../imgFinger/popbg.png) no-repeat; width:305px; height:206px; top:80px; left:10px; z-index:120; color:#ffb600;  text-align:center; display:none;}
+#popup .info {font-size: 18px; padding-top: 60px}
+#popup .result {position:absolute; background:url(../imgFinger/popAc.png) no-repeat; width:156px; height:110px; top:16px; left:70px; font-size: 39px; padding-top: 30px; display:none;}
+#popup .share {width:156px; height:110px; top:16px; left:70px; font-size: 18px; padding:50px 0 0 70px; display:none;}
 </style>
 </head>
 
 <body style="">
 
-<div style="border:1px solid red; width:100%; height:50px" id="adTop"></div>
+<div id="adTop"></div>
 
 <div class="bg">
 	<div class="wrapper">
-		<div id="counter">3</div>
-		<div id="knife"></div>
+		<div id="popup">
+			<p class="info">날이 떨어지면 <br>손가락을 피하세요.</p>
+			<p class="result">성공</p>
+			<div class="share">
+				<p>1329점 / 31콤보</p>
+				<p><img src="../imgFinger/btn.png" alt="카스로 공유"></p>
+			</div>
+		</div>
+		<div class="popCount">3</div>
 		<div id="pointer"></div>
+		<div class="frame"></div>
+		<div id="knife"></div>
 	</div>
 </div>
 
@@ -33,29 +49,69 @@ body {margin:0}
 </div>
 
 <script type="text/javascript" src="../js/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" src="../js/mpui.js"></script>
 <script type="text/javascript" src="../js/kakao.link.js"></script>
-<script type="text/javascript" src="../js/finger.js"></script>
+<!--script type="text/javascript" src="../js/finger.js"></script-->
 
 <script type="text/javascript">
-var  intervalId = null
+var  playId = null
+ 	,pointId = null
 	,launchCount = 3
 	,pressing = false
+	,nowDeg = 0
+	,derection = 1
+	,result = null
 
-$('#pointer').on('touchstart', start);
+window.addEventListener('DOMContentLoaded', ready, false);
 
+function ready(){
+	pointPlay();
+	setTimeout(viewPopInfo, 2000)
+	setTimeout(knifeDownAni, 300)
+}
+
+function viewPopInfo(){
+	M('#popup')
+		.css('display', 'block')
+		.css('scale', '.1')
+		.animate({
+			 'scale': '1'
+			,'time': '.3s'
+		})
+
+	setTimeout(function(){
+		M('#popup').animate({
+			 'scale': '0'
+			,'time': '.3s'
+		}, function(evt, mp){
+			M('#popup .info').css('display', 'none');
+			M('#popup').css('display', 'none');
+			M('#popup').css('scale', '1');
+		})
+		$('#pointer').on('touchstart', start);
+	}, 2000)
+}
+
+// 게임 진행
 function start(evt){
 	evt.preventDefault();
+	pointStop()
 	$('#pointer').on('touchend', end);
-	intervalId = setInterval(launch, 1000);
+	playId = setInterval(launch, 1000);
 }
 
 function end(){
 	$('#pointer').off('touchend');
+	pointPlay();
+	clearInterval(playId);
+	playId = null
 	if (pressing) {
-		alert('성공')
+		result = true;
+		//alert('성공')
 		console.log('success')
 	} else {
-		alert('실패')
+		result = false;
+		//alert('실패')
 		console.log('fail')
 	}
 }
@@ -64,8 +120,8 @@ function launch(){
 	launchCount--;
 	$('#counter').text(launchCount)
 	if (launchCount == 0) {
-		clearInterval(intervalId);
-		setTimeout(go, getRan());	
+		clearInterval(playId);
+		setTimeout(knifeDownPlay, getRan());	
 	}
 }
 
@@ -79,8 +135,96 @@ function go(){
 	})
 }
 
+// 결과보기
+function viewResult(){
+	var resultTxt = ''
+	M('#popup')
+		.css('display', 'block')
+		.css('scale', '.1')
+		.animate({
+			 'scale': '1'
+			,'time': '.3s'
+		})
+	if (result) {
+		resultTxt = '성공'
+	} else {
+		resultTxt = '실패'
+	}
+	M('#popup .result')
+		.css('display', 'block')
+		.text(resultTxt)
+
+	setTimeout(resetGame, 1000)
+}
+
+function resetGame(){
+	M('#popup').animate({
+		 'scale': '0'
+		,'time': '.3s'
+	}, function(evt, mp){
+		M('#popup .result').css('display', 'none');
+		M('#popup').css('display', 'none');
+		M('#popup').css('scale', '1');
+	})
+
+}
+
+// 칼 떨어짐
+function knifeDownPlay(){
+	M('#knife').animate({
+		 'top':'12px'
+		,'time':'1s'
+	}, function(){
+		setTimeout(viewResult, 200)
+		setTimeout(knifeUp, 1500)
+	})
+}
+
+function knifeDownAni(){
+	M('#knife').animate({
+		 'top':'12px'
+		,'time':'0.2s'
+	}, function(){
+		setTimeout(knifeUp, 1000)
+	})
+}
+
+// 칼 복귀
+function knifeUp(){
+	M('#knife').animate({
+		 'top':'-195px'
+		,'time':'2s'
+	})
+}
+
+// 포인트 회전 시작
+function pointPlay(){
+	pointId = setInterval(function() {
+		$('#pointer').css({'transform': 'rotate('+nowDeg+'deg)'});
+		if (nowDeg >= 90) {
+			derection = -1
+		} else if (nowDeg <= 0) {
+			derection = 1
+		}
+		if (derection == 1) {
+			nowDeg = nowDeg + 1
+		} else {
+			nowDeg = nowDeg - 1
+		}
+	}, 80)
+	$('#pointer').animate({
+		'rotation': '180'
+	})
+}
+
+// 포인트 회전 멈춤
+function pointStop(){
+	clearInterval(pointId)
+	pointId = null;
+}
+
 function getRan(){
-	return Math.floor(Math.random() * 3000)
+	return Math.floor(Math.random() * 2000)
 }
 
 
