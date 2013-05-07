@@ -13,15 +13,16 @@ body {margin:0; background:#b8e400}
 .bg {position:relative; background:#eee; background:url(../imgFinger/bg.png) no-repeat 50% 0; padding-top:20px;}
 .wrapper {position:relative; width:320px; height:380px; margin:0 auto; overflow:hidden}
 .infoBox {position:relative; width:320px; margin:0 auto; top:-20px;}
-#pointer {position:absolute; width:75px; height:75px; position:absolute; bottom:43px; left:131px; background:url(../imgFinger/circle.png) no-repeat; z-index:100}
+#pointer {position:absolute; width:75px; height:75px; position:absolute; bottom:43px; left:131px; background:url(../imgFinger/circle.png) no-repeat; z-index:100; display:none; opacity:0}
 .frame {position:absolute; width:320px; height:380px; background:url(../imgFinger/frame.png) no-repeat; z-index:90}
 #knife {position:absolute; width:149px; height:296px; left:93px; top:-195px; background:url(../imgFinger/knife.png) no-repeat; z-index:80}	/*12px ~ -195px*/
 
 #popCount {position:absolute; background:url(../imgFinger/popCount.png) no-repeat; width:129px; height:77px; top:110px; left:100px; z-index:120; color:#ffb600; font-size: 49px; text-align:center; padding-top:25px; display:none;}
 #popup {position:absolute; background:url(../imgFinger/popbg.png) no-repeat; width:305px; height:206px; top:80px; left:10px; z-index:120; color:#ffb600;  text-align:center; display:none;}
-#popup .info {font-size: 18px; padding-top: 60px}
+#popup .info {font-size: 18px; padding-top: 60px; display:}
 #popup .result {position:absolute; background:url(../imgFinger/popAc.png) no-repeat; width:156px; height:110px; top:16px; left:70px; font-size: 39px; padding-top: 30px; display:none;}
-#popup .share {width:156px; height:110px; top:16px; left:70px; font-size: 18px; padding:50px 0 0 70px; display:none;}
+#popup .share {width:170px; height:110px; top:16px; left:70px; font-size: 18px; padding:50px 0 0 70px; display:none;}
+#popup .share p {margin:3px;}
 #score {position:absolute; z-index:300; color:#fff; left:20px; font-size:16px}
 #combo {position:absolute; z-index:300; color:#048eb9; right:20px; font-size:16px}
 </style>
@@ -39,13 +40,14 @@ body {margin:0; background:#b8e400}
 	<div class="wrapper">
 		<div id="popup">
 			<p class="info">날이 떨어지면 <br>손가락을 피하세요.</p>
-			<p class="result">성공</p>
+			<p class="result"></p>
 			<div class="share">
 				<p id="resultScore"></p>
-				<p><img src="../imgFinger/btn.png" alt="카스로 공유"></p>
+				<p id="btnShare"><img src="../imgFinger/btn.png" alt="카스로 공유"></p>
+				<p id="btnReply"><img src="../imgFinger/btnReply.png" alt="다시하기"></p>
 			</div>
 		</div>
-		<div id="popCount">3</div>
+		<div id="popCount"></div>
 		<div id="pointer"></div>
 		<div class="frame"></div>
 		<div id="knife"></div>
@@ -62,252 +64,272 @@ body {margin:0; background:#b8e400}
 <!--script type="text/javascript" src="../js/finger.js"></script-->
 
 <script type="text/javascript">
-var  playId = null
- 	,pointId = null
- 	,goId = null
- 	,knifeId = null
-	,launchCount = 3
-	,pressing = false
-	,nowDeg = 0
+var  nowDeg = 0
 	,derection = 1
-	,result = null
+	,pointId = null
+	,countId = null
+	,thisCount = 4
 	,score = 0
 	,combo = 0
+	,intro0 = intro1 = intro2 = intro3 = intro4 = intro5 = null
+	,actionId = null
+	,successRage = false
+	,successResult = false;
 
 window.addEventListener('load', ready, false);
 
 function ready(){
-	window.scrollTo(0, 0)
-	setTimeout(viewPopInfo, 2000)
-	setTimeout(knifeDownAni, 300)
-	$('#pointer').css('opacity', '0')
+	window.scrollTo(0, 0);
+	introGame();
 }
 
 /*
- * 1. 날이 떨어짐
- * 2. "날이 떨어지면 손가락을 피하세요." 메세지
+ * 인트로
  */
-function viewPopInfo(){
-	M('#popup')
-		.css('display', 'block')
-		.css('scale', '.1')
-		.animate({
-			 'scale': '1'
-			,'time': '.3s'
-		})
-
-	setTimeout(function(){
-		M('#popup').animate({
-			 'scale': '0'
-			,'time': '.3s'
-		}, function(evt, mp){
-			M('#popup .info').css('display', 'none');
-			M('#popup').css('display', 'none');
-			M('#popup').css('scale', '1');
-		})
-		$('#pointer').on('touchstart', start);
-	}, 2000)
+function introGame(){
+	intro0 = setTimeout(knifePlay, 300, '.3');
+	intro1 = setTimeout(knifeReset, 1300);
+	intro2 = setTimeout(viewPopInfo, 1700);
+	intro3 = setTimeout(hidePop, 3700);
+	intro4 = setTimeout(pointPlay, 3700);
+	intro5 = setTimeout(gameReady, 3700);
 }
 
 /*
- * touchstart 게임 시작함
+ * 인트로 취소
  */
-function start(evt){
-	evt.preventDefault();
-	launchCount = 3;
-	pointStop()
-	$('#pointer').on('touchend', end);
-	if (playId == null){
-		playId = setInterval(countStart, 1000);
-		countStart();
-	}
-}
-
-/*
- * touchend 게임 결과 리턴
- */
-function end(){
-	$('#pointer').off('touchend');
-	$('#pointer').off('touchstart');
+function introKill(){
+	clearTimeout(intro0);
+	clearTimeout(intro1);
+	clearTimeout(intro2);
+	clearTimeout(intro3);
+	clearTimeout(intro4);
+	clearTimeout(intro5);
+	intro0 = intro1 = intro2 = intro3 = intro4 = intro5 = null;
+	knifeReset('0.1');
+	hidePop();
 	pointPlay();
-	if (playId != null) {
-		clearInterval(playId);
-		playId = null;
-	}
-	if (goId != null) {
-		clearInterval(goId);
-		goId = null;
-	}
-	if (knifeId != null) {
-		clearInterval(knifeId);
-		knifeId = null;
-	}
-	if (pressing) {
-		result = true;
-		//console.log('success')
-	} else {
-		result = false;
-		M('#popCount').css('display', 'none');
-		if (playId != null) {
-			clearInterval(playId)
-			playId = null;
-		}
-		viewResult();
-	}
+	gameReady();
 }
 
 /*
- * 3초 카운트 시작
- */
-function countStart(){
-	launchCount--;
-	M('#popCount')
-		.css('scale', '.2')
-		.css('display', 'block')
-		.text(launchCount)
-		.animate({
-			 'scale':'1'
-			,'time': '.3s'
-		})
-
-	if (launchCount == 0) {
-		if (playId != null) {
-			clearInterval(playId);
-			playId = null;
-		}
-		M('#popCount').text('GO');
-		goId = setTimeout(function(){
-			M('#popCount').css('display', 'none');
-			knifeId = setTimeout(knifeDownPlay, getRan());
-		}, 1000)
-	}
-}
-
-/*
- * 결과보기
- */
-function viewResult(){
-	var resultTxt = ''
-	M('#popup')
-		.css('display', 'block')
-		.css('scale', '.1')
-		.animate({
-			 'scale': '1'
-			,'time': '.3s'
-		})
-	if (result) {
-		resultTxt = '성공'
-		score = score + ranScore();
-		combo++;
-	} else {
-		resultTxt = '실패'
-	}
-	
-	M('#popup .result')
-		.css('display', 'block')
-		.text(resultTxt)
-
-	pointStop();
-	$('#pointer').animate({
-		 'opacity': '0'
-		,'time':'.3s'
-	})
-	M('#score').text('score: ' + M.toCurrency(score));
-	if (combo == 0) {
-		M('#combo').text('');
-	} else {
-		M('#combo').text(combo + ' combo');
-	}
-	setTimeout(resetGame, 1000);
-	$('#pointer').off('touchend');
-	$('#pointer').css('display', 'none');
-
-	if (resultTxt == '실패' && combo > 1) {
-		setTimeout(share, 1500);
-	} else if(resultTxt == '실패' && combo <= 1) {
-		score = 0;
-		combo = 0;
-		M('#combo').text('');
-		M('#score').text('score: 0');
-	}
-}
-
-function share(){
-	M('#popup')
-		.css('display', 'block')
-		.css('scale', '.1')
-		.animate({
-			 'scale': '1'
-			,'time': '.3s'
-		})
-	M('#popup .share')
-		.css('display', 'block')
-
-	M('#resultScore').text(M.toCurrency(score) + '점 / ' + combo + '콤보')
-}
-
-/*
- * 게임후 리셋
+ * 게임초기화
  */
 function resetGame(){
-	M('#popup').animate({
-		 'scale': '0'
-		,'time': '.3s'
-	}, function(evt, mp){
-		M('#popup .result').css('display', 'none');
-		M('#popup').css('display', 'none');
-		M('#popup').css('scale', '1');
-	})
-	setTimeout(function(){
-		$('#pointer').on('touchstart', start);
-		pointPlay();
-		//console.log('reset')
-	}, 1500)
+	score = 0;
+	combo = 0;
+	M('#score').text('score: ' + score);
+	M('#combo').text('');
+	successRage = false;
+}
+
+function gameReady(){
+	$('#pointer').on('touchstart', gameStart);
+}
+
+function gameStart(){
+	$('#pointer').on('touchend', gameEnd);
+	countPlay();
+	setTimeout(action, 4000);
+}
+
+function action(){
+	actionId = setTimeout(function(){
+		successRage = true;
+		//knifePlay('.25', actionResult)
+		knifePlay('.8', actionResult);
+	}, getRan());
+}
+
+function actionResult(){
+	successRage = false;
+	if (successResult) {
+		resultTxt = '성공';
+		setScore()
+		setTimeout(replay, 2000)
+	} else {
+		resultTxt = '실패';
+	}
+	setTimeout(viewPopResult, 500, resultTxt)
+}
+
+function gameEnd(){
+	if (successRage) {
+		successResult = true;
+	} else {
+		successResult = false;
+	}
+	console.log('reuslt: '+successResult)
+	$('#pointer').off('touchend');
+	countKill();
+}
+
+function replay(){
+	knifeReset();
+	hidePop();
 }
 
 /*
- * 칼떨어짐
+ * 스코어/콤보
  */
-function knifeDownPlay(){
-	pressing = true;
+function setScore(){
+	score = score + ranScore();
+	combo++;
+	M('#score').text('score: ' + score);
+	M('#combo').text(combo + ' combo');
+}
+
+function getScore(){
+	
+}
+
+/*
+ * 카운트제어
+ */
+function countPlay(){
+	killPop();
+	pointPause();
+	M('#popCount').css('display', 'block')
+	countAnimate()
+	countId = setInterval(countAnimate, 1000)
+}
+
+function countAnimate() {
+	thisCount--;
+	if (thisCount == 0) {
+		thisCount = 'GO'
+		clearInterval(countId)
+		countId = null
+		setTimeout(countKill, 1000)
+	}
+	M('#popCount')
+		.css('scale', '0.1')
+		.text(thisCount)
+		.animate({
+			 'scale': '1'
+			,'time': '.3s'
+		})
+}
+
+function countKill(){
+	if (countId != null) {
+		clearInterval(countId);
+		countId = null
+	}
+	M('#popCount').css('display', 'none')
+	thisCount = 4;
+	//pointPlay();
+}
+
+/*
+ * 안내 팝업
+ */
+function viewPopInfo(){
+	killPop();
+	M('#popup .info')
+		.css('display', 'block')
+	M('#popup')
+		.css('display', 'block')
+		.css('scale', '.1')
+		.animate({
+			 'scale': '1'
+			,'time': '.3s'
+		})
+}
+
+/*
+ * 결과팝업
+ */
+function viewPopResult(result){
+	killPop();
+	if (!result) {
+		result = '성공'
+	}
+	M('#popup .result')
+		.css('display', 'block')
+		.text(result)
+	M('#popup')
+		.css('display', 'block')
+		.css('scale', '.1')
+		.animate({
+			 'scale': '1'
+			,'time': '.3s'
+		})
+}
+
+/*
+ * 공유팝업
+ */
+function viewPopShare(){
+	killPop();
+	M('#resultScore').text(M.toCurrency(score) + '점 / ' + combo + '콤보')
+	M('#popup .share')
+		.css('display', 'block')
+	M('#popup')
+		.css('display', 'block')
+		.css('scale', '.1')
+		.animate({
+			 'scale': '1'
+			,'time': '.3s'
+		})
+}
+
+/*
+ * 팝업 해제
+ */
+function hidePop(){
+	M('#popup')
+		.animate({
+			 'scale': '0'
+			,'time': '.3s'
+		}, function(){
+			killPop()
+		})
+}
+
+function killPop(){
+	countKill();
+	M('#popup .info').css('display', 'none')
+	M('#popup .result').css('display', 'none')
+	M('#popup .share').css('display', 'none')
+	M('#popup').css('display', 'none')
+}
+
+/*
+ * knife 제어
+ */
+function knifePlay(speed, cb){
+	if (!speed) {
+		speed = '1'
+	}
 	M('#knife').animate({
 		 'top':'12px'
-		,'time':'1s' //.25s
+		,'time': speed + 's' //.25s
 	}, function(){
-		pressing = false;
-		setTimeout(viewResult, 200)
-		setTimeout(knifeUp, 1500)
+		if (typeof cb == 'function') {
+			cb();
+		}
 	})
 }
 
-/*
- * 칼떨어지는 인트로 에니메이션
- */
-function knifeDownAni(){
-	M('#knife').animate({
-		 'top':'12px'
-		,'time':'.2s'
-	}, function(){
-		setTimeout(knifeUp, 1000)
-	})
-}
-
-/*
- * 칼 복귀
- */
-function knifeUp(){
-	pointPlay();
+function knifeReset(speed, cb){
+	if (!speed) {
+		speed = '2'
+	}
 	M('#knife').animate({
 		 'top':'-195px'
-		,'time':'2s'
+		,'time': speed + 's'
+	}, function(){
+		if (typeof cb == 'function') {
+			cb();
+		}
 	})
 }
 
 /*
- * 포인트 회전 시작
+ * 포인트 동작제어
  */
-function pointPlay(){
-	//console.log('pointId Interval')
+function pointPlay() {
 	$('#pointer')
 		.css('display', 'block')
 		.animate({
@@ -318,32 +340,41 @@ function pointPlay(){
 		clearInterval(pointId)
 		pointId = null;
 	}
-	pointId = setInterval(function() {
-		$('#pointer').css({'transform': 'rotate('+nowDeg+'deg)'});
-		if (nowDeg >= 90) {
-			derection = -1
-		} else if (nowDeg <= 0) {
-			derection = 1
-		}
-		if (derection == 1) {
-			nowDeg = nowDeg + 1
-		} else {
-			nowDeg = nowDeg - 1
-		}
-	}, 80)
-	$('#pointer').animate({
-		'rotation': '180'
-	})
+	pointId = setInterval(pointAnimate, 80);
 }
 
-/*
- * 포인트 회전 멈춤
- */
+function pointAnimate(){
+	$('#pointer').css({'transform': 'rotate('+nowDeg+'deg)'});
+	if (nowDeg >= 90) {
+		derection = -1
+	} else if (nowDeg <= 0) {
+		derection = 1
+	}
+	if (derection == 1) {
+		nowDeg = nowDeg + 1
+	} else {
+		nowDeg = nowDeg - 1
+	}
+}
+
 function pointStop(){
-	clearInterval(pointId)
-	//console.log('pointId clearInterval')
+	$('#pointer')
+		.animate({
+			 'opacity': '.1'
+			,'time':'.3s'
+		}, function(){
+			$(this).css('display', 'none');
+		})
+
+	clearInterval(pointId);
 	pointId = null;
 }
+
+function pointPause(){
+	clearInterval(pointId);
+	pointId = null;
+}
+
 
 /*
  * 렌덤시간 가져옴
