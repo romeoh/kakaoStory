@@ -21,8 +21,8 @@ body {margin:0; background:#b8e400}
 #popup .info {font-size: 18px; padding-top: 60px}
 #popup .result {position:absolute; background:url(../imgFinger/popAc.png) no-repeat; width:156px; height:110px; top:16px; left:70px; font-size: 39px; padding-top: 30px; display:none;}
 #popup .share {width:156px; height:110px; top:16px; left:70px; font-size: 18px; padding:50px 0 0 70px; display:none;}
-#score {position:absolute; z-index:300; color:#fff; font-size:16px}
-#combo {position:absolute; z-index:300; color:#048eb9; right:0px; font-size:16px}
+#score {position:absolute; z-index:300; color:#fff; left:20px; font-size:16px}
+#combo {position:absolute; z-index:300; color:#048eb9; right:20px; font-size:16px}
 </style>
 </head>
 
@@ -32,8 +32,8 @@ body {margin:0; background:#b8e400}
 
 <div class="bg">
 	<div class="infoBox">
-		<div id="score">score: 1200</div>
-		<div id="combo">12 combo</div>
+		<div id="score">score: 0</div>
+		<div id="combo"></div>
 	</div>
 	<div class="wrapper">
 		<div id="popup">
@@ -194,9 +194,14 @@ function viewResult(){
 		})
 	if (result) {
 		resultTxt = '성공'
+		score = score + ranScore();
+		combo++
 	} else {
 		resultTxt = '실패'
+		score = 0
+		combo = 0
 	}
+	console.log(score, combo)
 	M('#popup .result')
 		.css('display', 'block')
 		.text(resultTxt)
@@ -206,6 +211,12 @@ function viewResult(){
 		 'opacity': '0'
 		,'time':'.3s'
 	})
+	M('#score').text('score: ' + M.toCurrency(score));
+	if (combo == 0) {
+		M('#combo').text('');
+	} else {
+		M('#combo').text(combo + ' combo');
+	}
 	setTimeout(resetGame, 1000);
 }
 
@@ -235,7 +246,7 @@ function knifeDownPlay(){
 	pressing = true;
 	M('#knife').animate({
 		 'top':'12px'
-		,'time':'1s'
+		,'time':'.3s'
 	}, function(){
 		pressing = false;
 		setTimeout(viewResult, 200)
@@ -309,6 +320,9 @@ function getRan(){
 	return Math.floor(Math.random() * 2000)
 }
 
+function ranScore(){
+	return Math.floor(Math.random() * 50) + 100
+}
 
 
 </script>
