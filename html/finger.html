@@ -9,17 +9,20 @@
 <style type="text/css">
 body {margin:0; background:#b8e400}
 #adTop {width:100%; height:50px}
-.bg {position:relative; background:#eee; background:url(../imgFinger/bg.png) no-repeat 50% 0}
-.wrapper {position:relative; width:320px; height:380px; margin:0 auto; overflow:hidden;}
+.bg {position:relative; background:#eee; background:url(../imgFinger/bg.png) no-repeat 50% 0; padding-top:20px;}
+.wrapper {position:relative; width:320px; height:380px; margin:0 auto; overflow:hidden}
+.infoBox {position:relative; width:320px; margin:0 auto; top:-20px;}
 #pointer {position:absolute; width:75px; height:75px; position:absolute; bottom:43px; left:131px; background:url(../imgFinger/circle.png) no-repeat; z-index:100}
 .frame {position:absolute; width:320px; height:380px; background:url(../imgFinger/frame.png) no-repeat; z-index:90}
 #knife {position:absolute; width:149px; height:296px; left:93px; top:-195px; background:url(../imgFinger/knife.png) no-repeat; z-index:80}	/*12px ~ -195px*/
 
-.popCount {position:absolute; background:url(../imgFinger/popCount.png) no-repeat; width:129px; height:77px; top:110px; left:100px; z-index:120; color:#ffb600; font-size: 49px; text-align:center; padding-top:25px; display:none;}
+#popCount {position:absolute; background:url(../imgFinger/popCount.png) no-repeat; width:129px; height:77px; top:110px; left:100px; z-index:120; color:#ffb600; font-size: 49px; text-align:center; padding-top:25px; display:none;}
 #popup {position:absolute; background:url(../imgFinger/popbg.png) no-repeat; width:305px; height:206px; top:80px; left:10px; z-index:120; color:#ffb600;  text-align:center; display:none;}
 #popup .info {font-size: 18px; padding-top: 60px}
 #popup .result {position:absolute; background:url(../imgFinger/popAc.png) no-repeat; width:156px; height:110px; top:16px; left:70px; font-size: 39px; padding-top: 30px; display:none;}
 #popup .share {width:156px; height:110px; top:16px; left:70px; font-size: 18px; padding:50px 0 0 70px; display:none;}
+#score {position:absolute; z-index:300; color:#fff; font-size:16px}
+#combo {position:absolute; z-index:300; color:#048eb9; right:0px; font-size:16px}
 </style>
 </head>
 
@@ -28,6 +31,10 @@ body {margin:0; background:#b8e400}
 <div id="adTop"></div>
 
 <div class="bg">
+	<div class="infoBox">
+		<div id="score">score: 1200</div>
+		<div id="combo">12 combo</div>
+	</div>
 	<div class="wrapper">
 		<div id="popup">
 			<p class="info">날이 떨어지면 <br>손가락을 피하세요.</p>
@@ -37,7 +44,7 @@ body {margin:0; background:#b8e400}
 				<p><img src="../imgFinger/btn.png" alt="카스로 공유"></p>
 			</div>
 		</div>
-		<div class="popCount">3</div>
+		<div id="popCount">3</div>
 		<div id="pointer"></div>
 		<div class="frame"></div>
 		<div id="knife"></div>
@@ -56,22 +63,29 @@ body {margin:0; background:#b8e400}
 <script type="text/javascript">
 var  playId = null
  	,pointId = null
+ 	,goId = null
+ 	,knifeId = null
 	,launchCount = 3
 	,pressing = false
 	,nowDeg = 0
 	,derection = 1
 	,result = null
+	,score = 0
+	,combo = 0
 
 window.addEventListener('load', ready, false);
 
 function ready(){
 	window.scrollTo(0, 0)
-	
-	pointPlay();
 	setTimeout(viewPopInfo, 2000)
 	setTimeout(knifeDownAni, 300)
+	$('#pointer').css('opacity', '0')
 }
 
+/*
+ * 1. 날이 떨어짐
+ * 2. "날이 떨어지면 손가락을 피하세요." 메세지
+ */
 function viewPopInfo(){
 	M('#popup')
 		.css('display', 'block')
@@ -94,50 +108,81 @@ function viewPopInfo(){
 	}, 2000)
 }
 
-// 게임 진행
+/*
+ * touchstart 게임 시작함
+ */
 function start(evt){
 	evt.preventDefault();
+	launchCount = 3;
 	pointStop()
 	$('#pointer').on('touchend', end);
-	playId = setInterval(launch, 1000);
+	playId = setInterval(countStart, 1000);
+	countStart();
 }
 
+/*
+ * touchend 게임 결과 리턴
+ */
 function end(){
 	$('#pointer').off('touchend');
+	$('#pointer').off('touchstart');
 	pointPlay();
-	clearInterval(playId);
-	playId = null
+	if (playId != null) {
+		clearInterval(playId);
+		playId = null;
+	}
+	if (goId != null) {
+		clearInterval(goId);
+		goId = null;
+	}
+	if (knifeId != null) {
+		clearInterval(knifeId);
+		knifeId = null;
+	}
 	if (pressing) {
 		result = true;
-		//alert('성공')
-		console.log('success')
+		//console.log('success')
 	} else {
 		result = false;
-		//alert('실패')
-		console.log('fail')
+		M('#popCount').css('display', 'none');
+		if (playId != null) {
+			clearInterval(playId)
+			playId = null;
+		}
+		viewResult();
 	}
 }
 
-function launch(){
+/*
+ * 3초 카운트 시작
+ */
+function countStart(){
 	launchCount--;
-	$('#counter').text(launchCount)
+	M('#popCount')
+		.css('scale', '.2')
+		.css('display', 'block')
+		.text(launchCount)
+		.animate({
+			 'scale':'1'
+			,'time': '.3s'
+		})
+
 	if (launchCount == 0) {
-		clearInterval(playId);
-		setTimeout(knifeDownPlay, getRan());	
+		if (playId != null) {
+			clearInterval(playId);
+			playId = null;
+		}
+		M('#popCount').text('GO');
+		goId = setTimeout(function(){
+			M('#popCount').css('display', 'none');
+			knifeId = setTimeout(knifeDownPlay, getRan());
+		}, 1000)
 	}
 }
 
-function go(){
-	pressing = true;
-	$('#counter').text('GO')
-	$('#knife').animate({
-		'top':'0'
-	}, 300, function(){
-		pressing = false;
-	})
-}
-
-// 결과보기
+/*
+ * 결과보기
+ */
 function viewResult(){
 	var resultTxt = ''
 	M('#popup')
@@ -156,9 +201,17 @@ function viewResult(){
 		.css('display', 'block')
 		.text(resultTxt)
 
-	setTimeout(resetGame, 1000)
+	pointStop();
+	$('#pointer').animate({
+		 'opacity': '0'
+		,'time':'.3s'
+	})
+	setTimeout(resetGame, 1000);
 }
 
+/*
+ * 게임후 리셋
+ */
 function resetGame(){
 	M('#popup').animate({
 		 'scale': '0'
@@ -168,20 +221,31 @@ function resetGame(){
 		M('#popup').css('display', 'none');
 		M('#popup').css('scale', '1');
 	})
-
+	setTimeout(function(){
+		$('#pointer').on('touchstart', start);
+		pointPlay();
+		//console.log('reset')
+	}, 1500)
 }
 
-// 칼 떨어짐
+/*
+ * 칼떨어짐
+ */
 function knifeDownPlay(){
+	pressing = true;
 	M('#knife').animate({
 		 'top':'12px'
 		,'time':'1s'
 	}, function(){
+		pressing = false;
 		setTimeout(viewResult, 200)
 		setTimeout(knifeUp, 1500)
 	})
 }
 
+/*
+ * 칼떨어지는 인트로 에니메이션
+ */
 function knifeDownAni(){
 	M('#knife').animate({
 		 'top':'12px'
@@ -191,16 +255,26 @@ function knifeDownAni(){
 	})
 }
 
-// 칼 복귀
+/*
+ * 칼 복귀
+ */
 function knifeUp(){
+	pointPlay();
 	M('#knife').animate({
 		 'top':'-195px'
 		,'time':'2s'
 	})
 }
 
-// 포인트 회전 시작
+/*
+ * 포인트 회전 시작
+ */
 function pointPlay(){
+	//console.log('pointId Interval')
+	$('#pointer').animate({
+		 'opacity': '1'
+		,'time':'.3s'
+	})
 	pointId = setInterval(function() {
 		$('#pointer').css({'transform': 'rotate('+nowDeg+'deg)'});
 		if (nowDeg >= 90) {
@@ -219,12 +293,18 @@ function pointPlay(){
 	})
 }
 
-// 포인트 회전 멈춤
+/*
+ * 포인트 회전 멈춤
+ */
 function pointStop(){
 	clearInterval(pointId)
+	//console.log('pointId clearInterval')
 	pointId = null;
 }
 
+/*
+ * 렌덤시간 가져옴
+ */
 function getRan(){
 	return Math.floor(Math.random() * 2000)
 }
