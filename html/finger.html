@@ -41,7 +41,7 @@ body {margin:0; background:#b8e400}
 			<p class="info">날이 떨어지면 <br>손가락을 피하세요.</p>
 			<p class="result">성공</p>
 			<div class="share">
-				<p>1329점 / 31콤보</p>
+				<p id="resultScore"></p>
 				<p><img src="../imgFinger/btn.png" alt="카스로 공유"></p>
 			</div>
 		</div>
@@ -117,8 +117,10 @@ function start(evt){
 	launchCount = 3;
 	pointStop()
 	$('#pointer').on('touchend', end);
-	playId = setInterval(countStart, 1000);
-	countStart();
+	if (playId == null){
+		playId = setInterval(countStart, 1000);
+		countStart();
+	}
 }
 
 /*
@@ -196,13 +198,11 @@ function viewResult(){
 	if (result) {
 		resultTxt = '성공'
 		score = score + ranScore();
-		combo++
+		combo++;
 	} else {
 		resultTxt = '실패'
-		score = 0
-		combo = 0
 	}
-	console.log(score, combo)
+	
 	M('#popup .result')
 		.css('display', 'block')
 		.text(resultTxt)
@@ -219,6 +219,31 @@ function viewResult(){
 		M('#combo').text(combo + ' combo');
 	}
 	setTimeout(resetGame, 1000);
+	$('#pointer').off('touchend');
+	$('#pointer').css('display', 'none');
+
+	if (resultTxt == '실패' && combo > 1) {
+		setTimeout(share, 1500);
+	} else if(resultTxt == '실패' && combo <= 1) {
+		score = 0;
+		combo = 0;
+		M('#combo').text('');
+		M('#score').text('score: 0');
+	}
+}
+
+function share(){
+	M('#popup')
+		.css('display', 'block')
+		.css('scale', '.1')
+		.animate({
+			 'scale': '1'
+			,'time': '.3s'
+		})
+	M('#popup .share')
+		.css('display', 'block')
+
+	M('#resultScore').text(M.toCurrency(score) + '점 / ' + combo + '콤보')
 }
 
 /*
@@ -247,7 +272,7 @@ function knifeDownPlay(){
 	pressing = true;
 	M('#knife').animate({
 		 'top':'12px'
-		,'time':'.25s'
+		,'time':'1s' //.25s
 	}, function(){
 		pressing = false;
 		setTimeout(viewResult, 200)
@@ -261,7 +286,7 @@ function knifeDownPlay(){
 function knifeDownAni(){
 	M('#knife').animate({
 		 'top':'12px'
-		,'time':'0.2s'
+		,'time':'.2s'
 	}, function(){
 		setTimeout(knifeUp, 1000)
 	})
@@ -283,10 +308,16 @@ function knifeUp(){
  */
 function pointPlay(){
 	//console.log('pointId Interval')
-	$('#pointer').animate({
-		 'opacity': '1'
-		,'time':'.3s'
-	})
+	$('#pointer')
+		.css('display', 'block')
+		.animate({
+			 'opacity': '1'
+			,'time':'.3s'
+		})
+	if (pointId != null) {
+		clearInterval(pointId)
+		pointId = null;
+	}
 	pointId = setInterval(function() {
 		$('#pointer').css({'transform': 'rotate('+nowDeg+'deg)'});
 		if (nowDeg >= 90) {
