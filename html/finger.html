@@ -74,7 +74,8 @@ var  nowDeg = 0
 	,intro0 = intro1 = intro2 = intro3 = intro4 = intro5 = null
 	,actionId = null
 	,successRage = false
-	,successResult = false;
+	,successResult = false
+	,actionId0 = actionId1 = actionId2 = null
 
 window.addEventListener('load', ready, false);
 
@@ -87,8 +88,8 @@ function ready(){
  * 인트로
  */
 function introGame(){
-	intro0 = setTimeout(knifePlay, 300, '.3');
-	intro1 = setTimeout(knifeReset, 1300);
+	intro0 = setTimeout(knifePlay, 500, '.3');
+	intro1 = setTimeout(knifeReset, 1400);
 	intro2 = setTimeout(viewPopInfo, 1700);
 	intro3 = setTimeout(hidePop, 3700);
 	intro4 = setTimeout(pointPlay, 3700);
@@ -123,6 +124,9 @@ function resetGame(){
 	successRage = false;
 }
 
+/*
+ * 게임 준비완료
+ */
 function gameReady(){
 	$('#pointer').on('touchstart', gameStart);
 }
@@ -130,19 +134,40 @@ function gameReady(){
 function gameStart(){
 	$('#pointer').on('touchend', gameEnd);
 	countPlay();
-	setTimeout(action, 4000);
+	pointPause();
+	actionId0 = setTimeout(action, 4000);	//카운트 4초후 action
 }
 
+// 랜덤시간후 knifePlay
 function action(){
-	actionId = setTimeout(function(){
+	actionId1 = setTimeout(function(){
 		successRage = true;
 		//knifePlay('.25', actionResult)
 		knifePlay('.8', actionResult);
 	}, getRan());
 }
 
+// knifePlay후 결과반환
 function actionResult(){
 	successRage = false;
+
+	// 카운트 만료
+	if (thisCount == 1) {
+		console.log('실패')
+	} else if (thisCount == 0) {
+		//console.log('카운트만료')
+		if (successResult) {
+			console.log('성공')
+		} else {
+			console.log('실패')
+		}
+	} else {
+		console.log('무시')
+	}
+
+	console.log(thisCount, successResult)
+
+	return	
 	if (successResult) {
 		resultTxt = '성공';
 		setScore()
@@ -150,20 +175,48 @@ function actionResult(){
 	} else {
 		resultTxt = '실패';
 	}
-	setTimeout(viewPopResult, 500, resultTxt)
+	actionId2 = setTimeout(viewPopResult, 500, resultTxt)	// 성공유무 팝업보기
 }
 
+// 터치종료
 function gameEnd(){
 	if (successRage) {
 		successResult = true;
 	} else {
 		successResult = false;
 	}
-	console.log('reuslt: '+successResult)
+
+	actionResult()
+	return;
+
+	
+
+	if (thisCount < 2) {
+		if (successResult) {
+			console.log('성공')
+		} else {
+			console.log('실패')
+		}
+	} else {
+		console.log('무시')
+	}
+	
+	//console.log('reuslt: '+successResult)
 	$('#pointer').off('touchend');
 	countKill();
+	gameStop();
+	pointPlay();
 }
 
+// 게임 강제종료
+function gameStop() {
+	clearTimeout(actionId0)
+	clearTimeout(actionId1)
+	clearTimeout(actionId2)
+	actionId0 = actionId1 = actionId2 = null
+}
+
+// 다시하기
 function replay(){
 	knifeReset();
 	hidePop();
@@ -187,8 +240,8 @@ function getScore(){
  * 카운트제어
  */
 function countPlay(){
+	thisCount = 4;
 	killPop();
-	pointPause();
 	M('#popCount').css('display', 'block')
 	countAnimate()
 	countId = setInterval(countAnimate, 1000)
@@ -197,14 +250,16 @@ function countPlay(){
 function countAnimate() {
 	thisCount--;
 	if (thisCount == 0) {
-		thisCount = 'GO'
+		countTxt = 'GO'
 		clearInterval(countId)
 		countId = null
 		setTimeout(countKill, 1000)
+	} else {
+		countTxt = thisCount
 	}
 	M('#popCount')
 		.css('scale', '0.1')
-		.text(thisCount)
+		.text(countTxt)
 		.animate({
 			 'scale': '1'
 			,'time': '.3s'
@@ -217,7 +272,6 @@ function countKill(){
 		countId = null
 	}
 	M('#popCount').css('display', 'none')
-	thisCount = 4;
 	//pointPlay();
 }
 
@@ -283,7 +337,7 @@ function hidePop(){
 			 'scale': '0'
 			,'time': '.3s'
 		}, function(){
-			killPop()
+			//killPop()
 		})
 }
 
