@@ -110,7 +110,7 @@ function executeKakaoStoryLink(){
 	postMsg += 'http://goo.gl/r66cA\n';
 	
 	urlMsg = {
-		title: data.color,
+		title: '색깔로 알아보는 심리테스트',
 		desc: '나는 ' + data.result + '입니다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data.img],
 		type:'article'
@@ -121,7 +121,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '색깔로 알아보는 심리테스트',
+		appname : data.color,
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
@@ -166,7 +166,7 @@ dataFemale = [
 	{'img': 'colorF4.jpg', 'color': '연두색', 'result': '상큼한 여자'},
 	{'img': 'colorF5.jpg', 'color': '파란색', 'result': '시원한 여자'},
 	{'img': 'colorF6.jpg', 'color': '보라색', 'result': '섹시한 여자'},
-	{'img': 'colorF7.jpg', 'color': '연보라색', 'result': '펑퍼지한 여자'},
+	{'img': 'colorF7.jpg', 'color': '연보라색', 'result': '펑퍼짐한 여자'},
 	{'img': 'colorF8.jpg', 'color': '갈색', 'result': '고독한 여자'},
 	{'img': 'colorF9.jpg', 'color': '검정색', 'result': '카리스마 있는 여자'},
 	{'img': 'colorF10.jpg', 'color': '하늘색', 'result': '싱그러운 여자'},
