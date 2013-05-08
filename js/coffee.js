@@ -44,21 +44,21 @@ function executeKakaoStoryLink(){
 	postMsg += '주문하신 ' + data.coffee + ' 나오셨습니다.\n';
 	postMsg += data.result + '\n\n';
 	
-	postMsg += 'http://goo.gl/DC9X8\n';
+	postMsg += 'http://goo.gl/bOJ1a\n';
 	
 	urlMsg = {
-		title: '색깔로 알아보는 심리테스트',
-		desc: '나는 ' + data.result + '입니다.',
+		title: '커피로 알아보는 연예 심리테스트',
+		desc: '나는 ' + data.coffee + '를 좋아합니다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data.img],
 		type:'article'
 	}
-	console.log(postMsg)
+	console.log(urlMsg)
 
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : data.alpha,
+		appname : data.coffee,
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
@@ -66,11 +66,11 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "뭐 내세울게 있나요?",
-		url: "http://goo.gl/DC9X8",
+		msg: '커피로 알아보는 연예 심리테스트',
+		url: 'http://goo.gl/bOJ1a',
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "색깔로 알아보는 심리테스트",
+		appname: "커피로 알아보는 연예 심리테스트",
 		type: "link"
 	});
 }
