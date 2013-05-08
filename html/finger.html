@@ -219,7 +219,7 @@ function gameStart(evt){
 	$('#pointer').on('touchend', gameEnd);
 	countPlay();
 	pointPause();
-	actionId0 = setTimeout(action, 4000);	//카운트 4초후 action
+	actionId0 = setTimeout(action, 3000);	//카운트 3초후 action 칼떨어짐
 }
 
 // 랜덤시간후 knifePlay
@@ -230,6 +230,7 @@ function action(){
 		successRage = true;
 		speed = 0.4 - combo * 0.02
 		knifePlay('.3', actionResult)
+		goPlay();
 		//knifePlay('.8', actionResult);
 	}, getRan());
 }
@@ -322,6 +323,20 @@ function resetScore(){
 /*
  * 카운트제어
  */
+function goPlay(){
+	killPop();
+	M('#popCount')
+		.css('display', 'block')
+		.css('scale', '1.5')
+		.text('GO')
+		.animate({
+			 'scale': '.1'
+			,'time': '.2s'
+		}, function(evt, mp){
+			mp.css('display', 'none')
+		})
+}
+
 function countPlay(){
 	thisCount = 4;
 	killPop();
@@ -336,7 +351,8 @@ function countAnimate() {
 		countTxt = 'GO'
 		clearInterval(countId)
 		countId = null
-		setTimeout(countKill, 1000)
+		countKill();
+		return;
 	} else {
 		countTxt = thisCount
 	}
@@ -519,7 +535,7 @@ function pointPause(){
  * 렌덤시간 가져옴
  */
 function getRan(){
-	return Math.floor(Math.random() * 2000)
+	return Math.floor(Math.random() * 4000)
 }
 
 function ranScore(){
