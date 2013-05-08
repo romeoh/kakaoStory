@@ -187,7 +187,8 @@ function nextGame(flag){
 	}, 2000)
 }
 
-function gameStart(){
+function gameStart(evt){
+	evt.preventDefault();
 	successResult = null
 	$('#pointer').off('touchend');
 	$('#pointer').on('touchend', gameEnd);
