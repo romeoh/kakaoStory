@@ -110,7 +110,7 @@ function executeKakaoStoryLink(){
 	postMsg += 'http://goo.gl/r66cA\n';
 	
 	urlMsg = {
-		title: '색깔로 알아보는 심리테스트',
+		title: data.color,
 		desc: '나는 ' + data.result + '입니다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data.img],
 		type:'article'
