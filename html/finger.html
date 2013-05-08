@@ -81,6 +81,37 @@ window.addEventListener('load', ready, false);
 
 function ready(){
 	window.scrollTo(0, 0);
+	$('#btnReply').on('click', function(){
+		gameReady();
+		hidePop();
+		pointPlay();
+		resetScore();
+	})
+	$('#btnShare').on('click', function(){
+		var postMsg = ''
+		postMsg += '[손가락 루이16세]\n\n';
+		postMsg += '최고점수: ' + score + '점 획득!!\n';
+		postMsg += combo + ' 콤보를 달성했습니다.\n\n';
+		
+		postMsg += '다시 도전하기 http://goo.gl/u3vjV\n';
+		
+		urlMsg = {
+			title: '[웹게임] 손가락 루이16세',
+			desc: '최고점수: ' + score + '점, ' + combo + ' 콤보 달성',
+			imageurl: ['http://romeoh.github.io/kakaoStory/img/'],
+			type:'article'
+		}
+		console.log(postMsg, urlMsg)
+
+		kakao.link("story").send({   
+	        post : postMsg,
+	        appid : 'funnyApp',
+			appver : '1.0',
+			appname : '손가락 루이 16세',
+			urlinfo : JSON.stringify(urlMsg)
+	    });
+	})
+	
 	introGame();
 }
 
@@ -131,7 +162,34 @@ function gameReady(){
 	$('#pointer').on('touchstart', gameStart);
 }
 
+function nextGame(flag){
+	//console.log('nextGame', combo, flag)
+	if (flag === 0 && combo >= 2) {
+		console.log('공유하기')
+		setTimeout(function(){
+			viewPopShare();
+			$('#pointer').off('touchstart');
+			$('#pointer').off('touchend');
+		}, 2000);
+		return;
+	} else if (flag === 1) {
+		//console.log('성공')
+	}
+	
+	setTimeout(function(){
+		knifeReset();
+		hidePop();
+		pointPlay();
+		if (flag === 0) {
+			resetScore();
+		}
+		//gameReady();
+	}, 2000)
+}
+
 function gameStart(){
+	successResult = null
+	$('#pointer').off('touchend');
 	$('#pointer').on('touchend', gameEnd);
 	countPlay();
 	pointPause();
@@ -153,29 +211,41 @@ function actionResult(){
 
 	// 카운트 만료
 	if (thisCount == 1) {
-		console.log('실패')
+		gameStop();
+		resultTxt = '실패';
+		actionId2 = setTimeout(viewPopResult, 100, resultTxt);	// 성공유무 팝업보기
+		nextGame(0);
+		console.log('빠름 실패')
 	} else if (thisCount == 0) {
 		//console.log('카운트만료')
-		if (successResult) {
+		if (successResult === true) {
+			resultTxt = '성공';
+			actionId2 = setTimeout(viewPopResult, 500, resultTxt);	// 성공유무 팝업보기
+			setScore();
+			nextGame(1);
 			console.log('성공')
+		} else if (successResult === null) {
+			resultTxt = '실패';
+			actionId2 = setTimeout(viewPopResult, 100, resultTxt);	// 성공유무 팝업보기
+			$('#pointer').off('touchend');
+			nextGame(0);
+			console.log('늦었음 실패')
 		} else {
-			console.log('실패')
+			gameStop();
+			resultTxt = '실패';
+			actionId2 = setTimeout(viewPopResult, 100, resultTxt);	// 성공유무 팝업보기
+			nextGame(0);
+			console.log('대기중 실패')
 		}
 	} else {
+		resultTxt = '실패';
+		gameStop();
+		countKill();
+		pointPlay();
 		console.log('무시')
 	}
 
-	console.log(thisCount, successResult)
-
-	return	
-	if (successResult) {
-		resultTxt = '성공';
-		setScore()
-		setTimeout(replay, 2000)
-	} else {
-		resultTxt = '실패';
-	}
-	actionId2 = setTimeout(viewPopResult, 500, resultTxt)	// 성공유무 팝업보기
+	//console.log('최종결과: ',resultTxt)
 }
 
 // 터치종료
@@ -187,25 +257,6 @@ function gameEnd(){
 	}
 
 	actionResult()
-	return;
-
-	
-
-	if (thisCount < 2) {
-		if (successResult) {
-			console.log('성공')
-		} else {
-			console.log('실패')
-		}
-	} else {
-		console.log('무시')
-	}
-	
-	//console.log('reuslt: '+successResult)
-	$('#pointer').off('touchend');
-	countKill();
-	gameStop();
-	pointPlay();
 }
 
 // 게임 강제종료
@@ -232,8 +283,11 @@ function setScore(){
 	M('#combo').text(combo + ' combo');
 }
 
-function getScore(){
-	
+function resetScore(){
+	score = 0
+	combo = 0
+	M('#score').text('score: 0');
+	M('#combo').text('');
 }
 
 /*
@@ -361,7 +415,9 @@ function knifePlay(speed, cb){
 		,'time': speed + 's' //.25s
 	}, function(){
 		if (typeof cb == 'function') {
-			cb();
+			if (!successResult) {
+				cb();
+			}
 		}
 	})
 }
