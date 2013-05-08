@@ -129,7 +129,7 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "뭐 내세울게 있나요?",
+		msg: "색깔로 알아보는 심리테스트",
 		url: "http://goo.gl/r66cA",
 		appid: "funnyApp",
 		appver: "1.0",

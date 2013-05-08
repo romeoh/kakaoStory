@@ -44,7 +44,7 @@ function executeKakaoStoryLink(){
 	postMsg += '나는 ' + data.alpha + '을 좋아하는\n';
 	postMsg += data.result + '입니다.\n\n';
 	
-	postMsg += 'http://goo.gl/r66cA\n';
+	postMsg += 'http://goo.gl/DC9X8\n';
 	
 	urlMsg = {
 		title: '색깔로 알아보는 심리테스트',
@@ -67,7 +67,7 @@ function executeKakaoStoryLink(){
 function executeURLLink() {
 	kakao.link("talk").send({
 		msg: "뭐 내세울게 있나요?",
-		url: "http://goo.gl/r66cA",
+		url: "http://goo.gl/DC9X8",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "색깔로 알아보는 심리테스트",
