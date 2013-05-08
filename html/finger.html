@@ -199,7 +199,9 @@ function nextGame(flag){
 		}, 2000);
 		return;
 	} else if (flag === 1) {
-		//console.log('성공')
+		$('#pointer').off('touchstart');
+		$('#pointer').off('touchend');
+		setTimeout(gameReady, 2000)
 	}
 	
 	setTimeout(function(){
