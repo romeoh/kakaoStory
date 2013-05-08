@@ -224,8 +224,11 @@ function gameStart(evt){
 
 // 랜덤시간후 knifePlay
 function action(){
+	var speed;
+
 	actionId1 = setTimeout(function(){
 		successRage = true;
+		speed = 0.4 - combo * 0.02
 		knifePlay('.3', actionResult)
 		//knifePlay('.8', actionResult);
 	}, getRan());
