@@ -74,7 +74,7 @@ function executeURLLink() {
 		url: 'http://goo.gl/wb8IF',
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "섹시한여성을 봤을때 당신의 행동은?",
+		appname: "심리테스트",
 		type: "link"
 	});
 }
