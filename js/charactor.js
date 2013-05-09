@@ -72,7 +72,7 @@ dataCharactor = [
 	{'nickName': '먹방지존', 'name': '윤후', 'corner': '아빠어디가?! ', 'article': '잘 먹을거 같습니다.', 'photo': 'charactor0.jpg'},
 	{'nickName': '성선비', 'name': '성준', 'corner': '아빠어디가?! ', 'article': '선비같습니다.', 'photo': 'charactor1.jpg'},
 	{'nickName': '의리남', 'name': '민국', 'corner': '아빠어디가?! ', 'article': '의리 있어 보입니다.', 'photo': 'charactor2.jpg'},
-	{'nickName': '쿨한', 'name': '준수', 'corner': '아빠어디가?! ', 'article': '쿠~울 합니다.', 'photo': 'charactor3.jpg'},
+	{'nickName': '쿨가이', 'name': '준수', 'corner': '아빠어디가?! ', 'article': '쿠~울 합니다.', 'photo': 'charactor3.jpg'},
 	{'nickName': '허당', 'name': '이승기', 'corner': '', 'article': '엉뚱해 보입니다.', 'photo': 'charactor4.jpg'},
 	{'nickName': '유느님', 'name': '유재석', 'corner': '런닝맨 ', 'article': '전설입니다.', 'photo': 'charactor5.jpg'},
 	{'nickName': '은초딩', 'name': '은지원', 'corner': '', 'article': '유치합니다.', 'photo': 'charactor6.jpg'},
