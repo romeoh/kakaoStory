@@ -34,13 +34,13 @@ function executeKakaoStoryLink(){
 		alert('이름을 입력해 주세요.');
 		return false;
 	}
-	postMsg += '[내가 하면 더 잘할 예능 캐릭터]\n\n';
+	postMsg += '[나에게 어울리는 예능 캐릭터]\n\n';
 	postMsg += userName + '님의 캐릭터는 ' + dataCharactor[dataCharactorRan]['corner'] + dataCharactor[dataCharactorRan]['nickName'] + ' ' + dataCharactor[dataCharactorRan]['name'] + '입니다.\n';
 	postMsg += '다 필요없고, ' + userName + '님이 더 ' + dataCharactor[dataCharactorRan]['article'] + '\n\n';
 	postMsg += 'http://goo.gl/TxVbO';
 
 	urlMsg = {
-		title: '내가 하면 더 잘할 예능 캐릭터',
+		title: '나에게 어울리는',
 		desc: userName + '님은 ' + dataCharactor[dataCharactorRan]['nickName'] + '입니다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + dataCharactor[dataCharactorRan]['photo'] ],
 		type:'article'
@@ -58,7 +58,7 @@ console.log(urlMsg)
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "내가 하면 더 잘할 예능 캐릭터",
+		msg: "나에게 어울리는",
 		url: "http://goo.gl/TxVbO",
 		appid: "funnyApp",
 		appver: "1.0",
