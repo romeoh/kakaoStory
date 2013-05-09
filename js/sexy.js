@@ -48,12 +48,12 @@ function executeKakaoStoryLink(){
 	postMsg += '(결과)\n';
 	postMsg += data.result + '\n\n';
 	
-	postMsg += 'http://goo.gl/bOJ1a\n';
+	postMsg += 'http://goo.gl/wb8IF\n';
 	
 	urlMsg = {
 		title: '[섹시한여성을 봤을때 당신의 행동은?]',
-		desc: '나는 ' + data.coffee + '를 좋아합니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data.img],
+		desc: '공공장소에서 섹시한 여성을 봤을때 어떤 행동을 하나요?',
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/'],
 		type:'article'
 	}
 	console.log(postMsg)
@@ -70,11 +70,11 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: '커피로 알아보는 연예 심리테스트',
-		url: 'http://goo.gl/bOJ1a',
+		msg: '섹시한여성을 봤을때 당신의 행동은?',
+		url: 'http://goo.gl/wb8IF',
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "커피로 알아보는 연예 심리테스트",
+		appname: "섹시한여성을 봤을때 당신의 행동은?",
 		type: "link"
 	});
 }
