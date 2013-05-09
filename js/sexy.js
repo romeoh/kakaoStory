@@ -3,14 +3,10 @@ var  ua = navigator.userAgent
 		(/android/gi).test(ua) ? "android" :
 		(/mac/gi).test(ua) ? "macOS" : 
 		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
 	,btnStory = document.querySelector('#btnStory')
 	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+	,radioList = document.querySelectorAll('[type="radio"]')
+	,selected = ''
 
 if (os == 'ios' || os == 'android') {
 	//init();
@@ -24,35 +20,43 @@ if (os == 'ios' || os == 'android') {
 window.addEventListener('DOMContentLoaded', function(){
 	btnStory.addEventListener('click', executeKakaoStoryLink, false);
 	btnKakao.addEventListener('click', executeURLLink, false);
+	
 }, false);
 
 
 //  카카오 스토리
 function executeKakaoStoryLink(){
 	var  postMsg = ''
-		,selAlpha = document.querySelector('#selAlpha')
-		,data
 	
-	if (selAlpha.value == '') {
-		alert('주문 하시겠어요?');
+	for (var i=0; i<radioList.length; i++) {
+		if (radioList[i].checked) {
+			selected = i
+		}
+	}
+	
+	if (selected === '') {
+		alert('당신의 행동을 선택하세요.');
 		return;
 	}
 	
-	data = dataAlpha[selAlpha.value]
+
+
+	data = dataSexy[selected]
 	
-	postMsg += '[커피로 알아보는 연예 심리테스트]\n\n';
-	postMsg += '주문하신 ' + data.coffee + ' 나오셨습니다.\n';
+	postMsg += '[섹시한여성을 봤을때 당신의 행동은?]\n\n';
+	postMsg += data.title + '\n\n';
+	postMsg += '(결과)\n';
 	postMsg += data.result + '\n\n';
 	
 	postMsg += 'http://goo.gl/bOJ1a\n';
 	
 	urlMsg = {
-		title: '커피로 알아보는 연예 심리테스트',
+		title: '[섹시한여성을 봤을때 당신의 행동은?]',
 		desc: '나는 ' + data.coffee + '를 좋아합니다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data.img],
 		type:'article'
 	}
-	console.log(urlMsg)
+	console.log(postMsg)
 
 	kakao.link("story").send({   
         post : postMsg,
@@ -77,22 +81,12 @@ function executeURLLink() {
 
 
 // 남자
-dataAlpha = [
-	{'img': 'coffee0.jpg', 'coffee': '아이스모카', 'result': '아주 매혹적인 분이십니당~ 하지만 정작 본인은 모르고 계세요~ \n자기가 그렇게 매력적인 사람이라고는 생각도 못하고있죠 ^^'},
-	{'img': 'coffee1.jpg', 'coffee': '카푸치노', 'result': '아주 정열적이고 낙천저긴 분이세요~\n야심이 있는 타입이라고 할까요? 하지만 때로는 그냥 지나쳐버리는 경우도 많아요.\n그래서 이걸 잘 제어해줄사람을 좋아합니다~'},
-	{'img': 'coffee2.jpg', 'coffee': '아메리카노', 'result': '아주 적극적이면서도 책임감이 강한 분이시군요 ^^\n로맨틱한 연애를 추구하고 있지는 않나요?? 그런것같은데??'},
-	{'img': 'coffee3.jpg', 'coffee': '녹차 프라프치노', 'result': '뒤에서 상대를 후원해주거나 받쳐주는 그런타입이에요 \n사려가 깊고 성실한 성격이기 때문에 일에서도 연애에서도 언제나 \n키다리아저씨처럼 ^^'},
-	{'img': 'coffee4.jpg', 'coffee': '카페오레', 'result': '마음이 편안한 남녀 관계를 추구하는 분이시군요.\n'},
-	{'img': 'coffee5.jpg', 'coffee': '녹차라떼', 'result': '이것저것 걱정이 많으신 타입이네요. \n연애에 있어서도 내성적이라 상대방이 적극적으로 다가와주길 바라고있습니다. '}
+dataSexy = [
+	{'img': 'coffee0.jpg', 'title': '상대방이 나의 시선을 의식할 때 까지 주구장창 죽도록 쳐다본다.', 'result': '이런 사람 중엔 오히려 성실한 성격의 사람이 많다고 합니다. \n자신의 마음을 상대방에게 알리려는 성격으로 거짓이 없고 솔직한 성격의 소유자이구요. \n앞으로 누군가 나를 주구장창 쳐다본다면 상대는 성실한 사람일 가능성이 매우 높다고 생각하세요.'},
+	{'img': 'coffee0.jpg', 'title': '상대방에게 한번만 시선을 주고, 일부러 눈길을 돌린다.', 'result': '이성과 대화나 맘에 드는 이성에게 한번만 시선을 주고 일부러 눈길을 돌려 다시 보려고 들지 않는 사람일 수록 성적욕구가 강한 사람일 가능성이 매우 높습니다. \n상대에게 상당한 관심을 가지고 있지만 억압이란 것이 강하게 작용하여 스스로를 자제하는 타입들이라고 합니다..'},
+	{'img': 'coffee0.jpg', 'title': '상대방이 눈치 채지 못하게 계속해서 곁눈질을 한다.', 'result': '곁눈질을 하는 사람은 상대방에게 관심이 있지만 그것을 들키고 싶지 않은 타입 입니다. \n자신이 보고 있다는 것을 눈치 채이지 않게 일부로 얼굴을 움직이지 않고 시선만 옆으로 보내는 타입으로 \n계속 곁눈질을 하는 사람은 상대에 대한 관심이나 욕구가 강할수록 더욱 곁눈질을 하게 됩니다.'},
+	{'img': 'coffee0.jpg', 'title': '상대방을 향해 눈을 내리 깔았다가 다시 치켜 올려보기를 반복한다.', 'result': '시선을 옆으로 돌리지 않고 올려다 봤다 내려다 봤다를 반복한다면 그것은 상대방에 대한 존경과 신뢰가 담긴 표정입니다. \n만약 여성이 남성을 이런식으로 쳐다본다면 더욱 더 그 상대방을 존경하고 있다는 표시입니다. \n혹자들은 오히려 자신이 무시당하고 있다고 기분 나빠하지만 사실은 당신을 존중한다는 것을 명심하세요.'}
 ]
-
- 
- 
- 
- 
- 
-
-
 
 
 
