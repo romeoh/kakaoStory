@@ -53,7 +53,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '[섹시한여성을 봤을때 당신의 행동은?]',
 		desc: '공공장소에서 섹시한 여성을 봤을때 어떤 행동을 하나요?',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/'],
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/sexy.jpg'],
 		type:'article'
 	}
 	console.log(postMsg)
@@ -62,7 +62,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : data.coffee,
+		appname : '심리테스트',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
