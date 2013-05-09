@@ -27,35 +27,30 @@ function initPage(){
 function executeKakaoStoryLink(){
 	var  sexType
 		,userName = document.querySelector('#userName').value
-		,resultName, resultPhoto, resultMsg
-		,message
 		,postMsg = ''
-		,dataDrinkRan = Math.floor(Math.random() * dataDrink.length)
-		,dataMountRan = Math.floor(Math.random() * dataMount.length)
-		,dataActionRan = Math.floor(Math.random() * dataAction.length)
+		,dataCharactorRan = Math.floor(Math.random() * dataCharactor.length)
 	
 	if (userName == '') {
 		alert('이름을 입력해 주세요.');
 		return false;
 	}
-
-	postMsg += userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.\n\n';
-	postMsg += '주량: ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '\n';
-	postMsg += '주사: ' + dataAction[dataActionRan] + '\n\n';
-	postMsg += 'http://goo.gl/BCCnn';
+	postMsg += '[내가 하면 더 잘할 예능 캐릭터]\n\n';
+	postMsg += userName + '님의 캐릭터는 ' + dataCharactor[dataCharactorRan]['corner'] + dataCharactor[dataCharactorRan]['nickName'] + ' ' + dataCharactor[dataCharactorRan]['name'] + '입니다.\n';
+	postMsg += '다 필요없고, ' + userName + '님이 더 ' + dataCharactor[dataCharactorRan]['article'] + '\n\n';
+	postMsg += 'http://goo.gl/TxVbO';
 
 	urlMsg = {
-		title: '나의 주량 알아보기',
-		desc: userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgDrink/' + dataDrink[dataDrinkRan]['photo'] ],
+		title: '내가 하면 더 잘할 예능 캐릭터',
+		desc: userName + '님은 ' + dataCharactor[dataCharactorRan]['nickName'] + '입니다.',
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + dataCharactor[dataCharactorRan]['photo'] ],
 		type:'article'
 	}
-
+console.log(urlMsg)
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '나와 스캔들날 연예인',
+		appname : '나의 예능 캐릭터',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
@@ -63,63 +58,43 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "커피한잔 하실래요?",
-		url: "http://goo.gl/FSBT3",
+		msg: "내가 하면 더 잘할 예능 캐릭터",
+		url: "http://goo.gl/TxVbO",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "연예인과 커피한잔",
+		appname: "나의 예능 캐릭터",
 		type: "link"
 	});
 }
 
 
-
-
-dataDrink = [
-	{'name':'소주', photo:'d01.jpg'},
-	{'name':'맥주', photo:'d02.jpg'},
-	{'name':'막걸리', photo:'d03.jpg'},
-	{'name':'예거마이스터', photo:'d04.jpg'},
-	{'name':'로얄살루트 21년산', photo:'d05.jpg'},
-	{'name':'발렌타인 30년산', photo:'d06.jpg'},
-	{'name':'잭다니엘', photo:'d07.jpg'},
-	{'name':'스카치블루', photo:'d08.jpg'},
-	{'name':'위스키', photo:'d09.jpg'},
-	{'name':'시바스리갈', photo:'d10.jpg'}
+dataCharactor = [
+	{'nickName': '먹방지존', 'name': '윤후', 'corner': '아빠어디가?! ', 'article': '잘 먹을거 같습니다.', 'photo': 'charactor0.jpg'},
+	{'nickName': '성선비', 'name': '성준', 'corner': '아빠어디가?! ', 'article': '선비같습니다.', 'photo': 'charactor1.jpg'},
+	{'nickName': '의리남', 'name': '민국', 'corner': '아빠어디가?! ', 'article': '의리 있어 보입니다.', 'photo': 'charactor2.jpg'},
+	{'nickName': '쿨한', 'name': '준수', 'corner': '아빠어디가?! ', 'article': '쿠~울 합니다.', 'photo': 'charactor3.jpg'},
+	{'nickName': '허당', 'name': '이승기', 'corner': '', 'article': '엉뚱해 보입니다.', 'photo': 'charactor4.jpg'},
+	{'nickName': '유느님', 'name': '유재석', 'corner': '런닝맨 ', 'article': '전설입니다.', 'photo': 'charactor5.jpg'},
+	{'nickName': '은초딩', 'name': '은지원', 'corner': '', 'article': '유치합니다.', 'photo': 'charactor6.jpg'},
+	{'nickName': '배신의 아이콘', 'name': '이광수', 'corner': '런닝맨 ', 'article': '못 미덥습니다.', 'photo': 'charactor7.jpg'},
+	{'nickName': '능력자', 'name': '김종국', 'corner': '런닝맨 ', 'article': '멋집니다.', 'photo': 'charactor8.jpg'},
+	{'nickName': '깝권', 'name': '조권', 'corner': '2AM ', 'article': '깝칩니다.', 'photo': 'charactor9.jpg'},
+	{'nickName': '망했어요', 'name': '차태현', 'corner': '1박2일 ', 'article': '불쌍합니다.', 'photo': 'charactor10.jpg'},
+	{'nickName': '돌직구', 'name': '한혜진', 'corner': '힐링캠프 ', 'article': '무섭습니다.', 'photo': 'charactor11.jpg'},
+	{'nickName': '달인', 'name': '김병만', 'corner': '정글의 법칙 ', 'article': '야생스럽습니다.', 'photo': 'charactor12.jpg'},
+	{'nickName': '거지도령', 'name': '광희', 'corner': '우결 ', 'article': '그~지 같습니다.', 'photo': 'charactor13.jpg'},
+	{'nickName': '소녀동', 'name': '강호동', 'corner': '우리동네 예체능 ', 'article': '소녀감성입니다.', 'photo': 'charactor14.jpg'},
+	{'nickName': '건방진도사', 'name': '유세윤', 'corner': '무릅팍도사 ', 'article': '시건방집니다.', 'photo': 'charactor15.jpg'},
+	{'nickName': '사기본능', 'name': '노홍철', 'corner': '무한도전 ', 'article': '야비합니다.', 'photo': 'charactor16.jpg'},
+	{'nickName': '배신계의 샛별', 'name': '성규', 'corner': '더 지니어스 ', 'article': '못 미덥습니다.', 'photo': 'charactor17.jpg'},
+	{'nickName': '호주출신개그맨', 'name': '쌤 해밍턴', 'corner': '진짜사나이 ', 'article': '이국적입니다.', 'photo': 'charactor18.jpg'},
+	{'nickName': '탁구의 신', 'name': '조달환', 'corner': '우리동네 예체능 ', 'article': '잘칠거 같습니다.', 'photo': 'charactor19.jpg'},
+	{'nickName': '빈티싱글남', 'name': '김광규', 'corner': '나혼자산다 ', 'article': '웃껴보입니다.', 'photo': 'charactor20.jpg'},
+	{'nickName': '정과장', 'name': '정준하', 'corner': '무한도전 ', 'article': '혐오 스럽습니다.', 'photo': 'charactor21.jpg'}
+	
 ]
 
-dataMount = [
-	'한잔',
-	'두잔',
-	'세잔',
-	'한병',
-	'두병',
-	'세병',
-	'네병',
-	'다섯병',
-	'열병',
-	'한짝',
-	'두짝',
-	'세짝',
-	'무제한'
-]
 
-dataAction = [
-	'옆사람에게 뽀뽀함',
-	'옆사람을 포옹함',
-	'했던말 계속함',
-	'엄마생각하며 울기',
-	'끊임없이 웃음',
-	'똥폼잡음',
-	'줄담배 피기',
-	'조용히 잠자기',
-	'없어져서 친구들이 찾으러 다님',
-	'조용히 집에감',
-	'화장실에서 우엑~',
-	'옆테이블에 시비걸기',
-	'큰소리로 노래부름',
-	'골든벨 울리기'
-]
 
 
 
