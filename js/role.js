@@ -42,7 +42,7 @@ function executeKakaoStoryLink(){
 	postMsg += 'http://goo.gl/HaHyR';
 
 	urlMsg = {
-		title: '나의 롤모델',
+		title: dataCharactor[dataCharactorRan]['article'] ,
 		desc: '나의 롤모델은 ' + dataCharactor[dataCharactorRan]['nickName'] + dataCharactor[dataCharactorRan]['name'] + '입니다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + dataCharactor[dataCharactorRan]['photo'] ],
 		type:'article'
