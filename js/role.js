@@ -37,7 +37,7 @@ function executeKakaoStoryLink(){
 		return false;
 	}
 	postMsg += '[나의 롤모델]\n\n';
-	postMsg += userName + '님의 롤모델은 ' + dataCharactor[dataCharactorRan]['nickName'] + ' ' + dataCharactor[dataCharactorRan]['name'] + '입니다.\n';
+	postMsg += userName + '님의 롤모델은 ' + dataCharactor[dataCharactorRan]['nickName'] + dataCharactor[dataCharactorRan]['name'] + '입니다.\n';
 	postMsg += dataCharactor[dataCharactorRan]['article'] + '\n\n';
 	postMsg += 'http://goo.gl/HaHyR';
 
@@ -47,7 +47,7 @@ function executeKakaoStoryLink(){
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + dataCharactor[dataCharactorRan]['photo'] ],
 		type:'article'
 	}
-console.log(urlMsg)
+console.log(postMsg)
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
