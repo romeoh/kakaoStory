@@ -55,7 +55,7 @@ function executeKakaoStoryLink(){
 	img = dataBlood[idx]['img']
 
 	postMsg += '[별자리+혈액형 성격테스트]\n\n';
-	postMsg += starName + '(' + birth + '), ' + selBlood.value + '형입니다.\n',
+	postMsg += starName + '(' + birth + '), ' + selBlood.value + '형 입니다.\n',
 	postMsg += result + '\n\n';
 	
 	postMsg += 'http://goo.gl/LR7Lf\n';
