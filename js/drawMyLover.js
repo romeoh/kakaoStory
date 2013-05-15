@@ -48,7 +48,7 @@ function executeKakaoStoryLink(){
 	}
 	
 	if (boySelect.className == 'checked') {
-		face = dataMaleFace[Math.floor(Math.random() * dataMaleFace.length)]
+		face = dataFemaleFace[Math.floor(Math.random() * dataFemaleFace.length)]
 		char = dataCha[Math.floor(Math.random() * dataCha.length)]
 		body = dataBody[Math.floor(Math.random() * dataBody.length)]
 		enter = dataMale[Math.floor(Math.random() * dataMale.length)]
@@ -62,32 +62,35 @@ function executeKakaoStoryLink(){
 		postMsg += '성격: ' + char + ' \n';
 		postMsg += '몸매: ' + body + ' \n';
 		postMsg += '닮은 연예인: ' + enter['name'] + ' \n\n';
-		postMsg += '\n\n';
+		postMsg += 'http://goo.gl/fZCtx \n\n';
 
-console.log(postMsg)
-		dataRan = Math.floor(Math.random() * dataFemale.length)
-		data = dataFemale[dataRan]
-		img = 'http://romeoh.github.io/kakaoStory/img/loverMan.jpg'
 	} else if (girlSelect.className == 'checked') {
-		// 여자일 경우
+		face = dataMaleFace[Math.floor(Math.random() * dataMaleFace.length)]
+		char = dataCha[Math.floor(Math.random() * dataCha.length)]
+		body = dataBody[Math.floor(Math.random() * dataBody.length)]
+		enter = dataFemale[Math.floor(Math.random() * dataFemale.length)]
+		
+
+		// 여자 경우
 		postMsg += '[내 여친의 조건]\n\n';
-		dataRan = Math.floor(Math.random() * dataMale.length)
-		data = dataMale[dataRan]
-		img = 'http://romeoh.github.io/kakaoStory/img/loverWoman.jpg'
+		postMsg += '키: ' + getRandom(140, 200) + 'cm \n';
+		postMsg += '몸무게: ' + getRandom(40, 180) + 'kg \n';
+		postMsg += '얼굴: ' + face + ' \n';
+		postMsg += '성격: ' + char + ' \n';
+		postMsg += '몸매: ' + body + ' \n';
+		postMsg += '닮은 연예인: ' + enter['name'] + ' \n\n';
+		postMsg += 'http://goo.gl/fZCtx \n\n';
 	}
 	
-	postMsg += '내 이상형이요? 딴건 안봅니다.\n';
-	postMsg += data + '\n\n';
-	postMsg += 'http://goo.gl/VbOvP\n';
 	
 	urlMsg = {
-		title: '내 이상형의 조건',
-		desc: '딴건 안봅니다.',
+		title: '내 애인 그려보기',
+		desc: '내 애인 그려보기',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + enter['photo'] ],
 		type:'article'
 	}
-	console.log(postMsg)
 
+	console.log(urlMsg)
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
@@ -155,7 +158,7 @@ dataBody = [
 
 
 // 내 남친은
-dataFemale = [
+dataFemaleFace = [
 	'엄청 잘생겼음',
 	'완전 훈남',
 	'조각미남',
@@ -174,7 +177,7 @@ dataFemale = [
 
 
 
-dataMale = [
+dataFemale = [
 	{'name': '강민경', 'photo': 'f01.jpeg', 'msg':''},
 	{'name': '정유미', 'photo': 'f02.jpeg', 'msg':''},
 	{'name': '가인',  'photo': 'f03.jpeg', 'msg':''},
@@ -227,7 +230,7 @@ dataMale = [
 	{'name': '수지',  'photo': 'f50.jpg', 'msg':''}
 ]
 
-dataFemale = [
+dataMale = [
 	{'name': '정석원', 'photo': 'm01.jpeg', 'msg':''},
 	{'name': '이승기', 'photo': 'm02.jpeg', 'msg':''},
 	{'name': '홍대광', 'photo': 'm03.jpeg', 'msg':''},
