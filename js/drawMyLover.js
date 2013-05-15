@@ -52,7 +52,6 @@ function executeKakaoStoryLink(){
 		char = dataCha[Math.floor(Math.random() * dataCha.length)]
 		body = dataBody[Math.floor(Math.random() * dataBody.length)]
 		enter = dataMale[Math.floor(Math.random() * dataMale.length)]
-		
 
 		// 남자일 경우
 		postMsg += '[내 남친의 조건]\n\n';
@@ -69,7 +68,6 @@ function executeKakaoStoryLink(){
 		char = dataCha[Math.floor(Math.random() * dataCha.length)]
 		body = dataBody[Math.floor(Math.random() * dataBody.length)]
 		enter = dataFemale[Math.floor(Math.random() * dataFemale.length)]
-		
 
 		// 여자 경우
 		postMsg += '[내 여친의 조건]\n\n';
@@ -81,8 +79,7 @@ function executeKakaoStoryLink(){
 		postMsg += '닮은 연예인: ' + enter['name'] + ' \n\n';
 		postMsg += 'http://goo.gl/fZCtx \n\n';
 	}
-	
-	
+		
 	urlMsg = {
 		title: '내 애인 그려보기',
 		desc: face,
@@ -90,7 +87,6 @@ function executeKakaoStoryLink(){
 		type:'article'
 	}
 
-	console.log(urlMsg)
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
