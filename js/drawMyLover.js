@@ -85,7 +85,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: '내 애인 그려보기',
-		desc: '내 애인 그려보기',
+		desc: face,
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + enter['photo'] ],
 		type:'article'
 	}
@@ -95,7 +95,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '내 이상형의 조건',
+		appname : '내 애인 그려보기',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
@@ -107,11 +107,11 @@ function getRandom(min, max){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "딴건 안봅니다.",
-		url: "http://goo.gl/VbOvP",
+		msg: "내 애인 그려보기",
+		url: "http://goo.gl/fZCtx",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "내 이상형의 조건",
+		appname: "내 애인 그려보기",
 		type: "link"
 	});
 }
