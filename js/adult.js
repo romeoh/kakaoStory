@@ -58,7 +58,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 			title: '성년의날 받고싶은 선물 3가지',
-			desc: '성년의날 5월 20일',
+			desc: '성년의날',
 			imageurl: ['http://romeoh.github.io/kakaoStory/img/' + dataPresent[present0]['photo']],
 			type:'article'
 		}
