@@ -48,7 +48,7 @@ function executeKakaoStoryLink(){
 		postMsg += '성년의날 받고싶은 선물 3가지\n';
 	}
 
-	setRandom(dataPresent) 
+	setRandom(dataPresent);
 
 	postMsg += '[5월 20일 월요일]\n\n';
 	postMsg += '1. '+dataPresent[present0]['present']+'\n';
