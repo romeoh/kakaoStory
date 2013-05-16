@@ -71,7 +71,7 @@ function executeKakaoStoryLink(){
 		appver : '1.0',
 		appname : '5월 20일',
 		urlinfo : JSON.stringify(urlMsg)
-    });
+    }); 
 }
 
 function setRandom(data){
