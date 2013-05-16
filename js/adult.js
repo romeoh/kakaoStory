@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
 	btnStory.addEventListener('click', executeKakaoStoryLink, false);
 	btnKakao.addEventListener('click', executeURLLink, false);
-} 
+}
 
 //  카카오 스토리
 function executeKakaoStoryLink(){
@@ -58,7 +58,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 			title: '성년의날 받고싶은 선물 3가지',
-			desc: '성년의 날 받고싶은 선물 3가지',
+			desc: '성년의날 5월 20일',
 			imageurl: ['http://romeoh.github.io/kakaoStory/img/' + dataPresent[present0]['photo']],
 			type:'article'
 		}
