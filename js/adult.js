@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
 	btnStory.addEventListener('click', executeKakaoStoryLink, false);
 	btnKakao.addEventListener('click', executeURLLink, false);
-}
+} 
 
 //  카카오 스토리
 function executeKakaoStoryLink(){
