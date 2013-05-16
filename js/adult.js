@@ -69,7 +69,7 @@ function executeKakaoStoryLink(){
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '냉철한 대기업 인재 사냥꾼',
+		appname : '성년의 날 받고싶은 선물 3가지',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
