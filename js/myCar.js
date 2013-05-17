@@ -36,18 +36,19 @@ function executeKakaoStoryLink(){
 		alert('이름을 입력해 주세요.');
 		return false;
 	}
-	postMsg += '[내가 세상에 태어난 이유]\n\n';
-	postMsg += userName + '님이 세상에 태어난 이유는 \n';
-	postMsg += data[dataRan]['result'] + '\n';
-	postMsg += 'http://goo.gl/8ns8E\n';
+	
+	postMsg += '[3년뒤 마이카]\n';
+	postMsg += '3년뒤 ' + userName + '님의 차는 ' + data[dataRan]['car'] + '입니다.\n\n';
+	postMsg += 'http://goo.gl/Vbd2u\n';
 
 	urlMsg = {
-		title: '내가 세상에 태어난 이유',
-		desc: data[dataRan]['result'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/cake.jpg' ],
+		title: '3년뒤 마이카',
+		desc: data[dataRan]['car'],
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[dataRan]['photo'] ],
 		type:'article'
 	}
-console.log(urlMsg)
+console.log(postMsg, urlMsg)
+
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
@@ -60,43 +61,47 @@ console.log(urlMsg)
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "내가 세상에 태어난 이유",
-		url: "http://goo.gl/8ns8E",
+		msg: "3년뒤 마이카",
+		url: "http://goo.gl/Vbd2u",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "내가 세상에 태어난 이유",
+		appname: "3년뒤 마이카",
 		type: "link"
 	});
 }
 
 
 data = [
-	{'result': '돈을 많이 벌어서 잘먹고 잘살기 위해서 입니다.'},
-	{'result': '취직하기 위해서 입니다.'},
-	{'result': '영화배우가 되기 위해서 입니다.'},
-	{'result': '부모님이 시켜서 입니다.'},
-	{'result': '월급을 많이 받고 싶어서 입니다.'},
-	{'result': '결혼하고 싶어서 입니다.'},
-	{'result': '해외여행을 하고 싶어서 입니다.'},
-	{'result': '별 이유 없습니다.'},
-	{'result': '내 의지가 아니었습니다.'},
-	{'result': '생일빵을 받고 싶어서 입니다.'},
-	{'result': '애인이랑 무인도에 놀러가고 싶어서 입니다.'},
-	{'result': '우리나라를 전쟁에서 구하고 싶어서 입니다.'},
-	{'result': '부모님의 실수였습니다.'},
-	{'result': '연예인을 만나보고 싶어서 입니다.'},
-	{'result': '최고의 가수가 되고 싶어서 입니다.'},
-	{'result': '짜장면을 먹고 싶어서 입니다.'},
-	{'result': '우주 여행을 하고싶어서 입니다.'},
-	{'result': '군대에 가보고 싶어서 입니다.'},
-	{'result': '축구 선수가 되고 싶어서 입니다.'},
-	{'result': '모태솔로를 벗어나기 위해서 입니다.'},
-	{'result': '국가 기밀입니다.'},
-	{'result': '일진이 되고 싶어서 입니다.'},
-	{'result': '주차요원이 되고 싶어서 입니다.'},
-	{'result': '사랑받기 위해 태어났습니다.'},
-	{'result': '욕먹고 싶어서 태어났습니다.'},
-	{'result': '해적이 되고 싶어서 입니다.'}
+	{'photo': 'car0.jpg',  'car': 'SM5 TCE'},
+	{'photo': 'car1.jpg',  'car': '쏘나타 더 브릴리언트'},
+	{'photo': 'car2.jpg',  'car': '말리부'},
+	{'photo': 'car3.jpg',  'car': 'K5'},
+	{'photo': 'car4.jpg',  'car': 'i40'},
+	{'photo': 'car5.jpg',  'car': '현대 미스트라 컨셉트'},
+	{'photo': 'car6.jpg',  'car': '스파크'},
+	{'photo': 'car7.jpg',  'car': '모닝'},
+	{'photo': 'car8.jpg',  'car': '레이'},
+	{'photo': 'car9.jpg',  'car': 'i10'},
+	{'photo': 'car10.jpg', 'car': '다마스'},
+	{'photo': 'car11.jpg', 'car': '라보'},
+	{'photo': 'car12.jpg', 'car': '엑센트'},
+	{'photo': 'car13.jpg', 'car': '프라이드 해치백'},
+	{'photo': 'car14.jpg', 'car': '기아 프로보 컨셉트'},
+	{'photo': 'car15.jpg', 'car': '아베오 세단'},
+	{'photo': 'car16.jpg', 'car': '프로씨드 GT'},
+	{'photo': 'car17.jpg', 'car': '소닉'},
+	{'photo': 'car18.jpg', 'car': '그랜저'},
+	{'photo': 'car19.jpg', 'car': 'K7'},
+	{'photo': 'car20.jpg', 'car': '제네시스'},
+	{'photo': 'car21.jpg', 'car': 'K9'},
+	{'photo': 'car22.jpg', 'car': '에쿠스'},
+	{'photo': 'car23.jpg', 'car': '알페온'},
+	{'photo': 'car24.jpg', 'car': 'SM7'},
+	{'photo': 'car25.jpg', 'car': '체어맨W 써미트'},
+	{'photo': 'car26.jpg', 'car': '뉴 투싼ix'},
+	{'photo': 'car27.jpg', 'car': '싼타페'},
+	{'photo': 'car28.jpg', 'car': '모하비'},
+	{'photo': 'car29.jpg', 'car': '맥스크루즈'}
 ]
 
 
