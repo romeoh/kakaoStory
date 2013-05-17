@@ -37,12 +37,12 @@ function executeKakaoStoryLink(){
 		return false;
 	}
 	
-	postMsg += '[3년뒤 나의 애마]\n';
+	postMsg += '[3년뒤 나의 외제차]\n';
 	postMsg += '3년뒤 ' + userName + '님의 애마는 ' + data[dataRan]['car'] + '입니다.\n\n';
 	postMsg += 'http://goo.gl/Vbd2u\n';
 
 	urlMsg = {
-		title: '3년뒤 나의 애마',
+		title: '3년뒤 나의 외제차',
 		desc: data[dataRan]['car'],
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[dataRan]['photo'] ],
 		type:'article'
@@ -52,7 +52,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '3년뒤 나의 애마',
+		appname : '3년뒤 나의 외제차',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
@@ -60,11 +60,11 @@ console.log(postMsg, urlMsg)
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "3년뒤 마이카",
+		msg: "3년뒤 나의 외제차",
 		url: "http://goo.gl/Vbd2u",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "3년뒤 나의 애마",
+		appname: "3년뒤 나의 외제차",
 		type: "link"
 	});
 }
