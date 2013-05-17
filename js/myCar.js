@@ -89,7 +89,7 @@ data = [
 	{'photo': 'car14.jpg', 'car': '기아 프로보 컨셉트'},
 	{'photo': 'car15.jpg', 'car': '아베오 세단'},
 	{'photo': 'car16.jpg', 'car': '프로씨드 GT'},
-	{'photo': 'car17.jpg', 'car': '소닉'},
+	{'photo': 'car17.jpg', 'car': '쉐보레 소닉'},
 	{'photo': 'car18.jpg', 'car': '그랜저'},
 	{'photo': 'car19.jpg', 'car': 'K7'},
 	{'photo': 'car20.jpg', 'car': '제네시스'},
