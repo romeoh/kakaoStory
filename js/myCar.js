@@ -53,7 +53,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '내가 세상에 태어난 이유',
+		appname : '3년뒤 마이카',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
