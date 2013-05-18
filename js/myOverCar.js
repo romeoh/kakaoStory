@@ -39,7 +39,7 @@ function executeKakaoStoryLink(){
 	
 	postMsg += '[3년뒤 나의 외제차]\n';
 	postMsg += '3년뒤 ' + userName + '님의 애마는 \n';
-	postMsg += data[dataRan]['price'] + '원짜리 ' + data[dataRan]['car'] + '입니다.\n\n';
+	postMsg += data[dataRan]['price'] + '짜리 ' + data[dataRan]['car'] + '입니다.\n\n';
 	postMsg += 'http://goo.gl/yuAkj\n';
 
 	urlMsg = {
