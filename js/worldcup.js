@@ -222,16 +222,16 @@ function fight(round, final){
 	}
 
 	if (final === 2) {
-		M('#first').attr('src', '../img/' + data[ arr4[left] ]['photo'])
+		M('#first').attr('src', '../img/' + data[ arr2[left] ]['photo'])
 		M('#firstPhoto')
-			.text(data[ arr4[left] ]['name'])
+			.text(data[ arr2[left] ]['name'])
 			.parent()
-			.data('idx', arr4[left])
-		M('#second').attr('src', '../img/' + data[ arr4[right] ]['photo'])
+			.data('idx', arr2[left])
+		M('#second').attr('src', '../img/' + data[ arr2[right] ]['photo'])
 		M('#secondPhoto')
-			.text(data[ arr4[right] ]['name'])
+			.text(data[ arr2[right] ]['name'])
 			.parent()
-			.data('idx', arr4[right])
+			.data('idx', arr2[right])
 
 		M('#round').text('결승');
 		M('#stage').text('');
