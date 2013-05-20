@@ -279,7 +279,8 @@ function executeKakaoStoryLink(){
 		,postMsg = ''
 	
 	postMsg += '[' + M('#userName').val() + '배 연예인 월드컵]\n';
-	postMsg += M('#userName').val() + '배 연예인 월드컵 영광의 최종 우승자는 ' + winner.names + '입니다.\n';
+	postMsg += M('#userName').val() + '배 연예인 월드컵 \n';
+	postMsg += '영광의 최종 우승자는 ' + winner.names + '입니다.\n\n';
 	postMsg += 'http://goo.gl/CRHWi\n';
 
 	urlMsg = {
