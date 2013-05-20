@@ -3,14 +3,14 @@ var ua = navigator.userAgent
 		(/android/gi).test(ua) ? "android" :
 		(/mac/gi).test(ua) ? "macOS" : 
 		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataMale, dataFemale
+	,data
+	,arr32
+	,arr16
+	,arr8
+	,arr4
+	,arr2
+	,arr1
+	,cuRound
 
 if (os == 'ios' || os == 'android') {
 	//init();
@@ -25,72 +25,139 @@ if (os == 'ios' || os == 'android') {
 
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
+	init()
+	initStart();
+
+	//btnStory.addEventListener('click', executeKakaoStoryLink, false);
+	//btnKakao.addEventListener('click', executeURLLink, false);
+}
+
+// 초기화
+function init() {
+	arr32 = []
+	arr16 = []
+	arr8 = []
+	arr4 = []
+	arr2 = []
+	arr1 = []
+	cuRound = 0
+}
+
+
+function initStart() {
+	M('#btnBoy').click(function(){
+		data = dataMale;
+		insert32(data, 32)
+		start(0)
+	})
+	M('#btnGirl').click(function(){
+		data = dataFemale;
+		insert32(data, 32)
+		start(1)
+	})
+}
+
+
+function start(flag) {
+	M('#start').css('display', 'none');
+	M('#game').css('display', 'block');
+	M('#round').text('32강전');
+	M('#stage').text('(1/16)');
+
+	fight(cuRound, 32);
+}
+
+function fight(round, final){
+	
+	console.log(data[ arr32[round] ])
+	console.log(data[ arr32[round+1] ])
+	console.log(round)
+	
+	M('#first').attr('src', '../img/' + data[ arr32[round] ]['photo'])
+	M('#firstPhoto').text(data[ arr32[round] ]['name'])
+	M('#second').attr('src', '../img/' + data[ arr32[round+1] ]['photo'])
+	M('#secondPhoto').text(data[ arr32[round+1] ]['name'])
+
+	if (cuRound <= final/2) {
+		cuRound++;
+	}
+}
+
+
+
+function insert32(data, leng) {
+	ranValue = Math.floor(Math.random() * data.length)
+	if (arr32.length === 0) {
+		arr32.push(ranValue);
+		insert32(data, leng)
+	} else {
+		if (arr32.length >= leng) {
+			return arr32;
+		} else {
+			for (var i=0; i<arr32.length; i++) {
+				if (arr32[i] === ranValue) {
+					insert32(data, leng);
+					break;
+				}
+			}
+			
+			if (arr32.length <= leng-1) {
+				arr32.push(ranValue);
+				insert32(data, leng)
+			}
+		}
+	}
+	return arr32
+	
+}
+
+function getRanNum(arr, val){
+	for (var arrVal in arr) {
+		val
+	}
 }
 
 //  카카오 스토리
 function executeKakaoStoryLink(){
-	var  sexType, userName
+	var  sexType
 		,userName = document.querySelector('#userName').value
-		,idx = Math.floor(Math.random()*50) + 1
-		,resultName, resultPhoto, resultMsg
-		,message
-	
-	//idx < 10 ? idx = '0' + idx : idx
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
-		return false;
-	}
+		,postMsg = ''
+		,dataRan = Math.floor(Math.random() * data.length)
 	
 	if (userName == '') {
 		alert('이름을 입력해 주세요.');
 		return false;
 	}
 	
-	if (boySelect.className == 'checked') {
-		sexType = 'm'
-	} else if (girlSelect.className == 'checked') {
-		sexType = 'f'
+	postMsg += '[3년뒤 나의 외제차]\n';
+	postMsg += '3년뒤 ' + userName + '님의 애마는 \n';
+	postMsg += data[dataRan]['price'] + '짜리 ' + data[dataRan]['car'] + '입니다.\n\n';
+	postMsg += 'http://goo.gl/yuAkj\n';
+
+	urlMsg = {
+		title: '3년뒤 나의 외제차',
+		desc: data[dataRan]['car'],
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[dataRan]['photo'] ],
+		type:'article'
 	}
-	
-	if (sexType == 'm') {
-		resultName = dataMale[idx]['name']
-		resultPhoto = dataMale[idx]['photo']
-		resultMsg = dataMale[idx]['msg']
-		message = '커피한잔 사주실래요?';
-	} else {
-		resultName = dataFemale[idx]['name']
-		resultPhoto = dataFemale[idx]['photo']
-		resultMsg = dataFemale[idx]['msg']
-		message = '커피한잔 마실래요?';
-	}
-	
+console.log(postMsg, urlMsg)
 	kakao.link("story").send({   
-        post : resultName + '씨가 ' + userName + '님과 커피를 마시고 싶어 합니다. \n받아주실꺼죠? \n\nhttp://goo.gl/RPVB5',
+        post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '연예인과 커피한잔',
-		urlinfo : JSON.stringify({title: resultName + '씨로부터 메세지', desc: userName + '님 ' + message, imageurl:['https://raw.github.com/romeoh/kakaoStory/gh-pages/img/'+resultPhoto], type:'article'})
+		appname : '3년뒤 나의 외제차',
+		urlinfo : JSON.stringify(urlMsg)
     });
 }
 
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "커피한잔 하실래요?",
-		url: "http://goo.gl/RPVB5",
+		msg: "3년뒤 나의 외제차",
+		url: "http://goo.gl/yuAkj",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "연예인과 커피한잔",
+		appname: "3년뒤 나의 외제차",
 		type: "link"
 	});
 }
@@ -201,4 +268,34 @@ dataFemale = [
 	{'name': '류덕환', 'photo': 'm49.jpeg', 'msg':''},
 	{'name': '노민우', 'photo': 'm50.jpeg', 'msg':''}
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
