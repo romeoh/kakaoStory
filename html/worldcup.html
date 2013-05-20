@@ -23,6 +23,7 @@ button {background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFB1F)
 h1 {font-size: 20px; text-align:center; color:#324acd;}
 h2 {text-align:center;}
 .sumit {text-align:center; padding-bottom:10px}
+.inputName {height:35px;font-size:14px; border:1px solid #e7e7e7; padding-left:5px }
 .game {background:url(../img/vs.jpg) no-repeat center 50px; }
 .game .first {float:left}
 .game .second {float:right}
@@ -55,6 +56,14 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 	<h1>연예인 이상형 월드컵</h1>
 	
+	<p class="description">
+		입력하신 정보는 <span style="color:red">절대</span> 저장하거나 다른 용도로 사용되지 않습니다.<br>
+	</p>
+
+	<div class="sumit">
+		<input text="text" id="userName" placeholder="이름을 입력하세요." class="inputName" style="width:240px" maxlength="4">
+	</div>
+
 	<div id="start" style="display:">
 		<h2>32강 START!</h2>
 		<div class="sumit">
@@ -64,12 +73,12 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	</div>
 	<div id="game" class="game" style="display:none">
 		<div class="first">
-			<img id="first" src="../img/f01.jpeg">
-			<p id="firstPhoto">강혜진</p>
+			<img id="first" src="">
+			<p id="firstPhoto"></p>
 		</div>
 		<div class="second">
-			<img id="second" src="../img/f02.jpeg">
-			<p id="secondPhoto">강혜진</p>
+			<img id="second" src="">
+			<p id="secondPhoto"></p>
 		</div>
 		<div id="round" class="round"></div>
 		<div id="stage" class="stage"></div>
@@ -78,8 +87,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	<div id="result" style="display:none">
 		<div class="winner">
 			<p class="title">최종 우승자</p>
-			<img src="../img/f01.jpeg">
-			<p class="names">김희경</p>
+			<img id="winnerPhoto" src="">
+			<p id="winnerName" class="names"></p>
 		</div>
 		<div class="sumit">
 			<button id="btnStory">카스로 보내기</button>
