@@ -85,6 +85,11 @@ function start(flag) {
 }
 
 function selPic(evt, mp){
+	M('#first').attr('src', '')
+	M('#second').attr('src', '')
+	M('#firstPhoto').text('')
+	M('#secondPhoto').text('')
+
 	if (cuStage === 32) {
 		arr16.push(mp.data('idx'));
 		if (cuRound <= 14) {
