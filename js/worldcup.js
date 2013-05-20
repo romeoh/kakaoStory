@@ -12,6 +12,7 @@ var ua = navigator.userAgent
 	,arr1
 	,cuRound
 	,cuStage
+	,winner = {}
 
 if (os == 'ios' || os == 'android') {
 	//init();
@@ -29,8 +30,8 @@ function initPage(){
 	init()
 	initStart();
 
-	//btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	//btnKakao.addEventListener('click', executeURLLink, false);
+	btnStory.addEventListener('click', executeKakaoStoryLink, false);
+	btnKakao.addEventListener('click', executeURLLink, false);
 }
 
 // 초기화
@@ -127,9 +128,13 @@ function selPic(evt, mp){
 	} else if (cuStage === 2) {
 		M('#game').css('display', 'none');
 		M('#result').css('display', 'block');
+		M('#winnerTitme').text( M('#userName').val() + '배 월드컵 최종 우승자');
+		
 		M('#winnerPhoto').attr('src', '../img/'+data[mp.data('idx')]['photo'])
 		M('#winnerName').text(data[mp.data('idx')]['name']);
-		console.log('winner', data[mp.data('idx')]['name'])
+		//console.log('winner', data[mp.data('idx')]['name'])
+		winner.photo = data[mp.data('idx')]['photo']
+		winner.names = data[mp.data('idx')]['name']
 	}
 }
 
@@ -268,14 +273,14 @@ function executeKakaoStoryLink(){
 		,userName = document.querySelector('#userName').value
 		,postMsg = ''
 	
-	postMsg += '[' + M('#userName')val() + '배 연예인 월드컵]\n';
-	postMsg += M('#userName')val() + '배 연예인 월드컵 영광의 최종 우승자는 고아라입니다.\n';
-	postMsg += '\n';
+	postMsg += '[' + M('#userName').val() + '배 연예인 월드컵]\n';
+	postMsg += M('#userName').val() + '배 연예인 월드컵 영광의 최종 우승자는 ' + winner.names + '입니다.\n';
+	postMsg += 'http://goo.gl/CRHWi\n';
 
 	urlMsg = {
 		title: '연예인 월드컵',
-		desc: data[dataRan]['car'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[dataRan]['photo'] ],
+		desc: '최종 우승자: ' + winner.names,
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + winner.photo ],
 		type:'article'
 	}
 console.log(postMsg, urlMsg)
@@ -292,7 +297,7 @@ console.log(postMsg, urlMsg)
 function executeURLLink() {
 	kakao.link("talk").send({
 		msg: "연예인 월드컵",
-		url: "http://goo.gl/yuAkj",
+		url: "http://goo.gl/CRHWi",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "연예인 월드컵",
