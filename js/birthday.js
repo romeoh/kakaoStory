@@ -60,7 +60,7 @@ function executeKakaoStoryLink(){
 	postMsg += '내 입으로 말하기 부끄럽지만 \n' + selMonth.value + '월 ' + selDate.value + '일이 제 생일이에요.\n';
 	postMsg += '경제도 어렵고 하니깐 \n그냥 간단하게 ' + data[dataRan]['price'] + '짜리 ' + data[dataRan]['present'] + '하나로 퉁칠께요~^^\n\n';
 	
-	postMsg += 'http://goo.gl/LR7Lf\n';
+	postMsg += 'http://goo.gl/MVQ5y\n';
 	
 	urlMsg = {
 		title: '우리우정 ' + data[dataRan]['price']+'정도는 되잖아.',
@@ -84,7 +84,7 @@ function executeKakaoStoryLink(){
 function executeURLLink() {
 	kakao.link("talk").send({
 		msg: "받고싶은 생일선물",
-		url: "http://goo.gl/LR7Lf",
+		url: "http://goo.gl/MVQ5y",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "받고싶은 생일선물",
@@ -96,36 +96,36 @@ function executeURLLink() {
 
 // 남자
 dataM = [
-	{'photo':'birthM0.jpg',  'price':'', 'present': ''},
-	{'photo':'birthM1.jpg',  'price':'', 'present': ''},
-	{'photo':'birthM2.jpg',  'price':'', 'present': ''},
-	{'photo':'birthM3.jpg',  'price':'', 'present': ''},
-	{'photo':'birthM4.jpg',  'price':'', 'present': ''},
-	{'photo':'birthM5.jpg',  'price':'', 'present': ''},
-	{'photo':'birthM6.jpg',  'price':'', 'present': ''},
-	{'photo':'birthM7.jpg',  'price':'', 'present': ''},
-	{'photo':'birthM8.jpg',  'price':'', 'present': ''},
-	{'photo':'birthM9.jpg',  'price':'', 'present': ''},
-	{'photo':'birthM10.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM11.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM12.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM13.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM14.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM15.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM16.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM17.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM18.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM19.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM20.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM21.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM22.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM23.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM24.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM25.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM26.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM27.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM28.jpg', 'price':'', 'present': ''},
-	{'photo':'birthM29.jpg', 'price':'', 'present': ''}
+	{'photo':'birthM0.jpg',  'price':'58만 5천원', 'present': '구찌 홀스빗 모카신'},
+	{'photo':'birthM1.jpg',  'price':'51만 8천원', 'present': '구찌 하이테크 레이스업 스니커즈'},
+	{'photo':'birthM2.jpg',  'price':'41만 천원', 'present': '버버리 장지갑'},
+	{'photo':'birthM3.jpg',  'price':'63만 7천원', 'present': '까르띠에 벨트'},
+	{'photo':'birthM4.jpg',  'price':'49만 천원', 'present': '까르띠에 반지갑'},
+	{'photo':'birthM5.jpg',  'price':'2,490만원', 'present': '두카티 하이퍼모타드'},
+	{'photo':'birthM6.jpg',  'price':'350만원', 'present': '르벨로 데다차이스트라다 자전거'},
+	{'photo':'birthM7.jpg',  'price':'56만원', 'present': '르벨로 햄스테드 홀돌백'},
+	{'photo':'birthM8.jpg',  'price':'100만 3천원', 'present': '구찌 서류가방'},
+	{'photo':'birthM9.jpg',  'price':'112만 5천원', 'present': '구찌 시그니처 숄더백'},
+	{'photo':'birthM10.jpg', 'price':'24만 천원', 'present': '기어3 바이샌'},
+	{'photo':'birthM11.jpg', 'price':'117만 5천원', 'present': '돌체앤가바나 서류가방'},
+	{'photo':'birthM12.jpg', 'price':'47만 7천원', 'present': '돌체앤가바나 투포겟 힙색'},
+	{'photo':'birthM13.jpg', 'price':'192만 6천원', 'present': '랑방 브리프백'},
+	{'photo':'birthM14.jpg', 'price':'125만 4천원', 'present': '발렌시아가 크로스백'},
+	{'photo':'birthM15.jpg', 'price':'177만원', 'present': '발렌시아가 백팩'},
+	{'photo':'birthM16.jpg', 'price':'173만원', 'present': '발리 빅사이즈 서류가방'},
+	{'photo':'birthM17.jpg', 'price':'287만원', 'present': '보텐가벤타 븨프 케이스'},
+	{'photo':'birthM18.jpg', 'price':'185만 2천원', 'present': '에스티 듀퐁'},
+	{'photo':'birthM19.jpg', 'price':'68만 8천원', 'present': '골든구스 하이탑 스니커즈'},
+	{'photo':'birthM20.jpg', 'price':'55만원', 'present': '구찌 화이트 스니커즈'},
+	{'photo':'birthM21.jpg', 'price':'49만 5천원', 'present': '돌체앤가바나 양각 펌핑뉴 스니커즈'},
+	{'photo':'birthM22.jpg', 'price':'56만 천원', 'present': '디스퀘어드2 스니커즈'},
+	{'photo':'birthM23.jpg', 'price':'15만원', 'present': '구찌 핸드폰줄'},
+	{'photo':'birthM24.jpg', 'price':'17만 5천원', 'present': '디스퀘어드2 캡모자'},
+	{'photo':'birthM25.jpg', 'price':'20만원', 'present': '페라가모 실크넥타이'},
+	{'photo':'birthM26.jpg', 'price':'52만 천원', 'present': '디스퀘어드2 청바지'},
+	{'photo':'birthM27.jpg', 'price':'28만 7천원', 'present': '몽끌레어 면티'},
+	{'photo':'birthM28.jpg', 'price':'59만 7천원', 'present': '돌체앤가바나 런어웨이 슬림'},
+	{'photo':'birthM29.jpg', 'price':'30만 6천원', 'present': '돌체앤가바나 면티'}
 ]
 
 //여자
