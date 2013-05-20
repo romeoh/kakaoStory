@@ -64,7 +64,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: '받고싶은 생일선물',
-		desc: selMonth.value + '월 ' + selDate.value + '일',
+		desc: '우리우정 ' + data[dataRan]['price']+'정도는 되잖아.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/'+data[dataRan]['photo']],
 		type:'article'
 	}
@@ -74,7 +74,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '우리우정 ' + data[dataRan]['price']+'정도는 되잖아.',
+		appname : selMonth.value + '월 ' + selDate.value + '일',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
