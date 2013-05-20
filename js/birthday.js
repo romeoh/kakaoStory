@@ -57,13 +57,13 @@ function executeKakaoStoryLink(){
 	dataRan = Math.floor(Math.random() * data.length)
 
 	postMsg += '[받고싶은 생일선물]\n';
-	postMsg += '내 입으로 말하기 부끄럽지만 \n' + selMonth.value + '월 ' + selDate.value + '일이 제 생일이에요.\n';
-	postMsg += '경제도 어렵고 하니깐 \n그냥 간단하게 ' + data[dataRan]['price'] + '짜리 ' + data[dataRan]['present'] + '하나로 퉁칠께요~^^\n\n';
+	postMsg += selMonth.value + '월 ' + selDate.value + '일이 제 생일인거 아시죠?\n';
+	postMsg += '이번엔 그냥 ' + data[dataRan]['price'] + '짜리 ' + data[dataRan]['present'] + '하나로 만족할께요~^^\n\n';
 	
 	postMsg += 'http://goo.gl/MVQ5y\n';
 	
 	urlMsg = {
-		title: '우리우정 ' + data[dataRan]['price']+'정도는 되잖아.',
+		title: '받고싶은 생일선물',
 		desc: selMonth.value + '월 ' + selDate.value + '일',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/'+data[dataRan]['photo']],
 		type:'article'
@@ -74,7 +74,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '받고싶은 생일선물',
+		appname : '우리우정 ' + data[dataRan]['price']+'정도는 되잖아.',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
