@@ -30,43 +30,45 @@ function executeKakaoStoryLink(){
 		,userName = document.querySelector('#userName').value
 		,resultName, resultPhoto, resultMsg
 		,postMsg = ''
-		,urlMsg = {
-			title: ' 인사팀',
-			desc: '님을 스카웃 하려 합니다.',
-			imageurl: ['http://romeoh.github.io/kakaoStory/imgCom/'],
-			type:'article'
-		}
-	
-	settle(dataWord, 5)
-	
-	postMsg += '['+userName+', 하면 연상되는 단어]\n\n';
-	postMsg += '1위: ' + settleData[0] + '\n';
-	postMsg += '2위: ' + settleData[1] + '\n';
-	postMsg += '3위: ' + settleData[2] + '\n';
-	postMsg += '4위: ' + settleData[3] + '\n';
-	postMsg += '5위: ' + settleData[4] + '\n\n';
-	postMsg += 'http://goo.gl/QWPHM';
-	
-	console.log(postMsg, urlMsg)
-	if (age == '') {
-		alert('생년을 입력해 주세요.');
-		return false;
-	}
 	
 	if (userName == '') {
 		alert('이름을 입력해 주세요.');
 		return false;
 	}
 
+	settle(dataWord, 5);
+	matchRate0 = randomRange(50, 100)
+	matchRate1 = randomRange(40, matchRate0)
+	matchRate2 = randomRange(30, matchRate1)
+	matchRate3 = randomRange(10, matchRate2)
+	matchRate4 = randomRange(0, matchRate3)
+	
+	postMsg += '['+userName+', 하면 연상되는 단어]\n\n';
+	postMsg += '1위: ' + dataWord[settleData[0]] + ' (' + matchRate0 + '%)\n';
+	postMsg += '2위: ' + dataWord[settleData[1]] + ' (' + matchRate1 + '%)\n';
+	postMsg += '3위: ' + dataWord[settleData[2]] + ' (' + matchRate2 + '%)\n';
+	postMsg += '4위: ' + dataWord[settleData[3]] + ' (' + matchRate3 + '%)\n';
+	postMsg += '5위: ' + dataWord[settleData[4]] + ' (' + matchRate4 + '%)\n\n';
+	postMsg += 'http://goo.gl/nzwC5';
+	
+	urlMsg = {
+		title: '내이름 연상단어',
+		desc: dataWord[settleData[0]],
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/dog.jpg'],
+		type:'article'
+	}
+
+	console.log(postMsg, urlMsg)
+	
 	kakao.link("story").send({   
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '냉철한 대기업 인재 사냥꾼',
+		appname : '내이름 연상단어',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
-//word0, word1, word2, word3, word4
+
 function settle(data, leng) {
 	ranValue = Math.floor(Math.random() * data.length)
 	if (settleData.length === 0) {
@@ -92,52 +94,19 @@ function settle(data, leng) {
 	return settleData
 }
 
-function setRandom(data){
-	var idx = Math.floor(Math.random() * data.length)
-	if (word0 == undefined) {
-		word0 = idx;
-	}
-	if (word1 == undefined) {
-		if (word0 == idx) {
-			setRandom(data)
-		} else {
-			word1 = idx;
-		}
-	}
-	if (word2 == undefined) {
-		if (word0 == idx || word1 == idx) {
-			setRandom(data)
-		} else {
-			word2 = idx;
-			return jogeun2;
-		}
-	}
-	if (word3 == undefined) {
-		if (word0 == idx || word1 == idx || word2 == idx) {
-			setRandom(data)
-		} else {
-			word3 = idx;
-			return jogeun3;
-		}
-	}
-	if (word4 == undefined) {
-		if (word0 == idx || word1 == idx || word2 == idx || word3 == idx) {
-			setRandom(data)
-		} else {
-			word4 = idx;
-			return jogeun4;
-		}
-	}
+function randomRange(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "냉철한 대기업 인재 사냥꾼",
-		url: "http://goo.gl/QWPHM",
+		msg: "내이름 연상단어",
+		url: "http://goo.gl/nzwC5",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "냉철한 대기업 인재 사냥꾼",
+		appname: "내이름하면 떠오르는 단어",
 		type: "link"
 	});
 }
