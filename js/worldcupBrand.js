@@ -273,7 +273,7 @@ function executeKakaoStoryLink(){
 	postMsg += '[' + M('#userName').val() + '배 명품 월드컵]\n';
 	postMsg += M('#userName').val() + '님의 사회적 지휘와 명성에 \n';
 	postMsg += '걸맞는 브랜드는 ' + winner.names + '입니다.\n\n';
-	postMsg += 'http://goo.gl/CRHWi\n';
+	postMsg += 'http://goo.gl/eUdjn\n';
 
 	urlMsg = {
 		title: '명품 월드컵',
@@ -295,7 +295,7 @@ console.log(postMsg, urlMsg)
 function executeURLLink() {
 	kakao.link("talk").send({
 		msg: "명품 월드컵",
-		url: "http://goo.gl/CRHWi",
+		url: "http://goo.gl/eUdjn",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "명품 월드컵",
