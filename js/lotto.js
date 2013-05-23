@@ -56,7 +56,7 @@ function executeKakaoStoryLink(){
 	postMsg += 'http://goo.gl/w62nY\n';
 
 	urlMsg = {
-		title: '로또번호 생성기',
+		title: '기부 안해요~',
 		desc: '월욜부터 연락 안되면 인생역전 했구나 생각해줘~' ,
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/lotto.jpg' ],
 		type:'article'
