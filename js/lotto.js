@@ -56,7 +56,7 @@ function executeKakaoStoryLink(){
 	postMsg += 'http://goo.gl/w62nY\n';
 
 	urlMsg = {
-		title: '기부 안해요~',
+		title: '로또번호 생성기',
 		desc: '월욜부터 연락 안되면 인생역전 했구나 생각해줘~' ,
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/lotto.jpg' ],
 		type:'article'
@@ -66,7 +66,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '로또번호 생성기',
+		appname : '기부 안해요~',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
