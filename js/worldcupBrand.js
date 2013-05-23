@@ -125,7 +125,7 @@ function selPic(evt, mp){
 	} else if (cuStage === 2) {
 		M('#game').css('display', 'none');
 		M('#result').css('display', 'block');
-		M('#winnerTitme').text( M('#userName').val() + '님이 뽑은 명품 최종 우승자');
+		M('#winnerTitme').text( M('#userName').val() + '님이 뽑은 최고의 브랜드');
 		
 		M('#winnerPhoto').attr('src', '../img/'+data[mp.data('idx')]['photo'])
 		M('#winnerName').text(data[mp.data('idx')]['name']);
