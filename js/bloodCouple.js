@@ -3,14 +3,8 @@ var  ua = navigator.userAgent
 		(/android/gi).test(ua) ? "android" :
 		(/mac/gi).test(ua) ? "macOS" : 
 		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
 	,btnStory = document.querySelector('#btnStory')
 	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
 
 if (os == 'ios' || os == 'android') {
 	//init();
@@ -32,47 +26,39 @@ window.addEventListener('DOMContentLoaded', function(){
 //  카카오 스토리
 function executeKakaoStoryLink(){
 	var  postMsg = ''
-		,selAlpha = document.querySelector('#selAlpha')
 		,data
 	
-	if (selMonth.value == '') {
-		alert('태어난 월을 선택하세요.');
+	if (M('#selBloodGirl').val() == '') {
+		alert('여자분의 혈액형을 선택하세요.');
 		return;
 	}
-	if (selDate.value == '') {
-		alert('태어난 일을 선택하세요.');
-		return;
-	}
-	if (selBlood.value == '') {
-		alert('혈액형을 선택하세요.');
+	if (M('#selBloodBoy').val() == '') {
+		alert('남자분의 혈액형을 선택하세요.');
 		return;
 	}
 	
-	idx = getStar(selMonth.value, selDate.value, selBlood.value)
-	result = dataBlood[idx].blood[selBlood.value]
-	starName = dataBlood[idx]['name']
-	birth = dataBlood[idx]['date']
-	img = dataBlood[idx]['img']
-
-	postMsg += '[별자리+혈액형 성격테스트]\n\n';
-	postMsg += starName + '(' + birth + '), ' + selBlood.value + '형 입니다.\n',
-	postMsg += result + '\n\n';
+	result = dataBloor[M('#selBloodGirl').val()][M('#selBloodBoy').val()][0]
+console.log(result)
+	postMsg += '[혈액형 궁합]\n';
+	postMsg += result.w + '형 여자와 ' + result.m + '형 남자의\n'
+	postMsg += '궁합지수은 ' + result.percent + '입니다.\n'
+	postMsg += result.result + '\n\n'
 	
-	postMsg += 'http://goo.gl/LR7Lf\n';
+	postMsg += 'http://goo.gl/iNzJa\n';
 	
 	urlMsg = {
-		title: '별자리+혈액형 성격테스트',
-		desc: starName + '(' + birth + ')',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/'+img],
+		title: '혈액형 궁합',
+		desc: result.w + '형 여자와 ' + result.m + '형 남자',
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/'+result.photo],
 		type:'article'
 	}
-	console.log(urlMsg)
+	console.log(postMsg, urlMsg)
 
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '별자리+혈액형 성격테스트',
+		appname : '혈액형 궁합',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
@@ -81,181 +67,59 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "뭐 내세울게 있나요?",
-		url: "http://goo.gl/LR7Lf",
+		msg: "혈액형 궁합",
+		url: "http://goo.gl/iNzJa",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "색깔로 알아보는 심리테스트",
+		appname: "혈액형 궁합",
 		type: "link"
 	});
 }
 
 
-function getStar(month, date, blood){
-	switch(month){
-		case '1':
-			if (date >= 20) {
-				return 0;
-			} else {
-				return 11;
-			}
-		break;
-		case '2':
-			if (date >= 19) {
-				return 1;
-			} else {
-				return 0;
-			}
-		break;
-		case '3':
-			if (date >= 21) {
-				return 2;
-			} else {
-				return 1;
-			}
-		break;
-		case '4':
-			if (date >= 20) {
-				return 3;
-			} else {
-				return 2;
-			}
-		break;
-		case '5':
-			if (date >= 21) {
-				return 4;
-			} else {
-				return 3;
-			}
-		break;
-		case '6':
-			if (date >= 22) {
-				return 5;
-			} else {
-				return 4;
-			}
-		break;
-		case '7':
-			if (date >= 23) {
-				return 6;
-			} else {
-				return 5;
-			}
-		break;
-		case '8':
-			if (date >= 23) {
-				return 7;
-			} else {
-				return 6;
-			}
-		break;
-		case '9':
-			if (date >= 23) {
-				return 8;
-			} else {
-				return 7;
-			}
-		break;
-		case '10':
-			if (date >= 23) {
-				return 9;
-			} else {
-				return 8;
-			}
-		break;
-		case '11':
-			if (date >= 23) {
-				return 10;
-			} else {
-				return 9;
-			}
-		break;
-		case '12':
-			if (date >= 22) {
-				return 11;
-			} else {
-				return 10;
-			}
-		break;
+dataBloor = [
+	// 여자A
+	[
+		[{'photo':'bl0.jpg', 'percent':'70%', 'w':'A', 'm':'A', result:'처음에는 서로 탐색전, 남자가 초반에는 리드를 하지만 교제를 하면서 주도권은 여자에게로 넘어갑니다.\n2년정도 교제하면 자연스럽게 결혼까지 갈수도 있는 커플입니다.'}],
+		[{'photo':'bl1.jpg', 'percent':'20%', 'w':'A', 'm':'B', result:'남자는 적극적이고, 여자는 수동적입니다. \n남자가 행동력 강하게 리드하지만 남자위주의 플랜과 행동들과 서로의 결점때문에 서로 잘될 가능성은 낮습니다.'}],
+		[{'photo':'bl2.jpg', 'percent':'95%', 'w':'A', 'm':'O', result:'서로 호의를 갖고 있어도 시간이 걸리지만 \nO형이 주도권을 잡고 잘 이루어갈수 있는 커플입니다.'}],
+		[{'photo':'bl3.jpg', 'percent':'65%', 'w':'A', 'm':'AB', result:'여자가 먼저 고백을 하지 않는 이상 진전이 어렵습니다. \n많은 대화를 하는 데이트를 좋아하고, \n서로 너무 신중해서 결국은 잘 이루어지지 않을지도 모릅니다.'}]
+	],
 
-	}
-}
+	// 여자B
+	[
+		[{'photo':'bl4.jpg', 'percent':'25%', 'w':'B', 'm':'A', result:'주로 B형이 주도권을 잡고 A형 남성을 이끄는 경향이 많습니다. \n서로의 가치관이 달라 잘 되기 어려울 수 있습니다.'}],
+		[{'photo':'bl5.jpg', 'percent':'65%', 'w':'B', 'm':'B', result:'서로 마음이 잘 맞고 금방 친해집니다.\n주도권 따위 의식은 하지 않으며 활발하게 움직이는걸 좋아합니다.\n커플로는 좋은 궁합이지만 지출이 많은 편입니다.'}],
+		[{'photo':'bl6.jpg', 'percent':'75%', 'w':'B', 'm':'O', result:'B형 여성이 좋아져서 먼저 접근을 합니다. \n이곳저곳 많이 다녀서 차분해질 여유도 없을 정도로 활동적입니다. \n단, 서로 바람기만 잘 다스린다면은 결혼까지 갈수도 있습니다.'}],
+		[{'photo':'bl7.jpg', 'percent':'80%', 'w':'B', 'm':'AB', result:'B형 여성이 자신의 매력으로 남성을 끌여들여 시작을 합니다. \nB형여자가 상당히 매력녀입니다.\nB형여성의 일방적인 데이트가 될지라도 은근히 궁합이 잘 맞아 결혼해서도 잘 살수 있는 커플입니다.'}]
+	],
 
-// 남자
-dataBlood = [
-	{'name': '물병자리', 'date':'1/20~2/18', 'img':'star0.jpg', 'blood': {
-		'A':'사람만나는걸 좋아하는 친철한 사람입니다.',
-		'B':'밝고 꾸밈없으며 개성이 넘쳐서 이성들에게 인기 캡입니다.',
-		'O':'주위에 활력을 주는 보스 타입입니다.',
-		'AB':'지적이고 냉정한 면이 있으며 유능한 사람입니다.'
-	}},
-	{'name': '물고기자리', 'date':'2/19~3/20', 'img':'star1.jpg', 'blood': {
-		'A':'우유부단하고 싸우는걸 싫어하고, 인간관계가 좋습니다.',
-		'B':'상대방의 입장을 존중해주는 스타일로 친구가 많은 편입니다.',
-		'O':'요령 부리는 것을 싫어해 처세에 서툰 스타일입니다.',
-		'AB':'말을 재미있게 하고 배려심이 있는 카운슬러 타입입니다.'
-	}},
-	{'name': '양자리', 'date':'3/21~4/19', 'img':'star2.jpg', 'blood': {
-		'A':'윗사람들의 신임이 두텁고 예의가 아주 바릅니다.',
-		'B':'낯가림이 없는 밝은성격이며 자존심이 의외로 센편입니다.',
-		'O':'남을 잘 돌봐주고 책임감이 강합니다.',
-		'AB':'상대에 따라 유연하게 대응하는 사교성이 뛰어나지만 다소 신경질적입니다.'
-	}},
-	{'name': '황소자리', 'date':'4/20~5/20', 'img':'star3.jpg', 'blood': {
-		'A':'온화하고 성실한 규칙적인 사람입니다.',
-		'B':'일단 친해진 상대는 결코 배신하지 않는 성실성의 소유자입니다.',
-		'O':'남을 배려할줄 아는 따뜻한 마음의 소유자입니다.',
-		'AB': '남이 뭐라든 개의치 않고 마이페이스를 유지하는 매력자입니다.'
-	}},
-	{'name': '쌍둥이자리', 'date':'5/21~6/21', 'img':'star4.jpg', 'blood': {
-		'A':'부드럽고 근면해 윗사람들이 좋아합니다.',
-		'B':'즐겁고 재미있는 전형적인 인기있는 사람입니다.',
-		'O':'낙천적이고 잘 노는 분위기 메이커입니다.',
-		'AB': '사교적이고 남을 즐겁게 해주지만 다가가기 힘든 타입입니다.'
-	}},
-	{'name': '게자리', 'date':'6/22~7/22', 'img':'star5.jpg', 'blood': {
-		'A':'온화하고 포용력이 있음. 남의 문제를 잘 해결해주는 해결사 타입입니다.',
-		'B':'좋고 싫은게 분명해서 한 번 틀어지면 끝입니다.',
-		'O':'항상 남을 배려하고 협조하는편이며, 의리와 인정에 목숨겁니다.',
-		'AB': '동료나 친구를 먼저 생각하는 의리파입니다.'
-	}},
-	{'name': '사자자리', 'date':'7/23~8/22', 'img':'star6.jpg', 'blood': {
-		'A':'온화한 인품과 리더쉽의 소유자입니다.',
-		'B':'언제나 사람들의 중심이 되는 분위기 메이커입니다.',
-		'O':'리더쉽이 강해 주의 사람들이 많이 따르는 타입입니다.',
-		'AB':'스마트한 사교술로 사람들에게 인기가 있습니다.'
-	}},
-	{'name': '처녀자리', 'date':'8/23~9/22', 'img':'star7.jpg', 'blood': {
-		'A':'꼼꼼하고 책임감 강하고 협조적인 타입입니다.',
-		'B':'허술해 보이지만 친해질수록 좋은 점을 많이 보여주는 타입입니다.',
-		'O':'상대방의 부탁을 거절하지 못하고 사람좋다는 말을 자주듣습니다.',
-		'AB': '붙임성이 좋고 말 잘하는 인기있는 타입입니다.'
-	}},
-	{'name': '천칭자리', 'date':'9/23~10/22', 'img':'star8.jpg', 'blood': {
-		'A':'사교적이며 악의가 없으며, 스마트한 인상으로 이성들에게 인기가 높습니다.',
-		'B':'사람만나는 걸 좋아하는 밝은 성격의 소유자입니다.',
-		'O':'균형 잡힌 성격으로 여성들에겐 나이를 불문하고 호감을 받습니다.',
-		'AB': '냉정하고 세심하며 약간 타산적이란 말을 듣기도 합니다.'
-	}},
-	{'name': '전갈자리', 'date':'10/23~11/22', 'img':'star9.jpg', 'blood': {
-		'A':'만나는 사람에겐 항상 친절하고 믿음직스러운 성격입니다.',
-		'B':'개성이 워낙 강하고 싫고 좋은게 분명합니다.',
-		'O':'너그럽고 소박하며 의지가 되는 타입입니다.',
-		'AB': '인간 관계는 원만하지만 속마음을 털어놓을 친구는 별로 없습니다.'
-	}},
-	{'name': '사수자리', 'date':'11/23~12/21', 'img':'star10.jpg', 'blood': {
-		'A':'친절하고 밝은 성격으로 신뢰하는 사람들이 많습니다.',
-		'B':'밝고 즐거워서 모임에 없어서는 안될 인물입니다.',
-		'O':'밝고 솔직해서 누구에게나 호감을 주는 타입입니다.',
-		'AB': '냉정함이 매력으로 보이는 타입입니다.'
-	}},
-	{'name': '염소자리', 'date':'12/22~1/19', 'img':'star11.jpg', 'blood': {
-		'A':'자신이 적극적으로 행동하진 않지만 상대의 청은 거절하지 않습니다.',
-		'B':'처음만나는 사람에게도 거리낌없이 말해서 오해를 사는 타입입니다.',
-		'O':'매사를 호탕하게 받아들이지만 붙임성을 별로 없는 편입니다.',
-		'AB':'남의 생각에 구애 안받고 마이페이스로 밀고 나가는 타입입니다.'
-	}}
+	// 여자O
+	[
+		[{'photo':'bl8.jpg', 'percent':'90%',  'w':'O', 'm':'A', result:'서로 좋은 인상에 호감을 갖습니다. \n표면적으로는 A형 남자가 리드를 하는것 처럼 보이지만 A형남자는 조심성이 많은 편입니다.\n그래서 사실은 O형인 여성이 주도권을 가지고 있습니다.'}],
+		[{'photo':'bl9.jpg', 'percent':'80%',  'w':'O', 'm':'B', result:'O형 여성이 먼저 접근하는 경향이 많습니다. \nO형 여자가 확실하게 B형 남자를 잡습니다. \n잘될 가능성이 상당히 높지만 여자가 많이 노력을 해야합니다.'}],
+		[{'photo':'bl10.jpg', 'percent':'40%', 'w':'O', 'm':'O', result:'주도권때문에 서로 많이 싸울수 있습니다.\n분위기에 따라서 급 달아올랐다가 금방 꺼지는게 단점입니다.'}],
+		[{'photo':'bl11.jpg', 'percent':'40%', 'w':'O', 'm':'AB', result:'남성이 여성에게에게 교묘한 말씨로 접근합니다.\n평범하게 밥도 먹고 데이트를 하지만 서로를 이해하기 여려워서 서로 많이 힘들어 할수도 있습니다.'}]
+	],
+
+	// 여자AB
+	[
+		[{'photo':'bl12.jpg', 'percent':'50%', 'w':'AB', 'm':'A', result:'접접을 찾는게 어렵고 찾더라도 시간이 오래 걸릴수 있습니다.\n잡고 잡히는 그런 관계 속에서 서로 잘 맞지 않는다고 느끼면서\n 매너리즘에 빠지면 잘될 가능성도 낮아지는 커플입니다.'}],
+		[{'photo':'bl13.jpg', 'percent':'85%', 'w':'AB', 'm':'B', result:'엉뚱하며, 우연찮게 친해집니다. \n남자가 확실한 리드를 하고, 부부로서의 궁합도 애인으로서의 궁합도 매우 좋습니다.'}],
+		[{'photo':'bl14.jpg', 'percent':'35%', 'w':'AB', 'm':'O', result:'O형 남자는 역시 적극적입니다. \n하지만 여자때문에 데이트가 적고 서로를 이해하기 힘든 부분이 나타나기 시작합니다.'}],
+		[{'photo':'bl15.jpg', 'percent':'90%', 'w':'AB', 'm':'AB', result:'자연스럽게 서로 가까워지게 됩니다. \n서로 누가 리드하는건 관심없고 의식도 하지 않습니다.'}]
+	]
 ]
+
+
+
+
+
+
+
+
+
+
 
 
 
