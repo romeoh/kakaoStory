@@ -41,7 +41,7 @@ function executeKakaoStoryLink(){
 console.log(result)
 	postMsg += '[혈액형 궁합]\n';
 	postMsg += result.w + '형 여자와 ' + result.m + '형 남자의\n'
-	postMsg += '궁합지수은 ' + result.percent + '입니다.\n'
+	postMsg += '궁합지수은 ' + result.percent + '입니다.\n\n'
 	postMsg += result.result + '\n\n'
 	
 	postMsg += 'http://goo.gl/iNzJa\n';
@@ -58,7 +58,7 @@ console.log(result)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '혈액형 궁합',
+		appname : '궁합지수: '+result.percent,
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
