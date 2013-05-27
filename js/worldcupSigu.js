@@ -261,7 +261,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '명품 월드컵',
+		appname : '연예인 월드컵',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
