@@ -23,7 +23,7 @@ appList += '<li data-app="15"><a href="http://goo.gl/r66cA">색깔로 알아보�
 appList += '<li data-app="14"><a href="http://goo.gl/lzbc5">나의 매력 포인트</a></li>';
 appList += '<li data-app="13"><a href="http://goo.gl/VbOvP">내 이상형의 조건</a></li>';
 appList += '<li data-app="12"><a href="http://goo.gl/37cx7">1:100 기출문제</a></li>';
-appList += '<li data-app="11"><a href="http://goo.gl/Vm86D">원데이 명언 </li>';
+appList += '<li data-app="11"><a href="http://goo.gl/Vm86D">원데이 명언</a></li>';
 appList += '<li data-app="10"><a href="http://goo.gl/urccj">우리 부부는 전생에 무슨 관계였나</a></li>';
 appList += '<li data-app="9"><a href="http://goo.gl/dfrtm">내애인과 나는 전생에 무슨 관계였나</a></li>';
 appList += '<li data-app="8"><a href="http://goo.gl/KRPGi">내아기와 나는 전생에 무슨 관계였나</a></li>';
@@ -37,10 +37,47 @@ appList += '<li data-app="1"><a href="http://goo.gl/RPVB5">나와 커피마시�
 
 if (M('[data-list]').selector.length > 0) {
 	var currentApp = M('[data-list]').data('list')
-	console.log(currentApp)
 	M('[data-list]').html(appList);
 	M('[data-app="' + currentApp + '"]').remove();
 }
+
+
+
+var appListMin = ''
+appListMin += '<li data-app-min="1"><a href="http://goo.gl/PPYbq">빵터지는 카톡 실수모음</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/iNzJa">혈액형 궁합</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/MVQ5y">받고싶은 생일선물</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/CRHWi">연예인 월드컵</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/yuAkj">3년뒤 나의 외제차</a></li> ';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/fZCtx">내 애인 그려보기</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/LR7Lf">별자리+혈액형 성격테스트</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/TxVbO">내가하면 더 잘할 예능캐릭터</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/lzbc5">나의 매력 포인트</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/VbOvP">내 이상형의 조건</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/FSBT3">나와 스캔들날 연예인</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/1945x">닮<span style="color:red">을</span>꼴 연예인 찾기</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/QWPHM">냉철한 대기업 인재 사냥꾼</a></li>';
+appListMin += '<li data-app-min=""><a href="http://goo.gl/RPVB5">나와 커피마시고 싶어하는 연예인</a></li>';
+
+if (M('[data-list-min]').selector.length > 0) {
+	var currentApp = M('[data-list-min]').data('list-min');
+	M('[data-list-min]').html(appListMin);
+	M('[data-app-min="' + currentApp + '"]').remove();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
