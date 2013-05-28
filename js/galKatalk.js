@@ -135,7 +135,18 @@ data = [
 	{'photo': 'katalk24.jpeg', 'name': ''},
 	{'photo': 'katalk25.jpeg', 'name': ''},
 	{'photo': 'katalk26.jpeg', 'name': ''},
-	{'photo': 'katalk27.jpeg', 'name': ''}
+	{'photo': 'katalk27.jpeg', 'name': ''},
+	{'photo': 'katalk28.jpeg', 'name': ''},
+	{'photo': 'katalk29.jpeg', 'name': ''},
+	{'photo': 'katalk30.png', 'name': ''},
+	{'photo': 'katalk31.jpeg', 'name': ''},
+	{'photo': 'katalk32.jpeg', 'name': ''},
+	{'photo': 'katalk33.png', 'name': ''},
+	{'photo': 'katalk34.jpeg', 'name': ''},
+	{'photo': 'katalk35.jpeg', 'name': ''},
+	{'photo': 'katalk36.jpeg', 'name': ''},
+	{'photo': 'katalk37.jpeg', 'name': ''},
+	{'photo': 'katalk38.jpeg', 'name': ''}
 ]
 
 
