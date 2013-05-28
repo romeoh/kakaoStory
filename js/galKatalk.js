@@ -81,7 +81,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '빵터지는 카톡실수모음',
 		desc: '빵터지는 카톡실수모음',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/thum.png' ],
+		imageurl: ['http://romeoh.github.io/kakaoStory/imgKatalk/thum.png' ],
 		type:'article'
 	}
 
