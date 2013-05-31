@@ -74,7 +74,7 @@ function executeKakaoStoryLink(){
 	
 	postMsg += '[인디언식 이름 짓기]\n';
 	postMsg += '나의 인디언식 이름은\n';
-	postMsg += selYear.value + ' ' + selMonth.value + dateType + selDate.value + '\n\n';
+	postMsg += selYear.value + ' ' + selMonth.value + dateType + selDate.value + ' 입니다.\n\n';
 	postMsg += '뭐.. 참고로 생일은 ' + mon + ' ' + date + ' 입니다.\n\n';
 	
 	postMsg += 'http://goo.gl/Ppey0\n';
@@ -91,7 +91,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : selMonth.value + '월 ' + selDate.value + '일',
+		appname : selYear.value + ' ' + selMonth.value + dateType + selDate.value,
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
