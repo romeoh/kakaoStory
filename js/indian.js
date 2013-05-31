@@ -72,7 +72,7 @@ function executeKakaoStoryLink(){
 		dateType = M('#selDate option').selector[dateIdx].getAttribute('data-tb')
 	}
 	
-	postMsg += '[인디언식 이름 짓기]\n';
+	postMsg += '[추억의 인디언식 이름 짓기]\n';
 	postMsg += '나의 인디언식 이름은\n';
 	postMsg += selYear.value + ' ' + selMonth.value + dateType + selDate.value + ' 입니다.\n\n';
 	postMsg += '뭐.. 참고로 생일은 ' + mon + ' ' + date + ' 입니다.\n\n';
@@ -80,7 +80,7 @@ function executeKakaoStoryLink(){
 	postMsg += 'http://goo.gl/Ppey0\n';
 	
 	urlMsg = {
-		title: '인디언식 이름 짓기',
+		title: '추억의 인디언식 이름 짓기',
 		desc: '리멤버!! ' + mon + ' ' + date ,
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/indian.jpg'],
 		type:'article'
@@ -100,11 +100,11 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "인디언식 이름 짓기",
+		msg: "추억의 인디언식 이름 짓기",
 		url: "http://goo.gl/Ppey0",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "인디언식 이름 짓기",
+		appname: "추억의 인디언식 이름 짓기",
 		type: "link"
 	});
 }
