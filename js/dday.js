@@ -68,10 +68,10 @@ function dateCheck(start, end) {
     var endDate = new Date(ey, em - 1, ed);
     var milSec = endDate - startDate;
 	if (milSec > 0) {
-		result = (milSec / 1000 / 60 / 60 / 24) + "일 남았습니다"
+		result = M.toCurrency((milSec / 1000 / 60 / 60 / 24)) + "일 남았습니다"
 		//console.log(result);
 	} else {
-		result = -1 * (milSec / 1000 / 60 / 60 / 24) + "일 지났습니다"
+		result = M.toCurrency(-1 * (milSec / 1000 / 60 / 60 / 24)) + "일 지났습니다"
 		//console.log(result);
 	}
 	return result
