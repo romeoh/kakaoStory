@@ -41,7 +41,8 @@ window.addEventListener('DOMContentLoaded', function(){
 				title = '내가 태어난지'
 			break;
 			case 'birth':
-				M('#info').text('태어난 날짜를 입력하세요.')
+				M('#info').text('생일을 입력하세요.')
+				M('#selYear').val('2013')
 				title = '내 생일까지'
 			break;
 			case 'meet':
