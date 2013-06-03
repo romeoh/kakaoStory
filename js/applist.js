@@ -45,6 +45,7 @@ if (M('[data-list]').selector.length > 0) {
 
 
 var appListMin = ''
+appListMin += '<li data-app-min="3"><a href="http://goo.gl/VOm5Z">날짜 계산기</a></li>';
 appListMin += '<li data-app-min="2"><a href="http://goo.gl/Ppey0">인디언식 이름 짓기</a></li>';
 appListMin += '<li data-app-min="1"><a href="http://goo.gl/PPYbq">빵터지는 카톡 실수모음</a></li>';
 appListMin += '<li data-app-min=""><a href="http://goo.gl/iNzJa">혈액형 궁합</a></li>';
