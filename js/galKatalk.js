@@ -146,7 +146,8 @@ data = [
 	{'photo': 'katalk35.jpeg', 'name': ''},
 	{'photo': 'katalk36.jpeg', 'name': ''},
 	{'photo': 'katalk37.jpeg', 'name': ''},
-	{'photo': 'katalk38.jpeg', 'name': ''}
+	{'photo': 'katalk38.jpeg', 'name': ''},
+	{'photo': 'katalk39.jpeg', 'name': ''}
 ]
 
 
