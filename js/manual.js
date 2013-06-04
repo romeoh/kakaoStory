@@ -49,11 +49,11 @@ function executeKakaoStoryLink(){
 	setRandom(dataGinung)
 
 	postMsg += '[' + userName + ' 사용설명서]\n\n';
-	postMsg += '좋아하는것: ' + like + '\n';
-	postMsg += '싫어하는것: ' + hate + '\n';
-	postMsg += '주연료: ' + Fuel + '\n';
-	postMsg += '평상시 관리법: ' + manage + '\n';
-	postMsg += '고장시 대처요령: ' + broken + '\n\n';
+	postMsg += '- 좋아하는것: ' + like + '\n';
+	postMsg += '- 싫어하는것: ' + hate + '\n';
+	postMsg += '- 주연료: ' + Fuel + '\n';
+	postMsg += '- 평상시 관리법: ' + manage + '\n';
+	postMsg += '- 고장시 대처요령: ' + broken + '\n\n';
 	postMsg += '[주요기능]\n';
 	postMsg += '1. ' + dataGinung[ginung0] + '\n';
 	postMsg += '2. ' + dataGinung[ginung1] + '\n';
@@ -73,7 +73,7 @@ function executeKakaoStoryLink(){
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '냉철한 대기업 인재 사냥꾼',
+		appname : '자기 사용설명서',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
