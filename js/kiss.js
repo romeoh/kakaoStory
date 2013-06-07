@@ -86,7 +86,7 @@ function executeKakaoStoryLink(){
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '키스데이',
+		appname : '6월 14일',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
