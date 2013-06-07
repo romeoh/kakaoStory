@@ -59,11 +59,13 @@ function executeKakaoStoryLink(){
 	}
 	
 	if (boySelect.className == 'checked') {
-		who = dataMale[Math.floor(Math.random() * dataMale.length)]['name']
-		photo = dataMale[Math.floor(Math.random() * dataMale.length)]['photo']
+		kissData = dataMale[Math.floor(Math.random() * dataMale.length)]
+		who = kissData['name']
+		photo = kissData['photo']
 	} else if (girlSelect.className == 'checked') {
-		who = dataFemale[Math.floor(Math.random() * dataFemale.length)]['name']
-		photo = dataFemale[Math.floor(Math.random() * dataFemale.length)]['photo']
+		kissData = dataFemale[Math.floor(Math.random() * dataFemale.length)]
+		who = kissData['name']
+		photo = kissData['photo']
 	}
 	
 	postMsg += '[키스데이, 누구와 키스하나]\n\n';
