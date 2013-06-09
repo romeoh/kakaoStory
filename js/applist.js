@@ -1,4 +1,5 @@
 var appList = ''
+appList += '<li data-app="40"><a href="http://goo.gl/en4KS">내 자녀수 알아보기</a></li>';
 appList += '<li data-app="39"><a href="http://goo.gl/Aa6wS">키스데이, 누구와 키스하나</a></li>';
 appList += '<li data-app="38"><a href="http://goo.gl/gSloK">자기 사용설명서</a></li>';
 appList += '<li data-app="37"><a href="http://goo.gl/VOm5Z">날짜 계산기</a></li>';
@@ -48,6 +49,7 @@ if (M('[data-list]').selector.length > 0) {
 
 
 var appListMin = ''
+appListMin += '<li data-app-min="6"><a href="http://goo.gl/en4KS">내 자녀수 알아보기</a></li>';
 appListMin += '<li data-app-min="5"><a href="http://goo.gl/Aa6wS">키스데이, 누구와 키스하나</a></li>';
 appListMin += '<li data-app-min="4"><a href="http://goo.gl/gSloK">자기 사용설명서</a></li>';
 appListMin += '<li data-app-min="3"><a href="http://goo.gl/VOm5Z">날짜 계산기</a></li>';
