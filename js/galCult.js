@@ -100,7 +100,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '두시탈출 컬투쇼 베스트 사연 모음',
 		desc: '컬투쇼',
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgKatalk/thum.png' ],
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/cult.png' ],
 		type:'article'
 	}
 
