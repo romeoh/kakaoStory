@@ -114,10 +114,10 @@ function goStore() {
 }
 
 dataBanner = [
-	{'url': 'bnnr_hippop.html', 'link': 'http://goo.gl/NBHk9'}
+	{'url': 'bnnr_hippop.html', 'link': 'market://details?id=com.hetory.kakao.hippop'}
 ]
 
-
+// market://details?id=com.hetory.kakao.hippop
 
 
 
