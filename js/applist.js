@@ -80,20 +80,36 @@ if (M('[data-list-min]').selector.length > 0) {
 }
 
 
-
+var bannerData;
 function showad() {
-
+	bannerData = dataBanner[Math.floor(Math.random() * dataBanner.length)]
+	if (M('#goStore').selector.length != 0) {
+		return false;
+	}
+	M('body').append('div', {
+		'id': 'goStore'
+	})
+	M('#goStore').html('<iframe src="'+bannerData['url']+'"></iframe>')
 }
 
 function closeBanner(){
+	M('#goStore').animate({
+		'opacity':'0'
+	})
 	console.log('closeBanner()')
 }
 
 function goStore() {
+	M('#goStore').animate({
+		'opacity':'0'
+	})
+	window.location.href = bannerData['link']
 	console.log('goStore()')
 }
 
-
+dataBanner = [
+	{'url': 'bnnr_hippop.html', 'link': 'http://goo.gl/NBHk9'}
+]
 
 
 

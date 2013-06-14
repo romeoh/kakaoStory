@@ -132,6 +132,8 @@ function executeKakaoStoryLink(){
 		appname : storyTitle.replace('_name_', M('#userName').val()),
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 function getRandom(min, max){
