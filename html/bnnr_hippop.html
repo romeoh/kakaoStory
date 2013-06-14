@@ -52,12 +52,12 @@ function rolling() {
 M('.close').on('click', function(){
 	clearInterval(rollId)
 	rollId = null
-	parent.closeBanner();
+	window.parent.closeBanner();
 })
 M('#goStore').on('click', function(){
 	clearInterval(rollId)
 	rollId = null
-	parent.goStore();
+	window.parent.goStore();
 })
 </script>
 
