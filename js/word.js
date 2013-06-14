@@ -67,6 +67,8 @@ function executeKakaoStoryLink(){
 		appname : '내이름 연상단어',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 function settle(data, leng) {

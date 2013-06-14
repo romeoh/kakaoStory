@@ -69,6 +69,8 @@ console.log(postMsg, urlMsg)
 		appname : '기부 안해요~',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

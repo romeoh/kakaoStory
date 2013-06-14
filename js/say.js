@@ -61,6 +61,8 @@ function executeKakaoStoryLink(){
 		appname : '원데이 명언',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 function getRand(data){

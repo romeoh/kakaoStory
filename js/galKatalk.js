@@ -93,6 +93,8 @@ console.log(postMsg, urlMsg)
 		appname : '히토리',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

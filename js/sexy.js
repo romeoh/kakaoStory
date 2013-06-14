@@ -67,6 +67,8 @@ function executeKakaoStoryLink(){
 		appname : '심리테스트',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

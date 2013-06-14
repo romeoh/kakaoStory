@@ -77,6 +77,8 @@ function executeKakaoStoryLink(){
 		appname : '나의 매력포인트',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

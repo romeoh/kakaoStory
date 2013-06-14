@@ -76,6 +76,8 @@ function executeKakaoStoryLink(){
 		appname : '자기 사용설명서',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 function setRandom(data){

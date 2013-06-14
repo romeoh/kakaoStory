@@ -75,6 +75,8 @@ function executeKakaoStoryLink(){
 		appname : '별자리+혈액형 성격테스트',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 

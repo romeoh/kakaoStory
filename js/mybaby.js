@@ -91,6 +91,8 @@ console.log(postMsg)
 		appname : '10년뒤 내 아기모습',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

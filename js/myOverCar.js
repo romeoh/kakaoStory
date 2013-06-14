@@ -56,6 +56,8 @@ console.log(postMsg, urlMsg)
 		appname : '3년뒤 나의 외제차',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

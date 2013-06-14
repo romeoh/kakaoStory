@@ -94,6 +94,8 @@ function executeKakaoStoryLink(){
 		appname : selYear.value + ' ' + selMonth.value + dateType + selDate.value,
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 

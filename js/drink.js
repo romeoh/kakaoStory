@@ -60,6 +60,8 @@ function executeKakaoStoryLink(){
 		appname : '나와 스캔들날 연예인',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

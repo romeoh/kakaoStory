@@ -77,6 +77,8 @@ function executeKakaoStoryLink(){
 		appname : selMonth.value + '월 ' + selDate.value + '일',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 

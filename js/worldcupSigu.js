@@ -264,6 +264,8 @@ console.log(postMsg, urlMsg)
 		appname : '연예인 월드컵',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

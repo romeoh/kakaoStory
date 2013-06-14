@@ -65,6 +65,8 @@ console.log(postMsg)
 		appname : '내'+loverType+'과 나는 전생에 무슨 관계였나',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

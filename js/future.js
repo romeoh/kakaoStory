@@ -87,6 +87,8 @@ function executeKakaoStoryLink(){
 		appname : '닮을꼴 연예인 찾기',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

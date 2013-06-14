@@ -63,6 +63,8 @@ function executeKakaoStoryLink(){
 		appname : data.coffee,
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

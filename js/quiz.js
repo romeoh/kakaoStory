@@ -143,6 +143,8 @@ function executeKakaoStoryLink(){
 		appname : '1:100 기출문제',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 function getRand(data){

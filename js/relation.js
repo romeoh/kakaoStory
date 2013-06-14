@@ -58,6 +58,8 @@ console.log(postMsg)
 		appname : '내아기 전생 알아보기',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

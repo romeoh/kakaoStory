@@ -61,6 +61,8 @@ console.log(result)
 		appname : '궁합지수: '+result.percent,
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 

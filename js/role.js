@@ -55,6 +55,8 @@ console.log(postMsg)
 		appname : '나의 롤모델',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

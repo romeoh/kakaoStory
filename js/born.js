@@ -55,6 +55,8 @@ console.log(urlMsg)
 		appname : '내가 세상에 태어난 이유',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

@@ -56,6 +56,8 @@ console.log(postMsg, urlMsg)
 		appname : '3년뒤 마이카',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

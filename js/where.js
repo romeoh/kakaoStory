@@ -81,6 +81,8 @@ function executeKakaoStoryLink(){
 		appname : '내반쪽은 어디있나?',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 //console.log(getRandom(10, 20))

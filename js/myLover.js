@@ -78,6 +78,8 @@ function executeKakaoStoryLink(){
 		appname : '내 이상형의 조건',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

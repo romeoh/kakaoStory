@@ -289,6 +289,8 @@ console.log(postMsg, urlMsg)
 		appname : '명품 월드컵',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

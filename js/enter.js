@@ -81,6 +81,8 @@ function executeKakaoStoryLink(){
 		appname : '연예인과 커피한잔',
 		urlinfo : JSON.stringify({title: resultName + '씨로부터 메세지', desc: userName + '님 ' + message, imageurl:['https://raw.github.com/romeoh/kakaoStory/gh-pages/img/'+resultPhoto], type:'article'})
     });
+
+    showad()
 }
 
 // 카톡

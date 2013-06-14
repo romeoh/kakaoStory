@@ -126,6 +126,8 @@ function executeKakaoStoryLink(){
 		appname : data.color,
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

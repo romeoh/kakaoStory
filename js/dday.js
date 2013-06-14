@@ -146,6 +146,8 @@ function executeKakaoStoryLink(){
 		appname : '날짜 계산기',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 

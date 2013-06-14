@@ -75,6 +75,8 @@ function executeKakaoStoryLink(){
 		appname : '냉철한 대기업 인재 사냥꾼',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 function setRandom(data){

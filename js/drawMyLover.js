@@ -94,6 +94,8 @@ function executeKakaoStoryLink(){
 		appname : '내 애인 그려보기',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 //console.log(getRandom(10, 20))

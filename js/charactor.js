@@ -55,6 +55,8 @@ console.log(urlMsg)
 		appname : '나의 예능 캐릭터',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

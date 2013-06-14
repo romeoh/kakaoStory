@@ -89,6 +89,8 @@ function executeKakaoStoryLink(){
 		appname : '6월 14일',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡

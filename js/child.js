@@ -126,6 +126,8 @@ function executeKakaoStoryLink(){
 		appname : '내 자녀수 알아보기',
 		urlinfo : JSON.stringify(urlMsg)
     });
+
+    showad()
 }
 
 // 카톡
