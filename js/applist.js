@@ -81,9 +81,17 @@ if (M('[data-list-min]').selector.length > 0) {
 
 
 
+function showad() {
 
+}
 
+function closeBanner(){
+	console.log('closeBanner()')
+}
 
+function goStore() {
+	console.log('goStore()')
+}
 
 
 

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
+<title>banner</title>
+<style type="text/css">
+body {margin:0; overflow:hidden;}
+#banner {position:relative}
+#banner .ss {position:absolute;}
+#banner .close {position:absolute; right:0; z-index:100}
+/*#banner .ss:nth-child(1) {z-index:5}
+#banner .ss:nth-child(2) {z-index:4}
+#banner .ss:nth-child(3) {z-index:3}
+#banner .ss:nth-child(4) {z-index:2}
+#banner .ss:nth-child(5) {z-index:1}*/
+</style>
+</head>
+
+<body>
+
+<div id="banner" style="">
+	<div class="close"><img src="../imgBnnr/btn_close.png" alt=""></div>
+	<div class="ss" id="goStore"><img src="../imgBnnr/bnnr_hippopBack.png" alt=""></div>
+	<div class="ss"><img src="../imgBnnr/bnnr_hippop5.png" alt=""></div>
+	<div class="ss" id="s2"><img src="../imgBnnr/bnnr_hippop4.png" alt=""></div>
+	<div class="ss" id="s1"><img src="../imgBnnr/bnnr_hippop3.png" alt=""></div>
+	<div class="ss" id="s0"><img src="../imgBnnr/bnnr_hippop2.png" alt=""></div>
+</div>
+
+<script type="text/javascript" src="../js/mpui.js"></script>
+<script type="text/javascript">
+var  cuIdx = 0
+	,rollId = setInterval(rolling, 1300)
+
+function rolling() {
+	if (cuIdx === 3) {
+		cuIdx = 0
+		M('.ss').animate({
+			 'opacity': 1
+			,'time': '.4s'
+		})
+	} else {
+		M('#s'+cuIdx).animate({
+			 'opacity': 0
+			,'time': '.4s'
+		})
+		cuIdx++
+	}
+}
+
+M('.close').on('click', function(){
+	clearInterval(rollId)
+	rollId = null
+	parent.closeBanner();
+})
+M('#goStore').on('click', function(){
+	clearInterval(rollId)
+	rollId = null
+	parent.goStore();
+})
+</script>
+
+</body>
+</html>
