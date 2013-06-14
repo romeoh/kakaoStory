@@ -82,6 +82,9 @@ if (M('[data-list-min]').selector.length > 0) {
 
 var bannerData;
 function showad() {
+	if (os !== 'android') {
+		return false;
+	}
 	bannerData = dataBanner[Math.floor(Math.random() * dataBanner.length)]
 	if (M('#goStore').selector.length != 0) {
 		return false;
@@ -114,11 +117,16 @@ function goStore() {
 }
 
 dataBanner = [
-	{'url': 'bnnr_hippop.html', 'link': 'http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.hippop'}
+	{'url': 'bnnr_hippop.html', 'link': 'http://goo.gl/BNYgT'}
 ]
 
-// market://details?id=com.hetory.kakao.hippop
+/* 
+http://goo.gl/BNYgT
+http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.hippop
+market://details?id=com.hetory.kakao.hippop
 
+
+*/
 
 
 
