@@ -94,7 +94,7 @@ function executeKakaoStoryLink(){
 	var postMsg = ''
 	
 	postMsg += '[두시탈출 컬투쇼 베스트 사연 모음]\n';
-	postMsg += '기억에 남는 컬투쇼 사연 모음 보러가기\n\n';
+	postMsg += '대박 웃긴 컬투쇼 사연 모음 보러가기\n\n';
 	postMsg += 'http://goo.gl/ZojeN\n';
 
 	urlMsg = {
