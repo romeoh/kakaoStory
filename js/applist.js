@@ -92,7 +92,9 @@ function showad() {
 	M('body').append('div', {
 		'id': 'goStore'
 	})
-	M('#goStore').html('<iframe src="'+bannerData['url']+'"></iframe>')
+	M('#goStore')
+		.css('left', M.screen().width/2 - 150 + 'px')
+		.html('<iframe src="'+bannerData['url']+'"></iframe>')
 }
 
 function closeBanner(){
