@@ -114,7 +114,7 @@ function goStore() {
 }
 
 dataBanner = [
-	{'url': 'bnnr_hippop.html', 'link': 'market://details?id=com.hetory.kakao.hippop'}
+	{'url': 'bnnr_hippop.html', 'link': 'http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.hippop'}
 ]
 
 // market://details?id=com.hetory.kakao.hippop
