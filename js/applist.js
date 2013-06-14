@@ -80,15 +80,12 @@ if (M('[data-list-min]').selector.length > 0) {
 }
 
 
-var  bannerData
-	,isShowBanner = true;
-
+var bannerData;
 function showad() {
 	bannerData = dataBanner[Math.floor(Math.random() * dataBanner.length)]
-	if (!isShowBanner) {
+	if (M('#goStore').selector.length != 0) {
 		return false;
 	}
-	isShowBanner = false;
 	M('body').append('div', {
 		'id': 'goStore'
 	})
@@ -110,7 +107,7 @@ function goStore() {
 		 'opacity':'0'
 		,'time': '.3s'
 	}, function(evt, mp){
-		mp.remove()
+		mp.css('display', 'none')
 	})
 	window.location.href = bannerData['link']
 	console.log('goStore()')
