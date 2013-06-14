@@ -106,12 +106,12 @@ function closeBanner(){
 }
 
 function goStore() {
-	M('#goStore').animate({
+	/*M('#goStore').animate({
 		 'opacity':'0'
 		,'time': '.3s'
 	}, function(evt, mp){
 		mp.css('display', 'none')
-	})
+	})*/
 	window.location.href = bannerData['link']
 	console.log('goStore()')
 }
