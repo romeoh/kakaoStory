@@ -82,8 +82,8 @@ if (M('[data-list-min]').selector.length > 0) {
 
 var bannerData;
 function showad() {
-	if (os !== 'android') {
-		//return false;
+	if (os === 'ios') {
+		return false;
 	}
 	bannerData = dataBanner[Math.floor(Math.random() * dataBanner.length)]
 	if (M('#goStore').selector.length != 0) {
