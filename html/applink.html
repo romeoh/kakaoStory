@@ -15,6 +15,7 @@ window.addEventListener('load', link, false)
 function link () {
 	hash = window.location.hash.replace('#', '')
 	window.location.href = "market://details?id=" + hash
+	window.history.go(-1)
 }
 
 </script>
