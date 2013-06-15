@@ -68,14 +68,14 @@ function executeKakaoStoryLink(){
 		photo = kissData['photo']
 	}
 	
-	postMsg += '[키스데이, 누구와 키스하나]\n\n';
-	postMsg += userName + '님은 키스데이에 ' + who + '\n';
+	postMsg += '[누구와 키스하나]\n\n';
+	postMsg += userName + '님은 ' + who + '\n';
 	postMsg += where + ' ' + how + ' 키스합니다.\n\n';
 	
 	postMsg += 'http://goo.gl/Aa6wS';
 	
 	urlMsg = {
-		title: '키스데이',
+		title: '누구와 키스하나',
 		desc: who + ' 키스합니다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + photo],
 		type:'article'
@@ -96,11 +96,11 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "키스데이",
+		msg: "누구와 키스하나",
 		url: "http://goo.gl/Aa6wS",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "키스데이",
+		appname: "누구와 키스하나",
 		type: "link"
 	});
 }
