@@ -3,7 +3,7 @@ appList += '<li data-app="43"><a href="http://goo.gl/gNy3L">꽃보다 할배</a>
 appList += '<li data-app="42"><a href="http://goo.gl/ZojeN">두시탈출 컬투쇼 베스트 사연 모음</a></li>';
 appList += '<li data-app="41"><a href="http://goo.gl/CZsWG">막장드라마</a></li>';
 appList += '<li data-app="40"><a href="http://goo.gl/en4KS">내 자녀수 알아보기</a></li>';
-appList += '<li data-app="39"><a href="http://goo.gl/Aa6wS">키스데이, 누구와 키스하나</a></li>';
+appList += '<li data-app="39"><a href="http://goo.gl/Aa6wS">누구와 키스하나</a></li>';
 appList += '<li data-app="38"><a href="http://goo.gl/gSloK">자기 사용설명서</a></li>';
 appList += '<li data-app="37"><a href="http://goo.gl/VOm5Z">날짜 계산기</a></li>';
 appList += '<li data-app="36"><a href="http://goo.gl/Ppey0">인디언식 이름 짓기</a></li>';
@@ -56,7 +56,7 @@ appListMin += '<li data-app-min="9"><a href="http://goo.gl/gNy3L">꽃보다 할�
 appListMin += '<li data-app-min="8"><a href="http://goo.gl/ZojeN">두시탈출 컬투쇼 베스트 사연 모음</a></li>';
 appListMin += '<li data-app-min="7"><a href="http://goo.gl/CZsWG">막장드라마</a></li>';
 appListMin += '<li data-app-min="6"><a href="http://goo.gl/en4KS">내 자녀수 알아보기</a></li>';
-appListMin += '<li data-app-min="5"><a href="http://goo.gl/Aa6wS">키스데이, 누구와 키스하나</a></li>';
+appListMin += '<li data-app-min="5"><a href="http://goo.gl/Aa6wS">누구와 키스하나</a></li>';
 appListMin += '<li data-app-min="4"><a href="http://goo.gl/gSloK">자기 사용설명서</a></li>';
 appListMin += '<li data-app-min="3"><a href="http://goo.gl/VOm5Z">날짜 계산기</a></li>';
 appListMin += '<li data-app-min="2"><a href="http://goo.gl/Ppey0">인디언식 이름 짓기</a></li>';
