@@ -125,6 +125,11 @@ function goStore() {
 
 dataBanner = [
 	{'url': 'bnnr_hippop.html', 'link': 'http://goo.gl/BNYgT'},
+	
+	{'url': 'bnnr_buam.html', 'link': 'http://goo.gl/WrRJr'},
+	{'url': 'bnnr_buam.html', 'link': 'http://goo.gl/WrRJr'},
+	{'url': 'bnnr_buam.html', 'link': 'http://goo.gl/WrRJr'},
+	{'url': 'bnnr_buam.html', 'link': 'http://goo.gl/WrRJr'},
 	{'url': 'bnnr_buam.html', 'link': 'http://goo.gl/WrRJr'}
 ]
 
