@@ -86,7 +86,7 @@ if (M('[data-list-min]').selector.length > 0) {
 
 var bannerData;
 function showad() {
-	return false;
+	//return false;
 	if (os === 'ios') {
 		return false;
 	}
@@ -124,7 +124,8 @@ function goStore() {
 }
 
 dataBanner = [
-	{'url': 'bnnr_hippop.html', 'link': 'http://goo.gl/BNYgT'}
+	{'url': 'bnnr_hippop.html', 'link': 'http://goo.gl/BNYgT'},
+	{'url': 'bnnr_buam.html', 'link': 'http://goo.gl/WrRJr'}
 ]
 
 /* 
@@ -132,6 +133,10 @@ http://goo.gl/BNYgT
 http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.hippop
 market://details?id=com.hetory.kakao.hippop
 
+
+http://goo.gl/WrRJr
+http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.buam
+market://details?id=com.hetory.kakao.buam
 
 */
 
