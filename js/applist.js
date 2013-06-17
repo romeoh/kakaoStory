@@ -1,4 +1,5 @@
 var appList = ''
+appList += '<li data-app="44"><a href="http://goo.gl/eK1NU">나와 어울리는 CF</a></li>';
 appList += '<li data-app="43"><a href="http://goo.gl/gNy3L">꽃보다 할배</a></li>';
 appList += '<li data-app="42"><a href="http://goo.gl/ZojeN">두시탈출 컬투쇼 베스트 사연 모음</a></li>';
 appList += '<li data-app="41"><a href="http://goo.gl/CZsWG">막장드라마</a></li>';
@@ -52,6 +53,7 @@ if (M('[data-list]').selector.length > 0) {
 
 
 var appListMin = ''
+appListMin += '<li data-app-min="10"><a href="http://goo.gl/eK1NU">나와 어울리는 CF</a></li>';
 appListMin += '<li data-app-min="9"><a href="http://goo.gl/gNy3L">꽃보다 할배</a></li>';
 appListMin += '<li data-app-min="8"><a href="http://goo.gl/ZojeN">두시탈출 컬투쇼 베스트 사연 모음</a></li>';
 appListMin += '<li data-app-min="7"><a href="http://goo.gl/CZsWG">막장드라마</a></li>';
