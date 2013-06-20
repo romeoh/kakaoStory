@@ -30,7 +30,8 @@ function executeKakaoStoryLink(){
 		,artcle = data[dataRan]['article']
 	
 	postMsg += '[625전쟁 상식]\n\n';
-	postMsg += artcle + '\n\n';
+	postMsg += artcle + '\n';
+	postMsg += '출처: 위키백과\n\n';
 	
 	postMsg += '상식 더보기: http://goo.gl/6HS2G\n';
 	
