@@ -29,7 +29,7 @@ function executeKakaoStoryLink(){
 		,dataRan = Math.floor(Math.random() * data.length)
 		,artcle = data[dataRan]['article']
 	
-	postMsg += '[625전쟁 상식]\n';
+	postMsg += '[625전쟁 상식]\n\n';
 	postMsg += artcle + '\n\n';
 	
 	postMsg += '상식 더보기: http://goo.gl/6HS2G\n';
@@ -46,7 +46,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : data.alpha,
+		appname : '625전쟁 63주년',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
