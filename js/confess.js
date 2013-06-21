@@ -57,9 +57,11 @@ function executeKakaoStoryLink(){
 	if (boySelect.className == 'checked') {
 		// 남자
 		img = 'confess1.png'
+		sex = '여자'
 	} else if (girlSelect.className == 'checked') {
 		// 여자
 		img = 'confess2.png'
+		sex = '남자'
 	}
 	storyFirst = dataFirst[Math.floor(Math.random() * dataFirst.length)]
 	storySecond = dataSecond[Math.floor(Math.random() * dataSecond.length)]
@@ -67,14 +69,14 @@ function executeKakaoStoryLink(){
 
 
 	postMsg += '[나에게 고백할 사람]\n\n';
-	postMsg += getRandom(1, 6) + '개월 뒤 ' + M('#userName').val() + '님에게 고백할 사람의 초성은 \n\n';
+	postMsg += getRandom(1, 6) + '개월 뒤 ' + M('#userName').val() + '님에게 고백할 ' + sex + '의 초성은 \n\n';
 	postMsg += storyFirst + ' ' + storySecond + ' ' + storyThird + ' 입니다.\n\n';
 	
 	postMsg += 'http://goo.gl/D3Yy8\n';
 	
 	urlMsg = {
 		title: '나에게 고백할 사람',
-		desc: '정말이야? 전혀 눈치 못챘어...',
+		desc: '내일까지 이야기 할께~',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + img],
 		type:'article'
 	}
@@ -84,7 +86,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '내일까지 이야기 할께~',
+		appname : '정말이야? 전혀 눈치 못챘어...',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -135,7 +137,6 @@ dataFirst = [
 dataSecond = [
 	'ㄱ',
 	'ㄴ',
-	'ㄷ',
 	'ㄹ',
 	'ㅁ',
 	'ㅂ',
