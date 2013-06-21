@@ -42,7 +42,7 @@ function executeKakaoStoryLink(){
 	} else if (age > 20 && age <= 35) {
 		desc = '선방했네..'
 	} else {
-		desc = '나이는 숫자에 불과하다!!'
+		desc = '인생은 60부터.ㅠㅠ'
 	}
 
 	postMsg += '[나의 얼굴나이]\n';
