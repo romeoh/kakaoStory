@@ -67,10 +67,10 @@ function executeKakaoStoryLink(){
 
 
 	postMsg += '[나에게 고백할 사람]\n\n';
-	postMsg += getRandom(1, 6) + '개월 뒤 나에게 고백할 사람의 초성은 \n\n';
+	postMsg += getRandom(1, 6) + '개월 뒤 ' + M('#userName').val() + '님에게 고백할 사람의 초성은 \n\n';
 	postMsg += storyFirst + ' ' + storySecond + ' ' + storyThird + ' 입니다.\n\n';
 	
-	postMsg += 'http://goo.gl/CZsWG\n';
+	postMsg += 'http://goo.gl/D3Yy8\n';
 	
 	urlMsg = {
 		title: '나에게 고백할 사람',
@@ -84,7 +84,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '',
+		appname : '내일까지 이야기 할께~',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -98,11 +98,11 @@ function getRandom(min, max){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "막장드라마",
-		url: "http://goo.gl/CZsWG",
+		msg: "나에게 고백할 사람",
+		url: "http://goo.gl/D3Yy8",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "막장드라마",
+		appname: "나에게 고백할 사람",
 		type: "link"
 	});
 }
