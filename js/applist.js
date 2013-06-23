@@ -133,8 +133,8 @@ function goStore() {
 
 dataBanner = [
 	{'url': 'bnnr_hippop.html', 'link': 'http://goo.gl/BNYgT'},
-	
-	{'url': 'bnnr_buam.html', 'link': 'http://goo.gl/WrRJr'}
+	{'url': 'bnnr_buam.html', 'link': 'http://goo.gl/WrRJr'},
+	{'url': 'bnnr_alice.html', 'link': 'http://goo.gl/qldVb'}
 ]
 
 /* 
@@ -146,6 +146,10 @@ market://details?id=com.hetory.kakao.hippop
 http://goo.gl/WrRJr
 http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.buam
 market://details?id=com.hetory.kakao.buam
+
+http://goo.gl/qldVb
+http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.alice
+market://details?id=com.hetory.kakao.alice
 
 */
 
