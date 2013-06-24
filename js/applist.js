@@ -96,7 +96,13 @@ if (M('[data-list-min]').selector.length > 0) {
 
 var bannerData;
 function showad() {
-	return false;
+	function getRandom(min, max){
+		return Math.floor(Math.random() * (max-min) + min)
+	}
+	if ( getRandom(0, 5) !== 0) {
+		return false
+	}
+	
 	if (os === 'ios') {
 		return false;
 	}
