@@ -96,7 +96,7 @@ if (M('[data-list-min]').selector.length > 0) {
 
 var bannerData;
 function showad() {
-	//return false;
+	return false;
 	if (os === 'ios') {
 		return false;
 	}
