@@ -34,7 +34,8 @@ window.addEventListener('DOMContentLoaded', function(){
 	M('#grid5 a').on('click', function(evt, mp){
 		M('#grid5 a').addClass('checked');
 		M('#grid3 a').removeClass('checked');
-		
+		full = 'g5';
+
 		gradeLang = 0;
 		removeGrade();
 		addGrade5();
@@ -44,6 +45,8 @@ window.addEventListener('DOMContentLoaded', function(){
 	M('#grid3 a').on('click', function(evt, mp){
 		M('#grid3 a').addClass('checked');
 		M('#grid5 a').removeClass('checked');
+		full = 'g3';
+
 		gradeLang = 0;
 		removeGrade();
 		addGrade3();
@@ -172,6 +175,7 @@ function process() {
 		,result
 		,postMsg = ''
 		,urlMsg
+		,fullScore = ''
 
 	for (var i=0; i<leng.length; i++) {
 		
@@ -192,9 +196,16 @@ function process() {
 		alert('점수를 입력하세요.')
 		return false;
 	}
+	if (full == 'g5') {
+		fullScore = '4.5'
+	} else {
+		fullScore = '4.3'
+	}
+
 	result = Math.round(totalGrade/totalScore*100)/100
 	postMsg += '[학점계산기]\n\n';
-	postMsg += '총 평점은 ' + result + '점,\n';
+	postMsg += '내 학점은 ' + fullScore + '점 만점에\n';
+	postMsg += '평점 ' + result + '점,\n';
 	postMsg += '취득학점은 ' + totalScore + '점 입니다.\n\n';
 	postMsg += 'http://goo.gl/tqgF1 \n';
 	
