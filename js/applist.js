@@ -1,4 +1,5 @@
 var appList = ''
+appList += '<li data-app="50"><a href="http://goo.gl/tqgF1">학점계산기</a></li>';
 appList += '<li data-app="49"><a href="http://goo.gl/DrQFt">애인구함</a></li>';
 appList += '<li data-app="48"><a href="http://goo.gl/D3Yy8">나에게 고백할 사람의 초성</a></li>';
 appList += '<li data-app="47"><a href="http://goo.gl/yi3PU">나의얼굴 나이 알아보기</a></li>';
@@ -58,6 +59,7 @@ if (M('[data-list]').selector.length > 0) {
 
 
 var appListMin = ''
+appListMin += '<li data-app-min="16"><a href="http://goo.gl/tqgF1">학점계산기</a></li>';
 appListMin += '<li data-app-min="15"><a href="http://goo.gl/DrQFt">애인구함</a></li>';
 appListMin += '<li data-app-min="14"><a href="http://goo.gl/D3Yy8">나에게 고백할 사람의 초성</a></li>';
 appListMin += '<li data-app-min="13"><a href="http://goo.gl/yi3PU">나의얼굴 나이 알아보기</a></li>';
