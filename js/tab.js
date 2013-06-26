@@ -16,6 +16,9 @@ var  ua = navigator.userAgent
 	,chanceTime
 	,isAuto = false
 	,team
+	,scoreBoy
+	,scoreGirl
+	,scoreSub
 
 if (os == 'ios' || os == 'android') {
 	//init();
@@ -23,19 +26,23 @@ if (os == 'ios' || os == 'android') {
 	var  adTop = document.querySelector('#adTop')
 		,adBottom = document.querySelector('#adBottom')
 		,adMiddle = document.querySelector('#adMiddle')
-	document.querySelector('body').removeChild(adTop)
-	document.querySelector('body').removeChild(adBottom)
-	document.querySelector('body').removeChild(adMiddle)
+	//document.querySelector('body').removeChild(adTop)
+	//document.querySelector('body').removeChild(adBottom)
+	//document.querySelector('body').removeChild(adMiddle)
 }
 
 window.addEventListener('DOMContentLoaded', function(){
 	// 게임시작
 	M('#btnBoy').on('click', function(){
-		team = 'boy'
+		team = 'boy';
+		M('#btnStory').text('오빠팀 소환하기')
+		M('#btnSubmit').text('오빠팀 점수전송')
 		gameStart()
 	})
 	M('#btnGirl').on('click', function(){
-		team = 'girl'
+		team = 'girl';
+		M('#btnStory').text('언니팀 소환하기')
+		M('#btnSubmit').text('언니팀 점수전송')
 		gameStart()
 	})
 
@@ -66,8 +73,10 @@ function getVs() {
 				,eday = edate.substr(8, 2)
 				,ehour = edate.substr(11, 2)
 				,str = ''
-				,sub
 			
+			scoreBoy = boy
+			scoreGirl = girl
+
 			M('#scoreBoard').text( round + '경기 (' + smonth + '월 ' + sday + '일 04시 ~ ' + emonth + '월 ' + emonth + '일 04시)')
 			if (boy > girl) {
 				str += '<div id="reload"></div>';
@@ -79,8 +88,8 @@ function getVs() {
 				str += '	<p class="title">언니팀 스코어보드</p>';
 				str += '	<p class="score">' + M.toCurrency(girl) + ' 탭</p>';
 				str += '</div>';
-				sub = boy - girl
-				M('#info').text('현재 오빠팀이 ' + M.toCurrency(sub) + '탭 앞서고 있습니다.')
+				scoreSub = boy - girl
+				M('#info').text('현재 오빠팀이 ' + M.toCurrency(scoreSub) + '탭 앞서고 있습니다.')
 			} else {
 				str += '<div id="reload"></div>';
 				str += '<div class="team0">';
@@ -91,12 +100,12 @@ function getVs() {
 				str += '	<p class="title">오빠팀 스코어보드</p>';
 				str += '	<p class="score">' + M.toCurrency(boy) + ' 탭</p>';
 				str += '</div>';
-				sub = girl - boy
-				M('#info').text('현재 언니팀이 ' + M.toCurrency(sub) + '탭 앞서고 있습니다.')
+				scoreSub = girl - boy
+				M('#info').text('현재 언니팀이 ' + M.toCurrency(scoreSub) + '탭 앞서고 있습니다.')
 			}
 			M('#board').html(str);
 			M('#reload').on('click', function(){
-				M('#scoreBoard').text('')
+				//M('#scoreBoard').text('')
 				M('#board').text('')
 				M('#info').text('')
 				getVs();
@@ -195,6 +204,7 @@ function normalMode() {
 // 자동 카운트
 function onAuto(evt, mp){
 	if (totalCount < 15) {
+		alert('최소 15탭 이상 달성해야 사용할수 있습니다.');
 		return false
 	}
 	if (isAuto) {
@@ -223,6 +233,7 @@ function stopAuto(){
 
 function onSubmit(){
 	if (totalCount < 20) {
+		alert('최소 20탭 이상 달성해야 점수를 전송할수 있습니다.');
 		return false
 	}
 	var  sendData = {}
@@ -242,11 +253,12 @@ function onSubmit(){
 		,'data': M.json(bodyData)
 		,'type': 'POST'
 		,'success': function(data){
-			getVs()
-			totalCount = 0
-			M('#btnAuto').removeClass('blue')
-			M('#btnSubmit').removeClass('blue')
-			M('#counter').text('0')
+			getVs();
+			stopAuto();
+			totalCount = 0;
+			M('#btnAuto').removeClass('blue');
+			M('#btnSubmit').removeClass('blue');
+			M('#counter').text('0');
 		}
 	})
 }
@@ -259,41 +271,49 @@ function getRandom(min, max){
 function executeKakaoStoryLink(){
 	var  postMsg = ''
 	
-	for (var i=0; i<radioList.length; i++) {
-		if (radioList[i].checked) {
-			selected = i
+	postMsg += '[ 탭!탭!탭! ]\n\n';
+	postMsg += '올여름 전국민은 광탭질(성대결)에 빠져든다.\n';
+
+	if (team === 'boy') {
+		if (scoreBoy > scoreGirl) {
+			postMsg += '지금 오빠팀이 ' + M.toCurrency(scoreSub) + '탭 앞서고 있어요.\n';
+			postMsg += '언니팀들을 완전히 따돌려 버려요!!!\n\n';
+		} else {
+			postMsg += '지금 오빠팀이 ' + M.toCurrency(scoreSub) + '탭 뒤지고 있어요.\n';
+			postMsg += '어서 와서 오빠팀의 무너진 자존심을 살려주세요!!!\n\n';
 		}
+		postMsg += '* 현재점수 *\n';
+		postMsg += '오빠팀: ' + M.toCurrency(scoreBoy) + '탭\n';
+		postMsg += '언니팀: ' + M.toCurrency(scoreGirl) + '탭\n\n';
+		postMsg += '탭!탭!탭! 참여하기: http://goo.gl/Aii0g\n';
+	} else {
+		if (scoreBoy > scoreGirl) {
+			postMsg += '지금 언니팀이 ' + M.toCurrency(scoreSub) + '탭 뒤지고 있어요.\n';
+			postMsg += '어서 언니팀의 무서움을 보여줘요!!!\n\n';
+		} else {
+			postMsg += '지금 언니팀이 ' + M.toCurrency(scoreSub) + '탭 앞서고 있어요.\n';
+			postMsg += '오빠팀에 지는건 절대 용서할수 없어요!!!\n\n';
+		}
+		postMsg += '* 현재점수 *\n';
+		postMsg += '언니팀: ' + M.toCurrency(scoreGirl) + '탭\n';
+		postMsg += '오빠팀: ' + M.toCurrency(scoreBoy) + '탭\n\n';
+		postMsg += '탭!탭!탭! 참여하기: http://goo.gl/bC2F0\n';
 	}
 	
-	if (selected === '') {
-		alert('당신의 행동을 선택하세요.');
-		return;
-	}
-	
-
-
-	data = dataSexy[selected]
-	
-	postMsg += '[섹시한여성을 봤을때 당신의 행동은?]\n\n';
-	postMsg += data.title + '\n\n';
-	postMsg += '(결과)\n';
-	postMsg += data.result + '\n\n';
-	
-	postMsg += 'http://goo.gl/wb8IF\n';
 	
 	urlMsg = {
-		title: '[섹시한여성을 봤을때 당신의 행동은?]',
-		desc: '공공장소에서 섹시한 여성을 봤을때 어떤 행동을 하나요?',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/sexy.jpg'],
+		title: '탭!탭!탭!',
+		desc: '게임방법: "탭!탭!탭!" 버튼을 마구마구 탭하는 남녀 성대결',
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/tab.png'],
 		type:'article'
 	}
-	console.log(postMsg)
+	console.log(postMsg, urlMsg)
 
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '심리테스트',
+		appname : '전국민 광탭질!',
 		urlinfo : JSON.stringify(urlMsg)
     });
 }
@@ -301,11 +321,11 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: '섹시한여성을 봤을때 당신의 행동은?',
-		url: 'http://goo.gl/wb8IF',
+		msg: '탭!탭!탭!',
+		url: 'http://goo.gl/qIIMX',
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "심리테스트",
+		appname: "탭!탭!탭!",
 		type: "link"
 	});
 }
