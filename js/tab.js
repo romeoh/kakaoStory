@@ -121,9 +121,9 @@ function gameStart() {
 	M('#share').css('display', 'block')
 	M('.btnBoxStart').css('display', 'none')
 
-	// 클릭 버튼 
+	// 탭 버튼 
 	M('#btnClick').on(evtStart, function(){
-		M('#btnAuto').text('자동클릭')
+		M('#btnAuto').text('자동탭')
 		isAuto = false;
 		clearInterval(autoId)
 		autoId = null;
@@ -140,7 +140,7 @@ function gameStart() {
 }
 
 
-// 클릭 버튼 누름
+// 탭 버튼 누름
 function onPress(evt, mp) {
 	if (evt) {
 		evt.preventDefault();
@@ -180,10 +180,9 @@ function chanceMode() {
 	isChance = true;
 	count = getRandom(2, 10);
 	chanceTimeId = setInterval(chanceCount, 1000);
-	chanceTime = getRandom(3, 15)
+	chanceTime = getRandom(3, 15);
 	setTimeout(normalMode, chanceTime * 1000);
-	M('#btnClick').text('찬스! 지금부터 '+count+'배! ('+chanceTime+'초간)')
-	console.log('chance')
+	M('#btnClick').text('찬스! 지금부터 '+count+'배! ('+chanceTime+'초간)');
 }
 
 function chanceCount(){
@@ -199,7 +198,7 @@ function chanceCount(){
 function normalMode() {
 	isChance = false;
 	count = 1;
-	M('#btnClick').text('클릭! 클릭! 클릭!');
+	M('#btnClick').text('탭! 탭! 탭!');
 }
 // 자동 카운트
 function onAuto(evt, mp){
@@ -208,12 +207,12 @@ function onAuto(evt, mp){
 		return false
 	}
 	if (isAuto) {
-		mp.text('자동클릭')
+		mp.text('자동탭')
 		isAuto = false;
 		clearInterval(autoId)
 		autoId = null;
 	} else {
-		mp.text('수동클릭')
+		mp.text('수동탭')
 		isAuto = true;
 		autoId = setInterval(press, 200);
 	}
