@@ -77,7 +77,7 @@ function getVs() {
 			scoreBoy = boy
 			scoreGirl = girl
 
-			M('#scoreBoard').text( round + '경기 (' + smonth + '월 ' + sday + '일 04시 ~ ' + emonth + '월 ' + emonth + '일 04시)')
+			M('#scoreBoard').text( round + '경기 (' + smonth + '월 ' + sday + '일 04시 ~ ' + emonth + '월 ' + eday + '일 04시)')
 			if (boy > girl) {
 				str += '<div id="reload"></div>';
 				str += '<div class="team0">';
