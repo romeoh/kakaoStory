@@ -103,26 +103,20 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </div>
 
 
-<h1>광클릭! 클릭! 클릭!</h1>
-<h2 class="round">1경기 (6월 1일 00시 ~ 6월 7일 00시)</h2>
+<h1>탭! 탭! 탭!</h1>
+<h2 class="round" id="scoreBoard"></h2>
 <div id="game">
 	<p id="counter" data-count="0">0</p>
-	<div class="button purple" id="btnClick">클릭! 클릭! 클릭!</div>
+	<div class="button purple" id="btnClick">탭! 탭! 탭!</div>
 	<div class="btnBox">
 		<div class="button gray" id="btnAuto">자동클릭</div>
 		<div class="button gray" id="btnSubmit">전송</div>
 	</div>
 </div>
 <div id="board">
-	<div id="reload"></div>
-	<div class="team0">
-		<p class="title">오빠팀 스코어보드</p>
-		<p class="score">1,000,000,000 클릭</p>
-	</div>
-	<p class="title">언니팀 스코어보드</p>
-	<p class="score">1,100,000,000 클릭</p>
+	
 </div>
-<p class="info">현재 언니팀이 100,000클릭 앞서고 있습니다.</p>
+<p class="info" id="info"></p>
 <div class="btnBoxStart">
 	<div class="button green" id="btnBoy">오빠팀 시작</div>
 	<div class="button green" id="btnGirl">언니팀 시작</div>
@@ -170,11 +164,11 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	funnyApp - <a href="mailto:romeoh@naver.com">Contact</a>
 </div-->
 
-<!--script type="text/javascript" src="../js/firebug-lite.js"></script-->
 <script type="text/javascript" src="../js/kakao.link.js"></script>
+<script type="text/javascript" src="../js/jquery-2.0.0.min.js"></script>
 <script type="text/javascript" src="../js/mpui.js"></script>
 <script type="text/javascript" src="../js/applist.js"></script>
-<script type="text/javascript" src="../js/clickclick.js"></script>
+<script type="text/javascript" src="../js/tab.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

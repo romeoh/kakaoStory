@@ -1,12 +1,3 @@
-/********************************************
- * mpui.js
- * morpheus UI Framework
- * Author : 백국경 (romeoh@uracle.co.kr)
- * Copyright © 2013 Uracle Co., Ltd. 
- * 166 Samseong-dong, Gangnam-gu, Seoul, 135-090, Korea All Rights Reserved.
- * 베타버전입니다. 버그는 romeoh@uracle.co.kr로 보고해주세요.
- *******************************************/
- 
 (function(g, d, w, undefined) {
 var  version = "Morpheus UI 0.1.2"
 	,hasTouch = 'ontouchstart' in w || false
