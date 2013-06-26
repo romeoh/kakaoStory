@@ -271,8 +271,8 @@ function getRandom(min, max){
 function executeKakaoStoryLink(){
 	var  postMsg = ''
 	
-	postMsg += '[ 탭!탭!탭! ]\n\n';
-	postMsg += '올여름 전국민은 광탭질(성대결)에 빠져든다.\n';
+	postMsg += '[ 전국민 탭!탭!탭! ]\n\n';
+	postMsg += '올여름 전국민은 광탭질(성대결)에 빠져든다.\n\n';
 
 	if (team === 'boy') {
 		if (scoreBoy > scoreGirl) {
