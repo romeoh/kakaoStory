@@ -1,4 +1,5 @@
 var appList = ''
+appList += '<li data-app="53"><a href="http://goo.gl/WvTTE">내 키는 몇%에 해당할까</a></li>';
 appList += '<li data-app="52"><a href="http://goo.gl/qIIMX">전국민 탭!탭!탭!</a></li>';
 appList += '<li data-app="51"><a href="http://goo.gl/kMeq9">비만도계산기</a></li>';
 appList += '<li data-app="50"><a href="http://goo.gl/tqgF1">학점계산기</a></li>';
@@ -61,6 +62,7 @@ if (M('[data-list]').selector.length > 0) {
 
 
 var appListMin = ''
+appListMin += '<li data-app-min="19"><a href="http://goo.gl/WvTTE">내 키는 몇%에 해당할까</a></li>';
 appListMin += '<li data-app-min="18"><a href="http://goo.gl/qIIMX">전국민 탭!탭!탭!</a></li>';
 appListMin += '<li data-app-min="17"><a href="http://goo.gl/kMeq9">비만도계산기</a></li>';
 appListMin += '<li data-app-min="16"><a href="http://goo.gl/tqgF1">학점계산기</a></li>';
