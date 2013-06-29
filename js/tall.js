@@ -142,15 +142,16 @@ function executeKakaoStoryLink(){
 	postMsg += '[내 키는 몇%에 해당할까]\n\n';
 
 	if (boySelect.className == 'checked') {
-		// 여자일 경우
-		postMsg += '내 키는 평균 남자 키에서 상위 약 ' + selTall.value + '%에 속합니다.\n\n';
-	} else if (girlSelect.className == 'checked') {
 		// 남자일 경우
-		postMsg += '내 키는 평균 여자 키에서 상위 약 ' + selTall.value + '%에 속합니다.\n\n';
+		postMsg += '내 키는 평균 남자 키에서 \n';
+		postMsg += '상위 약 ' + selTall.value + '%에 속합니다.\n\n';
+	} else if (girlSelect.className == 'checked') {
+		// 여자일 경우
+		postMsg += '내 키는 평균 여자 키에서 \n';
+		postMsg += '상위 약 ' + selTall.value + '%에 속합니다.\n\n';
 	}
 
-	
-	postMsg += 'http://goo.gl/r66cA\n';
+	postMsg += 'http://goo.gl/WvTTE\n';
 	
 	urlMsg = {
 		title: '내 키는 몇%에 해당할까',
@@ -175,7 +176,7 @@ function executeKakaoStoryLink(){
 function executeURLLink() {
 	kakao.link("talk").send({
 		msg: "내 키는 몇%에 해당할까",
-		url: "http://goo.gl/r66cA",
+		url: "http://goo.gl/WvTTE",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "내 키는 몇%에 해당할까",
