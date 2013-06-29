@@ -19,6 +19,7 @@ var  ua = navigator.userAgent
 	,scoreBoy
 	,scoreGirl
 	,scoreSub
+	,round
 
 if (os == 'ios' || os == 'android') {
 	//init();
@@ -61,7 +62,6 @@ function getVs() {
 		,'type': 'POST'
 		,'success': function(data){
 			var  data = M.json(data).body
-				,round = data['round']
 				,boy = data['boy']
 				,girl = data['girl']
 				,sdate = data['s_date']
@@ -76,6 +76,7 @@ function getVs() {
 			
 			scoreBoy = boy
 			scoreGirl = girl
+			round = data['round']
 
 			M('#scoreBoard').text( round + '경기 (' + smonth + '월 ' + sday + '일 04시 ~ ' + emonth + '월 ' + eday + '일 04시)')
 			if (boy > girl) {
@@ -237,6 +238,24 @@ function onSubmit(){
 	}
 	var  sendData = {}
 		,bodyData = {}
+		,saveData = M.json(M.storage('io.github.romeoh.tab'))
+
+	// storage
+	if (saveData === 'null') {
+		saveData = {}
+		saveData['round'+round] = totalCount;
+		M.storage('io.github.romeoh.tab', M.json(saveData) )
+	} else {
+		savedStorage = M.json(M.storage('io.github.romeoh.tab'))
+		//savedData = savedStorage['round'+round]
+		if (!savedStorage['round'+round]) {
+			saveData['round'+round] = totalCount;
+		} else {
+			savedData = savedStorage['round'+round]
+			saveData['round'+round] = totalCount + savedData;
+		}
+		M.storage('io.github.romeoh.tab', M.json(saveData) )
+	}
 
 	sendData.category = team
 	sendData.count = totalCount
