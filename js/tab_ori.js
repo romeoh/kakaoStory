@@ -33,6 +33,7 @@ if (os == 'ios' || os == 'android') {
 }
 
 window.addEventListener('DOMContentLoaded', function(){
+	return
 	// 게임시작
 	M('#btnBoy').on('click', function(){
 		team = 'boy';
