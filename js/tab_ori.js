@@ -312,6 +312,9 @@ function stopAuto(){
 }
 
 function onSubmit(){
+	if ( M.browser().os !== 'ios' || M.browser().os !== 'android' ) {
+		return false
+	}
 	if (totalCount < 20) {
 		alert('최소 20탭 이상 달성해야 점수를 전송할수 있습니다.');
 		return false
