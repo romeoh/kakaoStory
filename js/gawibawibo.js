@@ -177,7 +177,7 @@ window.addEventListener('DOMContentLoaded', function(){
 				        post : postMsg,
 				        appid : 'funnyApp',
 						appver : '1.0',
-						appname : '대결 기회는 단한번뿐입니다.',
+						appname : decodeURIComponent(hashObj['g']),
 						urlinfo : JSON.stringify(urlMsg)
 				    });
 
