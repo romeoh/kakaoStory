@@ -312,7 +312,8 @@ function stopAuto(){
 }
 
 function onSubmit(){
-	if ( M.browser().os !== 'ios' || M.browser().os !== 'android' ) {
+	if ( M.browser().os == 'ios' || M.browser().os == 'android' ) {
+	} else {
 		return false
 	}
 	if (totalCount < 20) {
