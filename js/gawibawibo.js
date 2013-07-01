@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded', function(){
 			}
 			if (result === 'win') {
 				M('#msg').text('이겼습니다.');
-				M('#gong').html('인증샷을 카스에 올려서<br>백국경님의 공약인<br>“밥사드립니다”.<br>소원을 들어달라고 조르세요!!');
+				M('#gong').html('인증샷을 카스에 올려서<br>' + decodeURIComponent(hashObj['n']) + '님의 공약인<br>“' + decodeURIComponent(hashObj['g']) + '”.<br>소원을 들어달라고 조르세요!!');
 				M('#btnCerti').css('display', 'block')
 				M('#myName').css('display', 'inline-block')
 				
