@@ -86,6 +86,16 @@ window.addEventListener('DOMContentLoaded', function(){
 			hashObj[hashKey] = hashValue
 		}
 		if (hashObj['n']) {
+
+			// key check
+			if (M.storage(hashObj['idx']) == null) {
+
+			} else {
+				alert('가위! 바위! 보! 대결은 한번만 할수 있습니다.\n내가 "가위!바위!보!"를 제안해보세요.');
+				window.location.href = 'http://goo.gl/yivlH'
+				return false;
+			}
+
 			M('#dettack').css('display', 'block')
 			
 			if (hashObj['attach'] === '1') {
@@ -149,7 +159,7 @@ window.addEventListener('DOMContentLoaded', function(){
 					}
 					postMsg += '[가위! 바위! 보!]\n';
 					postMsg += myName+'님이 ' + decodeURIComponent(hashObj['n']) + '님과의 "가위! 바위! 보!" 게임에서 이겼습니다. \n';
-					postMsg += decodeURIComponent(hashObj['n']) + '님은 약속데로\n';
+					postMsg += decodeURIComponent(hashObj['n']) + '님은 약속대로\n';
 					postMsg += '"' + decodeURIComponent(hashObj['g']) + '"\n';
 					postMsg += '했던 소원을 들어주시기 바랍니다.\n\n';
 
@@ -183,6 +193,7 @@ window.addEventListener('DOMContentLoaded', function(){
 				M('#gong').html('아~ 정말 아쉽네요.<br>내가 먼저 "가위! 바위! 보!를 제안 해봐요~"');
 				M('#btnGBB').css('display', 'block')
 			}
+			M.storage(hashObj['idx'], 'true')
 			//console.log(hashObj)
 		}
 
@@ -229,9 +240,10 @@ function executeKakaoStoryLink(){
 		lastGong = gongyak
 	}
 
-	getUrl('n=' + userName + '&attach=' + gbb + '&gbb=1&g=' + lastGong, 1);
-	getUrl('n=' + userName + '&attach=' + gbb + '&gbb=2&g=' + lastGong, 2);
-	getUrl('n=' + userName + '&attach=' + gbb + '&gbb=3&g=' + lastGong, 3);
+	idkey = getRandId()
+	getUrl('n=' + userName + '&attach=' + gbb + '&gbb=1&idx=gbb' + idkey + '&g=' + lastGong, 1);
+	getUrl('n=' + userName + '&attach=' + gbb + '&gbb=2&idx=gbb' + idkey + '&g=' + lastGong, 2);
+	getUrl('n=' + userName + '&attach=' + gbb + '&gbb=3&idx=gbb' + idkey + '&g=' + lastGong, 3);
 }
 
 function sendToKakao() {
