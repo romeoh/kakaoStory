@@ -33,6 +33,7 @@ if (os == 'ios' || os == 'android') {
 }
 
 window.addEventListener('DOMContentLoaded', function(){
+	return
 	// 게임시작
 	M('#btnBoy').on('click', function(){
 		team = 'boy';
@@ -47,85 +48,11 @@ window.addEventListener('DOMContentLoaded', function(){
 		gameStart()
 	})
 
-	// 역대전적
-	M('#scoreBoard').on('click', function(evt, mp){
-		var isOpen = M('.extend').hasClass('min')
-		if (!isOpen) {
-			M('.extend').addClass('min');
-			M('.history').css('display', 'block');
-			getStatus()
-		} else {
-			M('.extend').removeClass('min');
-			M('.history').css('display', 'none');
-		}
-	})
-
 	btnStory.addEventListener('click', executeKakaoStoryLink, false);
 	btnKakao.addEventListener('click', executeURLLink, false);
-	//return
+	
 	getVs()
 }, false);
-
-function getStatus() {
-	var  myData = M.json(M.storage('io.github.romeoh.tab'))
-		,myScore
-		,mySavedData
-
-	if (myData == 'null') {
-		myScore = 0
-	} else {
-		mySavedData = myData['round'+round]
-		if (!mySavedData) {
-			myScore = 0
-		} else {
-			myScore = mySavedData
-		}
-	}
-	$.ajax({
-		 'url': 'http://romeoh78.appspot.com/api/vs/get/status'
-		,'contentType': 'text/plain'
-		,'data': '{"body" : {}, "head" : {}}'
-		,'type': 'POST'
-		,'success': function(data){
-			var  data = M.json(data).body.rounds
-				,roundLeng = data.length - 1
-				,str = ''
-
-			str += '<h3>나의 ' + round + '경기 팀 기여도</h3>';
-			str += '<p>총 ' + M.toCurrency(myScore) + ' 탭 기여하였습니다.</p>';
-			M('.myscore').html(str);
-
-			str = ''
-			for (var i=0; i<roundLeng; i++) {
-				var  roundIdx = data[i]['round']
-					,boy = data[i]['boy']
-					,girl = data[i]['girl']
-					,sDate = data[i]['s_date']
-					,smonth = sDate.substr(5, 2)
-					,sday = sDate.substr(8, 2)
-					,eDate = data[i]['e_date']
-					,emonth = eDate.substr(5, 2)
-					,eday = eDate.substr(8, 2)
-					,sub
-				str += '<dl>';
-				if (boy > girl) {
-					sub = boy - girl
-					str += '	<dt>' + roundIdx + '경기 우승: 오빠팀 (' + M.toCurrency(sub) + '탭)</dt>';
-					str += '	<dd>오빠팀: ' + M.toCurrency(boy) + '탭</dd>';
-					str += '	<dd>언니팀: ' + M.toCurrency(girl) + '</dd>';
-				} else {
-					sub = girl - boy
-					str += '	<dt>' + roundIdx + '경기 우승: 언니팀 (' + M.toCurrency(sub) + '탭)</dt>';
-					str += '	<dd>언니팀: ' + M.toCurrency(girl) + '탭</dd>';
-					str += '	<dd>오빠팀: ' + M.toCurrency(boy) + '탭</dd>';
-				}
-				str += '	<dd>기간: ' + smonth + '월 ' + sday + '일 04시 ~ ' + emonth + '월 ' + eday + '일 04시</dd>';
-				str += '</dl>';
-			}
-			M('#round').html(str);
-		}
-	})
-}
 
 function getVs() {
 	$.ajax({
@@ -147,18 +74,12 @@ function getVs() {
 				,eday = edate.substr(8, 2)
 				,ehour = edate.substr(11, 2)
 				,str = ''
-				,isOpend = M('.extend').hasClass('min')
 			
 			scoreBoy = boy
 			scoreGirl = girl
 			round = data['round']
 
-			if (isOpend) {
-				M('#scoreBoard').html( round + '경기 (' + smonth + '월 ' + sday + '일 04시 ~ ' + emonth + '월 ' + eday + '일 04시)<span class="extend min"></span>')
-				getStatus()
-			} else {
-				M('#scoreBoard').html( round + '경기 (' + smonth + '월 ' + sday + '일 04시 ~ ' + emonth + '월 ' + eday + '일 04시)<span class="extend"></span>')
-			}
+			M('#scoreBoard').text( round + '경기 (' + smonth + '월 ' + sday + '일 04시 ~ ' + emonth + '월 ' + eday + '일 04시)')
 			if (boy > girl) {
 				str += '<div id="reload"></div>';
 				str += '<div class="team0">';
