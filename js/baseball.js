@@ -152,9 +152,9 @@ function nextRound() {
 
 	// 확인
 	M('[data-play="' + round + '"]').on('click', function(evt, mp){
-		var  firstNum = parseInt(M('[data-count="' + round + '"] [data-first]').val(), 10)
-			,secondNum = parseInt(M('[data-count="' + round + '"] [data-second]').val(), 10)
-			,thirdNum = parseInt(M('[data-count="' + round + '"] [data-third]').val(), 10)
+		var  firstNum = parseInt(M('[data-count="' + round + '"] [data-first]').val(), 10) || ''
+			,secondNum = parseInt(M('[data-count="' + round + '"] [data-second]').val(), 10) || ''
+			,thirdNum = parseInt(M('[data-count="' + round + '"] [data-third]').val(), 10) || ''
 			,resultTxt
 		
 		if (firstNum === '' || secondNum === '' || thirdNum === '') {
