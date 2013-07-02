@@ -199,6 +199,9 @@ function nextRound() {
 		mp.prev()
 			.css('display', 'block')
 			.text(resultTxt)
+			.parent()
+			.find('input')
+			.attr('disabled', 'disabled')
 		
 	})
 }
