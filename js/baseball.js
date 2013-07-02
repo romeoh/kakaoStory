@@ -3,23 +3,26 @@ var  ua = navigator.userAgent
 		(/android/gi).test(ua) ? "android" :
 		(/mac/gi).test(ua) ? "macOS" : 
 		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,totalCount = 0
-	,count = 1
-	,hasTouch = 'ontouchstart' in window
-	,evtStart = hasTouch ? evtStart = 'touchstart' : evtStart = 'mousedown'
-	,evtEnd = hasTouch ? evtEnd = 'touchend' : evtEnd = 'mouseup'
-	,autoId = null
-	,isChance = false
-	,chanceTimeId
-	,chanceTime
-	,isAuto = false
-	,team
-	,scoreBoy
-	,scoreGirl
-	,scoreSub
+	,teamArr = [
+		{'key':'A', 'logo':'team_a.png', 'name':'기아 타이거즈'},
+		{'key':'B', 'logo':'team_b.png', 'name':'넥센 히어로즈'},
+		{'key':'C', 'logo':'team_c.png', 'name':'두산 베어스'},
+		{'key':'D', 'logo':'team_d.png', 'name':'롯데 자이언츠'},
+		{'key':'E', 'logo':'team_e.png', 'name':'삼성 라이온즈'},
+		{'key':'F', 'logo':'team_f.png', 'name':'SK 와이번스'},
+		{'key':'G', 'logo':'team_g.png', 'name':'NC 다이노스'},
+		{'key':'H', 'logo':'team_h.png', 'name':'LG 트윈스'},
+		{'key':'I', 'logo':'team_i.png', 'name':'한화 이글스'}
+	]
+	,myTeam
+	,yourTeam
+	,correct = []
+	,myAnswer = []
 	,round
+	,strike
+	,ball
+	,out
+	
 
 if (os == 'ios' || os == 'android') {
 	//init();
@@ -27,237 +30,246 @@ if (os == 'ios' || os == 'android') {
 	var  adTop = document.querySelector('#adTop')
 		,adBottom = document.querySelector('#adBottom')
 		,adMiddle = document.querySelector('#adMiddle')
-	//document.querySelector('body').removeChild(adTop)
-	//document.querySelector('body').removeChild(adBottom)
-	//document.querySelector('body').removeChild(adMiddle)
+	document.querySelector('body').removeChild(adTop)
+	document.querySelector('body').removeChild(adBottom)
+	document.querySelector('body').removeChild(adMiddle)
 }
 
 window.addEventListener('DOMContentLoaded', function(){
-	return
-	// 게임시작
-	M('#btnBoy').on('click', function(){
-		team = 'boy';
-		M('#btnStory').text('오빠팀 소환하기')
-		M('#btnSubmit').text('오빠팀 점수전송')
-		gameStart()
-	})
-	M('#btnGirl').on('click', function(){
-		team = 'girl';
-		M('#btnStory').text('언니팀 소환하기')
-		M('#btnSubmit').text('언니팀 점수전송')
-		gameStart()
+	M('[data-sel-team]').on('click', function(evt, mp){
+		toStep2(mp);
 	})
 
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	
-	getVs()
+	M('#btnPlay').on('click', function(){
+		toStep3();
+	})
+
+	M('#btnStory').on('click', function(){
+		executeKakaoStoryLink()
+	})
+	M('#btnKakao').on('click', function(){
+		executeURLLink()
+	})
 }, false);
 
-function getVs() {
-	$.ajax({
-		 'url': 'http://romeoh78.appspot.com/api/vs/get/ing'
-		,'contentType': 'text/plain'
-		,'data': '{"body" : {}, "head" : {}}'
-		//,'dataType': 'json'
-		,'type': 'POST'
-		,'success': function(data){
-			var  data = M.json(data).body
-				,boy = data['boy']
-				,girl = data['girl']
-				,sdate = data['s_date']
-				,edate = data['e_date']
-				,smonth = sdate.substr(5, 2)
-				,sday = sdate.substr(8, 2)
-				,shour = sdate.substr(11, 2)
-				,emonth = edate.substr(5, 2)
-				,eday = edate.substr(8, 2)
-				,ehour = edate.substr(11, 2)
-				,str = ''
-			
-			scoreBoy = boy
-			scoreGirl = girl
-			round = data['round']
+// 상대편 선정
+function toStep2(mp) {
+	myTeam = parseInt(mp.data('sel-team'), 10)
+	M('[data-match-team="1"] img').attr('src', '../imgApp/'+teamArr[myTeam]['logo'])
+	M('[data-match-team="1"] p').text(teamArr[myTeam]['name'])
 
-			M('#scoreBoard').text( round + '경기 (' + smonth + '월 ' + sday + '일 04시 ~ ' + emonth + '월 ' + eday + '일 04시)')
-			if (boy > girl) {
-				str += '<div id="reload"></div>';
-				str += '<div class="team0">';
-				str += '	<p class="title">오빠팀 스코어보드</p>';
-				str += '	<p class="score">' + M.toCurrency(boy) + ' 탭</p>';
-				str += '</div>';
-				str += '<div class="team1">';
-				str += '	<p class="title">언니팀 스코어보드</p>';
-				str += '	<p class="score">' + M.toCurrency(girl) + ' 탭</p>';
-				str += '</div>';
-				scoreSub = boy - girl
-				M('#info').text('현재 오빠팀이 ' + M.toCurrency(scoreSub) + '탭 앞서고 있습니다.')
-			} else {
-				str += '<div id="reload"></div>';
-				str += '<div class="team0">';
-				str += '	<p class="title">언니팀 스코어보드</p>';
-				str += '	<p class="score">' + M.toCurrency(girl) + ' 탭</p>';
-				str += '</div>';
-				str += '<div class="team1">';
-				str += '	<p class="title">오빠팀 스코어보드</p>';
-				str += '	<p class="score">' + M.toCurrency(boy) + ' 탭</p>';
-				str += '</div>';
-				scoreSub = girl - boy
-				M('#info').text('현재 언니팀이 ' + M.toCurrency(scoreSub) + '탭 앞서고 있습니다.')
-			}
-			M('#board').html(str);
-			M('#reload').on('click', function(){
-				//M('#scoreBoard').text('')
-				M('#board').text('')
-				M('#info').text('')
-				getVs();
-			})
-		}
-	})
+	yourTeam = getYourTeam()
+	randomTeam()
+	M('#step1').css('display', 'none')
+	M('#step2').css('display', 'block')
 }
 
-
-// 게임시작
-function gameStart() {
-	M('#game').css('display', 'block')
-	M('#share').css('display', 'block')
-	M('.btnBoxStart').css('display', 'none')
-
-	// 탭 버튼 
-	M('#btnClick').on(evtStart, function(){
-		M('#btnAuto').text('자동탭')
-		isAuto = false;
-		clearInterval(autoId)
-		autoId = null;
-
-		onPress();
-	})
-	M('#btnClick').on(evtEnd, onRelease)
-
-	// 자동 버튼
-	M('#btnAuto').on('click', onAuto)
-
-	//  버튼
-	M('#btnSubmit').on('click', onSubmit)
-}
-
-
-// 탭 버튼 누름
-function onPress(evt, mp) {
-	if (evt) {
-		evt.preventDefault();
-		stopAuto();
-	}
-
-	// 찬스
-	if(getRandom(0, 100) == 0){
-		chanceMode();
-	}
-	M('#btnClick')
-		.removeClass('purple')
-		.addClass('purpleAct')
-}
-function onRelease(evt, mp) {
-	M('#btnClick')
-		.addClass('purple')
-		.removeClass('purpleAct')
-
-	totalCount += count;
-	M('#counter')
-		.text(M.toCurrency(totalCount))
-		.data('count', totalCount)
-
-	if (totalCount > 14) {
-		M('#btnAuto').addClass('blue')
-	}
-	if (totalCount > 19) {
-		M('#btnSubmit').addClass('blue')
-	}
-}
-
-function chanceMode() {
-	if (isChance) {
-		return;
-	}
-	isChance = true;
-	count = getRandom(2, 10);
-	chanceTimeId = setInterval(chanceCount, 1000);
-	chanceTime = getRandom(3, 15);
-	setTimeout(normalMode, chanceTime * 1000);
-	M('#btnClick').text('찬스! 지금부터 '+count+'배! ('+chanceTime+'초간)');
-}
-
-function chanceCount(){
-	M('#btnClick').text('찬스! 지금부터 '+count+'배! ('+chanceTime+'초간)')
-	chanceTime--;
-	if (chanceTime === 0){
-		normalMode();
-		clearInterval(chanceTimeId)
-		chanceTimeId = null;	
-	}
-}
-
-function normalMode() {
-	isChance = false;
-	count = 1;
-	M('#btnClick').text('탭! 탭! 탭!');
-}
-// 자동 카운트
-function onAuto(evt, mp){
-	if (totalCount < 15) {
-		alert('최소 15탭 이상 달성해야 사용할수 있습니다.');
-		return false
-	}
-	if (isAuto) {
-		mp.text('자동탭')
-		isAuto = false;
-		clearInterval(autoId)
-		autoId = null;
+function getYourTeam() {
+	var yourTeam = getRandom(0, 8);
+	if (myTeam === yourTeam) {
+		return getYourTeam();
 	} else {
-		mp.text('수동탭')
-		isAuto = true;
-		autoId = setInterval(press, 200);
+		return yourTeam;
 	}
 }
 
-function press(){
-	onPress()
-	setTimeout(function(){
-		onRelease();
-	}, 100);
-}
+function randomTeam() {
+	var  idx = 0
+		,intervaId
 
-function stopAuto(){
-	clearInterval(autoId)
-	autoId = null
-}
-
-function onSubmit(){
-	if (totalCount < 20) {
-		alert('최소 20탭 이상 달성해야 점수를 전송할수 있습니다.');
-		return false
-	}
-	var  sendData = {}
-		,bodyData = {}
-		,saveData = M.json(M.storage('io.github.romeoh.tab'))
-
-	// storage
-	if (saveData === 'null') {
-		saveData = {}
-		saveData['round'+round] = totalCount;
-		M.storage('io.github.romeoh.tab', M.json(saveData) )
-	} else {
-		savedStorage = M.json(M.storage('io.github.romeoh.tab'))
-		//savedData = savedStorage['round'+round]
-		if (!savedStorage['round'+round]) {
-			saveData['round'+round] = totalCount;
+	intervaId = setInterval(function(){
+		if (idx == 8) {
+			idx = 0
 		} else {
-			savedData = savedStorage['round'+round]
-			saveData['round'+round] = totalCount + savedData;
+			idx++;
 		}
-		M.storage('io.github.romeoh.tab', M.json(saveData) )
+		M('[data-match-team="0"] img').attr('src', '../imgApp/'+teamArr[idx]['logo'])
+		M('[data-match-team="0"] p').text(teamArr[idx]['name'])
+	}, 100)
+
+	setTimeout(function(){
+		clearInterval(intervaId)
+		intervaId = null;
+		M('[data-match-team="0"] img').attr('src', '../imgApp/'+teamArr[yourTeam]['logo'])
+		M('[data-match-team="0"] p').text(teamArr[yourTeam]['name'])
+		M('#btnPlayBox').css('display', 'block')
+		//console.log(myTeam, yourTeam)
+	}, 1000);
+}
+
+// 경기시작
+function toStep3(mp) {
+	M('#step2').css('display', 'none')
+	M('#step3').css('display', 'block')
+
+	round = 0
+	getCorrect(10);
+	nextRound(round);
+	//console.log(correct)
+	
+}
+
+function getCorrect(length){
+	var idx = Math.floor(Math.random() * length)
+
+	if (correct[0] == undefined) {
+		correct.push(idx);
+	}
+	if (correct[1] == undefined) {
+		if (correct[0] == idx) {
+			getCorrect(length)
+		} else {
+			correct.push(idx);
+		}
+	}
+	if (correct[2] == undefined) {
+		if (correct[0] == idx || correct[1] == idx) {
+			getCorrect(length)
+		} else {
+			correct.push(idx);
+			return correct;
+		}
+	}
+}
+
+function nextRound() {
+	var str = ''
+	
+	round++
+
+	str += '<span>' + round + '회 </span>';
+	str += '<input text="text" class="inputName number" maxlength="1" data-first> ';
+	str += '<input text="text" class="inputName number" maxlength="1" data-second> ';
+	str += '<input text="text" class="inputName number" maxlength="1" data-third> ';
+	str += '<p data-result class="result"></p>';
+	str += '<button data-play="' + round + '" class="button submit">확인</button>';
+	
+	M('#roundCount').append('li', {
+		'data-count': round
+	})
+	M('[data-count="' + round + '"]').html(str);
+	M('#roundInfo').text( 10-round +'회 남았습니다.');
+
+	// 확인
+	M('[data-play="' + round + '"]').on('click', function(evt, mp){
+		var  firstNum = parseInt(M('[data-count="' + round + '"] [data-first]').val(), 10)
+			,secondNum = parseInt(M('[data-count="' + round + '"] [data-second]').val(), 10)
+			,thirdNum = parseInt(M('[data-count="' + round + '"] [data-third]').val(), 10)
+			,resultTxt
+		
+		if (firstNum === '' || secondNum === '' || thirdNum === '') {
+			alert('숫자를 모두 입력하세요.');
+			return false;
+		}
+		if (!M.isNumber(firstNum) || !M.isNumber(secondNum) || !M.isNumber(thirdNum)) {
+			alert('숫자만 입력하세요.');
+			return false;
+		}
+		if (firstNum === secondNum || firstNum === thirdNum || secondNum === thirdNum) {
+			alert('중복되는 숫자를 사용할수 없습니다.');
+			return false;
+		}
+
+		mp.css('display', 'none')
+		
+		myAnswer.length = 0;
+		myAnswer.push(firstNum)
+		myAnswer.push(secondNum)
+		myAnswer.push(thirdNum)
+		checkNumber(myAnswer, correct)
+
+		if (out === 3) {
+			resultTxt = '결과: 3O'
+			if (round === 9) {
+				youLost()
+			} else {
+				nextRound();
+			}
+		} else if (strike === 3) {
+			resultTxt = '결과: ' + strike + 'S'
+			youWin();
+		} else {
+			resultTxt = '결과: ' + strike + 'S ' + ball + 'B'
+			if (round === 9) {
+				youLost()
+			} else {
+				nextRound();
+			}
+		}
+		mp.prev()
+			.css('display', 'block')
+			.text(resultTxt)
+		
+	})
+}
+
+// 승리
+function youWin() {
+	console.log('승리')
+	M('#roundCount').append('li', {
+		'data-text':''
+	})
+	str = '<p>' + teamArr[myTeam]['name'] + '이(가) ' + teamArr[yourTeam]['name'] + '을(를) 이겼습니다. <br>순위에 반영되었습니다.</p>'
+	M('[data-text]').html(str);
+	winner = teamArr[myTeam]['key']
+	loser = teamArr[yourTeam]['key']
+}
+
+// 패배
+function youLost() {
+	console.log('패배')
+	M('#roundCount').append('li', {
+		'data-text':''
+	})
+	str = '<p>' + teamArr[myTeam]['name'] + '이(가) ' + teamArr[yourTeam]['name'] + '에게 패배했습니다. <br>순위에 반영되었습니다.</p>'
+	M('[data-text]').html(str);
+	winner = teamArr[yourTeam]['key']
+	loser = teamArr[myTeam]['key']
+}
+
+function checkNumber(my, correct) {
+	strike = 0
+	ball = 0
+	out = 0
+
+	if (my[0] === correct[0]) {
+		strike++
+	}
+	if (my[1] === correct[1]) {
+		strike++
+	}
+	if (my[2] === correct[2]) {
+		strike++
 	}
 
+	if (my[0] === correct[1]) {
+		ball++
+	}
+	if (my[0] === correct[2]) {
+		ball++
+	}
+	if (my[1] === correct[0]) {
+		ball++
+	}
+	if (my[1] === correct[2]) {
+		ball++
+	}
+	if (my[2] === correct[0]) {
+		ball++
+	}
+	if (my[2] === correct[1]) {
+		ball++
+	}
+	if (strike === 0 && ball === 0) {
+		out = 3
+	}
+
+	console.log(correct, myAnswer)
+	console.log(strike, ball, out)
+}
+
+function getVs() {
+	sendData = {}
 	sendData.category = team
 	sendData.count = totalCount
 
@@ -266,12 +278,6 @@ function onSubmit(){
 		'head':{}
 	}
 
-	stopAuto();
-	totalCount = 0;
-	M('#btnAuto').removeClass('blue');
-	M('#btnSubmit').removeClass('blue');
-	M('#counter').text('0');
-	
 	$.ajax({
 		 'url': 'http://romeoh78.appspot.com/api/vs/add'
 		,'contentType': 'text/plain'
@@ -283,6 +289,7 @@ function onSubmit(){
 	})
 }
 
+
 function getRandom(min, max){
 	return Math.floor(Math.random() * (max-min) + min)
 }
@@ -291,7 +298,7 @@ function getRandom(min, max){
 function executeKakaoStoryLink(){
 	var  postMsg = ''
 	
-	postMsg += '[ 전국민 탭!탭!탭! ]\n\n';
+	postMsg += '[ 숫자야구 ]\n\n';
 	postMsg += '올여름 전국민은 광탭질(성대결)에 빠져든다.\n\n';
 
 	if (team === 'boy') {
