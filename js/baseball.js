@@ -298,7 +298,7 @@ function getRandom(min, max){
 function executeKakaoStoryLink(){
 	var  postMsg = ''
 	
-	postMsg += '[ 숫자야구 ]\n\n';
+	postMsg += '[ 전국민 숫자야구 ]\n\n';
 	postMsg += '올여름 전국민은 광탭질(성대결)에 빠져든다.\n\n';
 
 	if (team === 'boy') {
