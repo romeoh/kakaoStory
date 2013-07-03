@@ -6,13 +6,13 @@ var  ua = navigator.userAgent
 	,teamArr = [
 		{'key':'A', 'logo':'team_a.png', 'name':'기아 타이거즈'},
 		{'key':'B', 'logo':'team_b.png', 'name':'넥센 히어로즈'},
-		{'key':'C', 'logo':'team_c.png', 'name':'두산 베어스'},
+		{'key':'C', 'logo':'team_c.png', 'name':'두산 베어스 '},
 		{'key':'D', 'logo':'team_d.png', 'name':'롯데 자이언츠'},
 		{'key':'E', 'logo':'team_e.png', 'name':'삼성 라이온즈'},
-		{'key':'F', 'logo':'team_f.png', 'name':'SK 와이번스'},
-		{'key':'G', 'logo':'team_g.png', 'name':'NC 다이노스'},
-		{'key':'H', 'logo':'team_h.png', 'name':'LG 트윈스'},
-		{'key':'I', 'logo':'team_i.png', 'name':'한화 이글스'}
+		{'key':'F', 'logo':'team_f.png', 'name':'SK 와이번스 '},
+		{'key':'G', 'logo':'team_g.png', 'name':'NC 다이노스 '},
+		{'key':'H', 'logo':'team_h.png', 'name':'LG 트윈스  '},
+		{'key':'I', 'logo':'team_i.png', 'name':'한화 이글스 '}
 	]
 	,myTeam
 	,yourTeam
@@ -207,26 +207,60 @@ function nextRound() {
 
 // 승리
 function youWin() {
+	var sendData = {}
+	sendData.win = teamArr[myTeam]['key']
+	sendData.lost = teamArr[yourTeam]['key']
 	console.log('승리')
-	M('#roundCount').append('li', {
-		'data-text':''
+
+	bodyData = {
+		'body':sendData,
+		'head':{}
+	}
+
+	$.ajax({
+		 'url': 'http://romeoh78.appspot.com/api/baseball/add'
+		,'contentType': 'text/plain'
+		,'data': M.json(bodyData)
+		,'type': 'POST'
+		,'success': function(data){
+			M('#roundCount').append('li', {
+				'data-text':''
+			})
+			str = '<p>' + teamArr[myTeam]['name'] + '이(가) ' + teamArr[yourTeam]['name'] + '을(를) 이겼습니다. <br>순위에 반영되었습니다.</p>'
+			M('[data-text]').html(str);
+		}
 	})
-	str = '<p>' + teamArr[myTeam]['name'] + '이(가) ' + teamArr[yourTeam]['name'] + '을(를) 이겼습니다. <br>순위에 반영되었습니다.</p>'
-	M('[data-text]').html(str);
-	winner = teamArr[myTeam]['key']
-	loser = teamArr[yourTeam]['key']
+	//winner = teamArr[myTeam]['key']
+	//loser = teamArr[yourTeam]['key']
 }
 
 // 패배
 function youLost() {
+	var sendData = {}
+	sendData.win = teamArr[yourTeam]['key']
+	sendData.lost = teamArr[myTeam]['key']
 	console.log('패배')
-	M('#roundCount').append('li', {
-		'data-text':''
+
+	bodyData = {
+		'body':sendData,
+		'head':{}
+	}
+
+	$.ajax({
+		 'url': 'http://romeoh78.appspot.com/api/baseball/add'
+		,'contentType': 'text/plain'
+		,'data': M.json(bodyData)
+		,'type': 'POST'
+		,'success': function(data){
+			M('#roundCount').append('li', {
+				'data-text':''
+			})
+			str = '<p>' + teamArr[myTeam]['name'] + '이(가) ' + teamArr[yourTeam]['name'] + '에게 패배했습니다. <br>순위에 반영되었습니다.</p>'
+			M('[data-text]').html(str);
+		}
 	})
-	str = '<p>' + teamArr[myTeam]['name'] + '이(가) ' + teamArr[yourTeam]['name'] + '에게 패배했습니다. <br>순위에 반영되었습니다.</p>'
-	M('[data-text]').html(str);
-	winner = teamArr[yourTeam]['key']
-	loser = teamArr[myTeam]['key']
+	//winner = teamArr[yourTeam]['key']
+	//loser = teamArr[myTeam]['key']
 }
 
 function checkNumber(my, correct) {
@@ -270,27 +304,6 @@ function checkNumber(my, correct) {
 	console.log(strike, ball, out)
 }
 
-function getVs() {
-	sendData = {}
-	sendData.category = team
-	sendData.count = totalCount
-
-	bodyData = {
-		'body':sendData,
-		'head':{}
-	}
-
-	$.ajax({
-		 'url': 'http://romeoh78.appspot.com/api/vs/add'
-		,'contentType': 'text/plain'
-		,'data': M.json(bodyData)
-		,'type': 'POST'
-		,'success': function(data){
-			getVs();
-		}
-	})
-}
-
 
 function getRandom(min, max){
 	return Math.floor(Math.random() * (max-min) + min)
@@ -300,6 +313,44 @@ function getRandom(min, max){
 function executeKakaoStoryLink(){
 	var  postMsg = ''
 	
+	var sendData = {}
+
+	bodyData = {
+		'body':sendData,
+		'head':{}
+	}
+
+	$.ajax({
+		 'url': 'http://romeoh78.appspot.com/api/baseball/ranking'
+		,'contentType': 'text/plain'
+		,'data': M.json(bodyData)
+		,'type': 'POST'
+		,'success': function(data){
+			var  data = M.json(data)['body']['ranking']
+				,idx = 1
+			
+			for (var i=0; i<9; i++) {
+				idx = i + 1
+				teamKey = data[i]['team']
+				teamName = getTeamName(teamKey)
+				win = data[i]['win']
+				lost = data[i]['lost']
+				total = data[i]['total']
+				pct = Math.floor(data[i]['pct'] * 100) / 100
+
+				console.log(idx, teamName, total, win, lost, pct)
+			}
+			console.log(data)
+
+
+		}
+	})
+	return
+
+
+
+
+
 	postMsg += '[ 전국민 숫자야구 ]\n\n';
 	postMsg += '올여름 전국민은 광탭질(성대결)에 빠져든다.\n\n';
 
@@ -357,6 +408,14 @@ function executeURLLink() {
 		appname: "탭!탭!탭!",
 		type: "link"
 	});
+}
+
+function getTeamName(key) {
+	for (var i=0; i<teamArr.length; i++) {
+		if (teamArr[i]['key'] === key) {
+			return teamArr[i]['name']
+		}
+	}
 }
 
 
