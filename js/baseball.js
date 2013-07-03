@@ -162,7 +162,7 @@ function nextRound() {
 			,resultTxt
 		
 		console.log(firstNum, secondNum, thirdNum)
-		if (firstNum === '-1' || secondNum === '-1' || thirdNum === '-1') {
+		if (firstNum === -1 || secondNum === -1 || thirdNum === -1) {
 			alert('숫자를 모두 입력하세요.');
 			return false;
 		}
