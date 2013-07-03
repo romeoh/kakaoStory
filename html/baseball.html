@@ -44,6 +44,7 @@ h2 {font-size:17px; text-align:center; letter-spacing:-2px}
 
 #step2, 
 #step3,
+#step4,
 #btnPlayBox {display:none;}
 
 #roundCount {width:250px; margin:0 auto}
@@ -53,6 +54,13 @@ h2 {font-size:17px; text-align:center; letter-spacing:-2px}
 .numberLists {position:relative; float:left; margin-right:5px}
 .roundIdx {float:left; padding:7px 5px 0 }
 
+.teamvs {margin:0 10px}
+.teamvs .left {float:left; padding-left:30px}
+.teamvs .right {float:right; padding-right:30px}
+
+table {border:2px solid #fff; width:100%;border-collapse:collapse;}
+table th,
+table td {border:1px solid #fff; padding:3px;}
 .appList {clear:both; border-radius:10px; background:#fff; margin:40px 10px 10px 10px; color:#333; padding:10px}
 .appList h2 {text-align:left; padding:10px 0; font-size:20px}
 .appList li {list-style:none; padding:5px 0}
@@ -145,6 +153,11 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </div>
 
 <div id="step3">
+	<div class="teamvs">
+		<div class="left"><img src="" id="vsMyTeam"></div>
+		<div class="right"><img src="" id="vsYourTeam"></div>
+		<div class="clear"></div>
+	</div>
 	<h2 class="round" id="roundInfo"></h2>
 	<div id="play" class="board">
 		<ul id="roundCount">
@@ -159,6 +172,42 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		</ul>
 	</div>
 </div>
+
+<div id="step4">
+	<div id="teamMatch" class="board" cellspacing="0">
+		<table>
+		<colgroup>
+			<col width="50">
+			<col width="*">
+			<col width="60">
+			<col width="50">
+			<col width="50">
+			<col width="50">
+		</colgroup>
+		<thead>
+			<tr>
+				<th>순위</th>
+				<th>팀명</th>
+				<th>경기수</th>
+				<th>승</th>
+				<th>패</th>
+				<th>승률</th>
+			</tr>
+		</thead>
+		<tbody id="ranking">
+			<!--tr>
+				<td>1</td>
+				<td>기아</td>
+				<td>30</td>
+				<td>20</td>
+				<td>10</td>
+				<td>0.56</td>
+			</tr-->
+		</tbody>
+		</table>
+	</div>
+</div>
+
 <div id="share" class="btnBox">
 	<button id="btnStory" class="button">팀순위 보기</button>
 	<button id="btnKakao" class="button">카톡친구 초대</button>

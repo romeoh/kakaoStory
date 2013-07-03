@@ -22,7 +22,7 @@ var  ua = navigator.userAgent
 	,strike
 	,ball
 	,out
-	
+	,ranking = []
 
 if (os == 'ios' || os == 'android') {
 	//init();
@@ -44,11 +44,11 @@ window.addEventListener('DOMContentLoaded', function(){
 		toStep3();
 	})
 
-	M('#btnStory').on('click', function(){
-		executeKakaoStoryLink()
+	M('#btnStory').on('click', function(evt, mp){
+		executeKakaoStoryLink(mp)
 	})
 	M('#btnKakao').on('click', function(){
-		executeURLLink()
+		executeURLLink(mp)
 	})
 }, false);
 
@@ -101,6 +101,8 @@ function randomTeam() {
 function toStep3(mp) {
 	M('#step2').css('display', 'none')
 	M('#step3').css('display', 'block')
+	M('#vsMyTeam').attr('src', '../imgApp/'+teamArr[myTeam]['logo'])
+	M('#vsYourTeam').attr('src', '../imgApp/'+teamArr[yourTeam]['logo'])
 
 	round = 0
 	getCorrect(10);
@@ -310,11 +312,40 @@ function getRandom(min, max){
 }
 
 //  카카오 스토리
-function executeKakaoStoryLink(){
+function executeKakaoStoryLink(mp){
 	var  postMsg = ''
-	
-	var sendData = {}
+		,sendData = {}
 
+	if ( mp.text() == '팀순위 보기') {
+		mp.text('팀순위 저장')
+			.addClass('pink')
+	} else {
+		postMsg += '[ 마구!마구! 숫자야구 ]\n\n';
+		postMsg += '* 구단순위 *\n';
+		for (var i=0; i<ranking.length; i++) {
+			postMsg += ranking[i]['idx']+'위: ' + ranking[i]['teamName'] + ' ' + ranking[i]['win'] + '승 ' + ranking[i]['lost'] + '패 승률:' + ranking[i]['pct'] + '\n';
+			//console.log(ranking[i])
+		}
+		postMsg += '\n게임참여: http://goo.gl/v0AFu\n';
+		
+		urlMsg = {
+			title: '마구!마구! 숫자야구',
+			desc: '우리구단의 승률을 높여주세요.',
+			imageurl: ['http://romeoh.github.io/kakaoStory/imgApp/baseball.png'],
+			type:'article'
+		}
+		console.log(postMsg, urlMsg)
+
+		kakao.link("story").send({   
+	        post : postMsg,
+	        appid : 'funnyApp',
+			appver : '1.0',
+			appname : '2013년 숫자야구 정규시즌',
+			urlinfo : JSON.stringify(urlMsg)
+	    });
+
+		return false;
+	}
 	bodyData = {
 		'body':sendData,
 		'head':{}
@@ -328,21 +359,33 @@ function executeKakaoStoryLink(){
 		,'success': function(data){
 			var  data = M.json(data)['body']['ranking']
 				,idx = 1
-			
+				,str = ''
+
+			M('#step4').css('display', 'block')
+
 			for (var i=0; i<9; i++) {
-				idx = i + 1
-				teamKey = data[i]['team']
-				teamName = getTeamName(teamKey)
-				win = data[i]['win']
-				lost = data[i]['lost']
-				total = data[i]['total']
-				pct = Math.floor(data[i]['pct'] * 100) / 100
+				var rankingInfo = {}
+				rankingInfo.idx = i + 1
+				rankingInfo.teamKey = data[i]['team']
+				rankingInfo.teamName = getTeamName(rankingInfo.teamKey).split(' ')[0]
+				rankingInfo.win = data[i]['win']
+				rankingInfo.lost = data[i]['lost']
+				rankingInfo.total = data[i]['total']
+				rankingInfo.pct = Math.floor(data[i]['pct'] * 100) / 100
 
-				console.log(idx, teamName, total, win, lost, pct)
+				str += '<tr>';
+				str += '	<td>' + rankingInfo.idx + '</td>';
+				str += '	<td>' + rankingInfo.teamName + '</td>';
+				str += '	<td>' + rankingInfo.total + '</td>';
+				str += '	<td>' + rankingInfo.win + '</td>';
+				str += '	<td>' + rankingInfo.lost + '</td>';
+				str += '	<td>' + rankingInfo.pct + '</td>';
+				str += '</tr>';
+
+				ranking.push(rankingInfo)
+				//console.log(idx, teamName, total, win, lost, pct)
 			}
-			console.log(data)
-
-
+			M('#ranking').html(str)
 		}
 	})
 	return
@@ -401,11 +444,11 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: '탭!탭!탭!',
-		url: 'http://goo.gl/qIIMX',
+		msg: '마구! 마구! 숫자야구',
+		url: 'http://goo.gl/v0AFu',
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "탭!탭!탭!",
+		appname: "2013년 숫자야구",
 		type: "link"
 	});
 }
