@@ -388,57 +388,6 @@ function executeKakaoStoryLink(mp){
 			M('#ranking').html(str)
 		}
 	})
-	return
-
-
-
-
-
-	postMsg += '[ 전국민 숫자야구 ]\n\n';
-	postMsg += '올여름 전국민은 광탭질(성대결)에 빠져든다.\n\n';
-
-	if (team === 'boy') {
-		if (scoreBoy > scoreGirl) {
-			postMsg += '지금 오빠팀이 ' + M.toCurrency(scoreSub) + '탭 앞서고 있어요.\n';
-			postMsg += '언니팀들을 완전히 따돌려 버려요!!!\n\n';
-		} else {
-			postMsg += '지금 오빠팀이 ' + M.toCurrency(scoreSub) + '탭 뒤지고 있어요.\n';
-			postMsg += '어서 와서 오빠팀의 무너진 자존심을 살려주세요!!!\n\n';
-		}
-		postMsg += '* 현재점수 *\n';
-		postMsg += '오빠팀: ' + M.toCurrency(scoreBoy) + '탭\n';
-		postMsg += '언니팀: ' + M.toCurrency(scoreGirl) + '탭\n\n';
-		postMsg += '탭!탭!탭! 참여하기: http://goo.gl/Aii0g\n';
-	} else {
-		if (scoreBoy > scoreGirl) {
-			postMsg += '지금 언니팀이 ' + M.toCurrency(scoreSub) + '탭 뒤지고 있어요.\n';
-			postMsg += '어서 언니팀의 무서움을 보여줘요!!!\n\n';
-		} else {
-			postMsg += '지금 언니팀이 ' + M.toCurrency(scoreSub) + '탭 앞서고 있어요.\n';
-			postMsg += '오빠팀에 지는건 절대 용서할수 없어요!!!\n\n';
-		}
-		postMsg += '* 현재점수 *\n';
-		postMsg += '언니팀: ' + M.toCurrency(scoreGirl) + '탭\n';
-		postMsg += '오빠팀: ' + M.toCurrency(scoreBoy) + '탭\n\n';
-		postMsg += '탭!탭!탭! 참여하기: http://goo.gl/bC2F0\n';
-	}
-	
-	
-	urlMsg = {
-		title: '탭!탭!탭!',
-		desc: '게임방법: "탭!탭!탭!" 버튼을 마구마구 탭하는 남녀 성대결',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/tab.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '전국민 광탭질!',
-		urlinfo : JSON.stringify(urlMsg)
-    });
 }
 
 // 카톡
