@@ -418,16 +418,16 @@ function selNumbers() {
 		}
 		setTimeout(function(){
 			var str = ''
-			str += '<li data-select-number="0">0</li>';
-			str += '<li data-select-number="1">1</li>';
-			str += '<li data-select-number="2">2</li>';
-			str += '<li data-select-number="3">3</li>';
-			str += '<li data-select-number="4">4</li>';
-			str += '<li data-select-number="5">5</li>';
-			str += '<li data-select-number="6">6</li>';
-			str += '<li data-select-number="7">7</li>';
-			str += '<li data-select-number="8">8</li>';
-			str += '<li data-select-number="9">9</li>';
+			str += '<li class="selNum" data-select-number="0">0</li>';
+			str += '<li class="selNum" data-select-number="1">1</li>';
+			str += '<li class="selNum" data-select-number="2">2</li>';
+			str += '<li class="selNum" data-select-number="3">3</li>';
+			str += '<li class="selNum" data-select-number="4">4</li>';
+			str += '<li class="selNum" data-select-number="5">5</li>';
+			str += '<li class="selNum" data-select-number="6">6</li>';
+			str += '<li class="selNum" data-select-number="7">7</li>';
+			str += '<li class="selNum" data-select-number="8">8</li>';
+			str += '<li class="selNum" data-select-number="9">9</li>';
 
 			mp.parent().append('ul', {
 				'className':'selectNumbers',
