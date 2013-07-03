@@ -30,9 +30,9 @@ if (os == 'ios' || os == 'android') {
 	var  adTop = document.querySelector('#adTop')
 		,adBottom = document.querySelector('#adBottom')
 		,adMiddle = document.querySelector('#adMiddle')
-	document.querySelector('body').removeChild(adTop)
-	document.querySelector('body').removeChild(adBottom)
-	document.querySelector('body').removeChild(adMiddle)
+	//document.querySelector('body').removeChild(adTop)
+	//document.querySelector('body').removeChild(adBottom)
+	//document.querySelector('body').removeChild(adMiddle)
 }
 
 window.addEventListener('DOMContentLoaded', function(){
@@ -447,7 +447,7 @@ function selNumbers() {
 				that.parent().first().data('number', numValue).text(numValue)
 				that.remove()
 			})
-		}, 30)
+		}, 100)
 		
 		M('body').on('touchend', function(){
 			setTimeout(function(){
