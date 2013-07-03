@@ -138,9 +138,9 @@ function nextRound() {
 	round++
 
 	str += '<span class="roundIdx">' + round + '회 </span>';
-	str += '<div class="numberLists"><button data-number="-1" class="number" data-first></button></div>';
-	str += '<div class="numberLists"><button data-number="-1" class="number" data-second></button></div>';
-	str += '<div class="numberLists"><button data-number="-1" class="number" data-third></button></div>';
+	str += '<div class="numberLists"><button data-number="-1" data-disable="true" class="number" data-first></button></div>';
+	str += '<div class="numberLists"><button data-number="-1" data-disable="true" class="number" data-second></button></div>';
+	str += '<div class="numberLists"><button data-number="-1" data-disable="true" class="number" data-third></button></div>';
 	str += '<p data-result class="result"></p>';
 	str += '<button data-play="' + round + '" class="button submit">확인</button>';
 	
@@ -170,6 +170,9 @@ function nextRound() {
 		}
 
 		mp.css('display', 'none')
+			.parent()
+			.find('[data-number]')
+			.data('disable', 'false')
 		
 		myAnswer.length = 0;
 		myAnswer.push(firstNum)
@@ -195,13 +198,10 @@ function nextRound() {
 				nextRound();
 			}
 		}
+
 		mp.prev()
 			.css('display', 'block')
 			.text(resultTxt)
-			.parent()
-			.find('input')
-			.attr('disabled', 'disabled')
-		
 	})
 }
 
@@ -421,6 +421,9 @@ function getTeamName(key) {
 
 function selNumbers() {
 	M('[data-number]').on('click', function(evt, mp){
+		if (mp.data('disable') === 'false') {
+			return false;
+		}
 		setTimeout(function(){
 			var str = ''
 			str += '<li data-select-number="0">0</li>';
