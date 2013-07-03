@@ -94,7 +94,7 @@ function randomTeam() {
 		M('[data-match-team="0"] p').text(teamArr[yourTeam]['name'])
 		M('#btnPlayBox').css('display', 'block')
 		//console.log(myTeam, yourTeam)
-	}, 1000);
+	}, 2000);
 }
 
 // 경기시작
@@ -137,10 +137,10 @@ function nextRound() {
 	
 	round++
 
-	str += '<span>' + round + '회 </span>';
-	str += '<input text="text" class="inputName number" maxlength="1" data-first> ';
-	str += '<input text="text" class="inputName number" maxlength="1" data-second> ';
-	str += '<input text="text" class="inputName number" maxlength="1" data-third> ';
+	str += '<span class="roundIdx">' + round + '회 </span>';
+	str += '<div class="numberLists"><button data-number="-1" class="number" data-first></button></div>';
+	str += '<div class="numberLists"><button data-number="-1" class="number" data-second></button></div>';
+	str += '<div class="numberLists"><button data-number="-1" class="number" data-third></button></div>';
 	str += '<p data-result class="result"></p>';
 	str += '<button data-play="' + round + '" class="button submit">확인</button>';
 	
@@ -148,21 +148,20 @@ function nextRound() {
 		'data-count': round
 	})
 	M('[data-count="' + round + '"]').html(str);
+	selNumbers();
+
 	M('#roundInfo').text( 10-round +'회 남았습니다.');
 
 	// 확인
 	M('[data-play="' + round + '"]').on('click', function(evt, mp){
-		var  firstNum = parseInt(M('[data-count="' + round + '"] [data-first]').val(), 10) || ''
-			,secondNum = parseInt(M('[data-count="' + round + '"] [data-second]').val(), 10) || ''
-			,thirdNum = parseInt(M('[data-count="' + round + '"] [data-third]').val(), 10) || ''
+		var  firstNum = parseInt(M('[data-count="' + round + '"] [data-first]').data('number'), 10)
+			,secondNum = parseInt(M('[data-count="' + round + '"] [data-second]').data('number'), 10)
+			,thirdNum = parseInt(M('[data-count="' + round + '"] [data-third]').data('number'), 10)
 			,resultTxt
 		
-		if (firstNum === '' || secondNum === '' || thirdNum === '') {
+		console.log(firstNum, secondNum, thirdNum)
+		if (firstNum === '-1' || secondNum === '-1' || thirdNum === '-1') {
 			alert('숫자를 모두 입력하세요.');
-			return false;
-		}
-		if (!M.isNumber(firstNum) || !M.isNumber(secondNum) || !M.isNumber(thirdNum)) {
-			alert('숫자만 입력하세요.');
 			return false;
 		}
 		if (firstNum === secondNum || firstNum === thirdNum || secondNum === thirdNum) {
@@ -361,9 +360,47 @@ function executeURLLink() {
 }
 
 
+function selNumbers() {
+	M('[data-number]').on('click', function(evt, mp){
+		setTimeout(function(){
+			var str = ''
+			str += '<li data-select-number="0">0</li>';
+			str += '<li data-select-number="1">1</li>';
+			str += '<li data-select-number="2">2</li>';
+			str += '<li data-select-number="3">3</li>';
+			str += '<li data-select-number="4">4</li>';
+			str += '<li data-select-number="5">5</li>';
+			str += '<li data-select-number="6">6</li>';
+			str += '<li data-select-number="7">7</li>';
+			str += '<li data-select-number="8">8</li>';
+			str += '<li data-select-number="9">9</li>';
 
+			mp.parent().append('ul', {
+				'className':'selectNumbers',
+				'data-id':'selectNum'
+			})
+			.last()
+			.html(str)
 
+			M('[data-select-number]').on('click', function(evt, mp){
+				var  numValue = mp.data('select-number')
+					,that = mp.parent()
+				that.parent().first().data('number', numValue).text(numValue)
+				that.remove()
+			})
+		}, 30)
+		
+		M('body').on('touchend', function(){
+			setTimeout(function(){
+				M('body').off('touchend')
+				try{
+					M('[data-id="selectNum"]').remove()
+				}catch(err){}
+			}, 10)
+		})
 
+	})
+}
 
 
 
