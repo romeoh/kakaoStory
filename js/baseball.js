@@ -161,7 +161,7 @@ function nextRound() {
 			,thirdNum = parseInt(M('[data-count="' + round + '"] [data-third]').data('number'), 10)
 			,resultTxt
 		
-		console.log(firstNum, secondNum, thirdNum)
+		//console.log(firstNum, secondNum, thirdNum)
 		if (firstNum === -1 || secondNum === -1 || thirdNum === -1) {
 			alert('숫자를 모두 입력하세요.');
 			return false;
@@ -487,7 +487,7 @@ function selNumbers() {
 			.last()
 			.html(str)
 
-			M('[data-select-number]').on('click', function(evt, mp){
+			M('[data-select-number]').on('touchstart', function(evt, mp){
 				var  numValue = mp.data('select-number')
 					,that = mp.parent()
 				that.parent().first().data('number', numValue).text(numValue)
