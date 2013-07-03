@@ -320,7 +320,7 @@ function executeKakaoStoryLink(mp){
 		mp.text('팀순위 저장')
 			.addClass('pink')
 	} else {
-		postMsg += '[ 마구!마구! 숫자야구 ]\n\n';
+		postMsg += '[ 마구! 마구! 숫자야구 ]\n\n';
 		postMsg += '* 구단순위 *\n';
 		for (var i=0; i<ranking.length; i++) {
 			postMsg += ranking[i]['idx']+'위: ' + ranking[i]['teamName'] + ' ' + ranking[i]['win'] + '승 ' + ranking[i]['lost'] + '패 승률:' + ranking[i]['pct'] + '\n';
