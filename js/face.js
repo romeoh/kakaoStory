@@ -52,12 +52,12 @@ function executeKakaoStoryLink(){
 
 	postMsg += '[내 얼굴 부위별 점수]\n';
 	postMsg += M('#userName').val() + '님의 얼굴 부위별 점수입니다.\n\n';
-	postMsg += '피부: ' + skin + '\n';
-	postMsg += '눈: ' + eye + '\n';
-	postMsg += '코: ' + nose + '\n';
-	postMsg += '입: ' + mouse + '\n';
-	postMsg += '턱선: ' + line + '\n';
-	postMsg += '총점: ' + ave + ' (5.0 만점)\n\n';
+	postMsg += '* 피부: ' + skin + '\n';
+	postMsg += '* 눈: ' + eye + '\n';
+	postMsg += '* 코: ' + nose + '\n';
+	postMsg += '* 입: ' + mouse + '\n';
+	postMsg += '* 턱선: ' + line + '\n';
+	postMsg += '* 총점: ' + ave + ' (5.0 만점)\n\n';
 	
 	postMsg += 'http://goo.gl/Q5o37\n';
 	
