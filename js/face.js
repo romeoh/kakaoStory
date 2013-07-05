@@ -63,7 +63,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: '내 얼굴 부위별 점수',
-		desc: '얼굴만으로 무릅을 꿃게하리라.',
+		desc: '얼굴만으로 무릎을 꿇게하리라.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/face.png'],
 		type:'article'
 	}
@@ -73,7 +73,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '평균 ' + ave,
+		appname : '평균 점수: ' + ave + '점',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
