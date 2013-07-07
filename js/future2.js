@@ -121,7 +121,10 @@ dataBoy = [
 	{'name':'송중기', 'photo':'boy12.png'},
 	{'name':'박재범', 'photo':'boy13.png'},
 	{'name':'김현중', 'photo':'boy14.png'},
-	{'name':'탑', 'photo':'boy15.png'}
+	{'name':'탑', 'photo':'boy15.png'},
+	{'name':'김제동', 'photo':'boy16.png'},
+	{'name':'김영철', 'photo':'boy17.png'},
+	{'name':'옥동자', 'photo':'boy18.png'}
 ]
 
 
@@ -140,7 +143,11 @@ dataGirl = [
 	{'name':'김하늘', 'photo':'girl12.png'},
 	{'name':'성유리', 'photo':'girl13.png'},
 	{'name':'민아', 'photo':'girl14.png'},
-	{'name':'문근영', 'photo':'girl15.png'}
+	{'name':'문근영', 'photo':'girl15.png'},
+	{'name':'오나미', 'photo':'girl16.png'},
+	{'name':'박지선', 'photo':'girl17.png'},
+	{'name':'정주리', 'photo':'girl18.png'},
+	{'name':'신봉선', 'photo':'girl19.png'}
 ]
 
 
