@@ -64,7 +64,7 @@ function executeKakaoStoryLink(){
 		part = '남편';
 	}
 
-	postMsg += '[미래의 ' + part + ']\n\n';
+	postMsg += '[미래 애인 추적기]\n\n';
 	postMsg += M('#userName').val() + '님의 미래의 ' + part + '는\n';
 	postMsg += partner['name'] + '입니다.\n\n';
 	postMsg += 'http://goo.gl/lmysH\n';
@@ -96,11 +96,11 @@ function getRandom(min, max){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "미래의 아내/남편",
+		msg: "미래 애인 추적기",
 		url: "http://goo.gl/lmysH",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "미래의 아내/남편",
+		appname: "미래 애인 추적기",
 		type: "link"
 	});
 }
