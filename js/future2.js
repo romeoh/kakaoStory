@@ -82,7 +82,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '미래의 ' + part,
+		appname : partner['name'] + '입니다.',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
