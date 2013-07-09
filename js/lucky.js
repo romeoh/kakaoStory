@@ -43,7 +43,7 @@ function executeKakaoStoryLink(){
 	data = dataIndian[selIndian.value]
 	
 	postMsg += '[행운의 인디안 부적]\n\n';
-	postMsg += data.result + '\n';
+	postMsg += '"' + data.result + ':"\n';
 	postMsg += data.article + '\n\n';
 	
 	postMsg += 'http://goo.gl/1eJ1L\n';
