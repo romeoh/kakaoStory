@@ -48,7 +48,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '태어나서 처음한말, 죽기전에 마지막말',
 		desc: dataLast[last],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/age.png' ],
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/last.png' ],
 		type:'article'
 	}
 console.log(postMsg, urlMsg)

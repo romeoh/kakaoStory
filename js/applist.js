@@ -1,4 +1,5 @@
 var appList = ''
+appList += '<li data-app="61"><a href="http://goo.gl/Jr6q0">태어나서 처음한말, 죽기전에 마지막말</a></li>';
 appList += '<li data-app="60"><a href="http://goo.gl/1eJ1L">행운의 인디안 부적</a></li>';
 appList += '<li data-app="59"><a href="http://goo.gl/ZuEM0">슈퍼 히어로</a></li>';
 appList += '<li data-app="58"><a href="http://goo.gl/lmysH">미래 애인 추적기</a></li>';
@@ -69,6 +70,7 @@ if (M('[data-list]').selector.length > 0) {
 
 
 var appListMin = ''
+appListMin += '<li data-app-min="27"><a href="http://goo.gl/Jr6q0">태어나서 처음한말, 죽기전에 마지막말</a></li>';
 appListMin += '<li data-app-min="26"><a href="http://goo.gl/1eJ1L">행운의 인디안 부적</a></li>';
 appListMin += '<li data-app-min="25"><a href="http://goo.gl/ZuEM0">슈퍼 히어로</a></li>';
 appListMin += '<li data-app-min="24"><a href="http://goo.gl/lmysH">미래 애인 추적기</a></li>';
