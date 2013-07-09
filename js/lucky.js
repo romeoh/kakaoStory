@@ -35,7 +35,7 @@ function executeKakaoStoryLink(){
 		,selIndian = document.querySelector('#selIndian')
 		,data
 	
-	if (selIndian.value == '') {
+	if (selIndian.value == '-1') {
 		alert('인디안 부족을 고르세요.');
 		return;
 	}
