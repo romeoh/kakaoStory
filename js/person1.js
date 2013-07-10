@@ -46,7 +46,7 @@ function executeKakaoStoryLink(){
 
 	postMsg += '[성격 심리테스트]\n\n';
 	postMsg += '# 당신이 뜻밖의 수익을 얻었을 때 이를 지출하는 형태를 보고 성격을 알 수 있는 심리 테스트 입니다.\n\n';
-	postMsg += result + '\n\n';
+	postMsg += '# ' + result + '\n\n';
 	
 	postMsg += 'http://goo.gl/Kgh3l\n';
 	
