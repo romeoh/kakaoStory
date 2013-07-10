@@ -1,4 +1,5 @@
 var appList = ''
+appList += '<li data-app="62"><a href="http://goo.gl/Kgh3l">[심리테스트] 뜻밖의 행운으로 보는 나의 성격테스트</a></li>';
 appList += '<li data-app="61"><a href="http://goo.gl/Jr6q0">태어나서 처음한말, 죽기전에 마지막말</a></li>';
 appList += '<li data-app="60"><a href="http://goo.gl/1eJ1L">행운의 인디안 부적</a></li>';
 appList += '<li data-app="59"><a href="http://goo.gl/ZuEM0">슈퍼 히어로</a></li>';
@@ -70,6 +71,7 @@ if (M('[data-list]').selector.length > 0) {
 
 
 var appListMin = ''
+appListMin += '<li data-app-min="28"><a href="http://goo.gl/Kgh3l">[심리테스트] 뜻밖의 행운으로 보는 나의 성격테스트</a></li>';
 appListMin += '<li data-app-min="27"><a href="http://goo.gl/Jr6q0">태어나서 처음한말, 죽기전에 마지막말</a></li>';
 appListMin += '<li data-app-min="26"><a href="http://goo.gl/1eJ1L">행운의 인디안 부적</a></li>';
 appListMin += '<li data-app-min="25"><a href="http://goo.gl/ZuEM0">슈퍼 히어로</a></li>';
