@@ -155,9 +155,9 @@ h2 {text-align:center;}
 #goStore iframe {border:none; height:200px}
 
 
-
-
-
+.checkList {text-align:left; margin:10px 0}
+.checkList div {background:url(../img/prettyCheckable-blue.png) no-repeat 0 -125px; width:35px; height:25px; float:left}
+.sel div {background:url(../img/prettyCheckable-blue.png) no-repeat 0 -185px; width:35px; height:25px; float:left}
 
 
 
