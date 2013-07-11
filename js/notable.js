@@ -51,7 +51,7 @@ function executeKakaoStoryLink(){
 	postMsg += 'http://goo.gl/n8443'
 
 	urlMsg = {
-		title: data[idx]['name'],
+		title: '평행이론',
 		desc: data[idx]['name'] + '님과 ' + matchRate + '% 닮았습니다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[idx]['photo'] ],
 		type:'article'
@@ -63,7 +63,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '평행이론',
+		appname : data[idx]['name'],
 		urlinfo : JSON.stringify(urlMsg)
     });
 
