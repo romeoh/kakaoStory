@@ -44,7 +44,7 @@ function executeKakaoStoryLink(){
 	data = dataMale;
 	
 	postMsg += '[평행이론]\n\n'
-	postMsg += userName + '님과 비슷한 삶을 살아갈 유명인을 찾았습니다.\n\n'
+	postMsg += userName + '님과 비슷한 운명을 가진 유명인을 찾았습니다.\n\n'
 	postMsg += '이름: ' + data[idx]['name'] + '\n'
 	postMsg += '매치율: ' + matchRate + '%\n'
 	postMsg += '평행이론: ' + data[idx]['point'] + '\n\n'
