@@ -37,7 +37,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: 'CF 패러디',
-		desc: '누가 내 시급에 소금쳤어!!',
+		desc: '누가 내' + artcle + '에 소금쳤어!!!',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/cf_pay_thum.png'],
 		type:'article'
 	}
@@ -47,7 +47,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : 'CF 패러디',
+		appname : '누가 내 시급에 소금쳤어!!',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
