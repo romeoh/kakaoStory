@@ -47,7 +47,7 @@ function executeKakaoStoryLink(){
 		artcle = data[dataRan]['article']
 
 		postMsg += '그에게 짜기만 했던 시간\n\n';
-		postMsg += '"누가 내' + artcle + '에 소금쳤어!!!"\n\n';
+		postMsg += '"누가 내 ' + artcle + '에 소금쳤어!!!"\n\n';
 		postMsg += '내' + artcle + '의 반전\n\n';
 
 		desc = '누가 내' + artcle + '에 소금쳤어!!!'
