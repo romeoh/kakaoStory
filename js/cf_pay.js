@@ -25,12 +25,15 @@ window.addEventListener('DOMContentLoaded', function(){
 	M('#selCf').on('change', function(evt, mp){
 		if (mp.val() === '0') {
 			cf = '0'
+			M('h1').text('누가 내 시급에 소금쳤어!!')
 			M('#img').attr('src', '../img/cf_pay.png')
 		} else if (mp.val() === '1') {
 			cf = '1'
+			M('h1').text('메탈은 가장 완벽한 물질입니다.')
 			M('#img').attr('src', '../img/cf_pay2.png')
 		} else if (mp.val() === '2') {
 			cf = '2'
+			M('h1').text('데이터가 남아 돌아?')
 			M('#img').attr('src', '../img/cf_pay3.png')
 		}
 	})
