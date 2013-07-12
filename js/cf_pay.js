@@ -70,7 +70,7 @@ function executeKakaoStoryLink(){
 		postMsg += '어떤 시련에도 상처받지 않는 강인함 \n\n';
 		postMsg += '단언컨대, ' + artcle + check1 + ' 가장 완벽 합니다. \n\n';
 
-		desc = '단언컨대, ' + artcle + check1 + ' 가장 완벽한 물질입니다.'
+		desc = '단언컨대, ' + artcle + check1 + ' 가장 완벽 합니다.'
 		img = 'cf_pay_thum2.png'
 		appname = '단언컨대, 메탈은 가장 완벽한 물질입니다.'
 	}
