@@ -57,7 +57,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '나의 장점/단점',
 		desc: data[jogeun3]['fault'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/'],
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/advant.png'],
 		type:'article'
 	}
 	console.log(postMsg, urlMsg)
@@ -66,7 +66,7 @@ function executeKakaoStoryLink(){
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '나의 장점/단점',
+		appname : '다 좋은데 말이야..',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
