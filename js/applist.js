@@ -128,6 +128,7 @@ if (M('[data-list-min]').selector.length > 0) {
 
 var bannerData;
 function showad() {
+	return; 
 	function getRandom(min, max){
 		return Math.floor(Math.random() * (max-min) + min)
 	}
