@@ -1,5 +1,5 @@
 var appList = ''
-appList += '<li data-app="66"><a href="http://goo.gl/PKcvE">나와 어울리는 슈퍼카</a></li>';
+appList += '<li data-app="66"><a href="http://goo.gl/UL2i4">나와 어울리는 슈퍼카</a></li>';
 appList += '<li data-app="65"><a href="http://goo.gl/WQrwI">[패러디] 누가 내시급에 소금쳤어!!!</a></li>';
 appList += '<li data-app="64"><a href="http://goo.gl/n8443">평행이론</a></li>';
 appList += '<li data-app="63"><a href="http://goo.gl/cfNQe">[심리테스트] 힘든 일을 극복하는 방법</a></li>';
@@ -75,7 +75,7 @@ if (M('[data-list]').selector.length > 0) {
 
 
 var appListMin = ''
-appListMin += '<li data-app-min="32"><a href="http://goo.gl/PKcvE">나와 어울리는 슈퍼카</a></li>';
+appListMin += '<li data-app-min="32"><a href="http://goo.gl/UL2i4">나와 어울리는 슈퍼카</a></li>';
 appListMin += '<li data-app-min="31"><a href="http://goo.gl/WQrwI">[패러디] 누가 내시급에 소금쳤어!!!</a></li>';
 appListMin += '<li data-app-min="30"><a href="http://goo.gl/n8443">평행이론</a></li>';
 appListMin += '<li data-app-min="29"><a href="http://goo.gl/cfNQe">[심리테스트] 힘든 일을 극복하는 방법</a></li>';

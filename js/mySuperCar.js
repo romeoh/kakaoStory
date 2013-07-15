@@ -25,17 +25,26 @@ if (os == 'ios' || os == 'android') {
 
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
-	init()
-	M('#indicator').css('left', screenX+'px')
+	if (window.location.hash != '#list') {
+		init()
+		M('#indicator').css('left', screenX+'px')
+		
+		setInterval(function(){
+			if (indiCount == 11) {
+				indiCount = 0
+			} else {
+				indiCount++
+			}
+			M('#indicator .ico').css('backgroundPositionX', -1 * 25 * indiCount+'px')
+		}, 100)
+		M('.description').css('display', 'none')
+	} else {
+		M('#wrapper').css('display', 'none')
+		M('#btnPrev').css('display', 'none')
+		M('#btnNext').css('display', 'none')
+		M('#indicator').css('display', 'none')
+	}
 	
-	setInterval(function(){
-		if (indiCount == 11) {
-			indiCount = 0
-		} else {
-			indiCount++
-		}
-		M('#indicator .ico').css('backgroundPositionX', -1 * 25 * indiCount+'px')
-	}, 100)
 	
 	M('#btnNext').on('click', function(){
 		if (cuIdx == data.length-1) {
