@@ -50,7 +50,7 @@ function executeKakaoStoryLink(){
 	postMsg += data[jogeun1]['constinue'] + ', ';
 	postMsg += data[jogeun2]['last'] + ', \n\n';
 	postMsg += '단 한가지 아쉬운점... \n';
-	postMsg += data[jogeun3]['fault'] + '\n';
+	postMsg += data[jogeun3]['fault'] + '\n\n';
 	
 	postMsg += 'http://goo.gl/AigRi';
 	
