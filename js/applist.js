@@ -1,5 +1,5 @@
 var appList = ''
-appList += '<li data-app="68"><a href="http://goo.gl/d5Z2e">나는 결국 누구와 결혼하나</a></li>';
+appList += '<li data-app="68"><a href="http://goo.gl/DPb6h">나는 결국 누구와 결혼하나</a></li>';
 appList += '<li data-app="67"><a href="http://goo.gl/AigRi">나의 장점/단점</a></li>';
 appList += '<li data-app="66"><a href="http://goo.gl/UL2i4">나와 어울리는 슈퍼카</a></li>';
 appList += '<li data-app="65"><a href="http://goo.gl/WQrwI">[패러디] 누가 내시급에 소금쳤어!!!</a></li>';
@@ -77,7 +77,7 @@ if (M('[data-list]').selector.length > 0) {
 
 
 var appListMin = ''
-appListMin += '<li data-app-min="34"><a href="http://goo.gl/d5Z2e">나는 결국 누구와 결혼하나</a></li>';
+appListMin += '<li data-app-min="34"><a href="http://goo.gl/DPb6h">나는 결국 누구와 결혼하나</a></li>';
 appListMin += '<li data-app-min="33"><a href="http://goo.gl/AigRi">나의 장점/단점</a></li>';
 appListMin += '<li data-app-min="32"><a href="http://goo.gl/UL2i4">나와 어울리는 슈퍼카</a></li>';
 appListMin += '<li data-app-min="31"><a href="http://goo.gl/WQrwI">[패러디] 누가 내시급에 소금쳤어!!!</a></li>';

@@ -71,7 +71,7 @@ function executeKakaoStoryLink(){
 	postMsg += '[나는 결국 누구와 결혼하나]\n\n';
 	postMsg += userName + '님은 결국 ' + who + ' ' + when + '에 결혼하게 됩니다.\n\n';
 	
-	postMsg += 'http://goo.gl/d5Z2e';
+	postMsg += 'http://goo.gl/DPb6h';
 	
 	urlMsg = {
 		title: '나는 누구와 결혼하나',
@@ -96,7 +96,7 @@ function executeKakaoStoryLink(){
 function executeURLLink() {
 	kakao.link("talk").send({
 		msg: "나는 결국 누구와 결혼하나",
-		url: "http://goo.gl/d5Z2e",
+		url: "http://goo.gl/DPb6h",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "나는 결국 누구와 결혼하나",
