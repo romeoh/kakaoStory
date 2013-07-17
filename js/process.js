@@ -45,8 +45,9 @@ function executeKakaoStoryLink(){
 	}
 
 	postMsg += '[성격 심리테스트]\n\n';
-	postMsg += '# 곤란한 상황에서는 재빠른 판단력이 요구됩니다. \n이럴 때 당신이 어떻게 행동하는지 생각해 봅시다. \n이것은 일 처리에 있어서도 그대로 이어지거든요.\n\n';
-	postMsg += '# ' + result + '\n\n';
+	postMsg += '- 나는 일을 어떻게 처리하는 타입 일까?\n';
+	postMsg += '# 곤란한 상황에서는 재빠른 판단력이 요구됩니다. \n이럴 때 당신이 어떻게 행동하는지 생각해 봅시다.이것은 일 처리에 있어서도 그대로 이어지거든요.\n\n';
+	postMsg += '(결과) ' + result + '\n\n';
 	
 	postMsg += 'http://goo.gl/bv6Lt\n';
 	
