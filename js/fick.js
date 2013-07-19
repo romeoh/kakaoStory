@@ -54,7 +54,7 @@ function executeKakaoStoryLink(){
 	postMsg += '연애의 온도 : ' + total + '도씨\n\n';
 
 	
-	postMsg += 'http://goo.gl/AigRi';
+	postMsg += 'http://goo.gl/Xr6KF';
 	
 	urlMsg = {
 		title: '연애의 온도',
@@ -68,7 +68,7 @@ function executeKakaoStoryLink(){
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '나의 연애방법론',
+		appname : '연애의 온도',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -104,11 +104,11 @@ strData = [
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "나의 연애방법론",
-		url: "http://goo.gl/AigRi",
+		msg: "연애의 온도",
+		url: "http://goo.gl/Xr6KF",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "나의 연애방법론",
+		appname: "연애의 온도",
 		type: "link"
 	});
 }
