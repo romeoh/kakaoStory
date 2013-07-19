@@ -1,5 +1,6 @@
 var appList = ''
 appList += '<li data-app="70"><a href="http://goo.gl/Xr6KF">연애의 온도</a></li>';
+appList += '<li data-app="71"><a href="http://goo.gl/r5fTS">[심리테스트] 미래를 위한 나의 노력</a></li>';
 appList += '<li data-app="69"><a href="http://goo.gl/bv6Lt">[심리테스트] 나의 일처리 타입은?</a></li>';
 appList += '<li data-app="68"><a href="http://goo.gl/DPb6h">나는 결국 누구와 결혼하나</a></li>';
 appList += '<li data-app="67"><a href="http://goo.gl/AigRi">나의 장점/단점</a></li>';
@@ -80,6 +81,7 @@ if (M('[data-list]').selector.length > 0) {
 
 var appListMin = ''
 appListMin += '<li data-app-min="36"><a href="http://goo.gl/Xr6KF">연애의 온도</a></li>';
+appListMin += '<li data-app-min="37"><a href="http://goo.gl/r5fTS">[심리테스트] 미래를 위한 나의 노력</a></li>';
 appListMin += '<li data-app-min="35"><a href="http://goo.gl/bv6Lt">[심리테스트] 나의 일처리 타입은?</a></li>';
 appListMin += '<li data-app-min="34"><a href="http://goo.gl/DPb6h">나는 결국 누구와 결혼하나</a></li>';
 appListMin += '<li data-app-min="33"><a href="http://goo.gl/AigRi">나의 장점/단점</a></li>';
