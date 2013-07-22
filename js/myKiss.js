@@ -48,9 +48,9 @@ function executeKakaoStoryLink(){
 	postMsg += '◇ 큐티: ' + getRandom(1,99) + '점\n';
 	postMsg += '◇ 러블리: ' + getRandom(1,99) + '점\n\n';
 	
-	postMsg += 'http://goo.gl/bmTFF\n\n';
+	postMsg += 'http://goo.gl/bmTFF\n\n\n';
 	
-	postMsg += data[kiss]['kiss'] + '란?\n';
+	postMsg += '※' + data[kiss]['kiss'] + '란?\n';
 	postMsg += data[kiss]['exp'] + '\n';
 
 	urlMsg = {
@@ -96,8 +96,8 @@ data = [
 	{'photo':'kiss4.png', 'kiss':'슬라이딩키스', 'exp':'서로의 입술을 밀착시키고 누르면서 하는 키스입니다.'},
 	{'photo':'kiss5.png', 'kiss':'인사이드키스', 'exp':'상대방의 혀를 가볍게 받아주는 키스입니다.'},
 	{'photo':'kiss6.png', 'kiss':'프렌치키스', 'exp':'상대방의 혀를 가볍게 받아주면서 더 길고 열정적으로 하는 키스입니다. \n이때 상대방의 얼굴을 감싸 안아주면 더 자극적일 수 있습니다.'},
-	{'photo':'kiss7.png', 'kiss':'거품키스', 'exp':'영화나 드라마에서 남자가 여자에게 키스를 통해 입에서 입으로 사탕을 선물하는 키스입니다.'},
-	{'photo':'kiss8.png', 'kiss':'사탕키스', 'exp':'입술에 묻은 카푸치노 거품을 키스로 닦아줍니다.'}
+	{'photo':'kiss7.png', 'kiss':'사탕키스', 'exp':'영화나 드라마에서 남자가 여자에게 키스를 통해 입에서 입으로 사탕을 선물하는 키스입니다.'},
+	{'photo':'kiss8.png', 'kiss':'거품키스', 'exp':'입술에 묻은 카푸치노 거품을 키스로 닦아줍니다.'}
 	
 ]
 
