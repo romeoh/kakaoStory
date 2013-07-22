@@ -49,7 +49,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: '긴급보안 공유',
-		desc: '링크를 클릭하지 마세요.',
+		desc: '모르는 사람에게 받은 문자의 링크는 열지마세요.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/noticeIcon.png'],
 		type:'article'
 	}
