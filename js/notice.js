@@ -73,7 +73,7 @@ function executeURLLink() {
 		url: "http://goo.gl/hJpgvO",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "[긴급보안 공유]",
+		appname: "긴급보안 공유",
 		type: "link"
 	});
 }
