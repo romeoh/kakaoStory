@@ -69,11 +69,11 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "우리준이가 태어난지 벌서일년이 되었어요... 이런 문자 받으면 절대 클릭하지 마세요. 불법으로 개인정보를 빼가는 앱입니다.",
+		msg: '"우리준이가 태어난지 벌서일년이 되었어요..." 이런 문자 받으면 절대 클릭하지 마세요. 불법으로 개인정보를 빼가는 앱입니다.',
 		url: "http://goo.gl/hJpgvO",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "나의 장점/단점",
+		appname: "[긴급보안 공유]",
 		type: "link"
 	});
 }
