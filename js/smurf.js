@@ -55,7 +55,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : desc,
+		appname : '',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
