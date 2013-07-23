@@ -39,7 +39,7 @@ function executeKakaoStoryLink(){
 
 	
 	postMsg += '[나의 스머프 캐릭터]\n';
-	postMsg += M('#userName').val() + '님은 스머프 마을에\n';
+	postMsg += M('#userName').val() + '님은 스머프 마을의\n';
 	postMsg += data[smurf]['name'] + '입니다.\n\n';
 	
 	postMsg += 'http://goo.gl/5yqyOY\n';
