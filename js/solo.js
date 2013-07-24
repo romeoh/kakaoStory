@@ -80,7 +80,7 @@ function getRandom(min, max){
 
 data = [
 	{'when': '남북이 통일되는 날'},
-	{'when': '일본이 역사를 반성하는 날'},
+	{'when': '일본이 역사를 진심으로 반성하는 날'},
 	{'when': '이번 여름'},
 	{'when': '올해'},
 	{'when': '내년'},
