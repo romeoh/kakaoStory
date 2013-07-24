@@ -30,38 +30,31 @@ function executeKakaoStoryLink(){
 	var  sexType
 		,userName = document.querySelector('#userName').value
 		,postMsg = ''
-		,age = getRandom(5, 100)
+		,solor = Math.floor(Math.random() * data.length)
 	
 	if (userName == '') {
 		alert('이름을 입력해 주세요.');
 		return false;
 	}
 
-	if (age <= 20) {
-		desc = '봤냐?'
-	} else if (age > 20 && age <= 35) {
-		desc = '선방했네..'
-	} else {
-		desc = '인생은 60부터.ㅠㅠ'
-	}
-
-	postMsg += '[나의 얼굴나이]\n';
-	postMsg += M('#userName').val() + '님의 얼굴나이는 ' + age + '세 입니다.\n\n';
+	postMsg += '[나는 언제까지 솔로인가?]\n\n';
+	postMsg += M('#userName').val() + '님은 ' + data[solor]['when'] + '까지만 솔로입니다.\n\n';
+	postMsg += '그 후로 부터는 쭉~ 커플입니다.\n\n';
 	
-	postMsg += 'http://goo.gl/yi3PU\n';
+	postMsg += 'http://goo.gl/GOIAaR\n';
 
 	urlMsg = {
-		title: '나의 얼굴나이',
-		desc: age + ' 이어즈 올드~' ,
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/age.png' ],
+		title: '나는 언제까지 솔로인가?',
+		desc: data[solor]['when'] + '까지만...',
+		imageurl: ['http://romeoh.github.io/kakaoStory/img/solo.png' ],
 		type:'article'
 	}
-console.log(postMsg, urlMsg, desc)
+console.log(postMsg, urlMsg)
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : desc,
+		appname : '조금만 참자!!',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -71,11 +64,11 @@ console.log(postMsg, urlMsg, desc)
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "나의 얼굴나이",
-		url: "http://goo.gl/yi3PU",
+		msg: "나는 언제까지 솔로인가?",
+		url: "http://goo.gl/GOIAaR",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "나의 얼굴나이",
+		appname: "나는 언제까지 솔로인가?",
 		type: "link"
 	});
 }
@@ -85,7 +78,28 @@ function getRandom(min, max){
 	return Math.floor(Math.random() * (max-min) + min)
 }
 
-
+data = [
+	{'when': '남북이 통일되는 날'},
+	{'when': '일본이 역사를 반성하는 날'},
+	{'when': '이번 여름'},
+	{'when': '올해'},
+	{'when': '내년'},
+	{'when': '이번 달'},
+	{'when': '다음 달'},
+	{'when': '로또에 당첨되는 날'},
+	{'when': '이번 추석'},
+	{'when': '내년 발렌타인데이'},
+	{'when': '내년 화이트데이'},
+	{'when': '갤럭시S8이 출시되는 날'},
+	{'when': '아이폰9S가 출시되는 날'},
+	{'when': '올해 첫눈 오는날'},
+	{'when': '다음 대통령선거 날'},
+	{'when': '내년 만우절'},
+	{'when': '퇴직금 받는 날'},
+	{'when': '이번 수능일'},
+	{'when': '이번 크리스마스'},
+	{'when': '이번 생애'}
+] 
 
 
 
