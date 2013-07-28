@@ -249,6 +249,10 @@ function executeKakaoStoryLink(){
 function sendToKakao() {
 	cbCount++
 	if (cbCount == 3) {
+		if (answer1 == undefined) {
+			alert('죄송합니다.\n요청이 너무 많아 주소를 단축시키지 못했습니다.\n잠시 후에 다시 시도해주세요.');
+			return false;
+		}
 		console.log(lastGong)
 		postMsg += '[가위! 바위! 보!]\n';
 		postMsg += '나랑 "가위, 바위, 보" 이기는 사람에게는 소원을 들어줍니다. \n';
