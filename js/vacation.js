@@ -71,7 +71,7 @@ function executeKakaoStoryLink(){
 
 	urlMsg = {
 		title: '함께 휴가가는 연예인',
-		desc: data[who]['name']+' 포레버~',
+		desc: '거기서 그냥 사세요.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[who]['photo'] ],
 		type:'article'
 	}
@@ -80,7 +80,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '거기서 그냥 사세요.',
+		appname : data[who]['name']+' 포레버~',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
