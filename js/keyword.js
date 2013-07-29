@@ -33,7 +33,7 @@ function executeKakaoStoryLink(){
 		,message
 		,postMsg = ''
 		,space = ''
-		,userNameLength = 26 - userName.length
+		,userNameLength = 36 - userName.length
 		,word = []
 	
 	if (userName == '') {
