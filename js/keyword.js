@@ -33,14 +33,14 @@ function executeKakaoStoryLink(){
 		,message
 		,postMsg = ''
 		,space = ''
-		,userNameLength = 16 - userName.length
+		,userNameLength = 26 - userName.length
 		,word = []
 	
 	if (userName == '') {
 		alert('이름을 입력해 주세요.');
 		return false;
 	}
-	
+
 	setRandom(data)
 	word.push(data[jogeun0]['key'])
 	word.push(data[jogeun1]['key'])
@@ -52,9 +52,9 @@ function executeKakaoStoryLink(){
 	}
 
 	//console.log(userName.length, space.length)
-	
+
 	postMsg += '[나의 연관검색어]\n\n';
-	postMsg += '┏━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
+	postMsg += '┏━━━━━━━━━━━━━━━━━━━━━━━━\n';
 	postMsg += '┃' + userName + space + '▼ [검색]\n';
 	postMsg += '┡━━━━━━━━━━━━━━━━━━━━━━━━\n';
 
