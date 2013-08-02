@@ -24,7 +24,7 @@ function ready() {
 
 	// 카카오테스트
 	M('#goTest').on('click', function(){
-
+		window.location.href = 'http://goo.gl/pxiUqd'
 	})
 
 	// 새글쓰기버튼
