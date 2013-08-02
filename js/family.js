@@ -167,11 +167,11 @@ function executeKakaoStoryLink(url){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "천사/악마 검증기",
-		url: "http://goo.gl/AigRi",
+		msg: "가문의 영광",
+		url: "http://goo.gl/fnLTih",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "천사/악마 검증기",
+		appname: "가문의 영광",
 		type: "link"
 	});
 }
