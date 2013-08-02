@@ -124,15 +124,15 @@ function executeKakaoStoryLink(url){
 		}
 	}
 	if (w != '') {
-		postMsg += '\n♡ 잠깐만요~ 우리 ' + appname.replace(':', '') + '언니 후손들에게 한말씀 하실께요: \n';
-		postMsg += w.replace('&w=', '') + '\n';
+		postMsg += '\n-잠깐만요~ 우리 ' + appname.replace(':', '') + '언니 후손들에게 한말씀 하실께요: \n';
+		postMsg += '♡ ' + w.replace('&w=', '') + '\n';
 	}
 	
 	postMsg += '\n이 가문의 후손되기: ' + url + '\n';
 	
 	urlMsg = {
 		title: '가문의 영광',
-		desc: w,
+		desc: w.replace('&w=', ''),
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/family.png' ],
 		type:'article'
 	}
