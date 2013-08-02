@@ -335,50 +335,6 @@ function deleteFeed(type, category_idx, thread_idx, command_idx) {
 
 
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,dataRan = Math.floor(Math.random() * data.length)
-		,artcle = data[dataRan]['article']
-	
-	postMsg += '[625전쟁 상식]\n\n';
-	postMsg += artcle + '\n';
-	postMsg += '출처: 위키백과\n\n';
-	
-	postMsg += '상식 더보기: http://goo.gl/6HS2G\n';
-	
-	urlMsg = {
-		title: '625전쟁 상식',
-		desc: '우리역사 바로 알아보기',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/flag.png'],
-		type:'article'
-	}
-	console.log(postMsg)
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '625전쟁 63주년',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "우리역사 바로 알아보기",
-		url: "http://goo.gl/6HS2G",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "625전쟁 상식",
-		type: "link"
-	});
-}
-
-
 
 
 
