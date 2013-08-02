@@ -126,7 +126,7 @@ function executeKakaoStoryLink(url){
 		appname = n + '대손: ' + names[names.length-1]
 	}
 	if (w != '') {
-		postMsg += '\n-잠깐만요~ 우리 ' + appname.replace(':', '') + '언니 후손들에게 한말씀 하실께요: \n';
+		postMsg += '\n-잠깐만요~ 우리 ' + appname.replace(':', '') + '언니, 후손들에게 한말씀 하실께요: \n';
 		postMsg += '♡ ' + w.replace('&w=', '') + '\n';
 	}
 	
