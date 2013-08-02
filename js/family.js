@@ -89,7 +89,7 @@ function makeUrl() {
 		namesParam = names + ',' + userName.replace(',', '');
 	}
 	
-	page = 'http://romeoh.github.io/kakaoStory/html/angel.html#n=' + encodeURIComponent(namesParam);
+	page = 'http://romeoh.github.io/kakaoStory/html/family.html#n=' + encodeURIComponent(namesParam);
 	getShortUrl(page);
 }
 
