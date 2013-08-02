@@ -100,7 +100,8 @@ function executeKakaoStoryLink(url){
 		,postMsg = ''
 		,timages
 		,userName = document.querySelector('#userName').value
-		,appname		
+		,appname
+		,desc
 
 	postMsg += '[가문의 영광]\n\n';
 	
@@ -131,9 +132,22 @@ function executeKakaoStoryLink(url){
 	
 	postMsg += '\n이 가문의 후손되기: ' + url + '\n';
 	
+	if (names.length < 3) {
+		desc = '신진가문'
+	} else if (names.length < 6) {
+		desc = '평민가문'
+	} else if (names.length < 9) {
+		desc = '양반가문'
+	} else if (names.length < 12) {
+		desc = '명문가문'
+	} else if (names.length < 15) {
+		desc = '귀족가문'
+	} else {
+		desc = '로얄패밀리'
+	}
 	urlMsg = {
 		title: '가문의 영광',
-		desc: w.replace('&w=', ''),
+		desc: desc,
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/family.png' ],
 		type:'article'
 	}
