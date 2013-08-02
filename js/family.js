@@ -88,7 +88,7 @@ function makeUrl() {
 	} else {
 		namesParam = names + ',' + userName.replace(',', '');
 	}
-	
+	names.push(userName.replace(',', ''));
 	page = 'http://romeoh.github.io/kakaoStory/html/family.html#n=' + encodeURIComponent(namesParam);
 	getShortUrl(page);
 }
@@ -100,7 +100,8 @@ function executeKakaoStoryLink(url){
 		,postMsg = ''
 		,timages
 		,userName = document.querySelector('#userName').value
-	
+		,appname		
+
 	postMsg += '[가문의 영광]\n\n';
 	
 	if (hash == 'undefined') {
@@ -109,10 +110,10 @@ function executeKakaoStoryLink(url){
 	} else {
 		//console.log('연결')
 		for (var i=0; i<names.length; i++) {
-			n = i + 1
 			if (i==0) {
 				postMsg += '시조: ' + names[i] + '\n';
 			} else {
+				n = i + 1
 				if (i == names.length-1) {
 					me = ' (나)'
 				} else {
@@ -120,8 +121,8 @@ function executeKakaoStoryLink(url){
 				}
 				postMsg += n + '대손: ' + names[i] + me + '\n';
 			}
-			appname = n + '대손: ' + names[i]
 		}
+		appname = n + '대손: ' + names[names.length-1]
 	}
 	if (w != '') {
 		postMsg += '\n-잠깐만요~ 우리 ' + appname.replace(':', '') + '언니 후손들에게 한말씀 하실께요: \n';
