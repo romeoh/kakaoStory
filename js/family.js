@@ -109,10 +109,10 @@ function executeKakaoStoryLink(url){
 	} else {
 		//console.log('연결')
 		for (var i=0; i<names.length; i++) {
+			n = i + 1
 			if (i==0) {
 				postMsg += '시조: ' + names[i] + '\n';
 			} else {
-				n = i + 1
 				if (i == names.length-1) {
 					me = ' (나)'
 				} else {
