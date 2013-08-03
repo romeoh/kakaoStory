@@ -71,12 +71,13 @@ function requestCategory() {
 	})
 }
 
+// timeline
 function requestTimeline() {
 	var sendData = {}
 
 	sendData.category_id = 'movie'
-	//sendData.thread_idx = 2
-	//sendData.from = 2
+	sendData.thread_idx = 1
+	sendData.from = 50
 	sendData.count = 20
 
 	bodyData = {
