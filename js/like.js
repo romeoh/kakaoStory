@@ -152,12 +152,11 @@ function executeKakaoStoryLink(){
 		n = i+1
 		postMsg += n + '. ' + myLikes[i]['title'] + ' ' + myLikes[i]['result'] + '\n';
 	}
-	postMsg += '\n참고하세요~^^ \n';
-	postMsg += 'http://goo.gl/ft3k0z\n';
+	postMsg += '\nhttp://goo.gl/ft3k0z\n';
 
 	urlMsg = {
 		title: '나의 취향 공유하기',
-		desc: '',
+		desc: '선물 주실때 참고하세요.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/like.png' ],
 		type:'article'
 	}
@@ -166,7 +165,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '나의 취향 공유하기',
+		appname : '싫어요! 좋아요!',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
