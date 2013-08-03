@@ -156,7 +156,7 @@ function executeKakaoStoryLink(){
 
 	urlMsg = {
 		title: '나의 취향 공유하기',
-		desc: '선물 주실때 참고하세요.',
+		desc: '데이트 신청하실 때 참고하세요.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/like.png' ],
 		type:'article'
 	}
