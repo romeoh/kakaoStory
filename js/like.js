@@ -165,7 +165,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '싫어요! 좋아요!',
+		appname : '좋아요! 싫어요!',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
