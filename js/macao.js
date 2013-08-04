@@ -72,13 +72,15 @@ function requestCategory() {
 }
 
 // timeline
-function requestTimeline() {
+function requestTimeline(_idxNext) {
 	var sendData = {}
 
-	sendData.category_id = 'movie'
-	sendData.thread_idx = 1
-	sendData.from = 50
-	sendData.count = 20
+	sendData.category_id = 'movie';
+	sendData.thread_idx = 1;
+	if (_idxNext != undefined) {
+		sendData.from = _idxNext;
+	}
+	sendData.count = 20;
 
 	bodyData = {
 		'body':sendData,
@@ -92,8 +94,9 @@ function requestTimeline() {
 		,'type': 'POST'
 		,'success': function(data){
 			var  from
-			data = M.json(data).body
-			command = data['commands']
+			data = M.json(data).body;
+			idxNext = data.idx_next;
+			command = data['commands'];
 			for (var i=0; i<command.length; i++) {
 				var feedIdx = data['category_idx'] + '' + data['thread_idx'] + '' + command[i]['command_idx']
 				M('#timeline').append('li', {
@@ -104,7 +107,7 @@ function requestTimeline() {
 					'data-command': command[i]['command_idx'],
 					'className': 'feed'
 				})
-				var  str = ''
+				var  str = '';
 				str += '<div class="idx">@' + feedIdx + '</div>';
 				str += '<div class="content" data-feed-li="' + feedIdx + '"><p data-content="' + feedIdx + '">' + command[i]['content'] + '</p><p class="time">' + M.dynamicDate(command[i]['reg_date']) + '</p></div>';
 				str += '<ul class="menu" data-menu="' + feedIdx + '">';
@@ -167,9 +170,9 @@ function requestTimeline() {
 				deleteFeed(type, category_idx, thread_idx, command_idx)
 			})
 			M('#btnMore').on('click', function(evt, mp){
-				idx = ''
-				console.log(from)
-				requestTimeline(idx, from)
+				//idx = ''
+				//console.log(from)
+				requestTimeline(idxNext)
 			})
 
 			if (data['has_next'] === false) {
