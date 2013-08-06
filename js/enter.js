@@ -69,7 +69,7 @@ function executeKakaoStoryLink(){
         appid : 'funnyApp',
 		appver : '1.0',
 		appname : '연예인과 커피한잔',
-		urlinfo : JSON.stringify({title: resultName + '씨로부터 메세지', desc: userName + '님 ' + message, imageurl:['https://raw.github.com/romeoh/kakaoStory/gh-pages/img/'+resultPhoto], type:'article'})
+		urlinfo : JSON.stringify({title: resultName + '씨로부터 메세지', desc: userName + '님 ' + message, imageurl:['http://romeoh.github.io/kakaoStory/img/'+resultPhoto], type:'article'})
     });
 
     showad()
