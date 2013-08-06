@@ -199,7 +199,7 @@ window.addEventListener('DOMContentLoaded', function(){
 	// 공격
 	} else {
 		//M('#btns1').css('display', 'block')
-		//M('#attack').css('display', 'block')
+		M('#attack').css('display', 'block')
 		//M('#btnStory').css('display', 'block')
 	}
 
