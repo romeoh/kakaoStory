@@ -58,6 +58,7 @@ function executeKakaoStoryLink(){
 		data = dataMale;
 	}
 	
+	postMsg += '[닮을꼴 연예인]\n'
 	postMsg += '미래에 ' + userName + '님과 닮을 연예인을 찾았습니다.\n\n'
 	postMsg += '이름: ' + data[idx]['name'] + '\n'
 	postMsg += '매치율: ' + matchRate + '%\n'
