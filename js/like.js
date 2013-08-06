@@ -12,16 +12,14 @@ var ua = navigator.userAgent
 	,title
 	,mylike
 	
-
-
-
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
 	init()
 	initStart();
 
 	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
+	//btnKakao.addEventListener('click', executeURLLink, false);
+	M('[data-id="btnKakao"]').on('click', executeURLLink)
 }
 
 // 초기화
