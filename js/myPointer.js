@@ -55,7 +55,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: '나의 매력포인트',
-		desc: '특별히 내세울게 없네요.',
+		desc: '딴건 없어요.',
 		imageurl: [img],
 		type:'article'
 	}
@@ -75,7 +75,7 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "뭐 내세울게 있나요?",
+		msg: "나의 매력포인트",
 		url: "http://goo.gl/lzbc5",
 		appid: "funnyApp",
 		appver: "1.0",
