@@ -86,7 +86,9 @@ appList += '<li data-app="1"><a href="http://goo.gl/RPVB5">나와 커피마시�
 if (M('[data-list]').selector.length > 0) {
 	var currentApp = M('[data-list]').data('list')
 	M('[data-list]').html(appList);
-	M('[data-app="' + currentApp + '"]').remove();
+	M('[data-app="' + currentApp + '"]').prepend('span', {
+		'className': 'ico sel'
+	})
 }
 
 M('#btnMacao').on('click', function(){
