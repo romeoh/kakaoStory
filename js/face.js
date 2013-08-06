@@ -6,16 +6,7 @@ var  ua = navigator.userAgent
 	,btnStory = document.querySelector('#btnStory')
 	,btnKakao = document.querySelector('#btnKakao')
 	
-if (os == 'ios' || os == 'android') {
-	//init();
-} else {
-	var  adTop = document.querySelector('#adTop')
-		,adBottom = document.querySelector('#adBottom')
-		,adMiddle = document.querySelector('#adMiddle')
-	document.querySelector('body').removeChild(adTop)
-	document.querySelector('body').removeChild(adBottom)
-	document.querySelector('body').removeChild(adMiddle)
-}
+
 
 window.addEventListener('DOMContentLoaded', function(){
 	btnStory.addEventListener('click', executeKakaoStoryLink, false);

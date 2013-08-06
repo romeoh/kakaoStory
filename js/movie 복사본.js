@@ -5,16 +5,7 @@ var  ua = navigator.userAgent
 		(/windows/gi).test(ua) ? "Windows" : "other"
 	,selList = null
 
-if (os == 'ios' || os == 'android') {
-	//init();
-} else {
-	var  adTop = document.querySelector('#adTop')
-		,adBottom = document.querySelector('#adBottom')
-		,adMiddle = document.querySelector('#adMiddle')
-	document.querySelector('body').removeChild(adTop)
-	document.querySelector('body').removeChild(adBottom)
-	document.querySelector('body').removeChild(adMiddle)
-}
+
 
 window.addEventListener('DOMContentLoaded', function(){
 	

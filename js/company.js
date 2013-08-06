@@ -8,17 +8,6 @@ var ua = navigator.userAgent
 	,dataMale, dataFemale
 	,jogeun0, jogeun1, jogeun2 
 
-if (os == 'ios' || os == 'android') {
-	//init();
-} else {
-	var  adTop = document.querySelector('#adTop')
-		,adBottom = document.querySelector('#adBottom')
-		,adMiddle = document.querySelector('#adMiddle')
-	document.querySelector('body').removeChild(adTop)
-	document.querySelector('body').removeChild(adBottom)
-	document.querySelector('body').removeChild(adMiddle)
-}
-
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
 	btnStory.addEventListener('click', executeKakaoStoryLink, false);

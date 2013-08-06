@@ -29,13 +29,18 @@ google_ad_height = 50;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </div>
-<div class="wrap">
 
+<header>
+	<div id="btnMain"><a href="#" class="gnbMain"></a></div>
+	<div id="btnMacao"><a href="#" class="gnbMacao"></a></div>
+</header>
+<nav></nav>
+
+<div class="wrap">
 	<h1>학점계산기</h1>
-	<!--p class="description">
-		입력하신 정보는 <span style="color:red">절대</span> 저장하거나 다른 용도로 사용되지 않습니다.<br>
-	</p-->
-	
+</div>
+
+<div class="content">
 	<div class="section">
 		<div id="grid5" class="clearfix prettyradio labelright  blue ">
 			<input type="radio" class="myClass" name="gender" value="male" id="g5" data-label="남자" style="display: none;">
@@ -53,11 +58,18 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		
 	</div>
 	<div class="section" style="border-top:none">
-		<button class="add" id="btnAdd">과목추가</button>
+		<div class="buttons">
+			<div class="btn_w" style="display:block">
+				<a href="#" id="btnAdd" class="btn_go"><span>과목추가</span></a>
+			</div>
+		</div>
 	</div>
-	<div class="sumit">
-		<button id="btnProcess">점수계산</button>
-	</div>
+</div>
+
+<div class="buttons">
+	<ul class="share">
+		<li><a href="#" id="btnProcess"><span><em class="ico_star_check"></em> 점수계산</span></a></li>
+	</ul>
 </div>
 
 <script type="text/javascript"><!--
@@ -76,8 +88,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 <div class="appList">
 	<h2>다른 미니앱 보기</h2>
-	<ul data-list-min="16">
-	</ul>
+	<ul data-list="50"></ul>
 </div>
 
 <script type="text/javascript"><!--

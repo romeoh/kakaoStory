@@ -20,15 +20,15 @@ google_ad_height = 50;
 #attack {display:none;}
 #dettack {display:none;}
 .resultImg p {text-align:center;}
-.resultImg .you {float:left;}
-.resultImg .my {float:right;}
+.resultImg .you {float:left; margin-left:20px}
+.resultImg .my {float:right; margin-right:20px}
 .resultMsg {clear:both}
 .resultMsg .msg {font-size:30px; color:#a62098; font-weight:bold; text-align:center; line-height:20px; padding:20px 0 10px 0; margin:0;}
 .resultMsg .gong {border:1px solid #818181; background:#d9e1eb; padding:10px 20px; margin-bottom:20px; line-height:25px}
 #myName,
 #btnGBB,
 #btnStory,
-#btnCerti {display:none;}
+#btnCerti {}
 </style>
 </head>
 
@@ -38,14 +38,22 @@ google_ad_height = 50;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </div>
+
+<header>
+	<div id="btnMain"><a href="#" class="gnbMain"></a></div>
+	<div id="btnMacao"><a href="#" class="gnbMacao"></a></div>
+</header>
+<nav></nav>
+
 <div class="wrap">
-
 	<h1 style="font-weight:bolder; color:green">가위! 바위! 보!</h1>
-	<div id="attack">
-		<p class="description">
-			입력하신 정보는 <span style="color:red">절대</span> 저장하거나 다른 용도로 사용되지 않습니다.
-		</p>
+	<p class="description">
+		입력하신 정보는 <span style="color:red">절대</span> 저장되지 않습니다.<br>
+	</p>
+</div>
 
+<div class="content">
+	<div id="attack">
 		<div class="sumit">
 			<input text="text" id="userName" placeholder="이름을 입력하세요." class="inputName" style="width:240px">
 		</div>
@@ -107,20 +115,34 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 			<input text="text" id="myName" placeholder="이름을 입력하세요." class="inputName" style="width:240px">
 		</div>
 	</div>
+</div>
 
-	<div class="sumit">
-		<button id="btnCerti">카스로 인증샷 보내기</button>
+<div class="buttons">
+	<div id="btns1">
+		<ul class="share">
+			<li><a href="#" id="btnStory"><span><em class="ico_star_check"></em> 가위! 바위! 보!</span></a></li>
+			<li><a href="#" data-id="btnKakao"><span>카톡친구 초대</span></a></li>
+		</ul>
 	</div>
-	<div class="sumit">
-		<button id="btnGBB">가위! 바위! 보! 제안</button>
+	<div id="btns2" style="display:none">
+		<ul class="share">
+			<li><a href="#" id="btnCerti"><span><em class="ico_star_check"></em> 인증샷 보내기</span></a></li>
+			<li><a href="#" data-id="btnKakao"><span>카톡친구 초대</span></a></li>
+		</ul>
 	</div>
-	<div class="sumit">
-		<button id="btnStory">카스로 가위! 바위! 보!</button>
+	<div id="btns3" style="display:none">
+		<ul class="share">
+			<li><a href="#" id="btnGBB"><span><em class="ico_star_check"></em> 가위! 바위! 보! 제안</span></a></li>
+			<li><a href="#" data-id="btnKakao"><span>카톡친구 초대</span></a></li>
+		</ul>
 	</div>
-	<div class="sumit">
-		<button id="btnKakao">카톡친구 초대</button>
+	<div class="btn_w">
+		<a href="#" id="" class="btn_go"><span>트위터</span></a>
+		<a href="#" id="" class="btn_go"><span>페이스북</span></a>
+		<a href="#" id="" class="btn_go"><span>블로그</span></a>
 	</div>
 </div>
+
 
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-2760623096296279";
@@ -138,8 +160,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 <div class="appList">
 	<h2>다른 미니앱 보기</h2>
-	<ul data-list-min="20">
-	</ul>
+	<ul data-list="54"></ul>
 </div>
 
 <script type="text/javascript"><!--

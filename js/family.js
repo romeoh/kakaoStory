@@ -35,19 +35,10 @@ if (hash != 'undefined') {
 		.css('display', '')
 		.html(str)
 } else {
-	M('#btnStory').text('새로운 가문 만들기')
+	M('#btnStory').html('<span><em class="ico_star_check"></em> 새로운 가문 만들기</span>')
 }
 
-if (os == 'ios' || os == 'android') {
-	//init();
-} else {
-	var  adTop = document.querySelector('#adTop')
-		,adBottom = document.querySelector('#adBottom')
-		,adMiddle = document.querySelector('#adMiddle')
-	document.querySelector('body').removeChild(adTop)
-	document.querySelector('body').removeChild(adBottom)
-	document.querySelector('body').removeChild(adMiddle)
-}
+
 
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){

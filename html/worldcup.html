@@ -26,50 +26,64 @@ google_ad_height = 50;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </div>
-<div class="wrap" style="min-height:320px">
 
-	<h1>연예인 이상형 월드컵</h1>
-	
-	<div id="start" style="display:">
-		<p class="description">
-			입력하신 정보는 <span style="color:red">절대</span> 저장하거나 다른 용도로 사용되지 않습니다.<br>
-		</p>
+<header>
+	<div id="btnMain"><a href="#" class="gnbMain"></a></div>
+	<div id="btnMacao"><a href="#" class="gnbMacao"></a></div>
+</header>
+<nav></nav>
 
+<div class="wrap">
+	<h1>연예인 이상형 월드컵</h1>	
+	<p class="description">
+		입력하신 정보는 <span style="color:red">절대</span> 저장되지 않습니다.<br>
+	</p>
+</div>
+
+<div id="start" style="min-height:220px">
+	<div class="content">
 		<div class="sumit">
 			<input text="text" id="userName" placeholder="이름을 입력하세요." class="inputName" style="width:240px" maxlength="4">
 		</div>
+		<h2>32강 START!</h2>	
+	</div>
 
-		<h2>32강 START!</h2>
-		<div class="sumit">
-			<button class="btns" id="btnBoy">나는 남자</button>
-			<button class="btns" id="btnGirl">나는 여자</button>
-		</div>
+	<div class="buttons">
+		<ul class="share">
+			<li><a href="#" id="btnBoy"><span>나는 남자</span></a></li>
+			<li><a href="#" id="btnGirl"><span>나는 여자</span></a></li>
+		</ul>
 	</div>
-	<div id="game" class="game" style="display:none">
-		<div class="first">
-			<img id="first" src="">
-			<p id="firstPhoto"></p>
-		</div>
-		<div class="second">
-			<img id="second" src="">
-			<p id="secondPhoto"></p>
-		</div>
-		<div id="round" class="round"></div>
-		<div id="stage" class="stage"></div>
+</div>
+
+<div id="game" class="game" style="display:none; min-height:220px">
+	<div class="first">
+		<img id="first" src="">
+		<p id="firstPhoto"></p>
 	</div>
-	
-	<div id="result" style="display:none">
-		<div class="winner">
-			<p id="winnerTitme" class="title">최종 우승자</p>
-			<img id="winnerPhoto" src="">
-			<p id="winnerName" class="names"></p>
-		</div>
-		<div class="sumit">
-			<button id="btnStory">카스로 보내기</button>
-		</div>
-		<div class="sumit">
-			<button id="btnKakao">카톡친구 초대</button>
-		</div>
+	<div class="second">
+		<img id="second" src="">
+		<p id="secondPhoto"></p>
+	</div>
+	<div id="round" class="round"></div>
+	<div id="stage" class="stage"></div>
+</div>
+
+
+<div class="buttons" id="result" style="display:none; min-height:220px">
+	<div class="winner">
+		<p id="winnerTitme" class="title">최종 우승자</p>
+		<img id="winnerPhoto" src="">
+		<p id="winnerName" class="names"></p>
+	</div>
+	<ul class="share">
+		<li><a href="#" id="btnStory"><span><em class="ico_star_check"></em> 카스로 보내기</span></a></li>
+		<li><a href="#" id="btnKakao"><span>카톡친구 초대</span></a></li>
+	</ul>
+	<div class="btn_w">
+		<a href="#" id="" class="btn_go"><span>트위터</span></a>
+		<a href="#" id="" class="btn_go"><span>페이스북</span></a>
+		<a href="#" id="" class="btn_go"><span>블로그</span></a>
 	</div>
 </div>
 

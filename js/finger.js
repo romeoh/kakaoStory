@@ -17,16 +17,6 @@ var  ua = navigator.userAgent
 	,actionId0 = actionId1 = actionId2 = null
 
 
-if (os == 'ios' || os == 'android') {
-	
-} else {
-	var  adTop = document.querySelector('#adTop')
-		,adBottom = document.querySelector('#adBottom')
-	document.querySelector('body').removeChild(adTop)
-	document.querySelector('body').removeChild(adBottom)
-}
-
-
 window.addEventListener('load', ready, false);
 
 function ready(){

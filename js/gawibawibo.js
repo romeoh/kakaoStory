@@ -23,16 +23,7 @@ var ua = navigator.userAgent
 	,qid = getRandId()
 	
 
-if (os == 'ios' || os == 'android') {
-	//init();
-} else {
-	var  adTop = document.querySelector('#adTop')
-		,adBottom = document.querySelector('#adBottom')
-		,adMiddle = document.querySelector('#adMiddle')
-	document.querySelector('body').removeChild(adTop)
-	document.querySelector('body').removeChild(adBottom)
-	document.querySelector('body').removeChild(adMiddle)
-}
+
 
 window.addEventListener('DOMContentLoaded', function(){
 	// 공격
@@ -71,8 +62,10 @@ window.addEventListener('DOMContentLoaded', function(){
 	M('#btnGBB').on('click', function(){
 		M('#attack').css('display', 'block')
 		M('#dettack').css('display', 'none')
-		M('#btnStory').css('display', 'block')
-		M('#btnGBB').css('display', 'none')
+		
+		M('#btns1').css('display', 'block')
+		M('#btns2').css('display', 'none')
+		M('#btns3').css('display', 'none')
 	})
 
 	// 수비
@@ -145,7 +138,9 @@ window.addEventListener('DOMContentLoaded', function(){
 			if (result === 'win') {
 				M('#msg').text('이겼습니다.');
 				M('#gong').html('인증샷을 카스에 올려서<br>' + decodeURIComponent(hashObj['n']) + '님의 공약인<br>“' + decodeURIComponent(hashObj['g']) + '”.<br>소원을 들어달라고 조르세요!!');
-				M('#btnCerti').css('display', 'block')
+				M('#btns1').css('display', 'none')
+				M('#btns2').css('display', 'block')
+				//M('#btnCerti').css('display', 'block')
 				M('#myName').css('display', 'inline-block')
 				
 				M('#btnCerti').on('click', function(){
@@ -187,11 +182,15 @@ window.addEventListener('DOMContentLoaded', function(){
 			} else if (result === 'lost') {
 				M('#msg').text('졌습니다.');
 				M('#gong').html('아쉽네요.<br>내가 먼저 "가위! 바위! 보!를 제안 해봐요~"');
-				M('#btnGBB').css('display', 'block')
+				M('#btns1').css('display', 'none')
+				M('#btns3').css('display', 'block')
+				M('#myName').css('display', 'none')
 			} else if (result === 'same') {
 				M('#msg').text('비겼습니다.');
 				M('#gong').html('아~ 정말 아쉽네요.<br>내가 먼저 "가위! 바위! 보!를 제안 해봐요~"');
-				M('#btnGBB').css('display', 'block')
+				M('#btns1').css('display', 'none')
+				M('#btns3').css('display', 'block')
+				M('#myName').css('display', 'none')
 			}
 			M.storage(hashObj['idx'], 'true')
 			//console.log(hashObj)
@@ -199,8 +198,9 @@ window.addEventListener('DOMContentLoaded', function(){
 
 	// 공격
 	} else {
-		M('#attack').css('display', 'block')
-		M('#btnStory').css('display', 'block')
+		//M('#btns1').css('display', 'block')
+		//M('#attack').css('display', 'block')
+		//M('#btnStory').css('display', 'block')
 	}
 
 }, false);
@@ -208,7 +208,8 @@ window.addEventListener('DOMContentLoaded', function(){
 
 
 //btnStory.addEventListener('click', executeKakaoStoryLink, false);
-btnKakao.addEventListener('click', executeURLLink, false);
+//btnKakao.addEventListener('click', executeURLLink, false);
+M('[data-id="btnKakao"]').on('click', executeURLLink)
 
 //  카카오 스토리
 function executeKakaoStoryLink(){

@@ -12,16 +12,6 @@ var ua = navigator.userAgent
 	,btnKakao = document.querySelector('#btnKakao')
 	,dataMale, dataFemale
 
-if (os == 'ios' || os == 'android') {
-	//init();
-} else {
-	var  adTop = document.querySelector('#adTop')
-		,adBottom = document.querySelector('#adBottom')
-		,adMiddle = document.querySelector('#adMiddle')
-	document.querySelector('body').removeChild(adTop)
-	document.querySelector('body').removeChild(adBottom)
-	document.querySelector('body').removeChild(adMiddle)
-}
 
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
@@ -73,7 +63,7 @@ function executeKakaoStoryLink(){
 		resultMsg = dataFemale[idx]['msg']
 		message = '커피한잔 마실래요?';
 	}
-	
+
 	kakao.link("story").send({   
         post : resultName + '씨가 ' + userName + '님과 커피를 마시고 싶어 합니다. \n받아주실꺼죠? \n\nhttp://goo.gl/RPVB5',
         appid : 'funnyApp',
