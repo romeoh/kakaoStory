@@ -68,7 +68,7 @@ appList += '<li data-app="18"><a href="http://goo.gl/wb8IF">섹시한여성을 �
 appList += '<li data-app="17"><a href="http://goo.gl/bOJ1a">커피로 알아보는 연예 심리테스트 </a></li> ';
 appList += '<li data-app="16"><a href="http://goo.gl/DC9X8">알파벳 심리테스트</a></li> ';
 appList += '<li data-app="15"><a href="http://goo.gl/r66cA">색깔로 알아보는 심리테스트</a></li> ';
-appList += '<li data-app="14"><a href="http://goo.gl/lzbc5">나의 매력 포인트</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="14"><a href="http://goo.gl/lzbc5">나의 매력 포인트</a></li>';
 appList += '<li data-app="13"><a href="http://goo.gl/VbOvP">내 이상형의 조건</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="12"><a href="http://goo.gl/37cx7">1:100 기출문제</a> <span class="ico command"></span></li>';
 appList += '<li data-app="11"><a href="http://goo.gl/Vm86D">원데이 명언</a></li>';
