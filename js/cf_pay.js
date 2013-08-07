@@ -126,8 +126,7 @@ function executeURLLink() {
 data0 = [
 	{'check1':'은', 'check2':'이', 'article': '월급'},
 	{'check1':'은', 'check2':'이', 'article': '결혼'},
-	{'check1':'은', 'check2':'이', 'article': '가정'},
-	{'check1':'는', 'check2':'가', 'article': '회사'},
+	{'check1':'은', 'check2':'이', 'article': '자존심'},
 	{'check1':'은', 'check2':'이', 'article': '밥'},
 	{'check1':'는', 'check2':'가', 'article': '카카오 스토리'},
 	{'check1':'은', 'check2':'이', 'article': '카톡'},
@@ -143,23 +142,20 @@ data0 = [
 	{'check1':'은', 'check2':'이', 'article': '멘탈'},
 	{'check1':'은', 'check2':'이', 'article': '양말'},
 	{'check1':'은', 'check2':'이', 'article': '패션'},
-	{'check1':'는', 'check2':'가', 'article': '나이'},
 	{'check1':'은', 'check2':'이', 'article': '이름'},
 	{'check1':'은', 'check2':'이', 'article': '인생'},
-	{'check1':'는', 'check2':'가', 'article': '친구에게'},
-	{'check1':'은', 'check2':'이', 'article': '연금'},
+	{'check1':'은', 'check2':'이', 'article': '셀카'},
 	{'check1':'은', 'check2':'이', 'article': '사진'}
 ]
 
 data1 = [
-	{'check1':'은', 'check2':'이', 'article': '내 콩팥'},
 	{'check1':'은', 'check2':'이', 'article': '내 멘탈'},
 	{'check1':'는', 'check2':'가', 'article': '내 똘끼'},
 	{'check1':'은', 'check2':'이', 'article': '내 자신감'},
-	{'check1':'는', 'check2':'가', 'article': '내 친구'},
+	{'check1':'은', 'check2':'이', 'article': '내 잘난척'},
 	{'check1':'는', 'check2':'가', 'article': '내 궁뎅이'},
-	{'check1':'은', 'check2':'이', 'article': '내 첫사랑'},
-	{'check1':'은', 'check2':'이', 'article': '내 이름'},
+	{'check1':'은', 'check2':'이', 'article': '내 섹시함'},
+	{'check1':'은', 'check2':'이', 'article': '내 스타일'},
 	{'check1':'은', 'check2':'이', 'article': '내 패션'},
 	{'check1':'는', 'check2':'가', 'article': '내 뇌'},
 	{'check1':'은', 'check2':'이', 'article': '내 허풍'},
@@ -178,6 +174,7 @@ data2 = [
 	{'check1':'는', 'check2':'가', 'article': '키'},
 	{'check1':'은', 'check2':'이', 'article': '애인'},
 	{'check1':'은', 'check2':'이', 'article': '머리카락'},
+	{'check1':'은', 'check2':'이', 'article': '멘탈'},
 	{'check1':'는', 'check2':'가', 'article': '친구'}
 ]
 
