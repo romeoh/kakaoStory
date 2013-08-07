@@ -147,7 +147,7 @@ function executeKakaoStoryLink(){
 		n = i+1
 		postMsg += n + '. ' + myLikes[i]['ename'] + ' ' + myLikes[i]['result'] + '\n';
 	}
-	postMsg += '\nhttp://goo.gl/ft3k0z\n';
+	postMsg += '\nhttp://goo.gl/oJeIIL\n';
 
 	urlMsg = {
 		title: '연예인 좋아! 싫어!',
@@ -171,7 +171,7 @@ console.log(postMsg, urlMsg)
 function executeURLLink() {
 	kakao.link("talk").send({
 		msg: "연예인 좋아! 싫어!",
-		url: "http://goo.gl/ft3k0z",
+		url: "http://goo.gl/oJeIIL",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "연예인 좋아! 싫어!",
