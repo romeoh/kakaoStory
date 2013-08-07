@@ -98,7 +98,7 @@ M('#btnMain').on('click', function(){
 })
 
 function randomUrl(){
-	idx = getRandom(1, 70)
+	idx = getRandom(1, 81)
 	url = M('[data-app="' + idx + '"]').first().attr('href')
 	//console.log(url)
 	window.location.href = url
