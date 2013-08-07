@@ -30,6 +30,7 @@ function initPage(){
 		}, 100)
 		M('.description').css('display', 'none')
 	} else {
+		M('.content').css('min-height', '100px')
 		M('#wrapper').css('display', 'none')
 		M('#btnPrev').css('display', 'none')
 		M('#btnNext').css('display', 'none')
