@@ -1,6 +1,6 @@
 var appList = ''
 appList += '<li data-app="83"><a href="http://goo.gl/DkT8fE">당신의 감정가</a> <span class="ico new"></span></li>';
-appList += '<li data-app="82"><a href="http://goo.gl/HMF8gs">마카오스토리</a> <span class="ico new"></span><span class="ico command"></span></li>';
+//appList += '<li data-app="82"><a href="http://goo.gl/HMF8gs">마카오스토리</a> <span class="ico new"></span><span class="ico command"></span></li>';
 appList += '<li data-app="81"><a href="http://goo.gl/ft3k0z">나의취향 공유</a> <span class="ico new"></span></li>';
 appList += '<li data-app="80"><a href="http://goo.gl/fnLTih">가문의 영광</a> <span class="ico new"></span></li>';
 appList += '<li data-app="79"><a href="http://goo.gl/IxTyxZ">천사/악마 검증기</a> <span class="ico command"></span><span class="ico hot"></span></li>';
