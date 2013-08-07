@@ -6,7 +6,7 @@ appList += '<li data-app="82"><a href="http://goo.gl/oJeIIL">연예인 좋아! �
 appList += '<li data-app="81"><a href="http://goo.gl/DkT8fE">당신의 감정가</a> <span class="ico new"></span></li>';
 appList += '<li data-app="80"><a href="http://goo.gl/ft3k0z">나의취향 공유</a> <span class="ico new"></span></li>';
 appList += '<li data-app="79"><a href="http://goo.gl/fnLTih">가문의 영광</a> <span class="ico new"></span></li>';
-appList += '<li data-app="78"><a href="http://goo.gl/IxTyxZ">천사/악마 검증기</a> <span class="ico command"></span></li>';
+appList += '<li data-app="78"><a href="http://goo.gl/IxTyxZ">천사/악마 검증기</a> <span class="ico command"></span><span class="ico hot"></li>';
 appList += '<li data-app="77"><a href="http://goo.gl/uAj2cA">나의 연관검색어</a></li>';
 appList += '<li data-app="76"><a href="http://goo.gl/pxiUqd">함께 휴가가는 연예인</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="75"><a href="http://goo.gl/GOIAaR">나는 언제까지 솔로인가?</a> <span class="ico hot"></span></li>';
