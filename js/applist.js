@@ -1,4 +1,5 @@
-var appList = ''
+var  appList = ''
+	,totalApp = 82
 appList += '<li data-app="82"><a href="http://goo.gl/oJeIIL">연예인 좋아! 싫어!</a> <span class="ico new"></span></li>';
 appList += '<li data-app="81"><a href="http://goo.gl/DkT8fE">당신의 감정가</a> <span class="ico new"></span></li>';
 appList += '<li data-app="80"><a href="http://goo.gl/ft3k0z">나의취향 공유</a> <span class="ico new"></span></li>';
@@ -46,7 +47,7 @@ appList += '<li data-app="39"><a href="http://goo.gl/Aa6wS">누구와 키스하�
 appList += '<li data-app="38"><a href="http://goo.gl/gSloK">자기 사용설명서</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="37"><a href="http://goo.gl/VOm5Z">날짜 계산기</a> <span class="ico command"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="36"><a href="http://goo.gl/Ppey0">인디언식 이름 짓기</a></li>';
-appList += '<li data-app="35"><a href="http://goo.gl/PPYbq">빵터지는 카톡 실수모음</a></li>';
+appList += '<li data-app="35"><a href="http://goo.gl/PPYbq">빵터지는 카톡 실수모음</a> <span class="ico command"></li>';
 appList += '<li data-app="34"><a href="http://goo.gl/fF9We">연예인 시구 월드컵</a></li>';
 appList += '<li data-app="33"><a href="http://goo.gl/IJ4B5">내반쪽 찾기</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="32"><a href="http://goo.gl/iNzJa">혈액형 궁합</a></li>';
@@ -98,7 +99,7 @@ M('#btnMain').on('click', function(){
 })
 
 function randomUrl(){
-	idx = getRandom(1, 81)
+	idx = getRandom(1, totalApp)
 	url = M('[data-app="' + idx + '"]').first().attr('href')
 	//console.log(url)
 	window.location.href = url
