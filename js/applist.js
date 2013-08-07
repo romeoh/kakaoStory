@@ -23,7 +23,7 @@ appList += '<li data-app="65"><a href="http://goo.gl/WQrwI">[패러디] 누가 �
 appList += '<li data-app="64"><a href="http://goo.gl/n8443">평행이론</a></li>';
 appList += '<li data-app="63"><a href="http://goo.gl/cfNQe">[심리테스트] 힘든 일을 극복하는 방법</a></li>';
 appList += '<li data-app="62"><a href="http://goo.gl/Kgh3l">[심리테스트] 뜻밖의 행운으로 보는 성격테스트</a></li>';
-appList += '<li data-app="61"><a href="http://goo.gl/Jr6q0">태어나서 처음한말, 죽기전에 마지막말</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="61"><a href="http://goo.gl/Jr6q0">태어나서 처음한말, 죽기전에 마지막말</a></li>';
 appList += '<li data-app="60"><a href="http://goo.gl/1eJ1L">행운의 인디안 부적</a></li>';
 appList += '<li data-app="59"><a href="http://goo.gl/ZuEM0">슈퍼 히어로</a></li>';
 appList += '<li data-app="58"><a href="http://goo.gl/lmysH">미래 애인 추적기</a> <span class="ico hot"></span></li>';
