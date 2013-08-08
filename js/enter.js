@@ -68,8 +68,8 @@ function executeKakaoStoryLink(){
         post : '[나와 커피마시고 싶어하는 연예인]\n\n'+resultName + '씨가 ' + userName + '님과 커피를 마시고 싶어 합니다. \n받아주실꺼죠? \n\nhttp://goo.gl/RPVB5',
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '연예인과 커피한잔',
-		urlinfo : JSON.stringify({title: resultName + '씨로부터 메세지', desc: userName + '님 ' + message, imageurl:['http://romeoh.github.io/kakaoStory/img/'+resultPhoto], type:'article'})
+		appname : '깨알유머:',
+		urlinfo : JSON.stringify({title: '연예인과 커피한잔', desc: userName + '님 ' + message, imageurl:['http://romeoh.github.io/kakaoStory/img/'+resultPhoto], type:'article'})
     });
 
     showad()
@@ -82,7 +82,7 @@ function executeURLLink() {
 		url: "http://goo.gl/RPVB5",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "연예인과 커피한잔",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }
