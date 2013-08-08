@@ -131,7 +131,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '1:100 기출문제',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -155,7 +155,7 @@ function executeURLLink() {
 		url: "http://goo.gl/37cx7",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "정답을 맞출기회는 단한번!!!",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

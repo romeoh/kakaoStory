@@ -44,7 +44,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '3년뒤 마이카',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -58,7 +58,7 @@ function executeURLLink() {
 		url: "http://goo.gl/Vbd2u",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "3년뒤 마이카",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

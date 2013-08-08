@@ -43,7 +43,7 @@ function executeKakaoStoryLink(){
 
 	urlMsg = {
 		title: '나의 얼굴나이',
-		desc: age + ' 이어즈 올드~' ,
+		desc: age + ' 이어즈 올드~\n' + desc,
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/age.png' ],
 		type:'article'
 	}
@@ -52,7 +52,7 @@ console.log(postMsg, urlMsg, desc)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : desc,
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 

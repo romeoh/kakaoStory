@@ -61,7 +61,7 @@ function executeKakaoStoryLink(){
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '냉철한 대기업 인재 사냥꾼',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -97,7 +97,7 @@ function executeURLLink() {
 		url: "http://goo.gl/QWPHM",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "냉철한 대기업 인재 사냥꾼",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

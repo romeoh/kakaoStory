@@ -100,7 +100,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '히토리',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -140,7 +140,7 @@ function executeURLLink() {
 		url: "http://goo.gl/ZojeN",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "두시탈출 컬투쇼 베스트 사연 모음",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

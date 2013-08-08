@@ -47,7 +47,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: '나의 장점/단점',
-		desc: data[jogeun3]['fault'],
+		desc: '다 좋은데 말이야..\n' + data[jogeun3]['fault'],
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/advant.png'],
 		type:'article'
 	}
@@ -57,7 +57,7 @@ function executeKakaoStoryLink(){
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '다 좋은데 말이야..',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -71,7 +71,7 @@ function executeURLLink() {
 		url: "http://goo.gl/AigRi",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "나의 장점/단점",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

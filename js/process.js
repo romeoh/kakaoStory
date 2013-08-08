@@ -44,7 +44,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: '성격 심리테스트',
-		desc: '심리테스트',
+		desc: '나는 일을 어떻게 처리하는 타입 일까?',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/person1.png'],
 		type:'article'
 	}
@@ -54,7 +54,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '나는 일을 어떻게 처리하는 타입 일까?',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -72,7 +72,7 @@ function executeURLLink() {
 		url: "http://goo.gl/bv6Lt",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "성격 심리테스트",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

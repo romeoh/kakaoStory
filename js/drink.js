@@ -48,7 +48,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '나와 스캔들날 연예인',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -62,7 +62,7 @@ function executeURLLink() {
 		url: "http://goo.gl/FSBT3",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "연예인과 커피한잔",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

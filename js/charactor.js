@@ -33,7 +33,7 @@ function executeKakaoStoryLink(){
 	postMsg += 'http://goo.gl/TxVbO';
 
 	urlMsg = {
-		title: '나에게 어울리는',
+		title: '나에게 어울리는 예능 캐릭터',
 		desc: userName + '님은 ' + dataCharactor[dataCharactorRan]['nickName'] + '입니다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + dataCharactor[dataCharactorRan]['photo'] ],
 		type:'article'
@@ -43,7 +43,7 @@ console.log(urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '나의 예능 캐릭터',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -57,7 +57,7 @@ function executeURLLink() {
 		url: "http://goo.gl/TxVbO",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "나의 예능 캐릭터",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

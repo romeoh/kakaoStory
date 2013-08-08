@@ -62,7 +62,7 @@ function executeKakaoStoryLink(){
 
 	urlMsg = {
 		title: '함께 휴가가는 연예인',
-		desc: '거기서 그냥 사세요.',
+		desc: data[who]['name']+' 포레버~\n거기서 그냥 사세요.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[who]['photo'] ],
 		type:'article'
 	}
@@ -71,7 +71,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : data[who]['name']+' 포레버~',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -85,7 +85,7 @@ function executeURLLink() {
 		url: "http://goo.gl/pxiUqd",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "함께 휴가가는 연예인",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

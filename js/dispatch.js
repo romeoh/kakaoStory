@@ -74,7 +74,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '아무도 모르지만, 모두 아는 소문들',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -92,7 +92,7 @@ function executeURLLink() {
 		url: "http://goo.gl/gde5k",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "증권가 찌라시",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

@@ -77,7 +77,7 @@ function executeKakaoStoryLink(){
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '키스데이',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -91,7 +91,7 @@ function executeURLLink() {
 		url: "http://goo.gl/Aa6wS",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "누구와 키스하나",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

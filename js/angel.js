@@ -110,7 +110,7 @@ function executeKakaoStoryLink(url){
 	
 	urlMsg = {
 		title: '천사/악마 검증기',
-		desc: '그럼 나는?',
+		desc: userName + '님은 ' + who + '입니다.\n그럼 나는?',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + timages ],
 		type:'article'
 	}
@@ -120,7 +120,7 @@ function executeKakaoStoryLink(url){
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : userName + '님은 ' + who + '입니다.',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -134,7 +134,7 @@ function executeURLLink() {
 		url: "http://goo.gl/AigRi",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "천사/악마 검증기",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

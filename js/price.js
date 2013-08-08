@@ -46,7 +46,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : data[price]['price'],
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -60,7 +60,7 @@ function executeURLLink() {
 		url: "http://goo.gl/DkT8fE",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "당신의 감정가",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

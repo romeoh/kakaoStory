@@ -44,7 +44,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: '성격 심리테스트',
-		desc: '심리테스트',
+		desc: '장밋빛 미래를 위한 나의 노력은 무엇인가?',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/person1.png'],
 		type:'article'
 	}
@@ -54,7 +54,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '장밋빛 미래를 위한 나의 노력은 무엇인가?',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 

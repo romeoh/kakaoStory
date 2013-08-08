@@ -46,7 +46,7 @@ function executeKakaoStoryLink(){
 
 	urlMsg = {
 		title: '키스의 세기',
-		desc: data[kiss]['kiss'],
+		desc: data[kiss]['kiss'] + '\n느낌 아니깐~',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[kiss]['photo'] ],
 		type:'article'
 	}
@@ -56,7 +56,7 @@ function executeKakaoStoryLink(){
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '느낌 아니깐~',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -70,7 +70,7 @@ function executeURLLink() {
 		url: "http://goo.gl/bmTFF",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "키스의 세기",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

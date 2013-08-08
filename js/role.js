@@ -43,7 +43,7 @@ console.log(postMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '나의 롤모델',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -57,7 +57,7 @@ function executeURLLink() {
 		url: "http://goo.gl/HaHyR",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "나의 롤모델",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

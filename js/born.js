@@ -43,7 +43,7 @@ console.log(urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '내가 세상에 태어난 이유',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -57,7 +57,7 @@ function executeURLLink() {
 		url: "http://goo.gl/8ns8E",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "내가 세상에 태어난 이유",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

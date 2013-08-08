@@ -61,7 +61,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: '나의 연관검색어',
-		desc: '안보인다 막말마라 추적하면 다나온다.',
+		desc: '악플금지!!\n안보인다 막말마라 추적하면 다나온다.',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/keyword.png'],
 		type:'article'
 	}
@@ -71,7 +71,7 @@ function executeKakaoStoryLink(){
 		post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '악플금지!!',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -85,7 +85,7 @@ function executeURLLink() {
 		url: "http://goo.gl/uAj2cA",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "나의 연관검색어",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

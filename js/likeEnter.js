@@ -160,7 +160,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '좋아요! 싫어요!',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -174,7 +174,7 @@ function executeURLLink() {
 		url: "http://goo.gl/oJeIIL",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "연예인 좋아! 싫어!",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

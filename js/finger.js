@@ -48,7 +48,7 @@ function ready(){
 	        post : postMsg,
 	        appid : 'funnyApp',
 			appver : '1.0',
-			appname : '손가락 루이 16세',
+			appname : '깨알유머:',
 			urlinfo : JSON.stringify(urlMsg)
 	    });
 	})

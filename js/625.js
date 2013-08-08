@@ -38,7 +38,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '625전쟁 63주년',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -48,11 +48,11 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "우리역사 바로 알아보기",
+		msg: "625전쟁 상식",
 		url: "http://goo.gl/6HS2G",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "625전쟁 상식",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

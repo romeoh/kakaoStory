@@ -268,7 +268,7 @@ function sendToKakao() {
 
 		urlMsg = {
 			title: '가위! 바위! 보!',
-			desc: '게임에 이겼을때 인증메세지를 카스에 올리지 않으면 무효입니다.',
+			desc: '대결 기회는 단한번뿐입니다.\n게임에 이겼을때 인증메세지를 카스에 올리지 않으면 무효입니다.',
 			imageurl: ['http://romeoh.github.io/kakaoStory/imgApp/gawibawibo.png' ],
 			type:'article'
 		}
@@ -278,7 +278,7 @@ function sendToKakao() {
 	        post : postMsg,
 	        appid : 'funnyApp',
 			appver : '1.0',
-			appname : '대결 기회는 단한번뿐입니다.',
+			appname : '깨알유머:',
 			urlinfo : JSON.stringify(urlMsg)
 	    });
 
@@ -303,7 +303,7 @@ function executeURLLink() {
 		url: "http://goo.gl/yivlH",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "가위! 바위! 보!",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

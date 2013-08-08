@@ -211,7 +211,7 @@ function process() {
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '행복은 성적순이 아니잖아요.',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 	showad()

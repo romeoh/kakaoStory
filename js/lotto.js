@@ -44,11 +44,13 @@ function executeKakaoStoryLink(){
 	postMsg += lottoNum[5]+1 + '\n';
 	postMsg += '그리고 보너스 번호 ' + (Number(bonus) + Number(1)) + ' 입니다.\n\n';
 	
-	postMsg += 'http://goo.gl/w62nY\n';
+	postMsg += 'http://goo.gl/w62nY\n\n\n';
+	
+	postMsg += '월욜부터 연락 안되면 인생역전 했구나 생각해줘~\n';
 
 	urlMsg = {
 		title: '로또번호 생성기',
-		desc: '월욜부터 연락 안되면 인생역전 했구나 생각해줘~' ,
+		desc: '기부 안해요~' ,
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/lotto.jpg' ],
 		type:'article'
 	}
@@ -57,7 +59,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '기부 안해요~',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -71,7 +73,7 @@ function executeURLLink() {
 		url: "http://goo.gl/w62nY",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "로또번호 생성기",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

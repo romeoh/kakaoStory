@@ -110,7 +110,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: '막장드라마',
-		desc: storyWord,
+		desc: storyTitle.replace('_name_', M('#userName').val()),
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[sexType][actorIdx][4]],
 		type:'article'
 	}
@@ -120,7 +120,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : storyTitle.replace('_name_', M('#userName').val()),
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -138,7 +138,7 @@ function executeURLLink() {
 		url: "http://goo.gl/CZsWG",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "막장드라마",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

@@ -46,7 +46,7 @@ console.log(postMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '내아기 전생 알아보기',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -60,7 +60,7 @@ function executeURLLink() {
 		url: "http://goo.gl/KRPGi",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "내아기 전생 알아보기",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

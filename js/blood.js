@@ -63,7 +63,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '별자리+혈액형 성격테스트',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -78,7 +78,7 @@ function executeURLLink() {
 		url: "http://goo.gl/LR7Lf",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "색깔로 알아보는 심리테스트",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

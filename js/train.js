@@ -64,7 +64,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '나는 몇번째 칸에 탑승할까?',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -78,7 +78,7 @@ function executeURLLink() {
 		url: "http://goo.gl/T9VG8G",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "설국열차",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

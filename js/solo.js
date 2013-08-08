@@ -36,7 +36,7 @@ function executeKakaoStoryLink(){
 
 	urlMsg = {
 		title: '나는 언제까지 솔로인가?',
-		desc: data[solor]['when'] + '까지만...',
+		desc: '조금만 참자!!\n' + data[solor]['when'] + '까지만...',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/solo.png' ],
 		type:'article'
 	}
@@ -45,7 +45,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '조금만 참자!!',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -59,7 +59,7 @@ function executeURLLink() {
 		url: "http://goo.gl/GOIAaR",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "나는 언제까지 솔로인가?",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

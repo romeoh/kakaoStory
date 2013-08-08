@@ -47,7 +47,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -61,7 +61,7 @@ function executeURLLink() {
 		url: "http://goo.gl/Jr6q0",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "태어나서 처음한말, 죽기전에 마지막말",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

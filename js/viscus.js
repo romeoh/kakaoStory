@@ -44,7 +44,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : viscus + '미인',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -62,7 +62,7 @@ function executeURLLink() {
 		url: "http://goo.gl/AatVA",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "내장 나이 알아보기",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

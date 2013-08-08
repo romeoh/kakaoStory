@@ -81,7 +81,7 @@ console.log(postMsg, urlMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '히토리',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -95,7 +95,7 @@ function executeURLLink() {
 		url: "http://goo.gl/PPYbq",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "빵터지는 카톡실수모음",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

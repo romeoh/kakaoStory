@@ -76,7 +76,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '닮을꼴 연예인 찾기',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -90,7 +90,7 @@ function executeURLLink() {
 		url: "http://goo.gl/1945x",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "닮을꼴 연예인 찾기",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

@@ -69,7 +69,7 @@ console.log(postMsg)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '내'+loverType+'과 나는 전생에 무슨 관계였나',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -83,7 +83,7 @@ function executeURLLink() {
 		url: "http://goo.gl/urccj",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "우리부부 전생관계 알아보기",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

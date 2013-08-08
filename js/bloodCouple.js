@@ -49,7 +49,7 @@ console.log(result)
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '궁합지수: '+result.percent,
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -64,7 +64,7 @@ function executeURLLink() {
 		url: "http://goo.gl/iNzJa",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "혈액형 궁합",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

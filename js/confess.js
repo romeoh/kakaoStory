@@ -67,7 +67,7 @@ function executeKakaoStoryLink(){
 	
 	urlMsg = {
 		title: '나에게 고백할 사람',
-		desc: '내일까지 이야기 할께~',
+		desc: '정말이야? 전혀 눈치 못챘어...\n내일까지 이야기 할께~',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + img],
 		type:'article'
 	}
@@ -77,7 +77,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '정말이야? 전혀 눈치 못챘어...',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -95,7 +95,7 @@ function executeURLLink() {
 		url: "http://goo.gl/D3Yy8",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "나에게 고백할 사람",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }

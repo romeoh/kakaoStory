@@ -113,7 +113,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : data.color,
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 

@@ -156,7 +156,7 @@ function executeKakaoStoryLink(){
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '자료출처: 통계청',
+		appname : '깨알유머:',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -170,7 +170,7 @@ function executeURLLink() {
 		url: "http://goo.gl/WvTTE",
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "내 키는 몇%에 해당할까",
+		appname: "깨알유머:",
 		type: "link"
 	});
 }
