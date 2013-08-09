@@ -112,6 +112,25 @@ function getRandom(min, max){
 }
 
 
+var  ua = navigator.userAgent
+	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
+		(/android/gi).test(ua) ? "android" :
+		(/mac/gi).test(ua) ? "macOS" : 
+		(/windows/gi).test(ua) ? "Windows" : "other"
+if (os === 'android') {
+	idx = getRandom(0, 4)
+	eventTxt = [
+		'<a href="http://goo.gl/BNYgT">힙합테마[카톡스킨]을 무료로 드려요~</a>',
+		'<a href="http://goo.gl/WrRJr">부암동산책[카톡스킨]을 무료로 드려요~</a>',
+		'<a href="http://goo.gl/otEy6">불타는금요일[카톡스킨]을 무료로 드려요~</a>',
+		'<a href="http://goo.gl/qldVb">이상한나라앨리스[카톡스킨]을 무료로 드려요~</a>'
+	]
+	M('nav')
+		.css('display', 'block')
+		.html(eventTxt[idx])
+}
+
+
 var bannerData;
 function showad() {
 	return; 
