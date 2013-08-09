@@ -46,14 +46,14 @@ function executeKakaoStoryLink(){
 		return false;
 	}
 	
-	postMsg += '[닮은꼴 연예인]\n\n';
+	postMsg += '[닮은꼴 연예인 찾기]\n\n';
 	postMsg += userName + '님과 닮은 연예인은 ' + data[twin]['name'] + ' 입니다.\n';
 	postMsg += '매치율: ' + percent + '%\n\n';
 	
 	postMsg += 'http://goo.gl/rhEs43\n';
 	
 	urlMsg = {
-		title: '닮은꼴 연예인',
+		title: '닮은꼴 연예인 찾기',
 		desc: percent + '%의 ' + data[twin]['name'],
 		imageurl: ['http://romeoh.github.io/kakaoStory/imgEnter/' + data[twin]['photo']],
 		type:'article'
@@ -74,7 +74,7 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "닮은꼴 연예",
+		msg: "닮은꼴 연예 찾기",
 		url: "http://goo.gl/rhEs43",
 		appid: "funnyApp",
 		appver: "1.0",

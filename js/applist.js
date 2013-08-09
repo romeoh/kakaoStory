@@ -1,7 +1,7 @@
 var  appList = ''
 	,totalApp = 84
 
-appList += '<li data-app="84"><a href="http://goo.gl/rhEs43">닮은꼴 연예인</a> <span class="ico new"></li>';
+appList += '<li data-app="84"><a href="http://goo.gl/rhEs43">닮은꼴 연예인 찾기</a> <span class="ico new"></li>';
 appList += '<li data-app="83"><a href="http://goo.gl/T9VG8G">설국열차</a> <span class="ico new"></span><span class="ico hot"></li>';
 appList += '<li data-app="82"><a href="http://goo.gl/oJeIIL">연예인 좋아! 싫어!</a> <span class="ico new"></span><span class="ico hot"></li>';
 appList += '<li data-app="81"><a href="http://goo.gl/DkT8fE">당신의 감정가</a> <span class="ico new"></span></li>';
