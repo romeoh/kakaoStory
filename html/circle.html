@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
+<title>깨알유머:</title>
+<link rel="stylesheet" type="text/css" href="../css/stylefb.css">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2760623096296279";
+/* advant Header */
+google_ad_slot = "2052734160";
+google_ad_width = 320;
+google_ad_height = 50;
+//-->
+</script>
+
+
+<style type="text/css">
+.circle {text-align: center;background: url(../imgApp/bg_pattern.jpeg) repeat;background-size: 5px 5px;border-top: 1px solid #c2bbb3;border-bottom: 1px solid #e1dbd2;}
+.circle .canvas {padding:10px 0}
+.circle .rouletteBody {position:relative; margin-top:20px}
+.circle .rouletteBody .choice {display: block;position: absolute;background: url(../imgApp/bg_arrow.png) no-repeat;background-size: 95px 98px;z-index: 10;top: -10px;left: 50%;width: 26px;height: 32px;margin-left: -13px;background-position: 0 0;}
+.circle .rouletteBody .active {background-position: -36px 0}
+.circle .roulette {position:relative}
+.circle .roulette .entry li {position: absolute;display: block;overflow: hidden;width: 89px;height: 20px;font-size: 15px;color: #2e211a;white-space: nowrap;text-overflow: ellipsis;}
+.circle .btnArea {z-index:100; position:relative;}
+
+.circle .entry.pp2 li:nth-child(1) {font-size: 16px;top: 61px;left: 50%;margin-left: -45px;}
+.circle .entry.pp2 li:nth-child(2) {font-size: 16px;top: 182px;left: 50%;margin-left: -45px;}
+.circle .entry.pp2 li:nth-child(3),
+.circle .entry.pp2 li:nth-child(4),
+.circle .entry.pp2 li:nth-child(5),
+.circle .entry.pp2 li:nth-child(6),
+.circle .entry.pp2 li:nth-child(7),
+.circle .entry.pp2 li:nth-child(8) {display:none}
+
+
+.circle .entry.pp3 li:nth-child(1) {top: 63px;left: 50%;margin-left: -80px;-webkit-transform: rotate(59deg);}
+.circle .entry.pp3 li:nth-child(2) {top: 180px;left: 50%;margin-left: -79px;-webkit-transform: rotate(-61deg);}
+.circle .entry.pp3 li:nth-child(3) {top: 120px;left: 50%;margin-left: 25px;}
+.circle .entry.pp3 li:nth-child(4),
+.circle .entry.pp3 li:nth-child(5),
+.circle .entry.pp3 li:nth-child(6),
+.circle .entry.pp3 li:nth-child(7),
+.circle .entry.pp3 li:nth-child(8) {display:none}
+
+.circle .entry.pp4 li:nth-child(1) {top: 64px;left: 50%;margin-left: -46px;-webkit-transform: rotate(90deg);}
+.circle .entry.pp4 li:nth-child(2) {top: 189px;left: 50%;margin-left: -46px;-webkit-transform: rotate(90deg);}
+.circle .entry.pp4 li:nth-child(3) {top: 120px;left: 50%;margin-left: 28px;}
+.circle .entry.pp4 li:nth-child(4) {top: 120px;left: 50%;margin-left: -116px;}
+.circle .entry.pp4 li:nth-child(5),
+.circle .entry.pp4 li:nth-child(6),
+.circle .entry.pp4 li:nth-child(7),
+.circle .entry.pp4 li:nth-child(8) {display:none}
+
+.circle .entry.pp5 li:nth-child(1) {top: 61px;left: 50%;margin-left: -4px;-webkit-transform: rotate(126deg);}
+.circle .entry.pp5 li:nth-child(2) {top: 143px;left: 50%;margin-left: 24px;-webkit-transform: rotate(17deg);}
+.circle .entry.pp5 li:nth-child(3) {top: 144px;left: 50%;margin-left: -114px;-webkit-transform: rotate(-17deg);}
+.circle .entry.pp5 li:nth-child(4) {top: 190px;left: 50%;margin-left: -46px;-webkit-transform: rotate(90deg);}
+.circle .entry.pp5 li:nth-child(5) {top: 62px;left: 50%;margin-left: -89px;-webkit-transform: rotate(55deg);}
+.circle .entry.pp5 li:nth-child(6),
+.circle .entry.pp5 li:nth-child(7),
+.circle .entry.pp5 li:nth-child(8) {display:none}
+
+.circle .entry.pp6 li:nth-child(1) {top: 85px;left: 50%;margin-left: 19px;-webkit-transform: rotate(-30deg);}
+.circle .entry.pp6 li:nth-child(2) {top: 191px;left: 50%;margin-left: -45px;-webkit-transform: rotate(270deg);}
+.circle .entry.pp6 li:nth-child(3) {top: 87px;left: 50%;margin-left: -109px;-webkit-transform: rotate(30deg);}
+.circle .entry.pp6 li:nth-child(4) {top: 159px;left: 50%;margin-left: -109px;-webkit-transform: rotate(-29deg);}
+.circle .entry.pp6 li:nth-child(5) {top: 49px;left: 50%;margin-left: -45px;-webkit-transform: rotate(270deg);}
+.circle .entry.pp6 li:nth-child(6) {top: 160px;left: 50%;margin-left: 18px;-webkit-transform: rotate(30deg);}
+.circle .entry.pp6 li:nth-child(7),
+.circle .entry.pp6 li:nth-child(8) {display:none}
+
+.circle .entry.pp7 li:nth-child(1) {top: 102px;left: 50%;margin-left: -116px;-webkit-transform: rotate(13deg);}
+.circle .entry.pp7 li:nth-child(2) {top: 58px;left: 50%;margin-left: -13px;-webkit-transform: rotate(296deg);}
+.circle .entry.pp7 li:nth-child(3) {top: 56px;left: 50%;margin-left: -77px;-webkit-transform: rotate(63deg);}
+.circle .entry.pp7 li:nth-child(4) {top: 106px;left: 50%;margin-left: 25px;-webkit-transform: rotate(-13deg);}
+.circle .entry.pp7 li:nth-child(5) {top: 190px;left: 50%;margin-left: -45px;-webkit-transform: rotate(90deg);}
+.circle .entry.pp7 li:nth-child(6) {top: 168px;left: 50%;margin-left: -102px;-webkit-transform: rotate(-40deg);}
+.circle .entry.pp7 li:nth-child(7) {top: 166px;left: 50%;margin-left: 13px;-webkit-transform: rotate(39deg);}
+.circle .entry.pp7 li:nth-child(8) {display:none}
+
+.circle .entry.pp8 li:nth-child(1) {top: 52px;left: 50%;margin-left: -73px;-webkit-transform: rotate(64deg);}
+.circle .entry.pp8 li:nth-child(2) {top: 94px;left: 50%;margin-left: 24px;-webkit-transform: rotate(339deg);}
+.circle .entry.pp8 li:nth-child(3) {top: 53px;left: 50%;margin-left: -16px;-webkit-transform: rotate(-65deg);}
+.circle .entry.pp8 li:nth-child(4) {top: 150px;left: 50%;margin-left: 25px;-webkit-transform: rotate(25deg);}
+.circle .entry.pp8 li:nth-child(5) {top: 151px;left: 50%;margin-left: -117px;-webkit-transform: rotate(-23deg);}
+.circle .entry.pp8 li:nth-child(6) {top: 92px;left: 50%;margin-left: -119px;-webkit-transform: rotate(24deg);}
+.circle .entry.pp8 li:nth-child(7) {top: 192px;left: 50%;margin-left: -17px;-webkit-transform: rotate(66deg);}
+.circle .entry.pp8 li:nth-child(8) {top: 192px;left: 50%;margin-left: -72px;-webkit-transform: rotate(-66deg);}
+
+.circle .setting li {text-align:left; padding-left:50px}
+.circle .setting input {width: 130px;padding: 4px 0 3px;border: 2px solid #e1e1e1;border-radius: 4px;font-size: 16px;color: #402f25;text-align: center;; vertical-align:middle}
+.circle .setting .btns {overflow: hidden;width: 27px;height: 27px;text-indent: -999px;border: 0;border-radius: 0;background: url(../imgApp/btn_plus.png) no-repeat 0 0 #fafafa;background-size: 82px 57px; vertical-align:middle;}
+.circle .setting .btns.mns {padding: 0;background-position: -55px 0}
+.circle .setting .btns.pls {padding: 0;background-position: -25px 0}
+.circle .setting select {float: none;width: 70%;height: 31px;margin-left: 6px;background: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#f6f6f6));background-size: 30px 12px,auto auto;line-height: 29px;font-size: 15px;color: #555;-webkit-background-size: 30px 12px,auto auto}
+.circle .setting #inputTitle {width:70%; display:none}
+.circle .btnArea button {display: inline-block;overflow: hidden;width: 101px;height: 35px;border: 0;background: url(../imgApp/bg_buttons.png) no-repeat 0 0;background-size: 100px 190px;text-indent: -9999px;}
+.circle .btnArea .set {background-position: 0 -35px;}
+.circle .btnArea .turn {background-position: 0 -154px;}
+</style>
+</head>
+
+<body>
+<div style="text-align:center" id="adTop">
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<header>
+	<h1><img src="../imgApp/logo_title.png" width="90" alt="깨알유머:"></h1>
+	<div id="btnMain"><a href="#" class="gnbMain"></a></div>
+	<div id="btnMacao"><a href="#" class="gnbMacao"></a></div>
+</header>
+<nav></nav>
+
+<div class="wrap">
+	<h2>원판돌리기</h2>
+	<p class="description">
+		입력하신 정보는 <span style="color:red">절대</span> 저장되지 않습니다.<br>
+	</p>
+</div>
+
+<div class="circle">
+	<div class="canvas">
+		<p>이름을 입력해 주세요.</p>
+		<div class="setting" data-setting="3">
+			<ul>
+				<li data-input="1">1번: <input type="text" data-enter="1" placeholder="이름입력"> <span data-button-box="1"><button class="btns mns" data-minus="1"></button> <button class="btns pls" data-plus="1"></button></span></li>
+				<li data-input="2">2번: <input type="text" data-enter="2" placeholder="이름입력"> <span data-button-box="2"><button class="btns mns" data-minus="2"></button> <button class="btns pls" data-plus="2"></button></span></li>
+				<li data-input="3">3번: <input type="text" data-enter="3" placeholder="이름입력"> <span data-button-box="3"><button class="btns mns" data-minus="3"></button> <button class="btns pls" data-plus="3"></button></span></li>
+				<li data-input="4">4번: <input type="text" data-enter="4" placeholder="이름입력"> <span data-button-box="4"><button class="btns mns" data-minus="4"></button> <button class="btns pls" data-plus="4"></button></span></li>
+				<li data-input="5">5번: <input type="text" data-enter="5" placeholder="이름입력"> <span data-button-box="5"><button class="btns mns" data-minus="5"></button> <button class="btns pls" data-plus="5"></button></span></li>
+				<li data-input="6">6번: <input type="text" data-enter="6" placeholder="이름입력"> <span data-button-box="6"><button class="btns mns" data-minus="6"></button> <button class="btns pls" data-plus="6"></button></span></li>
+				<li data-input="7">7번: <input type="text" data-enter="7" placeholder="이름입력"> <span data-button-box="7"><button class="btns mns" data-minus="7"></button> <button class="btns pls" data-plus="7"></button></span></li>
+				<li data-input="8">8번: <input type="text" data-enter="8" placeholder="이름입력"> <span data-button-box="8"><button class="btns mns" data-minus="8"></button> <button class="btns pls" data-plus="8"></button></span></li>
+			</ul>
+			<div>타이틀:
+				<select id="title">
+					<option value="-1" selected>타이틀을 선택하세요.</option>
+					<option value="제일 못생긴 사람은">제일 못생긴 사람은</option>
+					<option value="제일 예쁜 사람은">제일 예쁜 사람은</option>
+					<option value="제일 잘생긴 사람은">제일 잘생긴 사람은</option>
+					<option value="제일 4차원인 사람은">제일 4차원인 사람은</option>
+					<option value="제일 섹시한 사람은">제일 섹시한 사람은</option>
+					<option value="제일 인기있는 사람은">제일 인기있는 사람은</option>
+					<option value="제일 멍청해 보이는 사람은">제일 멍청해 보이는 사람은</option>
+					<option value="아이스크림 사야될 사람은">아이스크림 사야될 사람은</option>
+					<option value="술 사야되는 사람은">술 사야되는 사람은</option>
+					<option value="커피 사야되는 사람은">커피 사야되는 사람은</option>
+					<option value="직접입력">직접입력</option>
+				</select>
+				<div><input type="text" id="inputTitle" placeholder="직접 입력하세요."></div>
+			</div>
+		</div>
+		<div class="rouletteBody">
+			<span class="choice active"></span>
+			<div class="roulette">
+				<img src="" id="roulette" width="264" height="263" alt="">
+				<div class="entry" id="entry">
+					<ul>
+						<li data-entry="1"></li>
+						<li data-entry="2"></li>
+						<li data-entry="3"></li>
+						<li data-entry="4"></li>
+						<li data-entry="5"></li>
+						<li data-entry="6"></li>
+						<li data-entry="7"></li>
+						<li data-entry="8"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="btnArea">
+			<button class="turn" id="turn">원판돌리기</button>
+		</div>
+	</div>
+</div>
+
+<div class="buttons">
+	<ul class="share">
+		<li><a href="#" id="btnStory"><span><em class="ico_star_check"></em> 카스로 공유</span></a></li>
+		<li><a href="#" id="btnKakao"><span>카톡친구 초대</span></a></li>
+	</ul>
+	<div class="btn_w">
+		<a href="#" id="" class="btn_go"><span>트위터</span></a>
+		<a href="#" id="" class="btn_go"><span>페이스북</span></a>
+		<a href="#" id="" class="btn_go"><span>블로그</span></a>
+	</div>
+</div>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2760623096296279";
+/* advant Middle2 */
+google_ad_slot = "3529467364";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<div style="text-align:center" id="adMiddle">
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<div class="appList">
+	<h2>다른 미니앱 보기</h2>
+	<ul data-list="67"></ul>
+</div>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-2760623096296279";
+/* advant Footer2 */
+google_ad_slot = "5006200564";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<div style="text-align:center" id="adBottom">
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<!--div class="address">
+	funnyApp - <a href="mailto:romeoh@naver.com">Contact</a>
+</div-->
+
+<!--script type="text/javascript" src="../js/firebug-lite.js"></script-->
+<script type="text/javascript" src="../js/kakao.link.js"></script>
+<script type="text/javascript" src="../js/mpui.js"></script>
+<script type="text/javascript" src="../js/applist.js"></script>
+<script type="text/javascript" src="../js/circle.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40618162-1', 'github.io');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
