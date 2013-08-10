@@ -1,11 +1,12 @@
 var  appList = ''
 	,totalApp = 84
 
+appList += '<li data-app="85"><a href="http://goo.gl/n6gU3j">아이돌 좋아! 싫어!</a> <span class="ico new"></li>';
 appList += '<li data-app="84"><a href="http://goo.gl/rhEs43">닮은꼴 연예인 찾기</a> <span class="ico new"></li>';
 appList += '<li data-app="83"><a href="http://goo.gl/T9VG8G">설국열차</a> <span class="ico new"></span><span class="ico hot"></li>';
 appList += '<li data-app="82"><a href="http://goo.gl/oJeIIL">연예인 좋아! 싫어!</a> <span class="ico new"></span><span class="ico hot"></li>';
 appList += '<li data-app="81"><a href="http://goo.gl/DkT8fE">당신의 감정가</a> <span class="ico new"></span></li>';
-appList += '<li data-app="80"><a href="http://goo.gl/ft3k0z">나의취향 공유</a> <span class="ico new"></span></li>';
+appList += '<li data-app="80"><a href="http://goo.gl/ft3k0z">나의취향 공유</a></li>';
 appList += '<li data-app="79"><a href="http://goo.gl/fnLTih">가문의 영광</a> </span></li>';
 appList += '<li data-app="78"><a href="http://goo.gl/IxTyxZ">천사/악마 검증기</a> <span class="ico command"></span><span class="ico hot"></li>';
 appList += '<li data-app="77"><a href="http://goo.gl/uAj2cA">나의 연관검색어</a></li>';

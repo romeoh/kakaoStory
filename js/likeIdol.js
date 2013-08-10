@@ -151,7 +151,7 @@ function executeKakaoStoryLink(){
 
 	urlMsg = {
 		title: '아이돌 좋아! 싫어!',
-		desc: '나의 우상들~',
+		desc: '꺆~~',
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + thum ],
 		type:'article'
 	}
