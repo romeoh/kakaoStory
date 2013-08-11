@@ -26,11 +26,10 @@ function initPage(){
 }
 
 function turn() {
-	var  randomDeg
 	if (isRotate) {
 		return false;
 	}
-	M('.roulette').attr('style', '')
+	M('#rouletteBox').attr('style', '');
 	M('#resultInfo').css('display', 'none');
 	lists.length = 0;
 	// 유효성검사
@@ -54,14 +53,13 @@ function turn() {
 	}
 	
 	isRotate = true;
-	randomDeg = getRandom(3240, 3600)
-	M('.roulette').css('rotate', '0deg')
-
+	M('#rouletteBox').css('rotate', '0deg')
 	setTimeout(function(){
-		M('.roulette').animate({
+		var randomDeg = getRandom(3240, 3600)
+
+		M('#rouletteBox').animate({
 			'rotate': randomDeg + 'deg',
 			'time': '4000ms'
-			//'delay': '1s'
 		}, function(evt, mp) {
 			for (var i=0; i<allCount; i++) {
 				var n = i + 1
