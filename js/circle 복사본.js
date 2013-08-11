@@ -60,7 +60,7 @@ function turn() {
 	setTimeout(function(){
 		M('.roulette').animate({
 			'rotate': randomDeg + 'deg',
-			'time': '4000ms',
+			'time': '4000ms'
 			//'delay': '1s'
 		}, function(evt, mp) {
 			for (var i=0; i<allCount; i++) {
