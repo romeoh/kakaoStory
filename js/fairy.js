@@ -98,7 +98,7 @@ function executeURLLink() {
 
 dataBoy = [
 	{'photo':'fairyB1.png',  'name':'흥부', 'ment':'기가 막힌다..기가..'},
-	{'photo':'fairyB2.png',  'name':'혹부리영감', 'ment':'노래방 100점 혹부리 팔아요.'},
+	{'photo':'fairyB2.png',  'name':'혹부리영감', 'ment':'노래방 100점 보장 혹부리 팔아요.'},
 	{'photo':'fairyB3.png',  'name':'놀부', 'ment':'부대찌개좀 많이 잡숴~'},
 	{'photo':'fairyB4.png',  'name':'알라딘', 'ment':'망할 램프, 살 빼야 되는데.'},
 	{'photo':'fairyB5.png',  'name':'슈렉', 'ment':'진실한 사랑의 프렌치 키스'},
@@ -111,7 +111,7 @@ dataBoy = [
 	{'photo':'fairyB12.png', 'name':'네로', 'ment':'파트라슈 새끼 분양해요~'},
 	{'photo':'fairyB13.png', 'name':'해님', 'ment':'짱나..멍청한 달님..'},
 	{'photo':'fairyB14.png', 'name':'여섯번째 난장인', 'ment':'여름에는 열대야, 내키는 이게 뭐야?'},
-	{'photo':'fairyB15.png', 'name':'나뭇꾼', 'ment':'옷절도: 3년이하의 징역 또는 500만원 이하의 벌금'},
+	{'photo':'fairyB15.png', 'name':'나무꾼', 'ment':'옷절도: 3년이하의 징역 또는 500만원 이하의 벌금'},
 	{'photo':'fairyB16.png', 'name':'후크선장', 'ment':'또 낚았다..'}
 ]
 
