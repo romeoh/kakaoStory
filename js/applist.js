@@ -1,5 +1,5 @@
 var  appList = ''
-	,totalApp = 84
+	,totalApp = 87
 
 appList += '<li data-app="87"><a href="http://goo.gl/oBhFz2">동화속 주인공</a> <span class="ico new"></span></li>';
 appList += '<li data-app="86"><a href="http://goo.gl/Gpld3p">원판돌리기</a> <span class="ico new"></span><span class="ico hot"></span></li>';
