@@ -116,7 +116,7 @@ dataBoy = [
 ]
 
 dataGirl = [
-	{'photo':'fairyG1.png',  'name':'신데렐라', 'ment':'아~ 짜증나 이번에 인쇼에서 델꼬온 신상 킬힐, 클럽에서 잊어버렸어.'},
+	{'photo':'fairyG1.png',  'name':'신데렐라', 'ment':'아~ 짜증나 이번에 인쇼에서 델꼬온 신상 킬힐, 클럽에서 벗어놓고 왔나봐.'},
 	{'photo':'fairyG2.png',  'name':'백설공주', 'ment':'많은면 뭐해.. 다들 150이 안되는데..'},
 	{'photo':'fairyG3.png',  'name':'콩쥐', 'ment':'내가 착한애야, 나쁜애야?'},
 	{'photo':'fairyG4.png',  'name':'심청이', 'ment':'울 아빠 라식 시켜주게.'},
