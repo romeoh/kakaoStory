@@ -116,12 +116,12 @@ dataBoy = [
 ]
 
 dataGirl = [
-	{'photo':'fairyG1.png',  'name':'신데렐라', 'ment':'아~ 짜증나 이번에 인쇼에서 업어온 킬힐, 클럽에서 잊어버렸어.'},
+	{'photo':'fairyG1.png',  'name':'신데렐라', 'ment':'아~ 짜증나 이번에 인쇼에서 델꼬온 신상 킬힐, 클럽에서 잊어버렸어.'},
 	{'photo':'fairyG2.png',  'name':'백설공주', 'ment':'많은면 뭐해.. 다들 150이 안되는데..'},
 	{'photo':'fairyG3.png',  'name':'콩쥐', 'ment':'내가 착한애야, 나쁜애야?'},
 	{'photo':'fairyG4.png',  'name':'심청이', 'ment':'울 아빠 라식 시켜주게.'},
-	{'photo':'fairyG5.png',  'name':'인어공주', 'ment':'난 자연산이라규!!'},
-	{'photo':'fairyG6.png',  'name':'잠자는 숲속의 공주', 'ment':'아놔~ 또 지각이다.ㅠㅠ'},
+	{'photo':'fairyG5.png',  'name':'인어공주', 'ment':'잠깐만요. 저 자연산 맞거든요.'},
+	{'photo':'fairyG6.png',  'name':'잠자는 숲속의 공주', 'ment':'힝~ 또 지각이다.ㅠㅠ'},
 	{'photo':'fairyG7.png',  'name':'이상한 나라의 앨리스', 'ment':'사유리 너 자꾸 내 캐릭 도용할래?'},
 	{'photo':'fairyG8.png',  'name':'라푼젤', 'ment':'탑에서 하루종일 카스질 중..'},
 	{'photo':'fairyG9.png',  'name':'엄지공주', 'ment':'몸매 좋으면 뭐해..키가..'},
