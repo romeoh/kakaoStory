@@ -126,7 +126,7 @@ dataGirl = [
 	{'photo':'fairyG8.png',  'name':'라푼젤', 'ment':'탑에서 하루종일 카스질 중..'},
 	{'photo':'fairyG9.png',  'name':'엄지공주', 'ment':'몸매 좋으면 뭐해..키가..'},
 	{'photo':'fairyG10.png', 'name':'도로시', 'ment':'깡통, 사자, 허수아비 합쳐놓은 남자 찾아요.'},
-	{'photo':'fairyG11.png', 'name':'달님', 'ment':'햇님아~'},
+	{'photo':'fairyG11.png', 'name':'달님', 'ment':'핸님아~'},
 	{'photo':'fairyG12.png', 'name':'춘향이', 'ment':'변사또, 너 내스탈 아니라구, 꺼져~'},
 	{'photo':'fairyG13.png', 'name':'빨간머리앤', 'ment':'언니 뿌리 염색만 얼마에요?'},
 	{'photo':'fairyG14.png', 'name':'팅커벨', 'ment':'솔까, 피터팬보다 내가 주인공 아냐?'},
