@@ -110,7 +110,7 @@ dataBoy = [
 	{'photo':'fairyB11.png', 'name':'걸리버', 'ment':'이건 모험이야.'},
 	{'photo':'fairyB12.png', 'name':'네로', 'ment':'파트라슈 새끼 분양해요~'},
 	{'photo':'fairyB13.png', 'name':'해님', 'ment':'짱나..멍청한 달님..'},
-	{'photo':'fairyB14.png', 'name':'여섯번째 난장인', 'ment':'여름에는 열대야, 내키는 이게 뭐야?'},
+	{'photo':'fairyB14.png', 'name':'여섯번째 난장이', 'ment':'여름에는 열대야, 내키는 이게 뭐야?'},
 	{'photo':'fairyB15.png', 'name':'나무꾼', 'ment':'옷절도: 3년이하의 징역 또는 500만원 이하의 벌금'},
 	{'photo':'fairyB16.png', 'name':'후크선장', 'ment':'또 낚았다..'}
 ]
