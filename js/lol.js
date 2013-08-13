@@ -111,7 +111,7 @@ function executeKakaoStoryLink(url){
 function executeURLLink() {
 	kakao.link("talk").send({
 		msg: "LOL 챔피언 동맹맺기",
-		url: "http://goo.gl/fnLTih",
+		url: "http://goo.gl/Zr0JGC",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "깨알유머:",
