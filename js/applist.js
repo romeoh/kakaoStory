@@ -1,11 +1,12 @@
 var  appList = ''
-	,totalApp = 87
+	,totalApp = 88
 
+appList += '<li data-app="89"><a href="http://goo.gl/97oVx7">싱글만 해보세요.</a> <span class="ico new"></span></li>';
 appList += '<li data-app="88"><a href="http://goo.gl/Zr0JGC">LOL 챔피언 동맹맺기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="87"><a href="http://goo.gl/oBhFz2">동화속 주인공</a> <span class="ico new"></span></li>';
 appList += '<li data-app="86"><a href="http://goo.gl/Gpld3p">원판돌리기</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="85"><a href="http://goo.gl/n6gU3j">아이돌 좋아! 싫어!</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="84"><a href="http://goo.gl/rhEs43">닮은꼴 연예인 찾기</a> <span class="ico new"></span></li>';
+appList += '<li data-app="84"><a href="http://goo.gl/rhEs43">닮은꼴 연예인 찾기</a></li>';
 appList += '<li data-app="83"><a href="http://goo.gl/T9VG8G">설국열차</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="82"><a href="http://goo.gl/oJeIIL">연예인 좋아! 싫어!</a></span><span class="ico hot"></span></li>';
 appList += '<li data-app="81"><a href="http://goo.gl/DkT8fE">당신의 감정가</a></li>';
@@ -83,8 +84,8 @@ appList += '<li data-app="10"><a href="http://goo.gl/urccj">우리 부부는 전
 appList += '<li data-app="9"><a href="http://goo.gl/dfrtm">내애인과 나는 전생에 무슨 관계였나</a></li>';
 appList += '<li data-app="8"><a href="http://goo.gl/KRPGi">내아기와 나는 전생에 무슨 관계였나</a></li>';
 appList += '<li data-app="7"><a href="http://goo.gl/uxpnz">내아기 전생 알아보기</a></li>';
-appList += '<li data-app="6"><a href="http://goo.gl/D9B88">10년뒤 내 아기모습</a> <span class="ico hot"></span></li>';
-appList += '<li data-app="5"><a href="http://goo.gl/BCCnn">나의 주량 알아보기</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="6"><a href="http://goo.gl/D9B88">10년뒤 내 아기모습</a></li>';
+appList += '<li data-app="5"><a href="http://goo.gl/BCCnn">나의 주량 알아보기</a></li>';
 appList += '<li data-app="4"><a href="http://goo.gl/FSBT3">나와 스캔들날 연예인</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="3"><a href="http://goo.gl/1945x">닮<span style="color:red">을</span>꼴 연예인 찾기</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="2"><a href="http://goo.gl/QWPHM">냉철한 대기업 인재 사냥꾼</a></li>';
