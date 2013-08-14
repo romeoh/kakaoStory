@@ -175,7 +175,7 @@ function fight(round, final){
 			.parent()
 			.data('idx', arr4[right])
 
-		M('#round').text('부전승');
+		M('#round').text('준결승');
 		M('#stage').text('('+(cuRound+1)+'/1)');
 	}
 
