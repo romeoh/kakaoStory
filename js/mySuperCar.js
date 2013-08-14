@@ -75,16 +75,19 @@ function appendImg() {
 	if (M('#kimg').selector.length != 0) {
 		M('#kimg').remove();
 	}
-	M('#wrapper')
-		.append('img', {
-			 'src':'../img/'+data[cuIdx]['gallery']
-			,'id':'kimg'
-		})
+	setTimeout(function(){
+		M('#wrapper')
+			.append('img', {
+				 'src':'../img/'+data[cuIdx]['gallery']
+				,'id':'kimg'
+			})
 
-	str += data[cuIdx]['company'] +' '+ data[cuIdx]['car'] + '<br>'
-	str += '가격: ' + price
-	M('.carInfo').html(str)
-	M('#kimg').css('width', imgWidth+'px');
+		str += data[cuIdx]['company'] +' '+ data[cuIdx]['car'] + '<br>'
+		str += '가격: ' + price
+		M('.carInfo').html(str)
+		M('#kimg').css('width', imgWidth+'px');	
+	}, 100)
+	
 }
 
 //  카카오 스토리
