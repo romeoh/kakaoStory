@@ -74,7 +74,7 @@ function executeKakaoStoryLink(url){
 	postMsg += '[LOL 챔피언 동맹맺기]\n\n';
 	
 	if (hash == 'undefined') {
-		postMsg += '⇒ 이름: ' + userName + ', 챔피언: ' + data[dataIdx]['name'] + '\n';
+		postMsg += '⇒ ' + userName + '님의 롤 챔피언은 ' + data[dataIdx]['name'] + ' 입니다.\n';
 	} else {
 		for (var i=0; i<paramData['names'].length; i++) {
 			if (i === paramData['names'].length-1) {
@@ -82,7 +82,7 @@ function executeKakaoStoryLink(url){
 			} else {
 				ico = ''
 			}
-			postMsg += ico + '이름: ' + paramData['names'][i] + ', 챔피언: ' + paramData['charactor'][i] + '\n';
+			postMsg += ico + paramData['names'][i] + '님의 롤 챔피언은 ' + paramData['charactor'][i] + ' 입니다.\n';
 		}
 	}
 	
