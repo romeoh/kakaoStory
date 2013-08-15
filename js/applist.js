@@ -1,11 +1,12 @@
 var  appList = ''
 	,totalApp = 88
 
+appList += '<li data-app="91"><a href="http://goo.gl/msnF7L">나는 몇다리까지 걸치나</a> <span class="ico new"></span></li>';
 appList += '<li data-app="90"><a href="http://goo.gl/omEoZI">엑소 월드컵</a> <span class="ico new"></span></li>';
 appList += '<li data-app="89"><a href="http://goo.gl/97oVx7">싱글만 해보세요.</a> <span class="ico new"></span></li>';
 appList += '<li data-app="88"><a href="http://goo.gl/Zr0JGC">LOL 챔피언 동맹맺기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="87"><a href="http://goo.gl/oBhFz2">동화속 주인공</a> <span class="ico new"></span></li>';
-appList += '<li data-app="86"><a href="http://goo.gl/Gpld3p">원판돌리기</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="86"><a href="http://goo.gl/Gpld3p">원판돌리기</a> <span class="ico command"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="85"><a href="http://goo.gl/n6gU3j">아이돌 좋아! 싫어!</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="84"><a href="http://goo.gl/rhEs43">닮은꼴 연예인 찾기</a></li>';
 appList += '<li data-app="83"><a href="http://goo.gl/T9VG8G">설국열차</a> <span class="ico hot"></span></li>';
