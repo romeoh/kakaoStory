@@ -27,7 +27,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '이모티콘 투하',
 		desc: '',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/emoticon.png'],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/emoticon.png'],
 		type:'article'
 	}
 	console.log(postMsg)
