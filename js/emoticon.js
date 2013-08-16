@@ -147,7 +147,7 @@ emoticon7 += '　　　　/⌒　　　 ＼\n';
 emoticon7 += '　　　 ∩　/　　　ﾉ｜\n';
 emoticon7 += '　　 ⊂ﾆ Ｙ　　 ｢｢｢|⊃\n';
 emoticon7 += '　　／ヽ三) _ノ ヽ_ノ\n';
-emoticon7 += '　 /　　덤벼시발｜\n';
+emoticon7 += '　 /　　  덤벼 ｜\n';
 emoticon7 += '　｜ ＿＿_　　　/＼\n';
 emoticon7 += '　 Ｖ　　 ヽ　／　 \n';
 emoticon7 += '　　＼　　 |＜　　　|\n';
@@ -156,7 +156,7 @@ emoticon7 += '　　｜　 /　　 / ／\n';
 emoticon7 += '　　｜\n';
 
 var emoticon8  = '';
-emoticon8 += '     fﾆヽ \n';
+emoticon8 += '             fﾆヽ \n';
 emoticon8 += '　　　 |_|| \n';
 emoticon8 += '　　　 |= | \n';
 emoticon8 += '　　　 |_ | \n';
@@ -276,23 +276,6 @@ emoticon18 += '□■□□□□□□■□□■□□□□□□□\n';
 emoticon18 += '□■□□□□□□■□□■□□□□□□□\n';
 emoticon18 += '□□■■■■■■□□□■■■■■■■■\n';
 
-var emoticon19  = '';
-emoticon19 += '　　　　 ／- 　 -\\n';
-emoticon19 += '　　　　／(●　●) \\n';
-emoticon19 += '　　　 ｜　(_人_) ｜\n';
-emoticon19 += '　　　　＼　`⌒′ ／\n';
-emoticon19 += '　　　　/⌒　　　 ＼\n';
-emoticon19 += '　　　 ∩　/　　　ﾉ｜\n';
-emoticon19 += '　　 ⊂ﾆ Ｙ　　 ｢｢｢|⊃\n';
-emoticon19 += '　 ／ヽ三) _ノ ヽ_ノ\n';
-emoticon19 += '　 /　　 덤벼  ｜\n';
-emoticon19 += '　｜ ＿＿_　　　/＼\n';
-emoticon19 += '　 Ｖ　　 ヽ　／　 \\n';
-emoticon19 += '　　＼　　 |＜　　　|\n';
-emoticon19 += '　　 /　　ノ　￣/ ノ\n';
-emoticon19 += '　 ｜　 /　 　 / ／\n';
-
-
 
 
 data = [
@@ -313,8 +296,7 @@ data = [
 	emoticon15,
 	emoticon16,
 	emoticon17,
-	emoticon18,
-	emoticon19
+	emoticon18
 ]
 
 
