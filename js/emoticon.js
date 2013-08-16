@@ -224,20 +224,6 @@ emoticon13 += '　 `・+。*・\'⊃+゜ \n';
 emoticon13 += '　 ☆　　∪~。*゜ \n';
 emoticon13 += '　　 `・+。*・\n';
 
-var emoticon14  = '';
-emoticon14 += '  |＼＿＿＿／|\n';
-emoticon14 += '　| ノ o　o　 ヽ\n';
-emoticon14 += '　ミ 　 ●　 　● ミ\n';
-emoticon14 += '　ミ 　　　　▼　 ミ\n';
-emoticon14 += '　彡、 　 ＿人_ノ ＼\n';
-emoticon14 += '/　＿＿　＿＿ノ ´>　 )\n';
-emoticon14 += '(＿＿＿）　　　/(_／\n';
-emoticon14 += '　|　　　　　 /\n';
-emoticon14 += '　|　　／＼　＼\n';
-emoticon14 += '　) (　　 )　 )\n';
-emoticon14 += '( / （　 ＼\n';
-emoticon14 += '　<__ )　 　 ＼＿)\n';
-emoticon14 += '멍멍\n';
 
 var emoticon15  = '';
 emoticon15 += '_Π___＿。 ˚ ˚ ˛ ˚ ˛ ·˛ ·˚\n';
@@ -292,7 +278,6 @@ data = [
 	emoticon11,
 	emoticon12,
 	emoticon13,
-	emoticon14,
 	emoticon15,
 	emoticon16,
 	emoticon17,
