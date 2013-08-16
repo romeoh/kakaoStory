@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
+<title>깨알유머:</title>
+<link rel="stylesheet" type="text/css" href="../css/stylefb.css">
+
+<style type="text/css">
+</style>
+</head>
+
+<body>
+
+<header>
+	<h1><img src="../imgApp/logo_title.png" width="90" alt="깨알유머:"></h1>
+	<div id="btnMain"><a href="#" class="gnbMain"></a></div>
+	<div id="btnMacao"><a href="#" class="gnbMacao"></a></div>
+</header>
+<nav></nav>
+
+<div class="wrap">
+	<h2>통계</h2>
+</div>
+
+<div class="appList">
+	<ul data-list="1" style="display:none"></ul>
+	<ul data-status></ul>
+</div>
+
+<!--div class="address">
+	funnyApp - <a href="mailto:romeoh@naver.com">Contact</a>
+</div-->
+
+<script type="text/javascript" src="../js/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" src="../js/kakao.link.js"></script>
+<script type="text/javascript" src="../js/mpui.js"></script>
+<script type="text/javascript" src="../js/applist.js"></script>
+<script type="text/javascript">
+var  list = document.querySelectorAll('li a')
+	,str = '<li> Hour | Day | Week | Month | AllTime </li>'
+
+for (var i=0; i<list.length; i++) {
+	var  urlId = list[i].getAttribute('href').replace('http://', '')
+		,appName = list[i].innerHTML
+		,hour = 'http://goo.gl/#analytics/' + urlId + '/two_hours'
+		,day = 'http://goo.gl/#analytics/' + urlId + '/day'
+		,week = 'http://goo.gl/#analytics/' + urlId + '/week'
+		,month = 'http://goo.gl/#analytics/' + urlId + '/month'
+		,all = 'http://goo.gl/#analytics/' + urlId + '/all_time'
+
+	str += '<li><a href="' + hour + '" target="_blank">H</a> | <a href="' + day + '" target="_blank">D</a> | <a href="' + week + '" target="_blank">W</a> | <a href="' + month + '" target="_blank">M</a> | <a href="' + all + '" target="_blank">A</a> - ' + appName + '</li>';
+	//console.log(urlId, appName)
+}
+M('[data-status]').html(str)
+</script>
+
+</body>
+</html>
+
