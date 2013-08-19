@@ -1,11 +1,12 @@
 var  appList = ''
-	,totalApp = 92
+	,totalApp = 93
 
+appList += '<li data-app="94"><a href="http://goo.gl/qy9Yj2">나에게 붙어있는 귀신</a> <span class="ico new"></span></li>';
 appList += '<li data-app="93"><a href="http://goo.gl/U5T02V">아저씨/아줌마 테스트</a> <span class="ico new"></span></li>';
-appList += '<li data-app="92"><a href="http://goo.gl/lvj1TZ">이모티콘 투하</a> <span class="ico new"></span></li>';
+appList += '<li data-app="92"><a href="http://goo.gl/lvj1TZ">이모티콘 투하</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="91"><a href="http://goo.gl/msnF7L">나는 몇다리까지 걸치나</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="90"><a href="http://goo.gl/omEoZI">엑소 월드컵</a> <span class="ico new"></span></li>';
-appList += '<li data-app="89"><a href="http://goo.gl/97oVx7">싱글만 해보세요.</a> <span class="ico new"></span></li>';
+appList += '<li data-app="89"><a href="http://goo.gl/97oVx7">싱글만 해보세요.</a></li>';
 appList += '<li data-app="88"><a href="http://goo.gl/Zr0JGC">LOL 챔피언 동맹맺기</a></li>';
 appList += '<li data-app="87"><a href="http://goo.gl/oBhFz2">동화속 주인공</a></li>';
 appList += '<li data-app="86"><a href="http://goo.gl/Gpld3p">원판돌리기</a> <span class="ico command"></span><span class="ico hot"></span></li>';
