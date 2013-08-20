@@ -49,7 +49,7 @@ for (var i=0; i<list.length; i++) {
 		,month = 'http://goo.gl/#analytics/' + urlId + '/month'
 		,all = 'http://goo.gl/#analytics/' + urlId + '/all_time'
 
-	str += '<li data-status-list><a href="' + hour + '" target="_blank">H</a> | <a href="' + day + '" target="_blank">D</a> | <a href="' + week + '" target="_blank">W</a> | <a href="' + month + '" target="_blank">M</a> | <a href="' + all + '" target="_blank">A</a> - ' + appName + '</li>';
+	str += '<li data-status-list><a href="' + hour + '" target="_blank">H</a> | <a href="' + day + '" target="_blank">D</a> | <a href="' + week + '" target="_blank">W</a> | <a href="' + month + '" target="_blank">M</a> | <a href="' + all + '" target="_blank">A</a> - <a href="http://' + urlId + '" target="_blank">' + appName + '</a></li>';
 	//console.log(urlId, appName)
 }
 M('[data-status]').html(str);
