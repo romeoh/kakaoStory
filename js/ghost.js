@@ -82,7 +82,8 @@ data = [
 	{'photo':'ghost9.png', 'name':'식신귀신'},
 	{'photo':'ghost10.png', 'name':'도깨비'},
 	{'photo':'ghost11.png', 'name':'저승사자'},
-	{'photo':'ghost12.png', 'name':'좀비'}
+	{'photo':'ghost12.png', 'name':'좀비'},
+	{'photo':'ghost13.png', 'name':'여고귀신'}
 ]
 
 
