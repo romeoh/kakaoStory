@@ -71,20 +71,20 @@ function getRandom(min, max){
 }
 
 data = [
-	{'photo':'ghost1.png', 'name':'달걀귀신'},
-	{'photo':'ghost2.png', 'name':'처녀귀신'},
-	{'photo':'ghost3.png', 'name':'드라큐라'},
-	{'photo':'ghost4.png', 'name':'강시'},
-	{'photo':'ghost5.png', 'name':'마성터널귀신'},
-	{'photo':'ghost6.png', 'name':'옥수역귀신'},
-	{'photo':'ghost7.png', 'name':'몽달귀신'},
-	{'photo':'ghost8.png', 'name':'물귀신'},
-	{'photo':'ghost9.png', 'name':'식신귀신'},
-	{'photo':'ghost10.png', 'name':'도깨비'},
-	{'photo':'ghost11.png', 'name':'저승사자'},
-	{'photo':'ghost12.png', 'name':'좀비'},
-	{'photo':'ghost13.png', 'name':'여고귀신'},
-	{'photo':'ghost14.png', 'name':'봉천동귀신'}
+	{'photo':'ghosta1.png', 'name':'달걀귀신'},
+	{'photo':'ghosta2.png', 'name':'처녀귀신'},
+	{'photo':'ghosta3.png', 'name':'드라큐라'},
+	{'photo':'ghosta4.png', 'name':'강시'},
+	{'photo':'ghosta5.png', 'name':'마성터널귀신'},
+	{'photo':'ghosta6.png', 'name':'옥수역귀신'},
+	{'photo':'ghosta7.png', 'name':'몽달귀신'},
+	{'photo':'ghosta8.png', 'name':'물귀신'},
+	{'photo':'ghosta9.png', 'name':'식신귀신'},
+	{'photo':'ghosta10.png', 'name':'도깨비'},
+	{'photo':'ghosta11.png', 'name':'저승사자'},
+	{'photo':'ghosta12.png', 'name':'좀비'},
+	{'photo':'ghosta13.png', 'name':'여고귀신'},
+	{'photo':'ghosta14.png', 'name':'봉천동귀신'}
 ]
 
 
