@@ -222,7 +222,7 @@ function lotteryBall() {
 				.css('top', yPos + 'px')
 			//console.log(i, xPos, yPos)
 		}
-	}, 100)
+	}, 20)
 }
 
 function getRandom(min, max){
