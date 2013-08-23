@@ -70,7 +70,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '싱글만 해보세요.',
 		desc: '커플은 여기 클릭도 하지 말어!!',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/single.png'],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/single2.png'],
 		type:'article'
 	}
 	console.log(postMsg, urlMsg)
