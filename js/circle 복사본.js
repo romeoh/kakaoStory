@@ -234,7 +234,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '원판돌리기',
 		desc: lastMan + '님은 결과를 겸허히 받아들이시오!',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/circle.png'],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/circle.png'],
 		type:'article'
 	}
 	console.log(postMsg, urlMsg)

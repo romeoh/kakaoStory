@@ -37,7 +37,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '나는 몇다리까지 걸치나',
 		desc: '기다려 꼭 돌아갈께~',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/play.png' ],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/play2.png' ],
 		type:'article'
 	}
 console.log(postMsg, urlMsg)

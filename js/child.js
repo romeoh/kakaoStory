@@ -104,7 +104,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '내 자녀수 알아보기',
 		desc: children + ' 입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/child.png' ],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/child.png' ],
 		type:'article'
 	}
 

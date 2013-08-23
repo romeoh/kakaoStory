@@ -37,7 +37,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '나는 언제까지 솔로인가?',
 		desc: '조금만 참자!!\n' + data[solor]['when'] + '까지만...',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/solo.png' ],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/solo.png' ],
 		type:'article'
 	}
 console.log(postMsg, urlMsg)

@@ -50,7 +50,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '진실의 입',
 		desc: desc,
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/truth.png'],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/truth2.png'],
 		type:'article'
 	}
 	console.log(postMsg, urlMsg)
