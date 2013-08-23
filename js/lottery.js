@@ -167,7 +167,8 @@ function playGame(evt, mp) {
 	if (rText === '직접입력') {
 		rText = M('#inputTitle').val()
 	}
-	M('.resultTxt').text( rText )
+	M('.resultTxt').text( rText );
+	M.scroll(100)
 	lotteryBall()
 }
 
