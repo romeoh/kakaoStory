@@ -48,7 +48,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '나의 장점/단점',
 		desc: '다 좋은데 말이야..\n' + data[jogeun3]['fault'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/advant.png'],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/advant.png'],
 		type:'article'
 	}
 	console.log(postMsg, urlMsg)
