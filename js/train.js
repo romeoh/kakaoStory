@@ -56,7 +56,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '설국열차',
 		desc: '설국열차는 약 100칸 입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/train.png' ],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/train.png' ],
 		type:'article'
 	}
 console.log(postMsg, urlMsg)
