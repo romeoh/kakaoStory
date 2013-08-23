@@ -243,7 +243,7 @@ function executeKakaoStoryLink(){
 	for (var i=0; i<resultName.length; i++) {
 		n = i + 1
 		if (i == resultName.length-1) {
-			postMsg += '\n그리고, 꼴등은 ' + resultName[i] + ' 입니다.\n\n';
+			postMsg += n + '등은 ' + resultName[i] + ' 입니다.\n\n';
 		} else {
 			postMsg += n + '등: ' + resultName[i] + '\n';
 		}
