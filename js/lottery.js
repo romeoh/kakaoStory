@@ -238,7 +238,7 @@ function executeKakaoStoryLink(){
 	}
 
 	
-	postMsg += '[순서 정하기]\n\n';
+	postMsg += '[랭킹 추첨기]\n\n';
 	postMsg += rText + '\n\n';
 	for (var i=0; i<resultName.length; i++) {
 		n = i + 1
@@ -252,7 +252,7 @@ function executeKakaoStoryLink(){
 	postMsg += 'http://goo.gl/n7lwvv';
 	
 	urlMsg = {
-		title: '순서 정하기',
+		title: '랭킹 추첨기',
 		desc: '',
 		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/lottery2.png'],
 		type:'article'
@@ -273,7 +273,7 @@ function executeKakaoStoryLink(){
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "순서 정하기",
+		msg: "랭킹 추첨기",
 		url: "http://goo.gl/n7lwvv",
 		appid: "funnyApp",
 		appver: "1.0",
