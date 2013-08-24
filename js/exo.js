@@ -113,6 +113,7 @@ function selPic(evt, mp){
 		M('#winnerName').text( M('#title').val() + ' ' + data[mp.data('idx')]['name'] + ' 입니다.');
 		//console.log('winner', data[mp.data('idx')]['name'])
 		winner.photo = data[mp.data('idx')]['photo']
+		winner.thum = data[mp.data('idx')]['thum']
 		winner.names = data[mp.data('idx')]['name']
 	}
 }
@@ -243,7 +244,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '엑소 월드컵',
 		desc: winner.names,
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/exo/' + winner.photo ],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/exo/' + winner.thum ],
 		type:'article'
 	}
 
@@ -273,18 +274,18 @@ function executeURLLink() {
 
 
 dataBrand = [
-	{'photo': 'exo01.png', 'name': '카이'},
-	{'photo': 'exo02.png', 'name': '루한'},
-	{'photo': 'exo03.png', 'name': '타오'},
-	{'photo': 'exo04.png', 'name': '첸'},
-	{'photo': 'exo05.png', 'name': '세훈'},
-	{'photo': 'exo06.png', 'name': '레이'},
-	{'photo': 'exo07.png', 'name': '시우민'},
-	{'photo': 'exo08.png', 'name': '백현'},
-	{'photo': 'exo09.png', 'name': '디오'},
-	{'photo': 'exo10.png', 'name': '수호'},
-	{'photo': 'exo11.png', 'name': '크리스'},
-	{'photo': 'exo12.png', 'name': '찬열'}
+	{'photo': 'exoP01.png', 'thum': 'exoT01.png', 'name': '카이'},
+	{'photo': 'exoP02.png', 'thum': 'exoT02.png', 'name': '루한'},
+	{'photo': 'exoP03.png', 'thum': 'exoT03.png', 'name': '타오'},
+	{'photo': 'exoP04.png', 'thum': 'exoT04.png', 'name': '첸'},
+	{'photo': 'exoP05.png', 'thum': 'exoT05.png', 'name': '세훈'},
+	{'photo': 'exoP06.png', 'thum': 'exoT06.png', 'name': '레이'},
+	{'photo': 'exoP07.png', 'thum': 'exoT07.png', 'name': '시우민'},
+	{'photo': 'exoP08.png', 'thum': 'exoT08.png', 'name': '백현'},
+	{'photo': 'exoP09.png', 'thum': 'exoT09.png', 'name': '디오'},
+	{'photo': 'exoP10.png', 'thum': 'exoT10.png', 'name': '수호'},
+	{'photo': 'exoP11.png', 'thum': 'exoT11.png', 'name': '크리스'},
+	{'photo': 'exoP12.png', 'thum': 'exoT12.png', 'name': '찬열'}
 ]
 
 
