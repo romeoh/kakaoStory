@@ -68,7 +68,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '나에게 고백할 사람',
 		desc: '정말이야? 전혀 눈치 못챘어...\n내일까지 이야기 할께~',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + img],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/' + img],
 		type:'article'
 	}
 	console.log(postMsg, urlMsg)
