@@ -21,38 +21,40 @@ function executeKakaoStoryLink(){
 	var  sexType
 		,userName = document.querySelector('#userName').value
 		,postMsg = ''
-		,age = getRandom(5, 100)
+		,day = getRandom(100, 4000)
+		,week = Math.round(day / 7)
+		,month = Math.round(day / 30)
+		,year = Math.round(month / 12)
 	
 	if (userName == '') {
 		alert('이름을 입력해 주세요.');
 		return false;
 	}
-
-	if (age <= 20) {
-		desc = '봤냐?'
-	} else if (age > 20 && age <= 35) {
-		desc = '선방했네..'
-	} else {
-		desc = '인생은 60부터.ㅠㅠ'
-	}
-
-	postMsg += '[나의 얼굴나이]\n';
-	postMsg += M('#userName').val() + '님의 얼굴나이는 ' + age + '세 입니다.\n\n';
 	
-	postMsg += 'http://goo.gl/yi3PU\n';
+	postMsg += '[B급 인생]\n\n';
+	postMsg += M('#userName').val() + '님은 A급 인생이 되기까지 약 ' + M.toCurrency(day) + '일 정도 남았습니다.\n\n';
+	postMsg += M.toCurrency(day) + '일은 \n';
+	postMsg += '약 ' + week + '주이며,\n';
+	postMsg += '약 ' + month + '개월이고,\n';
+	if (year) {
+		postMsg += '약 ' + year + '년 정도 됩니다.\n\n';
+	} else {
+		postMsg += '1년 이하 입니다.\n\n';
+	}
+	postMsg += 'http://goo.gl/g0wLJR\n';
 
 	urlMsg = {
-		title: '나의 얼굴나이',
-		desc: age + ' 이어즈 올드~\n' + desc,
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/age.png' ],
+		title: 'B급 인생',
+		desc: '기대하라.\n' + month + '개월 뒤에 세상을 정복하겠노라.\n',
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/b.png' ],
 		type:'article'
 	}
-console.log(postMsg, urlMsg, desc)
+console.log(postMsg, urlMsg)
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
 		appver : '1.0',
-		appname : '깨알유머:',
+		appname : '깨알유머: B급유머',
 		urlinfo : JSON.stringify(urlMsg)
     });
 
@@ -62,8 +64,8 @@ console.log(postMsg, urlMsg, desc)
 // 카톡
 function executeURLLink() {
 	kakao.link("talk").send({
-		msg: "나의 얼굴나이",
-		url: "http://goo.gl/yi3PU",
+		msg: "B급 인생",
+		url: "http://goo.gl/g0wLJR",
 		appid: "funnyApp",
 		appver: "1.0",
 		appname: "깨알유머:",
