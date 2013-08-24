@@ -125,7 +125,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: '날짜 계산기',
 		desc: dateCheck(start, end),
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/cal.jpg'],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/dday.jpg'],
 		type:'article'
 	}
 	console.log(postMsg, urlMsg)
