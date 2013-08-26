@@ -1,6 +1,7 @@
 var  appList = ''
-	,totalApp = 97
+	,totalApp = 98
 
+appList += '<li data-app="99"><a href="http://goo.gl/1cvuIf">타임인조선 (조선시대 계급)</a> <span class="ico new"></span></li>';
 appList += '<li data-app="98"><a href="http://goo.gl/g0wLJR">B급 인생</a> <span class="ico new"></span></li>';
 appList += '<li data-app="97"><a href="http://goo.gl/n7lwvv">랭킹 추첨기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="96"><a href="http://goo.gl/mJYRGS">진실의 입</a> <span class="ico new"></span><span class="ico hot"></span></li>';
