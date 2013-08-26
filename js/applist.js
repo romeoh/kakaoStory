@@ -53,7 +53,7 @@ appList += '<li data-app="51"><a href="http://goo.gl/kMeq9">비만도계산기</
 appList += '<li data-app="50"><a href="http://goo.gl/tqgF1">학점계산기</a></li>';
 appList += '<li data-app="49"><a href="http://goo.gl/DrQFt">애인구함</a></li>';
 appList += '<li data-app="48"><a href="http://goo.gl/D3Yy8">@나에게@ 고백할 사람의 초성</a> <span class="ico hot"></span></li>';
-appList += '<li data-app="47"><a href="http://goo.gl/yi3PU">@나의@얼굴 나이 알아보기</a></li>';
+appList += '<li data-app="47"><a href="http://goo.gl/yi3PU">@나의@ 얼굴 나이 알아보기</a></li>';
 appList += '<li data-app="46"><a href="http://goo.gl/AatVA">내장나이 알아보기</a></li>';
 appList += '<li data-app="45"><a href="http://goo.gl/6HS2G">625전쟁 상식 알아보기</a></li>';
 appList += '<li data-app="44"><a href="http://goo.gl/eK1NU">@나와@ 어울리는 CF</a> <span class="ico hot"></span></li>';
