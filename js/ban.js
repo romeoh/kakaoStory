@@ -18,18 +18,6 @@ if (hash != 'undefined') {
 
 	paramData['n'] = hash.split('&')[0].split('=')[1].split('|')
 	paramData['b'] = hash.split('&')[1].split('=')[1].split('|')
-	
-	str += '<dl>';
-	str += '	<dt>[LOL 동맹현황]</dt>';
-	
-	for (var i=0; i<paramData['n'].length; i++) {
-		str += '	<dd>이름: ' + paramData['n'][i] + ', 챔피언: ' + paramData['b'][i] + '</dd>';
-	}
-	str += '</dl>';
-	M('#result')
-		//.css('display', '')
-		//.html(str)
-
 }
 
 window.addEventListener("DOMContentLoaded", initPage, false);
@@ -79,11 +67,12 @@ function setParam() {
 //  카카오 스토리
 function executeKakaoStoryLink(url){
 	var  postMsg = ''
+		,idx = Math.floor(Math.random() * data.length)
 
 	postMsg += '[꽃보다 ' + M('#ban').val() + '반]\n\n';
 	
 	if (hash == 'undefined' || paramData['b'][0] != M('#ban').val()) {
-		postMsg += '나는 ' + M('#ban').val() + '반이다.\n\n';
+		postMsg += '나는 ' + data[idx] + M('#ban').val() + '반이다.\n\n';
 		postMsg += M('#ban').val() + '반이면 공유!!\n\n';
 	} else {
 		for (var i=0; i<paramData['n'].length-1; i++) {
@@ -91,7 +80,7 @@ function executeKakaoStoryLink(url){
 		}
 		postMsg = postMsg.replace(', ', '') + ''
 		postMsg = uniValue(postMsg) ? postMsg + '과 ' : postMsg + '와 '
-		postMsg += '나는 ' + M('#ban').val() + '반이다.\n\n';
+		postMsg += '나는 ' + data[idx] + M('#ban').val() + '반이다.\n\n';
 		postMsg += M('#ban').val() + '반이면 공유!!\n\n';
 	}
 	
@@ -162,14 +151,14 @@ function getShortUrl(url) {
 
 
 data = [
-	'섹시한',
-	'귀여운',
-	'멋쟁이',
-	'의리의',
-	'최고의',
-	'멋있는',
-	'영원한',
-	'재미있는'
+	'섹시한 ',
+	'귀여운 ',
+	'멋쟁이 ',
+	'의리있는 ',
+	'최고의 ',
+	'멋있는 ',
+	'영원한 ',
+	'재미있는 '
 ]
 
 
