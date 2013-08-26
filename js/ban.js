@@ -83,7 +83,7 @@ function executeKakaoStoryLink(url){
 	postMsg += '[꽃보다 ' + M('#ban').val() + '반]\n\n';
 	
 	if (hash == 'undefined' || paramData['b'][0] != M('#ban').val()) {
-		postMsg += '나는 ' + M('#ban').val() + '반이다.\n';
+		postMsg += '나는 ' + M('#ban').val() + '반이다.\n\n';
 		postMsg += M('#ban').val() + '반이면 공유!!\n\n';
 	} else {
 		for (var i=0; i<paramData['n'].length-1; i++) {
@@ -92,6 +92,7 @@ function executeKakaoStoryLink(url){
 		postMsg = postMsg.replace(', ', '') + ''
 		postMsg = uniValue(postMsg) ? postMsg + '과 ' : postMsg + '와 '
 		postMsg += '나는 ' + M('#ban').val() + '반이다.\n\n';
+		postMsg += M('#ban').val() + '반이면 공유!!\n\n';
 	}
 	
 	postMsg += url;
