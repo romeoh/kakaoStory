@@ -1,11 +1,12 @@
 var  appList = ''
-	,totalApp = 99
+	,totalApp = 100
 
+appList += '<li data-app="101"><a href="http://goo.gl/jfCdVj">섹션카스 연예통신</a> <span class="ico new"></span></li>';
 appList += '<li data-app="100"><a href="http://goo.gl/yGRU4N">꽃보다 우리반</a> <span class="ico new"></span></li>';
 appList += '<li data-app="99"><a href="http://goo.gl/1cvuIf">타임인조선 (조선시대 계급)</a> <span class="ico new"></span></li>';
 appList += '<li data-app="98"><a href="http://goo.gl/g0wLJR">B급 인생</a> <span class="ico new"></span></li>';
 appList += '<li data-app="97"><a href="http://goo.gl/n7lwvv">랭킹 추첨기</a> <span class="ico new"></span></li>';
-appList += '<li data-app="96"><a href="http://goo.gl/mJYRGS">진실의 입</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="96"><a href="http://goo.gl/mJYRGS">진실의 입</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="95"><a href="http://goo.gl/ZElb5R">@나는@ 몇번의 결혼을 하나</a></li>';
 appList += '<li data-app="94"><a href="http://goo.gl/qy9Yj2">@나에게@ 붙어있는 귀신</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="93"><a href="http://goo.gl/U5T02V">아저씨/아줌마 테스트</a></li>';
