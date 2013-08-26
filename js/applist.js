@@ -5,11 +5,11 @@ appList += '<li data-app="99"><a href="http://goo.gl/1cvuIf">타임인조선 (�
 appList += '<li data-app="98"><a href="http://goo.gl/g0wLJR">B급 인생</a> <span class="ico new"></span></li>';
 appList += '<li data-app="97"><a href="http://goo.gl/n7lwvv">랭킹 추첨기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="96"><a href="http://goo.gl/mJYRGS">진실의 입</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="95"><a href="http://goo.gl/ZElb5R">나는 몇번의 결혼을 하나</a> <span class="ico new"></span></li>';
-appList += '<li data-app="94"><a href="http://goo.gl/qy9Yj2">나에게 붙어있는 귀신</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="95"><a href="http://goo.gl/ZElb5R">@나는@ 몇번의 결혼을 하나</a> <span class="ico new"></span></li>';
+appList += '<li data-app="94"><a href="http://goo.gl/qy9Yj2">@나에게@ 붙어있는 귀신</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="93"><a href="http://goo.gl/U5T02V">아저씨/아줌마 테스트</a></li>';
 appList += '<li data-app="92"><a href="http://goo.gl/lvj1TZ">이모티콘 투하</a> <span class="ico hot"></span></li>';
-appList += '<li data-app="91"><a href="http://goo.gl/msnF7L">나는 몇다리까지 걸치나</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="91"><a href="http://goo.gl/msnF7L">@나는@ 몇다리까지 걸치나</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="90"><a href="http://goo.gl/omEoZI">엑소 월드컵</a></li>';
 appList += '<li data-app="89"><a href="http://goo.gl/97oVx7">싱글만 해보세요.</a></li>';
 appList += '<li data-app="88"><a href="http://goo.gl/Zr0JGC">LOL 챔피언 동맹맺기</a></li>';
@@ -19,22 +19,22 @@ appList += '<li data-app="85"><a href="http://goo.gl/n6gU3j">아이돌 좋아! �
 appList += '<li data-app="84"><a href="http://goo.gl/rhEs43">닮은꼴 연예인 찾기</a></li>';
 appList += '<li data-app="83"><a href="http://goo.gl/T9VG8G">설국열차</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="82"><a href="http://goo.gl/oJeIIL">연예인 좋아! 싫어!</a></span><span class="ico hot"></span></li>';
-appList += '<li data-app="81"><a href="http://goo.gl/DkT8fE">당신의 감정가</a></li>';
-appList += '<li data-app="80"><a href="http://goo.gl/ft3k0z">나의취향 공유</a></li>';
+appList += '<li data-app="81"><a href="http://goo.gl/DkT8fE">@당신의@ 감정가</a></li>';
+appList += '<li data-app="80"><a href="http://goo.gl/ft3k0z">@나의@ 취향 공유</a></li>';
 appList += '<li data-app="79"><a href="http://goo.gl/fnLTih">가문의 영광</a> </span></li>';
 appList += '<li data-app="78"><a href="http://goo.gl/IxTyxZ">천사/악마 검증기</a> <span class="ico command"></span><span class="ico hot"></li>';
-appList += '<li data-app="77"><a href="http://goo.gl/uAj2cA">나의 연관검색어</a></li>';
+appList += '<li data-app="77"><a href="http://goo.gl/uAj2cA">@나의@ 연관검색어</a></li>';
 appList += '<li data-app="76"><a href="http://goo.gl/pxiUqd">함께 휴가가는 연예인</a> <span class="ico hot"></span></li>';
-appList += '<li data-app="75"><a href="http://goo.gl/GOIAaR">나는 언제까지 솔로인가?</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="75"><a href="http://goo.gl/GOIAaR">@나는@ 언제까지 솔로인가?</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="74"><a href="http://goo.gl/5yqyOY">개구쟁이 스머프</a></li>';
 appList += '<li data-app="73"><a href="http://goo.gl/bmTFF">키스의 세기</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="72"><a href="http://goo.gl/HoznT">이성을 만나는 시기</a></li>';
 appList += '<li data-app="71"><a href="http://goo.gl/Xr6KF">연애의 온도</a></li>';
 appList += '<li data-app="70"><a href="http://goo.gl/r5fTS">[심리테스트] 미래를 위한 나의 노력</a></li>';
-appList += '<li data-app="69"><a href="http://goo.gl/bv6Lt">[심리테스트] 나의 일처리 타입은?</a></li>';
-appList += '<li data-app="68"><a href="http://goo.gl/DPb6h">나는 결국 누구와 결혼하나</a></li>';
-appList += '<li data-app="67"><a href="http://goo.gl/AigRi">나의 장점/단점</a> <span class="ico hot"></span></li>';
-appList += '<li data-app="66"><a href="http://goo.gl/UL2i4">나와 어울리는 슈퍼카</a> <span class="ico command"></span></li>';
+appList += '<li data-app="69"><a href="http://goo.gl/bv6Lt">[심리테스트] @나의@ 일처리 타입은?</a></li>';
+appList += '<li data-app="68"><a href="http://goo.gl/DPb6h">@나는@ 결국 누구와 결혼하나</a></li>';
+appList += '<li data-app="67"><a href="http://goo.gl/AigRi">@나의@ 장점/단점</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="66"><a href="http://goo.gl/UL2i4">@나와@ 어울리는 슈퍼카</a> <span class="ico command"></span></li>';
 appList += '<li data-app="65"><a href="http://goo.gl/WQrwI">[패러디] 누가 내시급에 소금쳤어!!!</a></li>';
 appList += '<li data-app="64"><a href="http://goo.gl/n8443">평행이론</a></li>';
 appList += '<li data-app="63"><a href="http://goo.gl/cfNQe">[심리테스트] 힘든 일을 극복하는 방법</a></li>';
@@ -43,51 +43,51 @@ appList += '<li data-app="61"><a href="http://goo.gl/Jr6q0">태어나서 처음�
 appList += '<li data-app="60"><a href="http://goo.gl/1eJ1L">행운의 인디안 부적</a></li>';
 appList += '<li data-app="59"><a href="http://goo.gl/ZuEM0">슈퍼 히어로</a></li>';
 appList += '<li data-app="58"><a href="http://goo.gl/lmysH">미래 애인 추적기</a> <span class="ico hot"></span></li>';
-appList += '<li data-app="57"><a href="http://goo.gl/Q5o37">내 얼굴 부위별 점수</a></li>';
+appList += '<li data-app="57"><a href="http://goo.gl/Q5o37">@나의@ 얼굴 부위별 점수</a></li>';
 appList += '<li data-app="56"><a href="http://goo.gl/gde5k">증권가 찌라시</a></li>';
 appList += '<li data-app="55"><a href="http://goo.gl/v0AFu">마구! 마구! 숫자야구</a> <span class="ico command"></span></li>';
 appList += '<li data-app="54"><a href="http://goo.gl/yivlH">가위! 바위! 보</a> <span class="ico command"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="53"><a href="http://goo.gl/WvTTE">내 키는 몇%에 해당할까</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="53"><a href="http://goo.gl/WvTTE">@내@ 키는 몇%에 해당할까</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="52"><a href="http://goo.gl/qIIMX">전국민 탭!탭!탭!</a> <span class="ico command"></span></li>';
 appList += '<li data-app="51"><a href="http://goo.gl/kMeq9">비만도계산기</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="50"><a href="http://goo.gl/tqgF1">학점계산기</a></li>';
 appList += '<li data-app="49"><a href="http://goo.gl/DrQFt">애인구함</a></li>';
-appList += '<li data-app="48"><a href="http://goo.gl/D3Yy8">나에게 고백할 사람의 초성</a> <span class="ico hot"></span></li>';
-appList += '<li data-app="47"><a href="http://goo.gl/yi3PU">나의얼굴 나이 알아보기</a></li>';
+appList += '<li data-app="48"><a href="http://goo.gl/D3Yy8">@나에게@ 고백할 사람의 초성</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="47"><a href="http://goo.gl/yi3PU">@나의@얼굴 나이 알아보기</a></li>';
 appList += '<li data-app="46"><a href="http://goo.gl/AatVA">내장나이 알아보기</a></li>';
 appList += '<li data-app="45"><a href="http://goo.gl/6HS2G">625전쟁 상식 알아보기</a></li>';
-appList += '<li data-app="44"><a href="http://goo.gl/eK1NU">나와 어울리는 CF</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="44"><a href="http://goo.gl/eK1NU">@나와@ 어울리는 CF</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="43"><a href="http://goo.gl/gNy3L">꽃보다 할배</a></li>';
 appList += '<li data-app="42"><a href="http://goo.gl/ZojeN">두시탈출 컬투쇼 베스트 사연 모음</a></li>';
 appList += '<li data-app="41"><a href="http://goo.gl/CZsWG">막장드라마</a></li>';
-appList += '<li data-app="40"><a href="http://goo.gl/en4KS">내 자녀수 알아보기</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="40"><a href="http://goo.gl/en4KS">@나의@ 자녀수 알아보기</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="39"><a href="http://goo.gl/Aa6wS">누구와 키스하나</a> <span class="ico hot"></span></li>';
-appList += '<li data-app="38"><a href="http://goo.gl/gSloK">자기 사용설명서</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="38"><a href="http://goo.gl/gSloK">@자기@ 사용설명서</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="37"><a href="http://goo.gl/VOm5Z">날짜 계산기</a> <span class="ico command"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="36"><a href="http://goo.gl/Ppey0">인디언식 이름 짓기</a></li>';
 appList += '<li data-app="35"><a href="http://goo.gl/PPYbq">빵터지는 카톡 실수모음</a> <span class="ico command"></li>';
 appList += '<li data-app="34"><a href="http://goo.gl/fF9We">연예인 시구 월드컵</a></li>';
-appList += '<li data-app="33"><a href="http://goo.gl/IJ4B5">내반쪽 찾기</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="33"><a href="http://goo.gl/IJ4B5">@나의@ 반쪽 찾기</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="32"><a href="http://goo.gl/iNzJa">혈액형 궁합</a></li>';
 appList += '<li data-app="31"><a href="http://goo.gl/w62nY">로또 번호 생성기</a></li>';
 appList += '<li data-app="30"><a href="http://goo.gl/eUdjn">명품 월드컵</a></li>';
 appList += '<li data-app="29"><a href="http://goo.gl/nzwC5">내이름 연상단어</a></li>';
 appList += '<li data-app="28"><a href="http://goo.gl/MVQ5y">받고싶은 생일선물</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="27"><a href="http://goo.gl/CRHWi">연예인 월드컵</a> <span class="ico command"></span></li>';
-appList += '<li data-app="26"><a href="http://goo.gl/yuAkj">3년뒤 나의 외제차</a></li>';
+appList += '<li data-app="26"><a href="http://goo.gl/yuAkj">3년뒤 @나의@ 외제차</a></li>';
 appList += '<li data-app="25"><a href="http://goo.gl/Vbd2u">3년뒤 마이카</a></li>';
-appList += '<li data-app="24"><a href="http://goo.gl/fZCtx">내 애인 그려보기</a> <span class="ico hot"></span></li>';
-appList += '<li data-app="23"><a href="http://goo.gl/8ns8E">내가 세상에 태어난 이유</a></li>';
+appList += '<li data-app="24"><a href="http://goo.gl/fZCtx">@나의@ 애인 그려보기</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="23"><a href="http://goo.gl/8ns8E">@내가@ 세상에 태어난 이유</a></li>';
 appList += '<li data-app="22"><a href="http://goo.gl/LR7Lf">별자리+혈액형 성격테스트</a></li>';
-appList += '<li data-app="21"><a href="http://goo.gl/HaHyR">나의 롤모델 </a></li>';
-appList += '<li data-app="20"><a href="http://goo.gl/TxVbO">나에게 어울리는 예능캐릭터</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="21"><a href="http://goo.gl/HaHyR">@나의@ 롤모델은</a></li>';
+appList += '<li data-app="20"><a href="http://goo.gl/TxVbO">@나에게@ 어울리는 예능캐릭터</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="19"><a href="http://goo.gl/u3vjV">손가락 루이16세</a> <span class="ico command"></span></li> ';
-appList += '<li data-app="18"><a href="http://goo.gl/wb8IF">섹시한여성을 봤을때 당신의 행동은? </a></li> ';
+appList += '<li data-app="18"><a href="http://goo.gl/wb8IF">섹시한여성을 봤을때 @당신의@ 행동은? </a></li> ';
 appList += '<li data-app="17"><a href="http://goo.gl/bOJ1a">커피로 알아보는 연예 심리테스트 </a></li> ';
 appList += '<li data-app="16"><a href="http://goo.gl/DC9X8">알파벳 심리테스트</a></li> ';
 appList += '<li data-app="15"><a href="http://goo.gl/r66cA">색깔로 알아보는 심리테스트</a></li> ';
-appList += '<li data-app="14"><a href="http://goo.gl/lzbc5">나의 매력 포인트</a></li>';
-appList += '<li data-app="13"><a href="http://goo.gl/VbOvP">내 이상형의 조건</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="14"><a href="http://goo.gl/lzbc5">@나의@ 매력 포인트</a></li>';
+appList += '<li data-app="13"><a href="http://goo.gl/VbOvP">@나의@ 이상형의 조건</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="12"><a href="http://goo.gl/37cx7">1:100 기출문제</a> <span class="ico command"></span></li>';
 appList += '<li data-app="11"><a href="http://goo.gl/Vm86D">원데이 명언</a></li>';
 appList += '<li data-app="10"><a href="http://goo.gl/urccj">우리 부부는 전생에 무슨 관계였나</a></li>';
@@ -95,15 +95,32 @@ appList += '<li data-app="9"><a href="http://goo.gl/dfrtm">내애인과 나는 �
 appList += '<li data-app="8"><a href="http://goo.gl/KRPGi">내아기와 나는 전생에 무슨 관계였나</a></li>';
 appList += '<li data-app="7"><a href="http://goo.gl/uxpnz">내아기 전생 알아보기</a></li>';
 appList += '<li data-app="6"><a href="http://goo.gl/D9B88">10년뒤 내 아기모습</a></li>';
-appList += '<li data-app="5"><a href="http://goo.gl/BCCnn">나의 주량 알아보기</a></li>';
-appList += '<li data-app="4"><a href="http://goo.gl/FSBT3">나와 스캔들날 연예인</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="5"><a href="http://goo.gl/BCCnn">@나의@ 주량 알아보기</a></li>';
+appList += '<li data-app="4"><a href="http://goo.gl/FSBT3">@나와@ 스캔들날 연예인</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="3"><a href="http://goo.gl/1945x">닮<span style="color:red">을</span>꼴 연예인 찾기</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="2"><a href="http://goo.gl/QWPHM">냉철한 대기업 인재 사냥꾼</a></li>';
-appList += '<li data-app="1"><a href="http://goo.gl/RPVB5">나와 커피마시고 싶어하는 연예인</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="1"><a href="http://goo.gl/RPVB5">@나와@ 커피마시고 싶어하는 연예인</a> <span class="ico hot"></span></li>';
 
 if (M('[data-list]').selector.length > 0) {
-	var currentApp = M('[data-list]').data('list')
-	M('[data-list]').html(appList);
+	var  currentApp = M('[data-list]').data('list')
+		,alist = appList
+		,savedName = M.storage('io.github.romeoh.user.name')
+		,nameStr0 = savedName
+		,nameStr1 = uniValue(savedName) ? savedName + '은' : savedName + '는'
+		,nameStr2 = uniValue(savedName) ? savedName + '과' : savedName + '와'
+
+	if (savedName) {
+		alist = appList
+					.replace(/@나는@/g, '@' + nameStr1 + '@')
+					.replace(/@나에게@/g, '@' + nameStr0 + '에게@')
+					.replace(/@당신의@/g, '@' + nameStr0 + '의@')
+					.replace(/@나의@/g, '@' + nameStr0 + '의@')
+					.replace(/@나와@/g, '@' + nameStr2 + '@')
+					.replace(/@내@/g, '@' + nameStr0 + '@')
+	}
+	alist = alist.replace(/@/g, '');
+
+	M('[data-list]').html(alist);
 	M('[data-app="' + currentApp + '"]').prepend('span', {
 		'className': 'ico sel'
 	})
@@ -150,6 +167,22 @@ M('#userName')
 		M.storage('io.github.romeoh.user.name', mp.val())
 	})
 	.val( M.storage('io.github.romeoh.user.name') || '' )
+
+function uniValue(_val) {
+	if (!_val) {
+		return;
+	}
+
+	var  lastChar = _val.substr(_val.length-1)
+		,uniValue = lastChar.charCodeAt(0) - 0xAC00
+		,jong = uniValue % 28
+		,jung = ( (uniValue - jong) / 28 ) % 21
+		,cho = parseInt( ( (uniValue - jong) / 28 ) % 21, 10)
+	if (jong === 0) {
+		return false;
+	}
+	return true;
+}
 
 var bannerData;
 function showad() {
