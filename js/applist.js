@@ -145,6 +145,11 @@ if (os === 'android') {
 		.html(eventTxt[idx])
 }
 
+M('#userName')
+	.on('change', function(evt, mp){
+		M.storage('io.github.romeoh.user.name', mp.val())
+	})
+	.val( M.storage('io.github.romeoh.user.name') || '' )
 
 var bannerData;
 function showad() {
