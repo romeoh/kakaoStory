@@ -47,7 +47,7 @@ function executeKakaoStoryLink(){
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/age.png' ],
 		type:'article'
 	}
-console.log(postMsg, urlMsg, desc)
+console.log(postMsg, urlMsg)
 	kakao.link("story").send({   
         post : postMsg,
         appid : 'funnyApp',
