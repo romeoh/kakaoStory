@@ -44,7 +44,7 @@ function executeKakaoStoryLink(){
 	urlMsg = {
 		title: M('#userName').val() + ' 길들이기',
 		desc: dataFood[foodIdx] + ' 사줘~ 뿌잉뿌잉~\n',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/tomboy.png' ],
+		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/tomboy2.png' ],
 		type:'article'
 	}
 console.log(postMsg, urlMsg)
