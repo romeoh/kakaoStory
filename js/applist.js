@@ -1,11 +1,12 @@
 var  appList = ''
-	,totalApp = 100
+	,totalApp = 101
 
-appList += '<li data-app="101"><a href="http://goo.gl/jfCdVj">섹션카스 연예통신</a> <span class="ico new"></span></li>';
+appList += '<li data-app="102"><a href="http://goo.gl/WhJ2Xc">@말괄량이@ 길들이기</a> <span class="ico new"></span></li>';
+appList += '<li data-app="101"><a href="http://goo.gl/jfCdVj">섹션카스 연예통신</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="100"><a href="http://goo.gl/yGRU4N">꽃보다 우리반</a> <span class="ico new"></span></li>';
-appList += '<li data-app="99"><a href="http://goo.gl/1cvuIf">타임인조선 (조선시대 계급)</a> <span class="ico new"></span></li>';
+appList += '<li data-app="99"><a href="http://goo.gl/1cvuIf">타임인조선 (조선시대 계급)</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="98"><a href="http://goo.gl/g0wLJR">B급 인생</a> <span class="ico new"></span></li>';
-appList += '<li data-app="97"><a href="http://goo.gl/n7lwvv">랭킹 추첨기</a> <span class="ico new"></span></li>';
+appList += '<li data-app="97"><a href="http://goo.gl/n7lwvv">랭킹 추첨기</a></li>';
 appList += '<li data-app="96"><a href="http://goo.gl/mJYRGS">진실의 입</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="95"><a href="http://goo.gl/ZElb5R">@나는@ 몇번의 결혼을 하나</a></li>';
 appList += '<li data-app="94"><a href="http://goo.gl/qy9Yj2">@나에게@ 붙어있는 귀신</a> <span class="ico hot"></span></li>';
@@ -119,6 +120,7 @@ if (M('[data-list]').selector.length > 0) {
 					.replace(/@나의@/g, '@' + nameStr0 + '의@')
 					.replace(/@나와@/g, '@' + nameStr2 + '@')
 					.replace(/@내@/g, '@' + nameStr0 + '@')
+					.replace(/@말괄량이@/g, '@' + nameStr0 + '@')
 	}
 	alist = alist.replace(/@/g, '');
 
