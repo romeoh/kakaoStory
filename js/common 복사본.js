@@ -495,11 +495,13 @@ function sendData(_obj) {
 					FB.api(/me/ + feed, method, message, function (response) {
 						if (!response || response.error) {
 							if (error) {
-								error();
+								alert('오류가 발생했습니다.');
+								//error();
 							}
 						} else {
 							if (success) {
-								success();
+								alert('등록 되었습니다.');
+								//success();
 							}
 						}
 					});
