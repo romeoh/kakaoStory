@@ -1,80 +1,43 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataMale, dataFemale
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '평행이론';
+	data.url = 'http://goo.gl/n8443';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  userName = document.querySelector('#userName').value
-		,idx = Math.floor(Math.random()*30)
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-		,urlMsg = {}
-		,data
-		,matchRate = Math.floor(Math.random()*50 + 50)
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
+
+	matchRate = process(50, 100)
+	idx = process(database)
 	
-	data = dataMale;
+	post += '[' + data.title + ']\n\n';
+	post += userName + '님과 비슷한 운명을 가진 유명인을 찾았습니다.\n\n'
+	post += '이름: ' + database[idx]['name'] + '\n'
+	post += '매치율: ' + matchRate + '%\n'
+	post += '평행이론: ' + database[idx]['point']
+	data.post = post;
 	
-	postMsg += '[평행이론]\n\n'
-	postMsg += userName + '님과 비슷한 운명을 가진 유명인을 찾았습니다.\n\n'
-	postMsg += '이름: ' + data[idx]['name'] + '\n'
-	postMsg += '매치율: ' + matchRate + '%\n'
-	postMsg += '평행이론: ' + data[idx]['point'] + '\n\n'
-	postMsg += 'http://goo.gl/n8443'
+	data.desc = userName + '님과 ' + database[idx]['name'] + '님의 스캔들 사건';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + database[idx]['photo'];
 
-	urlMsg = {
-		title: '평행이론',
-		desc: data[idx]['name'] + '님과 ' + matchRate + '% 닮았습니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[idx]['photo'] ],
-		type:'article'
-	}
-	
-	console.log(postMsg, urlMsg)
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "평행이론",
-		url: "http://goo.gl/n8443",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-dataMale = [
+database = [
 	{'photo': 'n1.png', 'name': '김연아', 		'point':'피겨스케이트로 세계적인 명성을 얻습니다.'},
 	{'photo': 'n2.png', 'name': '박지성', 		'point':'한국 축구역사에 큰획을 긋습니다.'},
 	{'photo': 'n3.png', 'name': '박태환', 		'point':'한국 수영역사에 큰별이 됩니다.'},

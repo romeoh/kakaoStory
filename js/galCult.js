@@ -1,15 +1,42 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,imgWidth = M('#wrapper').css('clientWidth')
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '두시탈출 컬투쇼 베스트 사연 모음';
+	data.url = 'http://goo.gl/ZojeN';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	post += '[' + data.title + ']\n\n';
+	post += '대박 웃긴 컬투쇼 사연 모음 보러가기';
+	data.post = post;
+	
+	data.desc = '두시탈출 컬투쇼';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/cult.png';
+
+	sendData(data);
+}
+
+
+
+var  imgWidth = M('#wrapper').css('clientWidth')
 	,screenX = M.screen().width/2 - 23
 	,cuIdx = 0
 	,indiCount = 0
 	,arr32 = []
-
-
 
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
@@ -43,8 +70,6 @@ function initPage(){
 		appendImg()
 		M.scroll(0)
 	})
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
 }
 
 // 초기화
@@ -80,33 +105,6 @@ function appendImg() {
 }
 
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var postMsg = ''
-	
-	postMsg += '[두시탈출 컬투쇼 베스트 사연 모음]\n';
-	postMsg += '대박 웃긴 컬투쇼 사연 모음 보러가기\n\n';
-	postMsg += 'http://goo.gl/ZojeN\n';
-
-	urlMsg = {
-		title: '두시탈출 컬투쇼 베스트 사연 모음',
-		desc: '컬투쇼',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/cult.png' ],
-		type:'article'
-	}
-
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
 function insert32(data, leng) {
 	ranValue = Math.floor(Math.random() * data.length)
 	if (arr32.length === 0) {
@@ -131,18 +129,6 @@ function insert32(data, leng) {
 	}
 	return arr32
 	
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "두시탈출 컬투쇼 베스트 사연 모음",
-		url: "http://goo.gl/ZojeN",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
 }
 
 

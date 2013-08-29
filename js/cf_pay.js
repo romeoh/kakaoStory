@@ -1,18 +1,77 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,cf = '0'
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = 'CF 패러디';
+	data.url = 'http://goo.gl/WQrwI';
 
+	if (cf === '0') {
+		database = data0
+		idx = process(database)
 
+		post += '[' + data.title + ']\n\n';
+		post += '그에게 짜기만 했던 시간\n\n';
+		post += '"누가 내 ' + database[idx]['article'] + '에 소금쳤어!!!"\n\n';
+		post += '내' + database[idx]['article'] + '의 반전';
+
+		data.desc = '누가 내' + database[idx]['article'] + '에 소금쳤어!!!';
+		data.img = 'http://romeoh.github.io/kakaoStory/img/cf_pay_thum.png';
+	}
+
+	if (cf === '1') {
+		database = data1
+		idx = process(database)
+		artcle = database[idx]['article']
+		check1 = database[idx]['check1']
+		check2 = database[idx]['check2']
+
+		post += '[' + data.title + ']\n\n';
+		post += artcle + '에게도 영혼이 있다면\n';
+		post += '물불을 두려워 않고 뛰어드는 용기와 \n';
+		post += '어떤 시련에도 상처받지 않는 강인함 \n\n';
+		post += '단언컨대, ' + artcle + check1 + ' 가장 완벽 합니다.';
+
+		data.desc = '단언컨대, ' + artcle + check1 + ' 가장 완벽 합니다.';
+		data.img = 'cf_pay_thum2.png';
+	}
+
+	if (cf === '2') {
+		database = data2
+		idx = process(database)
+		artcle = database[idx]['article']
+		check1 = database[idx]['check1']
+		check2 = database[idx]['check2']
+
+		post += '작작 좀 써!!\n\n';
+		post += '작작 쫌!!\n\n';
+		post += '하루종일 스마트폰으로 드라마만 보고\n\n';
+		post += artcle + check2 + ' 남아 돌아?\n\n';
+		post += '그래요 남아 돌아요.\n\n';
+		post += '뭐~어?\n\n';
+		post += '난 ' + artcle + check2 + ' 두배라고요.\n\n';
+		post += '두배?\n\n';
+		post += '리...리얼리?';
+
+		data.desc = artcle + check2 + ' 남아 돌아?';
+		data.img = 'cf_pay_thum3.png';
+	}
+
+	data.post = post;
+	sendData(data);
+}
+
+var cf = '0'
 window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-
 	M('#selCf').on('change', function(evt, mp){
 		if (mp.val() === '0') {
 			cf = '0'
@@ -29,98 +88,6 @@ window.addEventListener('DOMContentLoaded', function(){
 		}
 	})
 }, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-	
-	if (cf === '0') {
-		data = data0
-		dataRan = Math.floor(Math.random() * data.length)
-		artcle = data[dataRan]['article']
-
-		postMsg += '그에게 짜기만 했던 시간\n\n';
-		postMsg += '"누가 내 ' + artcle + '에 소금쳤어!!!"\n\n';
-		postMsg += '내' + artcle + '의 반전\n\n';
-
-		desc = '누가 내' + artcle + '에 소금쳤어!!!'
-		img = 'cf_pay_thum.png'
-		appname = '누가 내 시급에 소금쳤어!!'
-	}
-
-	if (cf === '1') {
-		data = data1
-		dataRan = Math.floor(Math.random() * data.length)
-		artcle = data[dataRan]['article']
-		check1 = data[dataRan]['check1']
-		check2 = data[dataRan]['check2']
-
-		postMsg += artcle + '에게도 영혼이 있다면\n';
-		postMsg += '물불을 두려워 않고 뛰어드는 용기와 \n';
-		postMsg += '어떤 시련에도 상처받지 않는 강인함 \n\n';
-		postMsg += '단언컨대, ' + artcle + check1 + ' 가장 완벽 합니다. \n\n';
-
-		desc = '단언컨대, ' + artcle + check1 + ' 가장 완벽 합니다.'
-		img = 'cf_pay_thum2.png'
-		appname = '단언컨대, 메탈은 가장 완벽한 물질입니다.'
-	}
-
-	if (cf === '2') {
-		data = data2
-		dataRan = Math.floor(Math.random() * data.length)
-		artcle = data[dataRan]['article']
-		check1 = data[dataRan]['check1']
-		check2 = data[dataRan]['check2']
-
-		postMsg += '작작 좀 써!!\n\n';
-		postMsg += '작작 쫌!!\n\n';
-		postMsg += '하루종일 스마트폰으로 드라마만 보고\n\n';
-		postMsg += artcle + check2 + ' 남아 돌아?\n\n';
-		postMsg += '그래요 남아 돌아요.\n\n';
-		postMsg += '뭐~어?\n\n';
-		postMsg += '난 ' + artcle + check2 + ' 두배라고요.\n\n';
-		postMsg += '두배?\n\n';
-		postMsg += '리...리얼리?\n\n\n';
-
-		desc = artcle + check2 + ' 남아 돌아?'
-		img = 'cf_pay_thum3.png'
-		appname = '데이터가 남아 돌아?'
-	}
-	
-	
-	postMsg += 'http://goo.gl/WQrwI\n';
-	
-	urlMsg = {
-		title: 'CF 패러디',
-		desc: desc,
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + img ],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "CF 패러디",
-		url: "http://goo.gl/WQrwI",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
 
 
 data0 = [

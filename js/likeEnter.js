@@ -1,9 +1,4 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,data
+var  data
 	,likesList
 	,totalLength = 10
 	,current = 0
@@ -17,10 +12,11 @@ window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
 	init()
 	initStart();
-
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	//btnKakao.addEventListener('click', executeURLLink, false);
-	M('[data-id="btnKakao"]').on('click', executeURLLink)
+	M('[data-id="btnKakao"]').on('click', function(){
+		var d = {}
+		d.media = 'talk'
+		action(d)
+	})
 }
 
 // 초기화
@@ -81,7 +77,7 @@ function start(flag) {
 
 function choice() {
 	likes = {}
-	edata = data[likesList[current]]
+	edata = database[likesList[current]]
 	ename = edata['ename']
 	photo = thum = edata['photo']
 	current++;
@@ -104,24 +100,24 @@ function choiceResult() {
 }
 
 function insertLikes(data, leng) {
-	ranValue = Math.floor(Math.random() * data.length)
+	ranValue = Math.floor(Math.random() * database.length)
 	if (likesList.length === 0) {
 		likesList.push(ranValue);
-		insertLikes(data, leng)
+		insertLikes(database, leng)
 	} else {
 		if (likesList.length >= leng) {
 			return likesList;
 		} else {
 			for (var i=0; i<likesList.length; i++) {
 				if (likesList[i] === ranValue) {
-					return insertLikes(data, leng);
+					return insertLikes(database, leng);
 					break;
 				}
 			}
 			
 			if (likesList.length <= leng-1) {
 				likesList.push(ranValue);
-				return insertLikes(data, leng)
+				return insertLikes(database, leng)
 			}
 		}
 	}
@@ -135,52 +131,44 @@ function getRanNum(arr, val){
 	}
 }
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-	
-	postMsg += '[연예인 좋아! 싫어!]\n\n';
-	postMsg += M('#userName').val() + '님은 \n';
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '연예인 좋아! 싫어!';
+	data.url = 'http://goo.gl/oJeIIL';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님은 \n';
 	for (var i=0; i<totalLength; i++) {
 		n = i+1
-		postMsg += n + '. ' + myLikes[i]['ename'] + ' ' + myLikes[i]['result'] + '\n';
+		post += n + '. ' + myLikes[i]['ename'] + ' ' + myLikes[i]['result'] + '\n';
 	}
-	postMsg += '\nhttp://goo.gl/oJeIIL\n';
+	data.post = post;
+	
+	data.desc = '그들은 날 좋아할까?';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + thum;
 
-	urlMsg = {
-		title: '연예인 좋아! 싫어!',
-		desc: '그들은 날 좋아할까?',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + thum ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "연예인 좋아! 싫어!",
-		url: "http://goo.gl/oJeIIL",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-data = [
+database = [
 	{'photo':'vacationGirl1.png', 'ename':'클라라를'},
 	{'photo':'vacationGirl2.png', 'ename':'이다희를'},
 	{'photo':'vacationGirl3.png', 'ename':'아이유를'},

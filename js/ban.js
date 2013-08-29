@@ -1,17 +1,10 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,hash =  decodeURIComponent(window.location.hash.split('#')[1])
+var  hash =  decodeURIComponent(window.location.hash.split('#')[1])
 	,dataIdx
 	,paramData = {
 		'n':[],
 		'b':[]
 	}
+	,platform
 
 if (hash != 'undefined') {
 	var str = ''
@@ -22,9 +15,55 @@ if (hash != 'undefined') {
 
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
-	btnStory.addEventListener('click', makeUrl, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
+	//btnStory.addEventListener('click', makeUrl, false);
+	//btnKakao.addEventListener('click', executeURLLink, false);
 }
+
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '꽃보다 우리반';
+	data.url = 'http://goo.gl/yGRU4N';
+	platform = data.media
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	userName = document.querySelector('#userName').value
+	dataIdx = Math.floor(Math.random() * data.length)
+	
+	if (userName == '') {
+		alert('이름을 입력해 주세요.');
+		return false;
+	}
+	if (M('#ban').val() == '-1') {
+		alert('반을 선택해 주세요.');
+		return false;
+	}
+	
+	if (paramData['b'][0] == M('#ban').val()) {
+		param = setParam();
+	} else {
+		param = 'n=' + userName + '&b=' + M('#ban').val()
+	}
+	
+	page = 'http://romeoh.github.io/kakaoStory/html/ban.html#' + encodeURIComponent(param);
+	getShortUrl(page);
+}
+
 
 function makeUrl() {
 	userName = document.querySelector('#userName').value
@@ -66,61 +105,33 @@ function setParam() {
 
 //  카카오 스토리
 function executeKakaoStoryLink(url){
-	var  postMsg = ''
-		,idx = Math.floor(Math.random() * data.length)
+	var  post = ''
+		,idx = Math.floor(Math.random() * database.length)
 
-	postMsg += '[꽃보다 ' + M('#ban').val() + '반]\n\n';
+	data = {}
+	data.media = platform
+
+	post += '[꽃보다 ' + M('#ban').val() + '반]\n\n';
 	
 	if (hash == 'undefined' || paramData['b'][0] != M('#ban').val()) {
-		postMsg += '나는 ' + data[idx] + M('#ban').val() + '반이다.\n\n';
-		postMsg += M('#ban').val() + '반이면 공유!!\n\n';
+		post += '나는 ' + database[idx] + M('#ban').val() + '반이다.\n\n';
+		post += M('#ban').val() + '반이면 공유!!\n\n';
 	} else {
 		for (var i=0; i<paramData['n'].length-1; i++) {
-			postMsg += ', ' + paramData['n'][i];
+			post += ', ' + paramData['n'][i];
 		}
-		postMsg = postMsg.replace(', ', '') + ''
-		postMsg = uniValue(postMsg) ? postMsg + '과 ' : postMsg + '와 '
-		postMsg += '나는 ' + data[idx] + M('#ban').val() + '반이다.\n\n';
-		postMsg += M('#ban').val() + '반이면 공유!!\n\n';
+		post = post.replace(', ', '') + ''
+		post = uniValue(post) ? post + '과 ' : post + '와 '
+		post += '나는 ' + database[idx] + M('#ban').val() + '반이다.\n\n';
+		post += M('#ban').val() + '반이면 공유!!\n\n';
 	}
+	post += url;
+	data.post = post;
 	
-	postMsg += url;
-	
-	urlMsg = {
-		title: '꽃보다 ' + M('#ban').val() + '반',
-		desc: M('#ban').val() + '반이면 닥치고 공유!!',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/ban' + M('#ban').val() + '.png' ],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = M('#ban').val() + '반이면 닥치고 공유!!';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/ban' + M('#ban').val() + '.png';
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "꽃보다 우리반",
-		url: "http://goo.gl/yGRU4N",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
-
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
+	sendData(data);
 }
 
 function urlParser() {
@@ -150,7 +161,7 @@ function getShortUrl(url) {
 
 
 
-data = [
+database = [
 	'섹시한 ',
 	'귀여운 ',
 	'멋쟁이 ',

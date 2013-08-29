@@ -30,7 +30,7 @@ nav a {color:#fff;; margin:0 10px}
 .share li a em {display: inline-block;overflow: hidden;width: 14px;height: 14px;background: url(../imgApp/sp_btn.png) no-repeat;background-size: 250px 250px;vertical-align: middle;-webkit-background-size: 250px 250px;}
 .share li a em.ico_star_check {height: 15px;margin: -4px 5px 0 0;background-position: -82px -19px;}
 
-.btn_w {margin:13px 0 19px; text-align:center; display:none}
+.btn_w {margin:13px 0 19px; text-align:center; display:}
 .btn_go {display: inline-block;width: 83px;height: 31px;border: 1px solid #909296;border-radius: 3px;background: -webkit-gradient(linear,0 0,0 100%,from(#fff),color-stop(.05,#fbfbfb),to(#f1f1f1));line-height: 31px;font-weight: 600;text-align: center;; color:#333}
 .btn_go span:after {display: inline-block;overflow: hidden;width: 5px;height: 9px;margin: 11px 0 0 7px;background: url(../imgApp/sp_btn.png) no-repeat -36px -18px;background-size: 250px 250px;vertical-align: top;content: '';-webkit-background-size: 250px 250px;}
 

@@ -45,7 +45,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <div class="content">
 	<div class="section">
 		<select id="selTitle">
-			<option value="" selected>주제를 선택하세요.</option>
+			<option value="-1" selected>주제를 선택하세요.</option>
 			<option value="day">살아온 날</option>
 			<option value="birth">내 생일</option>
 			<option value="meet">우리 만난지</option>
@@ -57,7 +57,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		<p id="info"></p>
 		<input type="number" id="selYear" placeholder="년도를 입력하세요." maxlength="4" style="width:80px">
 		<select id="selMonth">
-			<option value="" selected>월</option>
+			<option value="-1" selected>월</option>
 			<option value="01">1월</option>
 			<option value="02">2월</option>
 			<option value="03">3월</option>
@@ -72,7 +72,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 			<option value="12">12월</option>
 		</select>
 		<select id="selDate">
-			<option value="" selected>일</option>
+			<option value="-1" selected>일</option>
 			<option value="01">1일</option>
 			<option value="02">2일</option>
 			<option value="03">3일</option>
@@ -114,9 +114,9 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		<li><a href="#" id="btnKakao"><span>카톡친구 초대</span></a></li>
 	</ul>
 	<div class="btn_w">
-		<a href="#" id="" class="btn_go"><span>트위터</span></a>
-		<a href="#" id="" class="btn_go"><span>페이스북</span></a>
-		<a href="#" id="" class="btn_go"><span>블로그</span></a>
+		<a href="#" id="btnTwitter" class="btn_go"><span>트위터</span></a>
+		<a href="#" id="btnFacebook" class="btn_go"><span>페이스북</span></a>
+		<a href="#" id="btnMe2day" class="btn_go"><span>미투데이</span></a>
 	</div>
 </div>
 
@@ -161,6 +161,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <script type="text/javascript" src="../js/kakao.link.js"></script>
 <script type="text/javascript" src="../js/mpui.js"></script>
 <script type="text/javascript" src="../js/applist.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
 <script type="text/javascript" src="../js/dday.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

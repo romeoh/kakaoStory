@@ -1,9 +1,4 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,imgWidth = M('#wrapper').css('clientWidth')
+var  imgWidth = M('#wrapper').css('clientWidth')
 	,screenX = M.screen().width/2 - 23
 	,cuIdx = 0
 	,indiCount = 0
@@ -40,8 +35,6 @@ function initPage(){
 		cuIdx--;
 		appendImg()
 	})
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
 }
 
 // 초기화
@@ -61,31 +54,36 @@ function appendImg() {
 }
 
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var postMsg = ''
-	
-	postMsg += '[빵터지는 카톡실수모음]\n';
-	postMsg += '너무 웃겨서 배꼽이 빠지면 \n가까운 병원을 방문하세요.\n\n';
-	postMsg += 'http://goo.gl/PPYbq\n';
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
-	urlMsg = {
-		title: '빵터지는 카톡실수모음',
-		desc: '빵터지는 카톡실수모음',
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgKatalk/thum.png' ],
-		type:'article'
+	data.title = '빵터지는 카톡실수모음';
+	data.url = 'http://goo.gl/PPYbq';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
 	}
+	
+	post += '[' + data.title + ']\n\n';
+	post += '너무 웃겨서 배꼽이 빠지면 \n가까운 병원을 방문하세요.';
+	data.post = post;
+	
+	data.desc = '대박~';
+	data.img = 'http://romeoh.github.io/kakaoStory/imgKatalk/thum.png';
 
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
 // 카톡

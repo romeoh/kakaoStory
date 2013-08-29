@@ -1,10 +1,4 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,data
-	//,arr16
+var  data
 	,arr16
 	,arr8
 	,arr4
@@ -20,9 +14,6 @@ window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
 	init()
 	initStart();
-
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
 }
 
 // 초기화
@@ -231,47 +222,38 @@ function getRanNum(arr, val){
 	}
 }
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,postMsg = ''
-	
-	postMsg += '[엑소 월드컵]\n';
-	//postMsg += M('#userName').val() + '님이 뽑은 명품 시구는\n';
-	postMsg += M('#title').val() + ' ' + winner.names + ' 입니다. \n\n';
-	postMsg += 'http://goo.gl/omEoZI\n';
 
-	urlMsg = {
-		title: '엑소 월드컵',
-		desc: winner.names,
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/exo/' + winner.thum ],
-		type:'article'
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '엑소 월드컵';
+	data.url = 'http://goo.gl/omEoZI';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
 	}
 
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	post += '[' + data.title + ']\n\n';
+	post += M('#title').val() + ' ' + winner.names + ' 입니다.';
+	data.post = post;
+	
+	data.desc = winner.names;
+	data.img = 'http://romeoh.github.io/kakaoStory/images/exo/' + winner.thum;
 
-    showad()
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "엑소 월드컵",
-		url: "http://goo.gl/omEoZI",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 dataBrand = [
 	{'photo': 'exoP01.png', 'thum': 'exoT01.png', 'name': '카이'},

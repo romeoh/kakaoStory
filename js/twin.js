@@ -1,96 +1,45 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,data
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '닮은꼴 연예인 찾기';
+	data.url = 'http://goo.gl/rhEs43';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-		data = dataMale;
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-		data = dataFemale;
-	}, false);
-}, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,twin = Math.floor(Math.random() * data.length)
-		,userName = document.querySelector('#userName').value
-		,percent = getRandom(50, 99)
-
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	if (userName === '') {
-		alert('이름을 입력해 주세요.');
-		return false;
+
+	if (sexType == 'boy') {
+		database = dataBoy
+	} else if (sexType == 'girl') {
+		database = dataGirl;
 	}
+	idx = process(database)
+	percent = process(50, 99)
 	
-	postMsg += '[닮은꼴 연예인 찾기]\n\n';
-	postMsg += userName + '님과 닮은 연예인은 ' + data[twin]['name'] + ' 입니다.\n';
-	postMsg += '매치율: ' + percent + '%\n\n';
+	post += '[' + data.title + ']\n\n';
+	post += userName + '님과 닮은 연예인은 ' + database[idx]['name'] + ' 입니다.';
+	data.post = post;
 	
-	postMsg += 'http://goo.gl/rhEs43\n';
-	
-	urlMsg = {
-		title: '닮은꼴 연예인 찾기',
-		desc: percent + '%의 ' + data[twin]['name'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgEnter/' + data[twin]['photo']],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = percent + '%의 ' + database[idx]['name'];
+	data.img = 'http://romeoh.github.io/kakaoStory/imgEnter/' + database[idx]['photo'];
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "닮은꼴 연예 찾기",
-		url: "http://goo.gl/rhEs43",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
-
-
 
 // 남자
-dataMale = [
+dataBoy = [
 	{'photo':'tm1.png', 'name':'박진영'},
 	{'photo':'tm2.png', 'name':'차태현'},
 	{'photo':'tm3.png', 'name':'박상민'},
@@ -121,7 +70,7 @@ dataMale = [
 ]
 
 // 여자
-dataFemale = [
+dataGirl = [
 	{'photo':'tf1.png', 'name':'씨야 이보람'},
 	{'photo':'tf2.png', 'name':'원더걸수 선미'},
 	{'photo':'tf3.png', 'name':'김보민'},

@@ -1,105 +1,46 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataMale, dataFemale
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '나는 결국 누구와 결혼하나';
+	data.url = 'http://goo.gl/DPb6h';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  userName = document.querySelector('#userName').value
-		,idx = Math.floor(Math.random()*50) + 1
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-		,when = dataWhen[Math.floor(Math.random() * dataWhen.length)]
-		//,how = dataHow[Math.floor(Math.random() * dataHow.length)]
-	
-	//idx < 10 ? idx = '0' + idx : idx
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
-		return false;
-	}
-	
-	if (boySelect.className == 'checked') {
-		kissData = dataMale[Math.floor(Math.random() * dataMale.length)]
-		who = kissData['name']
-		photo = kissData['photo']
-	} else if (girlSelect.className == 'checked') {
-		kissData = dataFemale[Math.floor(Math.random() * dataFemale.length)]
-		who = kissData['name']
-		photo = kissData['photo']
-	}
-	
-	postMsg += '[나는 결국 누구와 결혼하나]\n\n';
-	postMsg += userName + '님은 결국 ' + who + ' ' + when + '에 결혼하게 됩니다.\n\n';
-	
-	postMsg += 'http://goo.gl/DPb6h';
-	
-	urlMsg = {
-		title: '나는 누구와 결혼하나',
-		desc: who + ' 결혼합니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + photo],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	if (sexType == 'boy') {
+		database = dataBoy
+	} else if (sexType == 'girl') {
+		database = dataGirl;
+	}
+	who = database[process(database)]['name']
+	photo = database[process(database)]['photo']
+	when = dataWhen[process(dataWhen)]
+	
+	post += '[' + data.title + ']\n\n';
+	post += userName + '님은 결국 ' + who + ' ' + when + '에 결혼하게 됩니다.';
+	data.post = post;
+	
+	data.desc = who + ' 결혼합니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + photo;
 
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "나는 결국 누구와 결혼하나",
-		url: "http://goo.gl/DPb6h",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-
-
-
-dataMale = [
+dataBoy = [
 	{'photo': 'loveM01.jpg', 'name': '여자친구와', 'msg':''},
 	{'photo': 'loveM02.jpg', 'name': '클럽에서 만난 여성과', 'msg':''},
 	{'photo': 'loveM03.jpg', 'name': '길거리에서 헌팅한 여성과', 'msg':''},
@@ -124,7 +65,7 @@ dataMale = [
 	{'photo': 'loveM22.jpg', 'name': '고준희와', 'msg':''}
 ]
 
-dataFemale = [
+dataGirl = [
 	{'photo': 'loveF01.jpg', 'name': '남자친구와', 'msg':''},
 	{'photo': 'loveF02.jpg', 'name': '클럽에서 만난 남자와', 'msg':''},
 	{'photo': 'loveF03.jpg', 'name': '길거리 자나가는 남자와', 'msg':''},

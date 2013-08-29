@@ -1,18 +1,54 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,index = 0
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '피부나이 테스트';
+	data.url = 'http://goo.gl/O4PZ7B';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	if (index != 17) {
+		alert('테스트를 완료해주세요.');
+		return false;
+	}
+
+	if (M('#age').val() > age) {
+		desc = '그대는 피부동안 이군요.'
+	} else if (M('#age').val() < age) {
+		desc = '피부관리가 필요해 보입니다.'
+	} else {
+		desc = '나이에 알맞는 피부입니다.'
+	}
+
+	
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님의 피부 나이는 ' + age + '살 입니다.';
+	data.post = post;
+	
+	data.desc = desc;
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/skin.png';
+
+	sendData(data);
+}
+
+var  index = 0
 	,age
 
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	
 	M('#btnStart').on('click', function() {
 		
 		if (M('#userName').val() === '') {
@@ -65,61 +101,6 @@ function initPage(){
 		M('#ask').text(data[index]['q'])
 		M('#count').text(index+1 + '/17')
 	}
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  idx = Math.floor(Math.random()*50) + 1
-		,postMsg = ''
-		,idx
-	
-	if (index != 17) {
-		alert('테스트를 완료해주세요.');
-		return false;
-	}
-	
-	if (M('#age').val() > age) {
-		desc = '그대는 피부동안 이군요.'
-	} else if (M('#age').val() < age) {
-		desc = '피부관리가 필요해 보입니다.'
-	} else {
-		desc = '나이에 알맞는 피부입니다.'
-	}
-
-	postMsg += '[피부나이 테스트]\n\n';
-	postMsg += M('#userName').val() + '님의 피부 나이는 ' + age + '살 입니다.\n\n';
-
-	postMsg += 'http://goo.gl/O4PZ7B';
-	
-	urlMsg = {
-		title: '피부나이 테스트',
-		desc: desc,
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/skin.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
-
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "피부나이 테스트",
-		url: "http://goo.gl/O4PZ7B",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
 }
 
 

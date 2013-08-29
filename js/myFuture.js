@@ -1,30 +1,28 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,selList = null
+var selList = null
+
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '성격 심리테스트';
+	data.url = 'http://goo.gl/r5fTS';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	
-	M('#btnStory').on('click', executeKakaoStoryLink)
-	M('#btnKakao').on('click', executeURLLink)
-
-	M('.checkList').on('click', function(evt, mp){
-		M('.checkList').removeClass('sel')
-		mp.addClass('sel');
-		selList = mp.data('value')
-	})
-}, false);
-
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-	
 	if (selList === null) {
 		alert('보기중 하나를 선택하세요.');
 		return false;
@@ -32,50 +30,28 @@ function executeKakaoStoryLink(){
 	result = dataList[selList]
 
 	if (M('#userName').val() !== '') {
-		result = result.replace(/당신/gi, M('#userName').val()+'님');
+		result = result.replace(/당신은/gi, M('#userName').val()+'님은');
 	}
 
-	postMsg += '[성격 심리테스트]\n\n';
-	postMsg += '- 장밋빛 미래를 위한 나의 노력은 무엇인가?\n';
-	postMsg += '# 미래에 사용하고 싶은 색상은 꿈을 위해 준비하는 당신의 현재 모습을 보여줍니다.\n\n';
-	postMsg += '(결과) ' + result + '\n\n';
+	post += '[' + data.title + ']\n\n';
+	post += '- 장밋빛 미래를 위한 나의 노력은 무엇인가?\n';
+	post += '# 미래에 사용하고 싶은 색상은 꿈을 위해 준비하는 당신의 현재 모습을 보여줍니다.\n\n';
+	post += '(결과) ' + result;
+	data.post = post;
 	
-	postMsg += 'http://goo.gl/r5fTS\n';
-	
-	urlMsg = {
-		title: '성격 심리테스트',
-		desc: '장밋빛 미래를 위한 나의 노력은 무엇인가?',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/person1.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = '장밋빛 미래를 위한 나의 노력은 무엇인가?';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/person1.png';
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-function getRandom(min, max){
-	return Math.floor((Math.random() * (max-min) + min))
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "성격 심리테스트",
-		url: "http://goo.gl/r5fTS",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "성격 심리테스트",
-		type: "link"
-	});
-}
+window.addEventListener('DOMContentLoaded', function(){
+	M('.checkList').on('click', function(evt, mp){
+		M('.checkList').removeClass('sel')
+		mp.addClass('sel');
+		selList = mp.data('value')
+	})
+}, false);
 
 
 dataList = [

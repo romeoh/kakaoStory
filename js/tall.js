@@ -1,33 +1,47 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '내 키는 몇%에 해당할까';
+	data.url = 'http://goo.gl/WvTTE';
 
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-		selected(0)
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-		selected(1)
-	}, false);
-}, false);
+	post += '[' + data.title + ']\n\n';
+	if (sexType == 'boy') {
+		post += '내 키는 평균 남자 키에서 \n';
+		post += '상위 약 ' + selTall.value + '%에 속합니다.';
+	} else if (sexType == 'girl') {
+		post += '내 키는 평균 여자 키에서 \n';
+		post += '상위 약 ' + selTall.value + '%에 속합니다.';
+	}
+	data.post = post;
+	
+	data.desc = '전체에서 ' + selTall.value + '% 입니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/tall.png';
+
+	sendData(data);
+}
+
+M('#boyBox a').on('click', function(){
+	selected(0)
+})
+M('#girlBox a').on('click', function(){
+	selected(1)
+})
 
 function selected(idx){
 	var  selTall = document.querySelector('#selTall')
@@ -35,7 +49,7 @@ function selected(idx){
 
 	if (idx === 0) {
 		// 남자
-		str += '<option value="">나의 키를 선택하세요.</option>'
+		str += '<option value="-1">나의 키를 선택하세요.</option>'
 		str += '<option value="0.1">195 cm 이상</option>'
 		str += '<option value="0.1">194 cm</option>'
 		str += '<option value="0.2">193 cm</option>'
@@ -75,7 +89,7 @@ function selected(idx){
 		selTall.innerHTML = str
 	} else {
 		// 여자
-		str += '<option value="">나의 키를 선택하세요.</option>'
+		str += '<option value="-1">나의 키를 선택하세요.</option>'
 		str += '<option value="0.1">181 cm 이상</option>'
 		str += '<option value="0.15">180 cm</option>'
 		str += '<option value="0.2">179 cm</option>'
@@ -114,66 +128,6 @@ function selected(idx){
 	
 }
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,selTall = document.querySelector('#selTall')
-		,data
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
-		return false;
-	}
-
-	if (selTall.value == '') {
-		alert('나의 키를 고르세요.');
-	}
-	
-	
-	postMsg += '[내 키는 몇%에 해당할까]\n\n';
-
-	if (boySelect.className == 'checked') {
-		// 남자일 경우
-		postMsg += '내 키는 평균 남자 키에서 \n';
-		postMsg += '상위 약 ' + selTall.value + '%에 속합니다.\n\n';
-	} else if (girlSelect.className == 'checked') {
-		// 여자일 경우
-		postMsg += '내 키는 평균 여자 키에서 \n';
-		postMsg += '상위 약 ' + selTall.value + '%에 속합니다.\n\n';
-	}
-
-	postMsg += 'http://goo.gl/WvTTE\n';
-	
-	urlMsg = {
-		title: '내 키는 몇%에 해당할까',
-		desc: '전체에서 ' + selTall.value + '% 입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/tall.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "내 키는 몇%에 해당할까",
-		url: "http://goo.gl/WvTTE",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
 
 
 

@@ -1,30 +1,28 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,selList = null
+var selList = null
+
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '성격 심리테스트';
+	data.url = 'http://goo.gl/bv6Lt';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	
-	M('#btnStory').on('click', executeKakaoStoryLink)
-	M('#btnKakao').on('click', executeURLLink)
-
-	M('.checkList').on('click', function(evt, mp){
-		M('.checkList').removeClass('sel')
-		mp.addClass('sel');
-		selList = mp.data('value')
-	})
-}, false);
-
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-	
 	if (selList === null) {
 		alert('보기중 하나를 선택하세요.');
 		return false;
@@ -35,47 +33,26 @@ function executeKakaoStoryLink(){
 		result = result.replace(/당신은/gi, M('#userName').val()+'님은');
 	}
 
-	postMsg += '[성격 심리테스트]\n\n';
-	postMsg += '- 나는 일을 어떻게 처리하는 타입 일까?\n';
-	postMsg += '# 곤란한 상황에서는 재빠른 판단력이 요구됩니다. \n이럴 때 당신이 어떻게 행동하는지 생각해 봅시다.이것은 일 처리에 있어서도 그대로 이어지거든요.\n\n';
-	postMsg += '(결과) ' + result + '\n\n';
+	post += '[' + data.title + ']\n\n';
+	post += '- 나는 일을 어떻게 처리하는 타입 일까?\n';
+	post += '# 곤란한 상황에서는 재빠른 판단력이 요구됩니다. \n이럴 때 당신이 어떻게 행동하는지 생각해 봅시다.이것은 일 처리에 있어서도 그대로 이어지거든요.\n\n';
+	post += '(결과) ' + result;
+	data.post = post;
 	
-	postMsg += 'http://goo.gl/bv6Lt\n';
-	
-	urlMsg = {
-		title: '성격 심리테스트',
-		desc: '나는 일을 어떻게 처리하는 타입 일까?',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/person1.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = '나는 일을 어떻게 처리하는 타입 일까?';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/person1.png';
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-function getRandom(min, max){
-	return Math.floor((Math.random() * (max-min) + min))
-}
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "성격 심리테스트",
-		url: "http://goo.gl/bv6Lt",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
+window.addEventListener('DOMContentLoaded', function(){
+	M('.checkList').on('click', function(evt, mp){
+		M('.checkList').removeClass('sel')
+		mp.addClass('sel');
+		selList = mp.data('value')
+	})
+}, false);
 
 
 dataList = [

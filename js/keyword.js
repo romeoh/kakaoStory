@@ -1,135 +1,56 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,jogeun0, jogeun1, jogeun2, jogeun3, jogeun4
-
-
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  userName = document.querySelector('#userName').value
-		,idx = Math.floor(Math.random()*50) + 1
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 		,space = ''
-		,userNameLength = 36 - userName.length
-		,word = []
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+
+	data.title = '나의 연관검색어';
+	data.url = 'http://goo.gl/uAj2cA';
+
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	setRandom(data)
-	word.push(data[jogeun0]['key'])
-	word.push(data[jogeun1]['key'])
-	word.push(data[jogeun2]['key'])
-	word.push(data[jogeun3]['key'])
-	word.push(data[jogeun4]['key'])
+	
+	word = shuffle(database)
+	userNameLength = 36 - userName.length
+	idx = process(database)
+
 	for (var i=0; i<userNameLength; i++) {
 		space += ' ';
 	}
 
-	//console.log(userName.length, space.length)
-
-	postMsg += '[나의 연관검색어]\n\n';
-	postMsg += '┏━━━━━━━━━━━━━━━━━━━━━━━━\n';
-	postMsg += '┃' + userName + space + '▼ [검색]\n';
-	postMsg += '┡━━━━━━━━━━━━━━━━━━━━━━━━\n';
+	post += '[' + data.title + ']\n\n';
+	post += '┏━━━━━━━━━━━━━━━━━━━━━━━━\n';
+	post += '┃' + userName + space + '▼ [검색]\n';
+	post += '┡━━━━━━━━━━━━━━━━━━━━━━━━\n';
 
 	for (var i=0; i<5; i++) {
-		postMsg += '│' + userName + ' ' + word[i] + ' \n';
+		post += '│' + userName + ' ' + word[i]['key'] + ' \n';
 		if (i != 4) {
-			postMsg += '├────────────────────────\n';
+			post += '├────────────────────────\n';
 		}
 	}
-	postMsg += '└────────────────────────\n\n';
+	post += '└────────────────────────';
+	data.post = post;
 	
-	postMsg += 'http://goo.gl/uAj2cA';
-	
-	urlMsg = {
-		title: '나의 연관검색어',
-		desc: '악플금지!!\n안보인다 막말마라 추적하면 다나온다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/keyword.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = '악플금지!!\n안보인다 막말마라 추적하면 다나온다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/keyword.png';
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "나의 연관검색어",
-		url: "http://goo.gl/uAj2cA",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-function setRandom(data){
-	var idx = Math.floor(Math.random() * data.length)
-	if (jogeun0 == undefined) {
-		jogeun0 = idx;
-	}
-	if (jogeun1 == undefined) {
-		if (jogeun0 == idx) {
-			setRandom(data)
-		} else {
-			jogeun1 = idx;
-		}
-	}
-	if (jogeun2 == undefined) {
-		if (jogeun0 == idx || jogeun1 == idx) {
-			setRandom(data)
-		} else {
-			jogeun2 = idx;
-			return jogeun2;
-		}
-	}
-	if (jogeun3 == undefined) {
-		if (jogeun0 == idx || jogeun1 == idx || jogeun2 == idx) {
-			setRandom(data)
-		} else {
-			jogeun3 = idx;
-			return jogeun3;
-		}
-	}
-	if (jogeun4 == undefined) {
-		if (jogeun0 == idx || jogeun1 == idx || jogeun2 == idx || jogeun3 == idx) {
-			setRandom(data)
-		} else {
-			jogeun4 = idx;
-			return jogeun4;
-		}
-	}
-}
-
-
-data = [
+database = [
 	{'key':'키'},
 	{'key':'공항장애'},
 	{'key':'야동'},

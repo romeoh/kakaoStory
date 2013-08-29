@@ -13,8 +13,8 @@ var ua = navigator.userAgent
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
 	init()
-	M('#btnStory').on('click', executeKakaoStoryLink);
-	M('#btnKakao').on('click', executeURLLink);
+	//M('#btnStory').on('click', executeKakaoStoryLink);
+	//M('#btnKakao').on('click', executeURLLink);
 	
 	// 설정완료
 	M('#btnOk').on('click', playGame);
@@ -229,60 +229,51 @@ function getRandom(min, max){
 	return Math.floor(Math.random() * (max-min) + min)
 }
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
+
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '랭킹 추첨기';
+	data.url = 'http://goo.gl/n7lwvv';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 	
 	if (result.length == 0) {
 		alert('추첨해주세요.');
 		return false;
 	}
 
-	
-	postMsg += '[랭킹 추첨기]\n\n';
-	postMsg += rText + '\n\n';
+	post += '[' + data.title + ']\n\n';
+	post += rText + '\n\n';
 	for (var i=0; i<resultName.length; i++) {
 		n = i + 1
 		if (i == resultName.length-1) {
-			postMsg += n + '등은 ' + resultName[i] + ' 입니다.\n\n';
+			post += n + '등은 ' + resultName[i] + ' 입니다.';
 		} else {
-			postMsg += n + '등: ' + resultName[i] + '\n';
+			post += n + '등: ' + resultName[i] + '\n';
 		}
 	}
+	data.post = post;
 	
-	postMsg += 'http://goo.gl/n7lwvv';
-	
-	urlMsg = {
-		title: '랭킹 추첨기',
-		desc: '',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/lottery2.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = '';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/lottery2.png';
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "랭킹 추첨기",
-		url: "http://goo.gl/n7lwvv",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 
 data = [

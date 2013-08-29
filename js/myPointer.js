@@ -1,93 +1,48 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '나의 매력포인트';
+	data.url = 'http://goo.gl/lzbc5';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}, false);
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	
-	postMsg += '[나의 매력포인트]\n\n';
-	if (boySelect.className == 'checked') {
-		// 여자일 경우
-		dataRan = Math.floor(Math.random() * dataMale.length)
-		data = dataMale[dataRan]
-		img = 'http://romeoh.github.io/kakaoStory/img/pointerMale.jpg'
-	} else if (girlSelect.className == 'checked') {
-		// 남자일 경우
-		dataRan = Math.floor(Math.random() * dataFemale.length)
-		data = dataFemale[dataRan]
-		img = 'http://romeoh.github.io/kakaoStory/img/pointerFemale.jpg'
+
+	if (sexType == 'boy') {
+		database = dataBoy
+		photo = 'pointerMale.jpg'
+	} else if (sexType == 'girl') {
+		database = dataGirl;
+		photo = 'pointerFemale.jpg'
 	}
+	idx = process(database)
 	
-	postMsg += '뭐 딴건 내세울것 없구요.\n';
-	postMsg += data + '\n\n';
-	postMsg += 'http://goo.gl/lzbc5\n';
+	post += '[' + data.title + ']\n\n';
+	post += '뭐 딴건 내세울것 없구요.\n';
+	post += database[idx]
+	data.post = post;
 	
-	urlMsg = {
-		title: '나의 매력포인트',
-		desc: '딴건 없어요.',
-		imageurl: [img],
-		type:'article'
-	}
-	console.log(urlMsg)
+	data.desc = '딴건 없어요.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + photo;
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "나의 매력포인트",
-		url: "http://goo.gl/lzbc5",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 
 // 남자
-dataMale = [
+dataBoy = [
 	'자랑할껀 훤칠한 키 밖에 없네요.',
 	'돈이 많습니다.',
 	'신의 직장에 다녀요.',
@@ -106,7 +61,7 @@ dataMale = [
 ]
 
 // 여자
-dataFemale = [
+dataGirl = [
 	'섹시한 몸매에요.',
 	'한가인정도 닮았데요.',
 	'눈빛이 매혹적이에요.',

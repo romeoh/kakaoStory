@@ -1,77 +1,38 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '행운의 인디안 부적';
+	data.url = 'http://goo.gl/1eJ1L';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,selIndian = document.querySelector('#selIndian')
-		,data
-	
-	if (selIndian.value == '-1') {
-		alert('인디안 부족을 고르세요.');
-		return;
+	if (media == 'talk') {
+		sendData(data);
+		return false;
 	}
-	
-	data = dataIndian[selIndian.value]
-	
-	postMsg += '[행운의 인디안 부적]\n\n';
-	postMsg += '"' + data.result + ':"\n';
-	postMsg += data.article + '\n\n';
-	
-	postMsg += 'http://goo.gl/1eJ1L\n';
-	
-	urlMsg = {
-		title: '행운의 인디안 부적',
-		desc: data.result,
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data.img],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	database = dataIndian[selIndian.value]
+	
+	post += '[' + data.title + ']\n\n';
+	post += database.result + ':\n';
+	post += database.article;
+	data.post = post;
+	
+	data.desc = database.result;
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + database.img;
 
-    showad()
+	sendData(data);
 }
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "행운의 인디안 부적",
-		url: "http://goo.gl/1eJ1L",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
-// 남자
 dataIndian = [
 	{'img': 'indian0.png', 'result': '돈이 많이 생기게 하는 부적', 'article': '이 부적을 지닌 사람은 많은 돈이 생깁니다. \n길거리에서 돈을 줍는 깨알같은 행운이 있을 수도 있습니다.'},
 	{'img': 'indian1.png', 'result': '6개월 안에 남친이 생기게 하는 부적', 'article': '혼자라구요? 이 부적을 지닌 사람은 6개월안에 멋진 남친이 생깁니다.'},

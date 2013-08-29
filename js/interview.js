@@ -1,70 +1,45 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
+	data.title = '섹션카스 연예통신';
+	data.url = 'http://goo.gl/jfCdVj';
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  idx = Math.floor(Math.random()*50) + 1
-		,postMsg = ''
-		,idx
-	
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
 	if (M('#question').val() == '-1') {
-		idx = Math.floor(Math.random() * data.length)
+		idx = Math.floor(Math.random() * database.length)
 	} else {
 		idx = M('#question').val()
 	}
 	
+	post += '[' + data.title + ']\n\n';
+	post += '댓글을 달아주세요.\n\n';
+	post += database[idx]['question'];
+	data.post = post;
 	
-	postMsg += '[섹션카스 연예통신]\n';
-	postMsg += '댓글을 달아주세요.\n\n';
-	postMsg += data[idx]['question'] + '\n\n';
-	
-	postMsg += 'http://goo.gl/jfCdVj';
-	
-	urlMsg = {
-		title: '섹션카스 연예통신',
-		desc: '댓글을 달아주세요.\n' ,
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/interview.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = '댓글을 달아주세요.';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/interview.png';
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "섹션카스 연예통신",
-		url: "http://goo.gl/jfCdVj",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
 
-data = [
+database = [
 	{'q':'악마의 야식은?', 'question':'참을 수 없는 야식이 있다면?'},
 	{'q':'성형하고 싶은 곳', 'question':'딱 한 군데만 고칠 수 있다면 어디에 성형하고 싶은가요?'},
 	{'q':'제일 보고 싶은 사람은?', 'question':'지금 제일 보고 싶은 사람은?'},

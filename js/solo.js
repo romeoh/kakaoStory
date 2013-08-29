@@ -1,75 +1,40 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,data
-	,lottoNum = []
-	,bonus
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '나는 언제까지 솔로인가?';
+	data.url = 'http://goo.gl/GOIAaR';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-		,solor = Math.floor(Math.random() * data.length)
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	postMsg += '[나는 언제까지 솔로인가?]\n\n';
-	postMsg += M('#userName').val() + '님은 ' + data[solor]['when'] + '까지만 솔로입니다.\n\n';
-	postMsg += '그 후로 부터는 쭉~ 커플입니다.\n\n';
+	idx = process(database)
 	
-	postMsg += 'http://goo.gl/GOIAaR\n';
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님은 ' + database[idx]['when'] + '까지만 솔로입니다.\n\n';
+	post += '그 후로 부터는 쭉~ 커플입니다.';
+	data.post = post;
+	
+	data.desc = '조금만 참자!!\n' + database[idx]['when'] + '까지만...';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/solo.png';
 
-	urlMsg = {
-		title: '나는 언제까지 솔로인가?',
-		desc: '조금만 참자!!\n' + data[solor]['when'] + '까지만...',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/solo.png' ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "나는 언제까지 솔로인가?",
-		url: "http://goo.gl/GOIAaR",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
-
-data = [
+database = [
 	{'when': '남북이 통일되는 날'},
 	{'when': '일본이 역사를 진심으로 반성하는 날'},
 	{'when': '이번 여름'},

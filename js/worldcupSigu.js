@@ -229,47 +229,41 @@ function getRanNum(arr, val){
 	}
 }
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-	
-	postMsg += '[연예인 시구 월드컵]\n';
-	postMsg += M('#userName').val() + '님이 뽑은 명품 시구는\n';
-	postMsg += winner.names + '의 시구입니다. \n\n';
-	postMsg += 'http://goo.gl/fF9We\n';
 
-	urlMsg = {
-		title: '연예인 시구 월드컵',
-		desc: winner.names,
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + winner.photo ],
-		type:'article'
+
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '연예인 시구 월드컵';
+	data.url = 'http://goo.gl/fF9We';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
 	}
+	
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님이 뽑은 명품 시구는\n';
+	post += winner.names + '의 시구입니다.';
+	data.post = post;
+	
+	data.desc = winner.names;
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + winner.photo;
 
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "연예인 시구 월드컵",
-		url: "http://goo.gl/fF9We",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
 
 
 dataBrand = [

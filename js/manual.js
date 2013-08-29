@@ -1,110 +1,49 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataMale, dataFemale
-	,ginung0, ginung1, ginung2
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = userName + ' 사용설명서';
+	data.url = 'http://goo.gl/gSloK';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType, userName
-		,userName = document.querySelector('#userName').value
-		,resultName, resultPhoto, resultMsg
-		,message	//
-		
-		,like = dataLike[Math.floor(Math.random() * dataLike.length)]
-		,hate = dataHate[Math.floor(Math.random() * dataHate.length)]
-		,Fuel = dataFuel[Math.floor(Math.random() * dataFuel.length)]
-		,manage = dataManage[Math.floor(Math.random() * dataManage.length)]
-		,broken = dataBroken[Math.floor(Math.random() * dataBroken.length)]
-		
-		,postMsg = ''
-		
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	ginung0 = ginung1 = ginung2 = undefined
-	setRandom(dataGinung)
-
-	postMsg += '[' + userName + ' 사용설명서]\n\n';
-	postMsg += '- 좋아하는것: ' + like + '\n';
-	postMsg += '- 싫어하는것: ' + hate + '\n';
-	postMsg += '- 주연료: ' + Fuel + '\n';
-	postMsg += '- 평상시 관리법: ' + manage + '\n';
-	postMsg += '- 고장시 대처요령: ' + broken + '\n\n';
-	postMsg += '[주요기능]\n';
-	postMsg += '1. ' + dataGinung[ginung0] + '\n';
-	postMsg += '2. ' + dataGinung[ginung1] + '\n';
-	postMsg += '3. ' + dataGinung[ginung2] + '\n\n';
+	likeIdx = process(dataLike)
+	hateIdx = process(dataHate)
+	fuelIdx = process(dataFuel)
+	manageIdx = process(dataManage)
+	brokenIdx = process(dataBroken)
+	ginung = shuffle(dataGinung, 3)
 	
-	postMsg += 'http://goo.gl/gSloK';
+	post += '[' + data.title + ']\n\n';
+	post += '- 좋아하는것: ' + dataLike[likeIdx] + '\n';
+	post += '- 싫어하는것: ' + dataHate[hateIdx] + '\n';
+	post += '- 주연료: ' + dataFuel[fuelIdx] + '\n';
+	post += '- 평상시 관리법: ' + dataManage[manageIdx] + '\n';
+	post += '- 고장시 대처요령: ' + dataBroken[brokenIdx] + '\n\n';
+	post += '[주요기능]\n';
+	post += '1. ' + ginung[0] + '\n';
+	post += '2. ' + ginung[1] + '\n';
+	post += '3. ' + ginung[2];
+	data.post = post;
 	
-	urlMsg = {
-		title: userName + ' 사용설명서',
-		desc: manage,
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/manual.jpg'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
-	
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	data.desc = dataManage[manageIdx];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/manual.jpg';
 
-    showad()
+	sendData(data);
 }
-
-function setRandom(data){
-	var idx = Math.floor(Math.random() * data.length)
-	if (ginung0 == undefined) {
-		ginung0 = idx;
-	}
-	if (ginung1 == undefined) {
-		if (ginung0 == idx) {
-			setRandom(data)
-		} else {
-			ginung1 = idx;
-		}
-	}
-	if (ginung2 == undefined) {
-		if (ginung0 == idx || ginung1 == idx) {
-			setRandom(data)
-		} else {
-			ginung2 = idx;
-			return ginung2;
-		}
-	}
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "자기 사용설명서",
-		url: "http://goo.gl/gSloK",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 
 dataLike = [

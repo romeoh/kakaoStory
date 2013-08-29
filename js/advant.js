@@ -1,113 +1,44 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,jogeun0, jogeun1, jogeun2, jogeun3
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '나의 장점/단점';
+	data.url = 'http://goo.gl/AigRi';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  userName = document.querySelector('#userName').value
-		,idx = Math.floor(Math.random()*50) + 1
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	
-	setRandom(data)
-	console.log(data[jogeun0])
-	console.log(data[jogeun1])
-	console.log(data[jogeun2])
-	console.log(data[jogeun3])
-	
-	postMsg += '[나의 장점/단점]\n\n';
-	postMsg += userName + '님은 \n';
-	postMsg += data[jogeun0]['constinue'] + ', ';
-	postMsg += data[jogeun1]['constinue'] + ', ';
-	postMsg += data[jogeun2]['last'] + ', \n\n';
-	postMsg += '단 한가지 아쉬운점... \n';
-	postMsg += data[jogeun3]['fault'] + '\n\n';
-	
-	postMsg += 'http://goo.gl/AigRi';
-	
-	urlMsg = {
-		title: '나의 장점/단점',
-		desc: '다 좋은데 말이야..\n' + data[jogeun3]['fault'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/advant.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	database = shuffle(database)
+	
+	post += '[' + data.title + ']\n\n';
+	post += userName + '님은 \n';
+	post += database[0]['constinue'] + ', ';
+	post += database[1]['constinue'] + ', ';
+	post += database[2]['last'] + ', \n\n';
+	post += '단 한가지 아쉬운점... \n';
+	post += database[3]['fault'];
+	data.post = post;
+	
+	data.desc = '다 좋은데 말이야..\n' + database[3]['fault'];
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/advant.png';
 
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "나의 장점/단점",
-		url: "http://goo.gl/AigRi",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-function setRandom(data){
-	var idx = Math.floor(Math.random() * data.length)
-	if (jogeun0 == undefined) {
-		jogeun0 = idx;
-	}
-	if (jogeun1 == undefined) {
-		if (jogeun0 == idx) {
-			setRandom(data)
-		} else {
-			jogeun1 = idx;
-		}
-	}
-	if (jogeun2 == undefined) {
-		if (jogeun0 == idx || jogeun1 == idx) {
-			setRandom(data)
-		} else {
-			jogeun2 = idx;
-			return jogeun2;
-		}
-	}
-	if (jogeun3 == undefined) {
-		if (jogeun0 == idx || jogeun1 == idx || jogeun2 == idx) {
-			setRandom(data)
-		} else {
-			jogeun3 = idx;
-			return jogeun3;
-		}
-	}
+	sendData(data);
 }
 
 
-data = [
+database = [
 	{'constinue':'키가 크고', 'last':'휀칠하게 키가 크지만', 'fault':'키가...Y.Y'},
 	{'constinue':'진정한 시대의 얼짱이고', 'last':'얼굴만은 자신있지만', 'fault':'얼굴이 죄송합니다.T.T'},
 	{'constinue':'돈이 많고', 'last':'가진 돈이 많지만', 'fault':'돈이 없어요.'},

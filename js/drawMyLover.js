@@ -1,113 +1,58 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '내 애인 그려보기';
+	data.url = 'http://goo.gl/fZCtx';
 
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}, false);
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,face
-		,body
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
+
+	if (sexType == 'boy') {
+		data.title = '내 남친의 조건';
+		database = dataBoy
+		face = dataBoyFace[process(dataBoyFace)]
+		char = dataCha[process(dataCha)]
+		body = dataBody[process(dataBody)]
+		enter = dataBoy[process(dataBoy)]
+	} else if (sexType == 'girl') {
+		data.title = '내 여친의 조건';
+		face = dataGirlFace[process(dataGirlFace)]
+		char = dataCha[process(dataCha)]
+		body = dataBody[process(dataBody)]
+		enter = dataGirl[process(dataGirl)]
+	}
 	
-	if (boySelect.className == 'checked') {
-		face = dataFemaleFace[Math.floor(Math.random() * dataFemaleFace.length)]
-		char = dataCha[Math.floor(Math.random() * dataCha.length)]
-		body = dataBody[Math.floor(Math.random() * dataBody.length)]
-		enter = dataMale[Math.floor(Math.random() * dataMale.length)]
+	post += '[' + data.title + ']\n\n';
+	post += '키: ' + process(140, 200) + 'cm \n';
+	post += '몸무게: ' + process(40, 180) + 'kg \n';
+	post += '얼굴: ' + face + ' \n';
+	post += '성격: ' + char + ' \n';
+	post += '몸매: ' + body + ' \n';
+	post += '닮은 연예인: ' + enter['name'];
+	data.post = post;
+	
+	data.desc = face;
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + enter['photo'];
 
-		// 남자일 경우
-		postMsg += '[내 남친의 조건]\n\n';
-		postMsg += '키: ' + getRandom(140, 200) + 'cm \n';
-		postMsg += '몸무게: ' + getRandom(40, 180) + 'kg \n';
-		postMsg += '얼굴: ' + face + ' \n';
-		postMsg += '성격: ' + char + ' \n';
-		postMsg += '몸매: ' + body + ' \n';
-		postMsg += '닮은 연예인: ' + enter['name'] + ' \n\n';
-		postMsg += 'http://goo.gl/fZCtx \n\n';
-
-	} else if (girlSelect.className == 'checked') {
-		face = dataMaleFace[Math.floor(Math.random() * dataMaleFace.length)]
-		char = dataCha[Math.floor(Math.random() * dataCha.length)]
-		body = dataBody[Math.floor(Math.random() * dataBody.length)]
-		enter = dataFemale[Math.floor(Math.random() * dataFemale.length)]
-
-		// 여자 경우
-		postMsg += '[내 여친의 조건]\n\n';
-		postMsg += '키: ' + getRandom(140, 200) + 'cm \n';
-		postMsg += '몸무게: ' + getRandom(40, 180) + 'kg \n';
-		postMsg += '얼굴: ' + face + ' \n';
-		postMsg += '성격: ' + char + ' \n';
-		postMsg += '몸매: ' + body + ' \n';
-		postMsg += '닮은 연예인: ' + enter['name'] + ' \n\n';
-		postMsg += 'http://goo.gl/fZCtx \n\n';
-	}
-		
-	urlMsg = {
-		title: '내 애인 그려보기',
-		desc: face,
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + enter['photo'] ],
-		type:'article'
-	}
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
-
-//console.log(getRandom(10, 20))
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "내 애인 그려보기",
-		url: "http://goo.gl/fZCtx",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 
 // 내 여친 얼굴 
-dataMaleFace = [
+dataGirlFace = [
 	'완전 예쁨',
 	'엄청 예쁨',
 	'예쁨편',
@@ -146,7 +91,7 @@ dataBody = [
 
 
 // 내 남친은
-dataFemaleFace = [
+dataBoyFace = [
 	'엄청 잘생겼음',
 	'완전 훈남',
 	'조각미남',
@@ -165,7 +110,7 @@ dataFemaleFace = [
 
 
 
-dataFemale = [
+dataGirl = [
 	{'name': '강민경', 'photo': 'f01.jpeg', 'msg':''},
 	{'name': '정유미', 'photo': 'f02.jpeg', 'msg':''},
 	{'name': '가인',  'photo': 'f03.jpeg', 'msg':''},
@@ -218,7 +163,7 @@ dataFemale = [
 	{'name': '수지',  'photo': 'f50.jpg', 'msg':''}
 ]
 
-dataMale = [
+dataBoy = [
 	{'name': '정석원', 'photo': 'm01.jpeg', 'msg':''},
 	{'name': '이승기', 'photo': 'm02.jpeg', 'msg':''},
 	{'name': '홍대광', 'photo': 'm03.jpeg', 'msg':''},

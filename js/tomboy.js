@@ -1,80 +1,40 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,data
-	,lottoNum = []
-	,bonus
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '말괄량이 길들이기';
+	data.url = 'http://goo.gl/WhJ2Xc';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	if (M.storage('io.github.romeoh.user.name')) {
-		M('h2').text(M.storage('io.github.romeoh.user.name') + ' 길들이기')
-	} else {
-		M('h2').text('말괄량이 길들이기');
-	}
-}
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,postMsg = ''
-		,userName = M('#userName').val()
-		,tomIdx = Math.floor(Math.random() * dataTom.length)
-		,foodIdx = Math.floor(Math.random() * dataFood.length)
-		,nameStr = uniValue(userName) ? userName + '은' : userName + '는'
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	postMsg += '[' + userName + ' 길들이기]\n\n';
-	postMsg += nameStr + ' ' + dataTom[tomIdx] + '\n';
-	postMsg += '(참고) ' + userName + ' 길들이기 음식: ' + dataFood[foodIdx] + '\n\n';
+	tomIdx = process(dataTom)
+	foodIdx = process(dataFood)
+	nameStr = uniValue(userName) ? userName + '은' : userName + '는'
 	
-	postMsg += 'http://goo.gl/WhJ2Xc\n';
+	post += '[' + userName + ' 길들이기]\n\n';
+	post += nameStr + ' ' + dataTom[tomIdx] + '\n';
+	post += '(참고) ' + userName + ' 길들이기 음식: ' + dataFood[foodIdx];
+	data.post = post;
+	
+	data.desc = dataFood[foodIdx] + ' 사줘~ 뿌잉뿌잉~';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/tomboy2.png';
 
-	urlMsg = {
-		title: M('#userName').val() + ' 길들이기',
-		desc: dataFood[foodIdx] + ' 사줘~ 뿌잉뿌잉~\n',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/tomboy2.png' ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "말괄량이 길들이기",
-		url: "http://goo.gl/WhJ2Xc",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
 
 dataTom = [
 	'커피를 사주면 아주 순해집니다.',

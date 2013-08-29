@@ -1,101 +1,48 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataMale, dataFemale
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '누구와 키스하나';
+	data.url = 'http://goo.gl/Aa6wS';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  userName = document.querySelector('#userName').value
-		,idx = Math.floor(Math.random()*50) + 1
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-		,how = dataHow[Math.floor(Math.random() * dataHow.length)]
-		,where = dataWhere[Math.floor(Math.random() * dataWhere.length)]
-	
-	//idx < 10 ? idx = '0' + idx : idx
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
-		return false;
-	}
-	
-	if (boySelect.className == 'checked') {
-		kissData = dataMale[Math.floor(Math.random() * dataMale.length)]
-		who = kissData['name']
-		photo = kissData['photo']
-	} else if (girlSelect.className == 'checked') {
-		kissData = dataFemale[Math.floor(Math.random() * dataFemale.length)]
-		who = kissData['name']
-		photo = kissData['photo']
-	}
-	
-	postMsg += '[누구와 키스하나]\n\n';
-	postMsg += userName + '님은 ' + who + '\n';
-	postMsg += where + ' ' + how + ' 키스합니다.\n\n';
-	
-	postMsg += 'http://goo.gl/Aa6wS';
-	
-	urlMsg = {
-		title: '누구와 키스하나',
-		desc: who + ' 키스합니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + photo],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	if (sexType == 'boy') {
+		database = dataBoy
+		idx = process(database)
+	} else if (sexType == 'girl') {
+		database = dataGirl
+		idx = process(database)
+	}
 
-    showad()
+	who = database[idx]['name']
+	photo = database[idx]['photo']
+	howIdx = process(dataHow)
+	whereIdx = process(dataWhere)
+	
+	post += '[' + data.title + ']\n\n';
+	post += userName + '님은 ' + who + '\n';
+	post += dataWhere[whereIdx] + ' ' + dataHow[howIdx] + ' 키스합니다.';
+	data.post = post;
+	
+	data.desc = who + ' 키스합니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + photo;
+
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "누구와 키스하나",
-		url: "http://goo.gl/Aa6wS",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 
 
@@ -131,7 +78,7 @@ dataHow = [
 	'미친듯이'
 ]
 
-dataMale = [
+dataBoy = [
 	{'photo': 'kissM01.jpg', 'name': '여자친구와', 'msg':''},
 	{'photo': 'kissM02.jpg', 'name': '클럽에서 만난 여성과', 'msg':''},
 	{'photo': 'kissM03.jpg', 'name': '길거리 지나가는 여성과', 'msg':''},
@@ -156,7 +103,7 @@ dataMale = [
 	{'photo': 'kissM18.jpg', 'name': '김태희와', 'msg':''}
 ]
 
-dataFemale = [
+dataGirl = [
 	{'photo': 'kissF01.jpg', 'name': '남자친구와', 'msg':''},
 	{'photo': 'kissM02.jpg', 'name': '클럽에서 만난 남자와', 'msg':''},
 	{'photo': 'kissM03.jpg', 'name': '길거리 지나가는 남자와', 'msg':''},

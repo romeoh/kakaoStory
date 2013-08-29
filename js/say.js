@@ -1,11 +1,40 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,dataSay
-	,hash = window.location.hash
-	,idx
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '하루에 하나씩 외우는 명언';
+
+	if (media == 'talk') {
+		datatalk = data
+		datatalk.url = 'http://goo.gl/Vm86D';
+		sendData(datatalk);
+		return false;
+	}
+
+	idx = process(dataSay)
+	
+	post += '[' + data.title + ']\n\n';
+	post += dataSay[idx].eng + '\n\n';
+	post += dataSay[idx].esp + ' [' + dataSay[idx].job + ']\n\n'
+	post += '해석보기: ' + dataSay[idx].url;
+	data.post = post;
+	
+	data.desc = dataSay[idx].ksp + ' (' + dataSay[idx].job + ')';
+	data.img = 'http://romeoh.github.io/kakaoStory/imgSay/' + dataSay[idx].pho;
+
+	sendData(data);
+}
+
 
 
 
@@ -17,65 +46,9 @@ window.addEventListener('DOMContentLoaded', function(){
 		document.querySelector('#word').innerHTML = dataSay[idx].eng
 		document.querySelector('#korean').innerHTML = dataSay[idx].kor
 		document.querySelector('#speaker').innerHTML = dataSay[idx].esp + ' ' + dataSay[idx].ksp + ' (' + dataSay[idx].job + ')'
-		document.querySelector('#btnStory').innerHTML = '명언 하나 더보기';
-
+		M('#btnStory').html('<span><em class="ico_star_check"></em> 명언 하나 더보기</span></a>')
 	}	
 }, false);
-
-
-
-btnStory.addEventListener('click', executeKakaoStoryLink, false);
-btnKakao.addEventListener('click', executeURLLink, false);
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  result = getRand(dataSay)
-		,postMsg = ''
-		,urlMsg
-
-	postMsg += result.eng + '\n\n';
-	postMsg += result.esp + ' [' + result.job + ']\n\n'
-	postMsg += '해석보기: ' + result.url;
-
-	urlMsg = {
-		title: '하루에 하나씩 외우는 명언',
-		desc: result.ksp + ' (' + result.job + ')',
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgSay/' + result.pho ],
-		type:'article'
-	}
-	
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-function getRand(data){
-	var  dataLength = data.length
-		,ran = Math.floor(Math.random() * dataLength);
-	return data[ran];
-}
-
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "원데이 명언",
-		url: "http://goo.gl/Vm86D",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
 
 
 

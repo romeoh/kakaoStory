@@ -1,9 +1,4 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,login = 'o_2i5b4gmien'
+var  login = 'o_2i5b4gmien'
 	,api_key = 'R_866372890d3c61b40dcf2f91c0f5ba8f'
 	,gbb
 	,answer1, answer2, answer3
@@ -21,7 +16,7 @@ var ua = navigator.userAgent
 	,intervalID
 	,quiz
 	,qid = getRandId()
-	
+	,platform
 
 
 
@@ -211,8 +206,60 @@ window.addEventListener('DOMContentLoaded', function(){
 //btnKakao.addEventListener('click', executeURLLink, false);
 M('[data-id="btnKakao"]').on('click', executeURLLink)
 
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	platform = media
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	var  gongyak = M('#gongyak').val()
+		,gongValue = M('#gongValue').val()
+
+	postMsg = ''
+	cbCount = 0
+
+	if (!gbb) {
+		alert('"가위, 바위, 보" 중에 하나를 고르세요.');
+		return false;
+	}
+	if (gongyak == '-1') {
+		alert('상대가 가위바위보를 이겼을때 공약을 선택하세요.');
+		return false;
+	}
+	if (gongyak == '기타' && gongValue == '') {
+		alert('공약을 직접 입력하세요.');
+		return false;
+	}
+	if (gongyak == '기타') {
+		lastGong = gongValue
+	} else {
+		lastGong = gongyak
+	}
+
+	idkey = getRandId()
+	getUrl('n=' + userName + '&attach=' + gbb + '&gbb=1&idx=gbb' + idkey + '&g=' + lastGong, 1);
+	getUrl('n=' + userName + '&attach=' + gbb + '&gbb=2&idx=gbb' + idkey + '&g=' + lastGong, 2);
+	getUrl('n=' + userName + '&attach=' + gbb + '&gbb=3&idx=gbb' + idkey + '&g=' + lastGong, 3);
+}
+
 //  카카오 스토리
 function executeKakaoStoryLink(){
+	return;
 	var  userName = M('#userName').val()
 		,gongyak = M('#gongyak').val()
 		,gongValue = M('#gongValue').val()
@@ -248,43 +295,37 @@ function executeKakaoStoryLink(){
 }
 
 function sendToKakao() {
+	var  data = {}
+		,post = ''
+
 	cbCount++
 	if (cbCount == 3) {
 		if (answer1 == undefined) {
 			alert('죄송합니다.\n요청이 너무 많아 주소를 단축시키지 못했습니다.\n잠시 후에 다시 시도해주세요.');
 			return false;
 		}
-		console.log(lastGong)
-		postMsg += '[가위! 바위! 보!]\n';
-		postMsg += '나랑 "가위, 바위, 보" 이기는 사람에게는 소원을 들어줍니다. \n';
-		postMsg += '공약: ' + lastGong + '\n\n';
 
-		postMsg += '① 가위 (선택: ' + answer1 + ')\n';
-		postMsg += '② 바위 (선택: ' + answer2 + ')\n';
-		postMsg += '③ 보 (선택: ' + answer3 + ')\n';
-		//postMsg += '정답: ' + quiz.idx + quiz.ans + qid + '\n';
+		data.title = '가위! 바위! 보!';
+		data.url = '';
+		data.media = platform;
 
-		//console.log(postMsg)
+		post += '[' + data.title + ']\n\n';
+		post += '나랑 "가위, 바위, 보" 이기는 사람에게는 소원을 들어줍니다. \n';
+		post += '공약: ' + lastGong + '\n\n';
 
-		urlMsg = {
-			title: '가위! 바위! 보!',
-			desc: '대결 기회는 단한번뿐입니다.\n게임에 이겼을때 인증메세지를 카스에 올리지 않으면 무효입니다.',
-			imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/gawibawibo.png' ],
-			type:'article'
-		}
-		console.log(postMsg, urlMsg)
+		post += '① 가위 (선택: ' + answer1 + ')\n';
+		post += '② 바위 (선택: ' + answer2 + ')\n';
+		post += '③ 보 (선택: ' + answer3 + ')';
+		data.post = post;
 
-		kakao.link("story").send({   
-	        post : postMsg,
-	        appid : 'funnyApp',
-			appver : '1.0',
-			appname : '깨알유머:',
-			urlinfo : JSON.stringify(urlMsg)
-	    });
 
-	    showad()
+		data.desc = '대결 기회는 단한번뿐입니다.\n게임에 이겼을때 인증메세지를 카스에 올리지 않으면 무효입니다.';
+		data.img = 'http://romeoh.github.io/kakaoStory/images/thum/gawibawibo.png';
+
+		sendData(data);
 	}
 }
+
 
 function getRand(data){
 	var  dataLength = data.length

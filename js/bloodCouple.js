@@ -1,24 +1,25 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '혈액형 궁합';
+	data.url = 'http://goo.gl/iNzJa';
 
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,data
-	
 	if (M('#selBloodGirl').val() == '') {
 		alert('여자분의 혈액형을 선택하세요.');
 		return;
@@ -27,50 +28,24 @@ function executeKakaoStoryLink(){
 		alert('남자분의 혈액형을 선택하세요.');
 		return;
 	}
-	
-	result = dataBloor[M('#selBloodGirl').val()][M('#selBloodBoy').val()][0]
-console.log(result)
-	postMsg += '[혈액형 궁합]\n';
-	postMsg += result.w + '형 여자와 ' + result.m + '형 남자의\n'
-	postMsg += '궁합지수은 ' + result.percent + '입니다.\n\n'
-	postMsg += result.result + '\n\n'
-	
-	postMsg += 'http://goo.gl/iNzJa\n';
-	
-	urlMsg = {
-		title: '혈액형 궁합',
-		desc: result.w + '형 여자와 ' + result.m + '형 남자',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/'+result.photo],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	result = dataBlood[M('#selBloodGirl').val()][M('#selBloodBoy').val()][0]
+	
+	post += '[' + data.title + ']\n\n';
+	post += result.w + '형 여자와 ' + result.m + '형 남자의\n'
+	post += '궁합지수은 ' + result.percent + '입니다.\n\n'
+	post += result.result;
+	data.post = post;
+	
+	data.desc = result.w + '형 여자와 ' + result.m + '형 남자';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/'+result.photo;
 
-    showad()
+	sendData(data);
 }
 
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "혈액형 궁합",
-		url: "http://goo.gl/iNzJa",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
 
-
-dataBloor = [
+dataBlood = [
 	// 여자A
 	[
 		[{'photo':'bl0.jpg', 'percent':'70%', 'w':'A', 'm':'A', result:'처음에는 서로 탐색전, 남자가 초반에는 리드를 하지만 교제를 하면서 주도권은 여자에게로 넘어갑니다.\n2년정도 교제하면 자연스럽게 결혼까지 갈수도 있는 커플입니다.'}],

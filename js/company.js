@@ -1,107 +1,50 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataMale, dataFemale
-	,jogeun0, jogeun1, jogeun2 
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
+	data.title = '냉철한 대기업 인재 사냥꾼';
+	data.url = 'http://goo.gl/QWPHM';
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType, userName
-		,age = document.getElementById('userAge').value
-		,userName = document.querySelector('#userName').value
-		,resultName, resultPhoto, resultMsg
-		,message	//
-		
-		,companyIdx = Math.floor(Math.random() * dataCompany.length)
-		,dataUpjongIdx = Math.floor(Math.random() * dataUpjong.length)
-		,dataPayIdx = Math.floor(Math.random() * dataPay.length)
-		,dataAreaIdx = Math.floor(Math.random() * dataArea.length)
-		,dataLevelIdx = Math.floor(Math.random() * dataLevel.length)
-		,postMsg = ''
-		,urlMsg = {
-			title: dataCompany[companyIdx]['name'] + ' 인사팀',
-			desc: dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 스카웃 하려 합니다.',
-			imageurl: ['http://romeoh.github.io/kakaoStory/imgCom/' + dataCompany[companyIdx]['photo']],
-			type:'article'
-		}
-	
-	setRandom(dataJogun)
-	postMsg += dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 ' + dataUpjong[dataUpjongIdx] + ' 스카웃 하려 합니다.\n\n';
-	postMsg += '[대우]\n';
-	postMsg += '1. 연봉: ' + dataPay[dataPayIdx] + '\n';
-	postMsg += '2. 근무지: ' + dataArea[dataAreaIdx] + '\n';
-	postMsg += '3. 직급: ' + dataLevel[dataLevelIdx] + '\n\n';
-	postMsg += '[조건]\n';
-	postMsg += '1. '+dataJogun[jogeun0]+'\n';
-	postMsg += '2. '+dataJogun[jogeun1]+'\n';
-	postMsg += '3. '+dataJogun[jogeun2]+'\n\n';
-	postMsg += 'http://goo.gl/QWPHM';
-	
-	if (age == '') {
-		alert('생년을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
-		return false;
-	}
+	var  companyIdx = process(dataCompany)
+		,dataUpjongIdx = process(dataUpjong)
+		,dataPayIdx = process(dataPay)
+		,dataAreaIdx = process(dataArea)
+		,dataLevelIdx = process(dataLevel)
+		,jogeun = shuffle(dataJogun, 3)
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	post += '[' + data.title + ']\n\n';
+	post += dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 ' + dataUpjong[dataUpjongIdx] + ' 스카웃 하려 합니다.\n\n';
+	post += '[대우]\n';
+	post += '1. 연봉: ' + dataPay[dataPayIdx] + '\n';
+	post += '2. 근무지: ' + dataArea[dataAreaIdx] + '\n';
+	post += '3. 직급: ' + dataLevel[dataLevelIdx] + '\n\n';
+	post += '[조건]\n';
+	post += '1. '+jogeun[0]+'\n';
+	post += '2. '+jogeun[1]+'\n';
+	post += '3. '+jogeun[2];
 
-    showad()
+	data.post = post;
+	
+	data.desc = dataCompany[companyIdx]['name'] + '에서 ' + userName + '님을 스카웃 하려 합니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/imgCom/' + dataCompany[companyIdx]['photo'];
+
+	sendData(data);
 }
-
-function setRandom(data){
-	var idx = Math.floor(Math.random() * data.length)
-	if (jogeun0 == undefined) {
-		jogeun0 = idx;
-	}
-	if (jogeun1 == undefined) {
-		if (jogeun0 == idx) {
-			setRandom(data)
-		} else {
-			jogeun1 = idx;
-		}
-	}
-	if (jogeun2 == undefined) {
-		if (jogeun0 == idx || jogeun1 == idx) {
-			setRandom(data)
-		} else {
-			jogeun2 = idx;
-			return jogeun2;
-		}
-	}
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "냉철한 대기업 인재 사냥꾼",
-		url: "http://goo.gl/QWPHM",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 dataCompany = [
 	{'name': '삼성전자', 'photo': 'group_logo_samsung.gif'},

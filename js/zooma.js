@@ -1,20 +1,9 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,who
+var  who
 	,whoIdx
 	,zoomType
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
 	,sexType
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
 	,hash =  decodeURIComponent(window.location.hash.split('#')[1])
+	,platform
 
 if (hash != 'undefined') {
 	params = hash.split('&')
@@ -45,31 +34,30 @@ if (hash != 'undefined') {
 
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-		sexType = 'girl'
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-		sexType = 'boy'
-	}, false);
-
-	btnStory.addEventListener('click', makeUrl, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
+	
 }
 
-function makeUrl() {
-	userName = document.querySelector('#userName').value
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
-		return false;
-	}
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	platform = data.media
+
+	data.title = '아줌마/아저씨 테스트';
+	data.url = 'http://goo.gl/U5T02V';
+
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
@@ -96,7 +84,6 @@ function makeUrl() {
 		}
 	}
 	
-	//console.log(sexType)
 	params = 'n=' + userName + '&w=' + zoomType
 	page = 'http://romeoh.github.io/kakaoStory/html/zooma.html#' + encodeURIComponent(params)
 	getShortUrl(page);
@@ -106,8 +93,12 @@ function makeUrl() {
 function executeKakaoStoryLink(url){
 	var  resultName, resultPhoto, resultMsg
 		,message
-		,postMsg = ''
+		,post = ''
 		,timages
+		,data = {}
+		,userName = M('#userName').val()
+
+	data.media = platform
 
 	if (zoomType === '1') {
 		zoomStr = '아저씨입니다.'
@@ -121,11 +112,11 @@ function executeKakaoStoryLink(url){
 
 	}
 	
-	postMsg += '[아줌마/아저씨 테스트]\n\n';
+	post += '[아줌마/아저씨 테스트]\n\n';
 	
 	if (hash == 'undefined') {
 		//console.log('단독')
-		postMsg += userName + '님은 ' + zoomStr + '\n\n';
+		post += userName + '님은 ' + zoomStr + '\n\n';
 		if (sexType == 'boy'){
 			// 아저씨
 			if (whoIdx === 0) {
@@ -160,114 +151,89 @@ function executeKakaoStoryLink(url){
 		if (data['w'] == '1') {
 
 			if (zoomType === '1') {
-				postMsg += data['n'] + '님과 ' + userName + '님 모두 아저씨입니다.\n\n';
+				post += data['n'] + '님과 ' + userName + '님 모두 아저씨입니다.\n\n';
 				timages = 'zooma1.png'
 			} else if (zoomType === '2') {
-				postMsg += data['n'] + '님은 아저씨지만,\n';
-				postMsg += userName + '님은 아저씨가 아닙니다.\n\n';
+				post += data['n'] + '님은 아저씨지만,\n';
+				post += userName + '님은 아저씨가 아닙니다.\n\n';
 				timages = 'zooma2.png'
 			} else if (zoomType === '3') {
-				postMsg += data['n'] + '님은 아저씨이고,\n';
-				postMsg += userName + '님은 아줌마 입니다.\n\n';
+				post += data['n'] + '님은 아저씨이고,\n';
+				post += userName + '님은 아줌마 입니다.\n\n';
 				timages = 'zooma3.png'
 			} else if (zoomType === '4') {
-				postMsg += data['n'] + '님은 아저씨지만,\n';
-				postMsg += userName + '님은 아줌마가 아닙니다.\n\n';
+				post += data['n'] + '님은 아저씨지만,\n';
+				post += userName + '님은 아줌마가 아닙니다.\n\n';
 				timages = 'zooma4.png'
 			}
 
 		// 아저씨아님
 		} else if (data['w'] == '2') { 
 			if (zoomType === '1') {
-				postMsg += data['n'] + '님은 아저씨가 아니지만,\n';
-				postMsg += userName + '님은 아저씨 입니다\n\n';
+				post += data['n'] + '님은 아저씨가 아니지만,\n';
+				post += userName + '님은 아저씨 입니다\n\n';
 				timages = 'zooma1.png'
 			} else if (zoomType === '2') {
-				postMsg += data['n'] + '님과 ' + userName + '님 모두 아저씨가 아닙니다.\n\n';
+				post += data['n'] + '님과 ' + userName + '님 모두 아저씨가 아닙니다.\n\n';
 				timages = 'zooma2.png'
 			} else if (zoomType === '3') {
-				postMsg += data['n'] + '님은 아저씨가 아니지만,\n';
-				postMsg += userName + '님은 아줌마 입니다.\n\n';
+				post += data['n'] + '님은 아저씨가 아니지만,\n';
+				post += userName + '님은 아줌마 입니다.\n\n';
 				timages = 'zooma3.png'
 			} else if (zoomType === '4') {
-				postMsg += data['n'] + '님은 아저씨가 아니고,\n';
-				postMsg += userName + '님도 아줌마가 아닙니다.\n\n';
+				post += data['n'] + '님은 아저씨가 아니고,\n';
+				post += userName + '님도 아줌마가 아닙니다.\n\n';
 				timages = 'zooma4.png'
 			}
 
 		// 아줌마
 		} else if (data['w'] == '3') { 
 			if (zoomType === '1') {
-				postMsg += data['n'] + '님은 아줌마이고,\n';
-				postMsg += userName + '님도 아저씨 입니다.\n\n';
+				post += data['n'] + '님은 아줌마이고,\n';
+				post += userName + '님도 아저씨 입니다.\n\n';
 				timages = 'zooma1.png'
 			} else if (zoomType === '2') {
-				postMsg += data['n'] + '님은 아줌마지만,\n';
-				postMsg += userName + '님은 아저씨가 아닙니다.\n\n';
+				post += data['n'] + '님은 아줌마지만,\n';
+				post += userName + '님은 아저씨가 아닙니다.\n\n';
 				timages = 'zooma2.png'
 			} else if (zoomType === '3') {
-				postMsg += data['n'] + '님과 ' + userName + '님 모두 아줌마 입니다.\n\n';
+				post += data['n'] + '님과 ' + userName + '님 모두 아줌마 입니다.\n\n';
 				timages = 'zooma3.png'
 			} else if (zoomType === '4') {
-				postMsg += data['n'] + '님은 아줌마지만,\n';
-				postMsg += userName + '님은 아줌마가 아닙니다.\n\n';
+				post += data['n'] + '님은 아줌마지만,\n';
+				post += userName + '님은 아줌마가 아닙니다.\n\n';
 				timages = 'zooma4.png'
 			}
 
 		//아줌마 아님
 		} else if (data['w'] == '4') { 
 			if (zoomType === '1') {
-				postMsg += data['n'] + '님은 아줌마가 아니지만,\n';
-				postMsg += userName + '님은 아저씨 입니다.\n\n';
+				post += data['n'] + '님은 아줌마가 아니지만,\n';
+				post += userName + '님은 아저씨 입니다.\n\n';
 				timages = 'zooma1.png'
 			} else if (zoomType === '2') {
-				postMsg += data['n'] + '님은 아줌마가 아니고,\n';
-				postMsg += userName + '님도 아저씨가 아닙니다.\n\n';
+				post += data['n'] + '님은 아줌마가 아니고,\n';
+				post += userName + '님도 아저씨가 아닙니다.\n\n';
 				timages = 'zooma2.png'
 			} else if (zoomType === '3') {
-				postMsg += data['n'] + '님은 아줌마가 아니지만,\n';
-				postMsg += userName + '님은 아줌마입니다.\n\n';
+				post += data['n'] + '님은 아줌마가 아니지만,\n';
+				post += userName + '님은 아줌마입니다.\n\n';
 				timages = 'zooma3.png'
 			} else if (zoomType === '4') {
-				postMsg += data['n'] + '님과 ' + userName + '님 모두 아줌마가 아닙니다.\n\n';
+				post += data['n'] + '님과 ' + userName + '님 모두 아줌마가 아닙니다.\n\n';
 				timages = 'zooma4.png'
 			}
 		}
 	}
 	
-	postMsg += url;
+	post += url;
+	data.post = post;
 	
-	urlMsg = {
-		title: '아줌마/아저씨 테스트',
-		desc: userName + '님은 ' + who + '\n그럼 나는?',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/' + timages ],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = userName + '님은 ' + who + '\n그럼 나는?';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/' + timages;
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "아줌마/아저씨 테스트",
-		url: "http://goo.gl/U5T02V",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 
 function getRandom(min, max){

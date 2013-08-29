@@ -1,26 +1,18 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,radioList = document.querySelectorAll('[type="radio"]')
-	,selected = ''
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
-
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	
-}, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-	
+	radioList = document.querySelectorAll('[type="radio"]')
 	for (var i=0; i<radioList.length; i++) {
 		if (radioList[i].checked) {
 			selected = i
@@ -31,49 +23,28 @@ function executeKakaoStoryLink(){
 		alert('당신의 행동을 선택하세요.');
 		return;
 	}
-	
 
+	data.title = '섹시한여성을 봤을때 당신의 행동은?';
+	data.url = 'http://goo.gl/wb8IF';
 
-	data = dataSexy[selected]
-	
-	postMsg += '[섹시한여성을 봤을때 당신의 행동은?]\n\n';
-	postMsg += data.title + '\n\n';
-	postMsg += '(결과)\n';
-	postMsg += data.result + '\n\n';
-	
-	postMsg += 'http://goo.gl/wb8IF\n';
-	
-	urlMsg = {
-		title: '[섹시한여성을 봤을때 당신의 행동은?]',
-		desc: '공공장소에서 섹시한 여성을 봤을때 어떤 행동을 하나요?',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/sexy.jpg'],
-		type:'article'
+	if (media == 'talk') {
+		sendData(data);
+		return false;
 	}
-	console.log(postMsg)
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	database = dataSexy[selected]
+	
+	post += '[' + data.title + ']\n\n';
+	post += database.title + '\n\n';
+	post += '(결과)\n';
+	post += database.result;
+	data.post = post;
+	
+	data.desc = '공공장소에서 섹시한 여성을 봤을때 어떤 행동을 하나요?';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/sexy.jpg';
 
-    showad()
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: '섹시한여성을 봤을때 당신의 행동은?',
-		url: 'http://goo.gl/wb8IF',
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 // 남자
 dataSexy = [

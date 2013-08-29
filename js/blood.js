@@ -1,87 +1,42 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '별자리+혈액형 성격테스트';
+	data.url = 'http://goo.gl/LR7Lf';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,selAlpha = document.querySelector('#selAlpha')
-		,data
-	
-	if (selMonth.value == '') {
-		alert('태어난 월을 선택하세요.');
-		return;
+	if (media == 'talk') {
+		sendData(data);
+		return false;
 	}
-	if (selDate.value == '') {
-		alert('태어난 일을 선택하세요.');
-		return;
-	}
-	if (selBlood.value == '') {
-		alert('혈액형을 선택하세요.');
-		return;
-	}
-	
+
 	idx = getStar(selMonth.value, selDate.value, selBlood.value)
-	result = dataBlood[idx].blood[selBlood.value]
 	starName = dataBlood[idx]['name']
 	birth = dataBlood[idx]['date']
 	img = dataBlood[idx]['img']
+	result = dataBlood[idx].blood[selBlood.value]
 
-	postMsg += '[별자리+혈액형 성격테스트]\n\n';
-	postMsg += starName + '(' + birth + '), ' + selBlood.value + '형 입니다.\n',
-	postMsg += result + '\n\n';
+	post += '[' + data.title + ']\n\n';
+	post += starName + '(' + birth + '), ' + selBlood.value + '형 입니다.\n',
+	post += result;
+	data.post = post;
 	
-	postMsg += 'http://goo.gl/LR7Lf\n';
-	
-	urlMsg = {
-		title: '별자리+혈액형 성격테스트',
-		desc: starName + '(' + birth + ')',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/'+img],
-		type:'article'
-	}
-	console.log(urlMsg)
+	data.desc = starName + '(' + birth + ')';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/'+img;
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "뭐 내세울게 있나요?",
-		url: "http://goo.gl/LR7Lf",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
 
 
 function getStar(month, date, blood){

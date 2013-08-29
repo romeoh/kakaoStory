@@ -1,93 +1,45 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,loverType = '애인'
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '내 애인과 나는 전생에 무슨 관계였나';
+	data.url = 'http://goo.gl/FSBT3';
 
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-		//document.querySelector('#userName').placeholder = '남자친구 이름을 입력하세요.'
+	if (sexType == 'boy') {
 		loverType = '남자친구'
-		document.querySelector('h1').innerHTML = '내 남자친구와 나의 전생관계'
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-		//document.querySelector('#userName').placeholder = '여자친구 이름을 입력하세요.'
-		loverType = '여자친구'
-		document.querySelector('h1').innerHTML = '내 여자친구와 나의 전생관계'
-	}, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		//,userName = document.querySelector('#userName').value
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-		,dataRelationRan = Math.floor(Math.random() * dataRelation.length)
-		
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('애인의 성별을 선택해 주세요.');
-		return false;
+	} else if (sexType == 'girl') {
+		loverType = '여자친구';
 	}
 
-	/*if (userName == '') {
-		alert(loverType + ' 이름을 입력해 주세요.');
-		return false;
-	}*/
+	data.title = '내 ' + loverType + '과 나는 전생에 무슨 관계였나';
 
-	postMsg += '나는 전생에 지금의 내' + loverType + dataRelation[dataRelationRan]['name'] + '\n';
-	postMsg += '관계: ' + dataRelation[dataRelationRan]['relation'] + '\n\n';
-	postMsg += 'http://goo.gl/dfrtm';
+	idx = process(dataRelation)
+	
+	post += '[' + data.title + ']\n\n';
+	post += '나는 전생에 지금의 내' + loverType + dataRelation[idx]['name'] + '\n';
+	post += '관계: ' + dataRelation[idx]['relation'];
+	data.post = post;
+	
+	data.desc = '나와 내'+loverType+'는 ' + dataRelation[idx]['relation'] + '관계 였습니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/relationLover.jpg';
 
-	urlMsg = {
-		title: '내 '+loverType+'과 나는 전생에 무슨 관계였나',
-		desc: '나와 내'+loverType+'는 ' + dataRelation[dataRelationRan]['relation'] + '관계 였습니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/relationLover.jpg' ],
-		type:'article'
-	}
-console.log(postMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "내애인과 나는 전생에 무슨 관계였나",
-		url: "http://goo.gl/dfrtm",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 
 
@@ -97,7 +49,7 @@ dataRelation = [
 	{'name':'의 바람둥이 남편이었습니다.', 'relation':'부부'},
 	{'name':'에게 큰 사기를 치고 죽었습니다.', 'relation':'친구'},
 	{'name':'를 매일 괴롭히는 학교 친구였습니다.', 'relation':'학교친구'},
-	{'name':'이 항상 부러워 하는 엄친딸이었습니다.', 'relation':'엄마친구딸'},
+	{'name':'가 항상 부러워 하는 엄친딸이었습니다.', 'relation':'엄마친구딸'},
 	{'name':'를 매일 때리는 동네 깡패였습니다.', 'relation':'동네 형아'},
 	{'name':'와 아무관계 없었습니다.', 'relation':'근데 지금 왜?..'},
 	{'name':'의 부모였습니다.', 'relation':'부모자식'},

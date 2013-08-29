@@ -1,37 +1,33 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '진실의 입';
+	data.url = 'http://goo.gl/mJYRGS';
 
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,selTruth = document.querySelector('#selTruth')
-		,answer = getRandom(0, 2)
-	
 	if (selTruth.value == '-1') {
 		alert('진실의 입에 물어보세요.');
 		return;
 	}
 	
-	result = data[selTruth.value]
+	selTruth = document.querySelector('#selTruth')
+	answer = process(0, 2)
+	result = database[selTruth.value]
 	if (answer === 0) {
 		answer = result['yes']
 		desc = '축하합니다.'
@@ -40,50 +36,20 @@ function executeKakaoStoryLink(){
 		desc = '힘내요.'
 	}
 
-	postMsg += '[진실의 입]\n\n';
-	postMsg += '진실의 입에 물어봤습니다.\n';
-	postMsg += '진실의 입아~ "' + result['title'] + '"\n\n\n';
-	postMsg += '진실의 입의 답: "' + answer + '"\n\n';
+	post += '[' + data.title + ']\n\n';
+	post += '진실의 입에 물어봤습니다.\n';
+	post += '진실의 입아~ "' + result['title'] + '"\n\n\n';
+	post += '진실의 입의 답: "' + answer + '"';
+	data.post = post;
 	
-	postMsg += 'http://goo.gl/mJYRGS\n';
-	
-	urlMsg = {
-		title: '진실의 입',
-		desc: desc,
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/truth2.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = desc;
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/truth2.png';
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "진실의 입",
-		url: "http://goo.gl/mJYRGS",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
+	sendData(data);
 }
 
 
-data = [
+database = [
 	{'title': '나는 예쁘니?', 'yes':'네, 아주 예쁩니다.', 'no':'아니요. 미안합니다.'},
 	{'title': '나는 잘생겼냐?', 'yes':'네, 아주 잘생겼습니다.', 'no':'아니요. 죄송합니다.'},
 	{'title': '나는 섹시하냐?', 'yes':'네, 아주 섹시합니다.', 'no':'아니요. ㅋㅋㅋ'},

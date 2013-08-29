@@ -1,70 +1,48 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '연애의 온도';
+	data.url = 'http://goo.gl/Xr6KF';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  userName = document.querySelector('#userName').value
-		,idx = Math.floor(Math.random()*50) + 1
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-		,test1 = getRandom(1, 99)
-		,test2 = getRandom(1, 99)
-		,test3 = getRandom(1, 99)
-		,test4 = getRandom(1, 99)
-		,test5 = getRandom(1, 99)
-		,total = Math.round( (test1 + test2 + test3 + test4 + test5) / 5 )
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	
-	postMsg += '[연애의 온도]\n';
-	postMsg += userName + '님의 연애의 온도: \n\n';
-	postMsg += '첫만남 : ' + test1 + '도씨 (' + getString(test1, 0) + ')\n';
-	postMsg += '고백 : ' + test2 + '도씨 (' + getString(test2, 1) + ')\n';
-	postMsg += '시킨쉽 : ' + test3 + '도씨 (' + getString(test3, 2) + ')\n';
-	postMsg += '권태기 : ' + test4 + '도씨 (' + getString(test4, 3) + ')\n';
-	postMsg += '이별 : ' + test5 + '도씨 (' + getString(test5, 4) + ')\n\n';
-	postMsg += '연애의 온도 : ' + total + '도씨\n\n';
 
-	
-	postMsg += 'http://goo.gl/Xr6KF';
-	
-	urlMsg = {
-		title: '연애의 온도',
-		desc: total + '도씨',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/fick.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	var  test1 = process(1, 99)
+		,test2 = process(1, 99)
+		,test3 = process(1, 99)
+		,test4 = process(1, 99)
+		,test5 = process(1, 99)
+		,total = Math.round( (test1 + test2 + test3 + test4 + test5) / 5 )
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	post += '[' + data.title + ']\n\n';
+	post += userName + '님의 연애의 온도: \n\n';
+	post += '첫만남 : ' + test1 + '도씨 (' + getString(test1, 0) + ')\n';
+	post += '고백 : ' + test2 + '도씨 (' + getString(test2, 1) + ')\n';
+	post += '시킨쉽 : ' + test3 + '도씨 (' + getString(test3, 2) + ')\n';
+	post += '권태기 : ' + test4 + '도씨 (' + getString(test4, 3) + ')\n';
+	post += '이별 : ' + test5 + '도씨 (' + getString(test5, 4) + ')\n';
+	post += '연애의 온도 : ' + total + '도씨';
+	data.post = post;
+	
+	data.desc = total + '도씨';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/fick.png';
 
-    showad()
+	sendData(data);
 }
+
 
 function getString(str, idx) {
 	if (str <= 35) {

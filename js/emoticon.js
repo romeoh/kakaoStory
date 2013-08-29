@@ -1,58 +1,35 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '이모티콘 투하';
+	data.url = 'http://goo.gl/lvj1TZ';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,idx = Math.floor(Math.random() * data.length)
-	
-	postMsg += '[이모티콘 투하]\n\n';
-	postMsg +=  data[idx] + '\n';
-	
-	postMsg += 'http://goo.gl/lvj1TZ\n';
-	
-	urlMsg = {
-		title: '이모티콘 투하',
-		desc: '',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/emoticon.png'],
-		type:'article'
+	if (media == 'talk') {
+		sendData(data);
+		return false;
 	}
-	console.log(postMsg)
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	idx = process(database)
+	
+	post += '[' + data.title + ']\n\n';
+	post +=  database[idx];
+	data.post = post;
+	
+	data.desc = userName + '님과 ' + database[idx]['name'] + '님의 스캔들 사건';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/emoticon.png';
 
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "이모티콘 투하",
-		url: "http://goo.gl/lvj1TZ",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
@@ -264,7 +241,7 @@ emoticon18 += '□□■■■■■■□□□■■■■■■■■\n';
 
 
 
-data = [
+database = [
 	emoticon1,
 	emoticon2,
 	emoticon3,

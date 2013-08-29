@@ -1,42 +1,35 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,data
-	,lottoNum = []
-	,bonus
-	,trainStr = [
-		'첫',
-		'두',
-		'세',
-		'네',
-		'다섯',
-		'여섯',
-		'일곱',
-		'여덞',
-		'아홉',
-		'열'
-	]
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+		,trainStr = [
+			'첫',
+			'두',
+			'세',
+			'네',
+			'다섯',
+			'여섯',
+			'일곱',
+			'여덞',
+			'아홉',
+			'열'
+		]
+		,train = process(1, 101)
 
+	data.title = '설국열차';
+	data.url = 'http://goo.gl/T9VG8G';
 
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-		,train = getRandom(1, 101)
-		,trainTxt
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
@@ -47,45 +40,15 @@ function executeKakaoStoryLink(){
 	} else {
 		trainTxt = train + '번째 칸'
 	}
-
-	postMsg += '[설국열차]\n';
-	postMsg += M('#userName').val() + '님은 설국열차 ' + trainTxt + '에 탑승합니다.\n\n';
 	
-	postMsg += 'http://goo.gl/T9VG8G\n';
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님은 설국열차 ' + trainTxt + '에 탑승합니다.';
+	data.post = post;
+	
+	data.desc = '설국열차는 약 100칸 입니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/train.png';
 
-	urlMsg = {
-		title: '설국열차',
-		desc: '설국열차는 약 100칸 입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/train.png' ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "설국열차",
-		url: "http://goo.gl/T9VG8G",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
+	sendData(data);
 }
 
 

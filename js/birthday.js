@@ -1,94 +1,46 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '받고싶은 생일선물';
+	data.url = 'http://goo.gl/MVQ5y';
 
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,selAlpha = document.querySelector('#selAlpha')
-		,data, dataRan
+	if (sexType == 'boy') {
+		database = dataBoy
+	} else if (sexType == 'girl') {
+		database = dataGirl;
+	}
+	idx = process(database)
 	
-	if (selMonth.value == '') {
-		alert('태어난 월을 선택하세요.');
-		return;
-	}
-	if (selDate.value == '') {
-		alert('태어난 일을 선택하세요.');
-		return;
-	}
-	if (selSex.value == '') {
-		alert('성별을 선택하세요.');
-		return;
-	}
+	post += '[' + data.title + ']\n\n';
+	post += selMonth.value + '월 ' + selDate.value + '일이 제 생일인거 아시죠?\n';
+	post += '이번엔 그냥 ' + database[idx]['price'] + '짜리 ' + database[idx]['present'] + '하나로 만족할께요~^^';
+	data.post = post;
 	
-	if (selSex.value == 1) {
-		data = dataF
-	}
-	if (selSex.value == 2) {
-		data = dataM
-	}
-	dataRan = Math.floor(Math.random() * data.length)
+	data.desc = '우리우정 ' + database[idx]['price']+'정도는 되잖아.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/'+database[idx]['photo'];
 
-	postMsg += '[받고싶은 생일선물]\n';
-	postMsg += selMonth.value + '월 ' + selDate.value + '일이 제 생일인거 아시죠?\n';
-	postMsg += '이번엔 그냥 ' + data[dataRan]['price'] + '짜리 ' + data[dataRan]['present'] + '하나로 만족할께요~^^\n\n';
-	
-	postMsg += 'http://goo.gl/MVQ5y\n';
-	
-	urlMsg = {
-		title: '받고싶은 생일선물',
-		desc: '우리우정 ' + data[dataRan]['price']+'정도는 되잖아.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/'+data[dataRan]['photo']],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
-
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "받고싶은 생일선물",
-		url: "http://goo.gl/MVQ5y",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 
 // 남자
-dataM = [
+dataBoy = [
 	{'photo':'birthM0.jpg',  'price':'58만 5천원', 'present': '구찌 홀스빗 모카신'},
 	{'photo':'birthM1.jpg',  'price':'51만 8천원', 'present': '구찌 하이테크 레이스업 스니커즈'},
 	{'photo':'birthM2.jpg',  'price':'41만 천원', 'present': '버버리 장지갑'},
@@ -122,7 +74,7 @@ dataM = [
 ]
 
 //여자
-dataF = [
+dataGirl = [
 	{'photo':'birthF0.jpg',  'price':'38만 9천원', 'present': '프라다 반지갑'},
 	{'photo':'birthF1.jpg',  'price':'110만원', 'present': '프라다 숄더백'},
 	{'photo':'birthF2.jpg',  'price':'128만 2천원', 'present': '프라다 토트겸 숄더백'},

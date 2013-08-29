@@ -1,84 +1,44 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataMale, dataFemale
-
-
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 		,str = ''
-		,birthYear = parseInt( M('#userAge').val(), 10)
-		,firstYear
+
+	data.title = '이성을 만나는 시기';
+	data.url = 'http://goo.gl/HoznT';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 	
-	if( isNaN(birthYear)){
-		M('#userAge').val('')
-		alert('생년을 입력하세요.')
-		return false
-	}
-	if( M('#userName').val() == ''){
-		alert('이름을 입력하세요.')
-		return false
-	}
+	birthYear = parseInt( M('#userAge').val(), 10)
 	firstYear = birthYear + 17
 	for (var i=0; i<53; i++) {
 		var value = getRandom(0, 99)
 		str += (firstYear + i) +'년('+(18+i)+'세) ' + getGraph(value) + ' '+value+'%\n'
 	}
-	//console.log(str)
-	postMsg += '[이성을 만나는 시기]\n\n';
-	postMsg += M('#userName').val() + '님이 이성을 만나는 시기입니다.\n\n';
-	postMsg += str;
 
-	postMsg += '\nhttp://goo.gl/HoznT';
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님이 이성을 만나는 시기입니다.\n\n';
+	post += str;
+	data.post = post;
 	
-	urlMsg = {
-		title: '이성을 만나는 시기',
-		desc: '이성을 만나는 시기',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/relationLover.jpg'],
-		type:'article'
-	}
+	data.desc = '이성을 만나는 시기';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/relationLover.jpg';
 
-	console.log(postMsg, urlMsg)
-
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "이성을 만나는 시기",
-		url: "http://goo.gl/HoznT",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-function getRandom(min, max){
-	return Math.floor((Math.random() * (max-min) + min))
-}
 
 function getGraph(value){
 	return data[Math.round(value/10)];

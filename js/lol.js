@@ -1,17 +1,10 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,hash =  decodeURIComponent(window.location.hash.split('#')[1])
+var  hash =  decodeURIComponent(window.location.hash.split('#')[1])
 	,dataIdx
 	,paramData = {
 		'names':[],
 		'charactor':[]
 	}
+	,platform
 
 if (hash != 'undefined') {
 	var str = ''
@@ -34,13 +27,24 @@ if (hash != 'undefined') {
 
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
-	btnStory.addEventListener('click', makeUrl, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
+	//btnStory.addEventListener('click', makeUrl, false);
+	//btnKakao.addEventListener('click', executeURLLink, false);
 }
 
-function makeUrl() {
+function action(_data) {
+	platform = _data.media
+	data = {}
+
+	data.title = 'LOL 챔피언 동맹맺기';
+	data.url = 'http://goo.gl/Zr0JGC';
+
+	if (platform == 'talk') {
+		sendData(data);
+		return false;
+	}
+
 	userName = document.querySelector('#userName').value
-	dataIdx = Math.floor(Math.random() * data.length)
+	dataIdx = Math.floor(Math.random() * database.length)
 	
 	if (userName == '') {
 		alert('이름을 입력해 주세요.');
@@ -54,7 +58,7 @@ function makeUrl() {
 
 function setParam() {
 	paramData['names'].push(userName);
-	paramData['charactor'].push(data[dataIdx]['name']);
+	paramData['charactor'].push(database[dataIdx]['name']);
 	paramN = '';
 	paramC = '';
 	
@@ -67,14 +71,19 @@ function setParam() {
 	return 'n=' + paramN + '&c=' + paramC;
 }
 
+
 //  카카오 스토리
 function executeKakaoStoryLink(url){
-	var  postMsg = ''
+	var  data = {}
+		,post = ''
 
-	postMsg += '[LOL 챔피언 동맹맺기]\n\n';
-	
+	data.title = 'LOL 챔피언 동맹맺기';
+	data.url = '';
+	data.media = platform;
+
+	post += '[' + data.title + ']\n\n';
 	if (hash == 'undefined') {
-		postMsg += '⇒ ' + userName + '님의 롤 챔피언은 ' + data[dataIdx]['name'] + ' 입니다.\n';
+		post += '⇒ ' + userName + '님의 롤 챔피언은 ' + database[dataIdx]['name'] + ' 입니다.\n';
 	} else {
 		for (var i=0; i<paramData['names'].length; i++) {
 			if (i === paramData['names'].length-1) {
@@ -82,48 +91,18 @@ function executeKakaoStoryLink(url){
 			} else {
 				ico = ''
 			}
-			postMsg += ico + paramData['names'][i] + '님의 롤 챔피언은 ' + paramData['charactor'][i] + ' 입니다.\n';
+			post += ico + paramData['names'][i] + '님의 롤 챔피언은 ' + paramData['charactor'][i] + ' 입니다.\n';
 		}
 	}
+	post += '\n동맹맺기: ' + url + '\n';
+	data.post = post;
 	
-	postMsg += '\n동맹맺기: ' + url + '\n';
-	
-	urlMsg = {
-		title: 'LOL 챔피언 동맹맺기',
-		desc: '동맹을 맺어보아요.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/lol/' + data[dataIdx]['photo'] ],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = '동맹을 맺어보아요.';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/lol/' + database[dataIdx]['photo'];
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "LOL 챔피언 동맹맺기",
-		url: "http://goo.gl/Zr0JGC",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
-
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
 
 function urlParser() {
 	return names.split(',');
@@ -152,7 +131,7 @@ function getShortUrl(url) {
 
 
 
-data = [
+database = [
 	{'photo':'jpeg-0.jpeg', 'name':'가렌'},
 	{'photo':'jpeg-1.jpeg', 'name':'갈리오'},
 	{'photo':'jpeg-2.jpeg', 'name':'갱플랭크'},

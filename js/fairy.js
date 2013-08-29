@@ -1,98 +1,41 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '동화속 주인공';
+	data.url = 'http://goo.gl/oBhFz2';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}, false);
-
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,sexType
-
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	if (M('#userName').val() == '') {
-		alert('이름을 입력하세요.');
-		return false;
+	if (sexType == 'boy') {
+		database = dataBoy
+	} else if (sexType == 'girl') {
+		database = dataGirl;
 	}
+	idx = process(database)
 	
-	if (boySelect.className == 'checked') {
-		// 남자
-		data = dataBoy
-	} else if (girlSelect.className == 'checked') {
-		// 여자
-		data = dataGirl
-	}
-	dataIdx = Math.floor(Math.random() * data.length)
-
-	postMsg += '[동화속 주인공]\n\n';
-	postMsg += M('#userName').val() + '님의 동화속 주인공은\n';
-	postMsg += data[dataIdx]['name'] + ' 입니다.\n\n';
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님의 동화속 주인공은\n';
+	post += database[idx]['name'] + ' 입니다.';
+	data.post = post;
 	
-	postMsg += 'http://goo.gl/oBhFz2\n';
-	
-	urlMsg = {
-		title: '동화속 주인공',
-		desc: data[dataIdx]['ment'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[dataIdx]['photo']],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = database[idx]['ment'];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + database[idx]['photo'];
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-function getRandom(min, max){
-	return Math.floor((Math.random() * (max-min) + min))
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "동화속 주인공",
-		url: "http://goo.gl/oBhFz2",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 

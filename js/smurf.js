@@ -1,76 +1,39 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,data
-	,lottoNum = []
-	,bonus
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '개구쟁이 스머프';
+	data.url = 'http://goo.gl/5yqyOY';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-		,smurf = Math.floor(Math.random() * data.length)
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
+	idx = process(database)
 	
-	postMsg += '[나의 스머프 캐릭터]\n';
-	postMsg += M('#userName').val() + '님은 스머프 마을의\n';
-	postMsg += data[smurf]['name'] + '입니다.\n\n';
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님은 스머프 마을의\n';
+	post += database[idx]['name'] + '입니다.';
+	data.post = post;
 	
-	postMsg += 'http://goo.gl/5yqyOY\n';
+	data.desc = database[idx]['name'];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + database[idx]['photo'];
 
-	urlMsg = {
-		title: '개구쟁이 스머프',
-		desc: data[smurf]['name'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[smurf]['photo'] ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "개구쟁이 스머프",
-		url: "http://goo.gl/5yqyOY",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
-
-data = [
+database = [
 	{'photo':'smurf1.png', 'name':'파파 스머프', 'talk':''},
 	{'photo':'smurf2.png', 'name':'스머패트', 'talk':''},
 	{'photo':'smurf3.png', 'name':'화가 스머프', 'talk':''},

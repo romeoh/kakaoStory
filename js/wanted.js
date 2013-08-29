@@ -1,86 +1,41 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}, false);
+	data.title = '애인구함';
+	data.url = 'http://goo.gl/DrQFt';
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		
-
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	
-	postMsg += '[애인구함]\n\n';
-	
-	if (boySelect.className == 'checked') {
-		// 남자일 경우
-		data = dataGirl[Math.floor(Math.random() * dataGirl.length)]
-	} else if (girlSelect.className == 'checked') {
-		// 여자 경우
-		data = dataBoy[Math.floor(Math.random() * dataBoy.length)]
+
+	if (sexType == 'boy') {
+		database = dataBoy
+	} else if (sexType == 'girl') {
+		database = dataGirl;
 	}
-	postMsg += data + '\n\n';
-	postMsg += 'http://goo.gl/DrQFt \n\n';
+	idx = process(database)
 	
-	urlMsg = {
-		title: '애인구함',
-		desc: data,
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/wanted.png' ],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	post += '[' + data.title + ']\n\n';
+	post += database[idx];
+	data.post = post;
+	
+	data.desc = database[idx];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/wanted.png';
 
-    showad()
+	sendData(data);
 }
-
-//console.log(getRandom(10, 20))
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "애인구함",
-		url: "http://goo.gl/DrQFt",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 
 // 

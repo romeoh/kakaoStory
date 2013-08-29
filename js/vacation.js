@@ -1,98 +1,45 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '함께 휴가가는 연예인';
+	data.url = 'http://goo.gl/pxiUqd';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-		,who
-		,place = Math.floor(Math.random() * dataPlace.length)
-		,long = Math.floor(Math.random() * dataLong.length)
-	
-	//idx < 10 ? idx = '0' + idx : idx
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
-		return false;
+	if (sexType == 'boy') {
+		database = dataBoy
+	} else if (sexType == 'girl') {
+		database = dataGirl;
 	}
-
-	if (boySelect.className == 'checked') {
-		data = dataBoy
-		who = Math.floor(Math.random() * dataBoy.length)
-	} else if (girlSelect.className == 'checked') {
-		data = dataGirl
-		who = Math.floor(Math.random() * dataGirl.length)
-	}
-	console.log(data[who]['name'])
+	idx = process(database)
+	longIdx = process(dataLong)
+	placeIdx = process(dataPlace)
+	idx = process(database)
 	
-	postMsg += '[함께 휴가가는 연예인]\n';
-	postMsg += M('#userName').val() + '님은 ' + data[who]['name'] + '\n';
-	postMsg += dataPlace[place]['place'] + '에 ' + dataLong[long]['long'] + ' 여행갑니다.\n\n';
-	postMsg += '축하합니다.\n\n';
-	postMsg += 'http://goo.gl/pxiUqd\n';
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님은 ' + database[idx]['name'] + '\n';
+	post += dataPlace[placeIdx]['place'] + '에 ' + dataLong[longIdx]['long'] + ' 여행갑니다.\n\n';
+	post += '축하합니다.';
+	data.post = post;
+	
+	data.desc = database[idx]['name'] + ' 포레버~\n거기서 그냥 사세요.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + database[idx]['photo'];
 
-	urlMsg = {
-		title: '함께 휴가가는 연예인',
-		desc: data[who]['name']+' 포레버~\n거기서 그냥 사세요.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[who]['photo'] ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "함께 휴가가는 연예인",
-		url: "http://goo.gl/pxiUqd",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
+	sendData(data);
 }
 
 dataBoy = [

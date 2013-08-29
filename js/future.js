@@ -1,102 +1,50 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataMale, dataFemale
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '닮을꼴 연예인';
+	data.url = 'http://goo.gl/1945x';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  userName = document.querySelector('#userName').value
-		,idx = Math.floor(Math.random()*30)
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-		,urlMsg = {}
-		,data
-		,matchRate = Math.floor(Math.random()*50 + 50)
-	
-	//idx < 10 ? idx = '0' + idx : idx
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
-		return false;
+	if (sexType == 'boy') {
+		database = dataBoy;
+	} else if (sexType == 'girl') {
+		database = dataGirl;
 	}
+	idx = process(database)
+	matchRate = process(50, 100)
+
+	post += '[' + data.title + ']\n\n';
+	post += '미래에 ' + userName + '님과 닮을 연예인을 찾았습니다.\n\n'
+	post += '이름: ' + database[idx]['name'] + '\n'
+	post += '매치율: ' + matchRate + '%\n'
+	post += '특히 닮을곳: ' + database[idx]['point']
+
+	data.post = post;
 	
-	if (boySelect.className == 'checked') {
-		// 여자일 경우 여자 연예인
-		data = dataFemale;
-	} else if (girlSelect.className == 'checked') {
-		// 남자일 경우 남자 연예인
-		data = dataMale;
-	}
-	
-	postMsg += '[닮을꼴 연예인]\n'
-	postMsg += '미래에 ' + userName + '님과 닮을 연예인을 찾았습니다.\n\n'
-	postMsg += '이름: ' + data[idx]['name'] + '\n'
-	postMsg += '매치율: ' + matchRate + '%\n'
-	postMsg += '특히 닮을곳: ' + data[idx]['point'] + '\n\n'
-	postMsg += 'http://goo.gl/1945x'
+	data.desc = database[idx]['name'] + '님과 ' + matchRate + '% 닮았습니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/imgFuture/' + database[idx]['photo'];
 
-	urlMsg = {
-		title: '닮을꼴 연예인 찾기',
-		desc: data[idx]['name'] + '님과 ' + matchRate + '% 닮았습니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgFuture/' + data[idx]['photo'] ],
-		type:'article'
-	}
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "미래에 나와 닮을 연예인을 찾아보자.",
-		url: "http://goo.gl/1945x",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-dataMale = [
+
+dataGirl = [
 	{'name': '고두심', 'photo': 'f01.jpeg', 'point':'품위있게 늙으시네요.'},
 	{'name': '김수미', 'photo': 'f02.jpeg', 'point':'눈 모양이 똑같아요.'},
 	{'name': '양희은', 'photo': 'f03.jpeg', 'point':'쩌렁쩌렁한 목소리'},
@@ -129,7 +77,7 @@ dataMale = [
 	{'name': '박미선', 'photo': 'f30.jpeg', 'point':'남편 잘 만나셨네요.'}
 ]
 
-dataFemale = [
+dataBoy = [
 	{'name': '최민수', 'photo': 'm01.jpeg', 'point':'넌 나에게 모욕감을 줬어.'},
 	{'name': '이문세', 'photo': 'm02.jpeg', 'point':'길고 날씬한 얼굴'},
 	{'name': '유동근', 'photo': 'm03.jpeg', 'point':'애인'},

@@ -1,64 +1,41 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '625전쟁 상식';
+	data.url = 'http://goo.gl/6HS2G';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,dataRan = Math.floor(Math.random() * data.length)
-		,artcle = data[dataRan]['article']
-	
-	postMsg += '[625전쟁 상식]\n\n';
-	postMsg += artcle + '\n';
-	postMsg += '출처: 위키백과\n\n';
-	
-	postMsg += '상식 더보기: http://goo.gl/6HS2G\n';
-	
-	urlMsg = {
-		title: '625전쟁 상식',
-		desc: '우리역사 바로 알아보기',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/flag.png'],
-		type:'article'
+	if (media == 'talk') {
+		sendData(data);
+		return false;
 	}
-	console.log(postMsg)
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	idx = process(database)
+	
+	post += '[' + data.title + ']\n\n';
+	post += database[idx]['article'] + '\n';
+	post += '출처: 위키백과';
+	data.post = post;
+	
+	data.desc = '우리역사 바로 알아보기';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/flag.png';
 
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "625전쟁 상식",
-		url: "http://goo.gl/6HS2G",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-data = [
+
+database = [
 	{'article': '1950년 6월 25일 새벽 4시 경, 중화인민공화국 마오쩌둥과 소비에트 연방 스탈린의 지지를 받은 조선민주주의인민공화국의 김일성은 소비에트 연방에서 지원한 전차를 앞세워 38도선을 넘어 대한민국을 기습 남침하였다. '},
 	{'article': '1950년 6월 25일 오전 9시경에는 개성방어선을 격파하고 당일 오전에 동두천과 포천을 함락시켰다. \n26일 오후에 의정부를, 27일 정오에는 이미 서울 도봉구의 창동방어선을 넘었다. \n창동방어선이 뚫린 대한민국 국군은 미아리방어선을 구축하였으나 조선인민군의 전차에 의해 붕괴되었다. '},
 	{'article': '1950년 6월 26일 밤 10시 반경 이승만은 도쿄에 있는 미국 극동군 사령관 맥아더에게 전화를 걸어 도움을 요청하였다. \n이승만은 라디오 연설로 서울시민은 정부를 믿고 동요하지 말라는 방송을 통해, 서울 시민들이 서울 안에 그대로 머무르도록 독려한 반면 그 자신은 방송 진행중에 각료들과 함께 특별열차로 대전으로 피신하였다.\n6월 27일 새벽 2시에 이승만은 서울 시민들을 버리고 대전행 특별 열차를 타고 대전으로 내려갔다.'},

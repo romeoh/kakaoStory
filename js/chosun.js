@@ -1,75 +1,49 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,lottoNum = []
-	,bonus
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
+	data.title = '타임인조선';
+	data.url = 'http://goo.gl/1cvuIf';
 
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  userName = document.querySelector('#userName').value
-		,postMsg = ''
-		,born = getRandom(1392, 1910)
-		,age = getRandom(20, 80)
-		,idx = Math.floor(Math.random() * data.length)
-		,nameIdx = Math.floor(Math.random() * dataName.length)
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	postMsg += '[타임인조선]\n';
-	postMsg += M('#userName').val() + '님은 조선시대 ' + data[idx]['title'] + '\n\n';
-	postMsg += '조선시대 이름: ' + dataName[nameIdx] + '\n';
-	postMsg += '생존기간: ' + born +' ~ ' + (born+age) + '\n\n';
-	
-	postMsg += 'http://goo.gl/1cvuIf\n';
-
-	urlMsg = {
-		title: '조선시대 계급',
-		desc: data[idx]['desc'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/' + data[idx]['photo'] ],
-		type:'article'
+	if (sexType == 'boy') {
+		database = dataBoy
+	} else if (sexType == 'girl') {
+		database = dataGirl;
 	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	idx = process(database)
+	nameIdx = process(dataName)
+	born = getRandom(1392, 1910)
+	age = getRandom(20, 80)
 
-    showad()
-}
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님은 조선시대 ' + database[idx]['title'] + '\n\n';
+	post += '조선시대 이름: ' + dataName[nameIdx] + '\n';
+	post += '생존기간: ' + born +' ~ ' + (born+age);
+	data.post = post;
+	
+	data.desc = database[idx]['desc'];
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/' + database[idx]['photo'];
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "타임인조선",
-		url: "http://goo.gl/1cvuIf",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
-
-data = [
+database = [
 	{'title':'임금이었습니다.', 'photo':'chosun1.png', 'desc':'안녕~ 난 임금이야'},
 	{'title':'양반이었습니다.', 'photo':'chosun2.png', 'desc':'천한것들...'},
 	{'title':'중인이었습니다.', 'photo':'chosun3.png', 'desc':'순위권~'},

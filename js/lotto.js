@@ -1,29 +1,25 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,data
-	,lottoNum = []
-	,bonus
-
-
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
+var lottoNum = []
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	lottoNum.length = 0
+
+	data.title = '행운의 로또번호 생성기';
+	data.url = 'http://goo.gl/w62nY';
+
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
@@ -34,48 +30,22 @@ function executeKakaoStoryLink(){
 		return a - z
 	})
 
-	postMsg += '[행운의 로또번호 생성기]\n';
-	postMsg += M('#userName').val() + '의 행운의 번호는 \n';
-	postMsg += lottoNum[0]+1 + ', ';
-	postMsg += lottoNum[1]+1 + ', ';
-	postMsg += lottoNum[2]+1 + ', ';
-	postMsg += lottoNum[3]+1 + ', ';
-	postMsg += lottoNum[4]+1 + ', ';
-	postMsg += lottoNum[5]+1 + '\n';
-	postMsg += '그리고 보너스 번호 ' + (Number(bonus) + Number(1)) + ' 입니다.\n\n';
 	
-	postMsg += 'http://goo.gl/w62nY\n\n\n';
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '의 행운의 번호는 \n';
+	post += lottoNum[0]+1 + ', ';
+	post += lottoNum[1]+1 + ', ';
+	post += lottoNum[2]+1 + ', ';
+	post += lottoNum[3]+1 + ', ';
+	post += lottoNum[4]+1 + ', ';
+	post += lottoNum[5]+1 + '\n';
+	post += '그리고 보너스 번호 ' + (Number(bonus) + Number(1)) + ' 입니다.';
+	data.post = post;
 	
-	postMsg += '월욜부터 연락 안되면 인생역전 했구나 생각해줘~\n';
+	data.desc = '기부 안해요~';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/lotto.jpg';
 
-	urlMsg = {
-		title: '로또번호 생성기',
-		desc: '기부 안해요~' ,
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/lotto.jpg' ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "로또번호 생성기",
-		url: "http://goo.gl/w62nY",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
@@ -103,8 +73,6 @@ function settle(data, leng) {
 	}
 	return lottoNum
 }
-
-
 
 dataLotto = [
 	{'num': '1'},

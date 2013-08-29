@@ -194,28 +194,24 @@ function process() {
 	}
 
 	result = Math.round(totalGrade/totalScore*100)/100
-	postMsg += '[학점계산기]\n\n';
-	postMsg += '내 학점은 ' + fullScore + '점 만점에\n';
-	postMsg += '평점 ' + result + '점,\n';
-	postMsg += '취득학점은 ' + totalScore + '점 입니다.\n\n';
-	postMsg += 'http://goo.gl/tqgF1 \n';
 	
-	urlMsg = {
-		title: '[학점계산기]',
-		desc: '나는 총 평점은 ' + result + '점 입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/grade.png'],
-		type:'article'
-	}
+	var  data = {}
+		,post = ''
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-	showad()
-	console.log(postMsg, urlMsg)
+	data.title = '학점계산기';
+	data.url = 'http://goo.gl/tqgF1';
+
+	post += '[학점계산기]\n\n';
+	post += '내 학점은 ' + fullScore + '점 만점에\n';
+	post += '평점 ' + result + '점,\n';
+	post += '취득학점은 ' + totalScore + '점 입니다.';
+	data.post = post;
+
+	data.desc = '나는 총 평점은 ' + result + '점 입니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/grade.png';
+
+	sendData(data);
+	
 	//console.log('총평점:' + result + ' 취득학점: ' + totalScore)
 }
 

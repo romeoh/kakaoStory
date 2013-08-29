@@ -1,107 +1,45 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,settleData = []
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '내 이름 연상단어';
+	data.url = 'http://goo.gl/nzwC5';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType, userName
-		,userName = document.querySelector('#userName').value
-		,resultName, resultPhoto, resultMsg
-		,postMsg = ''
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	settle(dataWord, 5);
-	matchRate0 = randomRange(50, 100)
-	matchRate1 = randomRange(40, matchRate0)
-	matchRate2 = randomRange(30, matchRate1)
-	matchRate3 = randomRange(10, matchRate2)
-	matchRate4 = randomRange(0, matchRate3)
+	data.title = userName+', 하면 연상되는 단어';
+	words = shuffle(dataWord, 5)
+	matchRate0 = process(50, 100)
+	matchRate1 = process(40, matchRate0)
+	matchRate2 = process(30, matchRate1)
+	matchRate3 = process(10, matchRate2)
+	matchRate4 = process(0, matchRate3)
+
+	post += '[' + data.title + ']\n\n';
+	post += '1위: ' + words[0] + ' (' + matchRate0 + '%)\n';
+	post += '2위: ' + words[1] + ' (' + matchRate1 + '%)\n';
+	post += '3위: ' + words[2] + ' (' + matchRate2 + '%)\n';
+	post += '4위: ' + words[3] + ' (' + matchRate3 + '%)\n';
+	post += '5위: ' + words[4] + ' (' + matchRate4 + '%)';
+	data.post = post;
 	
-	postMsg += '['+userName+', 하면 연상되는 단어]\n\n';
-	postMsg += '1위: ' + dataWord[settleData[0]] + ' (' + matchRate0 + '%)\n';
-	postMsg += '2위: ' + dataWord[settleData[1]] + ' (' + matchRate1 + '%)\n';
-	postMsg += '3위: ' + dataWord[settleData[2]] + ' (' + matchRate2 + '%)\n';
-	postMsg += '4위: ' + dataWord[settleData[3]] + ' (' + matchRate3 + '%)\n';
-	postMsg += '5위: ' + dataWord[settleData[4]] + ' (' + matchRate4 + '%)\n\n';
-	postMsg += 'http://goo.gl/nzwC5';
-	
-	urlMsg = {
-		title: '내이름 연상단어',
-		desc: dataWord[settleData[0]],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/dog.jpg'],
-		type:'article'
-	}
+	data.desc = words[0];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/dog.jpg';
 
-	console.log(postMsg, urlMsg)
-	
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-function settle(data, leng) {
-	ranValue = Math.floor(Math.random() * data.length)
-	if (settleData.length === 0) {
-		settleData.push(ranValue);
-		settle(data, leng)
-	} else {
-		if (settleData.length >= leng) {
-			return settleData;
-		} else {
-			for (var i=0; i<settleData.length; i++) {
-				if (settleData[i] === ranValue) {
-					settle(data, leng);
-					break;
-				}
-			}
-			
-			if (settleData.length <= leng-1) {
-				settleData.push(ranValue);
-				settle(data, leng)
-			}
-		}
-	}
-	return settleData
-}
-
-function randomRange(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "내이름 연상단어",
-		url: "http://goo.gl/nzwC5",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 

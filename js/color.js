@@ -1,40 +1,60 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '색깔로 알아보는 심리테스트';
+	data.url = 'http://goo.gl/r66cA';
 
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-		selected(0)
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-		selected(1)
-	}, false);
-}, false);
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 
+	if (sexType == 'boy') {
+		database = dataBoy
+		photo = 'pointerMale.jpg'
+	} else if (sexType == 'girl') {
+		database = dataGirl;
+		photo = 'pointerFemale.jpg'
+	}
+	idx = M('#selColor').val()
+	
+	post += '[' + data.title + ']\n\n';
+	post += '나는 ' + database[idx].color + '을 좋아하는\n';
+	post += database[idx].result + '입니다.';
+	data.post = post;
+	
+	data.desc = '나는 ' + database[idx].result + '입니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + database[idx].img;
+
+	sendData(data);
+}
+
+M('#boyBox a').on('click', function(){
+	M('#selColor').val('-1')
+	selected(0)
+})
+M('#girlBox a').on('click', function(){
+	M('#selColor').val('-1')
+	selected(1)
+})
 function selected(idx){
 	var  selColor = document.querySelector('#selColor')
 		,str = ''
 
 	if (idx === 0) {
 		// 남자
-		str += '<option value="">좋아하는 색상을 고르세요.</option>'
+		str += '<option value="-1" selected>좋아하는 색상을 고르세요.</option>'
 		str += '<option value="0">빨간색</option>'
 		str += '<option value="1">주황색</option>'
 		str += '<option value="2">노란색</option>'
@@ -52,7 +72,7 @@ function selected(idx){
 		selColor.innerHTML = str
 	} else {
 		// 여자
-		str += '<option value="">좋아하는 색상을 고르세요.</option>'
+		str += '<option value="-1" selected>좋아하는 색상을 고르세요.</option>'
 		str += '<option value="0">빨간색</option>'
 		str += '<option value="1">주황색</option>'
 		str += '<option value="2">노란색</option>'
@@ -71,70 +91,10 @@ function selected(idx){
 	
 }
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,selColor = document.querySelector('#selColor')
-		,data
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
-		return false;
-	}
-
-	if (selColor.value == '') {
-		alert('좋아하는 색상을 고르세요.');
-	}
-	
-	
-	if (boySelect.className == 'checked') {
-		// 여자일 경우
-		data = dataMale[selColor.value]
-	} else if (girlSelect.className == 'checked') {
-		// 남자일 경우
-		data = dataFemale[selColor.value]
-	}
-	
-	postMsg += '[색깔로 알아보는 심리테스트]\n\n';
-	postMsg += '나는 ' + data.color + '을 좋아하는\n';
-	postMsg += data.result + '입니다.\n\n';
-	
-	postMsg += 'http://goo.gl/r66cA\n';
-	
-	urlMsg = {
-		title: '색깔로 알아보는 심리테스트',
-		desc: '나는 ' + data.result + '입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data.img],
-		type:'article'
-	}
-	console.log(urlMsg)
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "색깔로 알아보는 심리테스트",
-		url: "http://goo.gl/r66cA",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "색깔로 알아보는 심리테스트",
-		type: "link"
-	});
-}
 
 
 // 남자
-dataMale = [
+dataBoy = [
 	{'img': 'colorM0.jpg', 'color': '빨간색', 'result': '유머있는 남자'},
 	{'img': 'colorM1.jpg', 'color': '주황색', 'result': '싱그러운 남자'},
 	{'img': 'colorM2.jpg', 'color': '노란색', 'result': '귀여운 남자'},
@@ -152,7 +112,7 @@ dataMale = [
 ]
 
 // 여자
-dataFemale = [
+dataGirl = [
 	{'img': 'colorF0.jpg', 'color': '빨간색', 'result': '참을성이 없는 여자'},
 	{'img': 'colorF1.jpg', 'color': '주황색', 'result': '멍청하고 미련한 여자'},
 	{'img': 'colorF2.jpg', 'color': '노란색', 'result': '이쁜 여자'},

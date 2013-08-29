@@ -1,76 +1,42 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,data
-	,lottoNum = []
-	,bonus
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '나에게 붙어있는 귀신';
+	data.url = 'http://goo.gl/qy9Yj2';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-		,ghost = getRandom(1, 100)
-		,idx = Math.floor(Math.random() * data.length)
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	postMsg += '[나에게 붙어있는 귀신]\n\n';
-	postMsg += M('#userName').val() + '님에게 붙어있는 귀신은 모두 ' + ghost + '마리 입니다.\n\n';
-	postMsg += '그 중에 갑은 ' + data[idx]['name'] + ' 입니다.\n\n';
+	idx = process(database)
+	ghost = process(1, 100)
 	
-	postMsg += 'http://goo.gl/qy9Yj2\n';
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님에게 붙어있는 귀신은 모두 ' + ghost + '마리 입니다.\n\n';
+	post += '그 중에 갑은 ' + database[idx]['name'] + ' 입니다.';
+	data.post = post;
+	
+	data.desc = database[idx]['name'];
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/' + database[idx]['photo'];
 
-	urlMsg = {
-		title: '나에게 붙어있는 귀신',
-		desc: data[idx]['name'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/' + data[idx]['photo'] ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "나에게 붙어있는 귀신",
-		url: "http://goo.gl/qy9Yj2",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
 
-data = [
+database = [
 	{'photo':'ghosta1.png', 'name':'달걀귀신'},
 	{'photo':'ghosta2.png', 'name':'처녀귀신'},
 	{'photo':'ghosta3.png', 'name':'드라큐라'},

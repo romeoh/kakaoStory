@@ -1,94 +1,52 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataMale, dataFemale
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '나와 커피마시고 싶어하는 연예인';
+	data.url = 'http://goo.gl/RPVB5';
 
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType, userName
-		,userName = document.querySelector('#userName').value
-		,idx = Math.floor(Math.random()*50) + 1
-		,resultName, resultPhoto, resultMsg
-		,message
-	
-	//idx < 10 ? idx = '0' + idx : idx
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
-		return false;
-	}
-	
-	if (boySelect.className == 'checked') {
-		sexType = 'm'
-	} else if (girlSelect.className == 'checked') {
-		sexType = 'f'
-	}
-	
-	if (sexType == 'm') {
-		resultName = dataMale[idx]['name']
-		resultPhoto = dataMale[idx]['photo']
-		resultMsg = dataMale[idx]['msg']
+
+	if (sexType == 'boy') {
+		idx = process(dataBoy);
+		resultName = dataBoy[idx]['name'];
+		resultPhoto = dataBoy[idx]['photo'];
+		resultMsg = dataBoy[idx]['msg'];
 		message = '커피한잔 사주실래요?';
-	} else {
-		resultName = dataFemale[idx]['name']
-		resultPhoto = dataFemale[idx]['photo']
-		resultMsg = dataFemale[idx]['msg']
+	} else if (sexType == 'girl') {
+		idx = process(dataGirl);
+		resultName = dataGirl[idx]['name'];
+		resultPhoto = dataGirl[idx]['photo'];
+		resultMsg = dataGirl[idx]['msg'];
 		message = '커피한잔 마실래요?';
 	}
+	
+	post += '[' + data.title + ']\n\n';
+	post += resultName + '님이 ' + userName + '님과 커피를 마시고 싶어 합니다.\n';
+	post += '받아주실꺼죠?';
+	data.post = post;
+	
+	data.desc = userName + '님 ' + message;
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + resultPhoto;
 
-	kakao.link("story").send({   
-        post : '[나와 커피마시고 싶어하는 연예인]\n\n'+resultName + '씨가 ' + userName + '님과 커피를 마시고 싶어 합니다. \n받아주실꺼죠? \n\nhttp://goo.gl/RPVB5',
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify({title: '연예인과 커피한잔', desc: userName + '님 ' + message, imageurl:['http://romeoh.github.io/kakaoStory/img/'+resultPhoto], type:'article'})
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "커피한잔 하실래요?",
-		url: "http://goo.gl/RPVB5",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-dataMale = [
+dataBoy = [
 	{'name': '강민경', 'photo': 'f01.jpeg', 'msg':''},
 	{'name': '정유미', 'photo': 'f02.jpeg', 'msg':''},
 	{'name': '가인',  'photo': 'f03.jpeg', 'msg':''},
@@ -141,7 +99,7 @@ dataMale = [
 	{'name': '수지',  'photo': 'f50.jpeg', 'msg':''}
 ]
 
-dataFemale = [
+dataGirl = [
 	{'name': '정석원', 'photo': 'm01.jpeg', 'msg':''},
 	{'name': '이승기', 'photo': 'm02.jpeg', 'msg':''},
 	{'name': '홍대광', 'photo': 'm03.jpeg', 'msg':''},

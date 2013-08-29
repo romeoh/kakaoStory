@@ -1,73 +1,40 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '나의 주량 알아보기';
+	data.url = 'http://goo.gl/BCCnn';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-		,dataDrinkRan = Math.floor(Math.random() * dataDrink.length)
-		,dataMountRan = Math.floor(Math.random() * dataMount.length)
-		,dataActionRan = Math.floor(Math.random() * dataAction.length)
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	postMsg += userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.\n\n';
-	postMsg += '주량: ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '\n';
-	postMsg += '주사: ' + dataAction[dataActionRan] + '\n\n';
-	postMsg += 'http://goo.gl/BCCnn';
+	idx = process(dataDrink)
+	mountIdx = process(dataMount)
+	actionIdx = process(dataAction)
+	
+	post += '[' + data.title + ']\n\n';
+	post += userName + '님의 주량은 ' + dataDrink[idx]['name'] + ' ' + dataMount[mountIdx] + '입니다.\n\n';
+	post += '주량: ' + dataDrink[idx]['name'] + ' ' + dataMount[mountIdx] + '\n';
+	post += '주사: ' + dataAction[mountIdx];
+	data.post = post;
+	
+	data.desc = userName + '님의 주량은 ' + dataDrink[idx]['name'] + ' ' + dataMount[mountIdx] + '입니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/imgDrink/' + dataDrink[idx]['photo'];
 
-	urlMsg = {
-		title: '나의 주량 알아보기',
-		desc: userName + '님의 주량은 ' + dataDrink[dataDrinkRan]['name'] + ' ' + dataMount[dataMountRan] + '입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgDrink/' + dataDrink[dataDrinkRan]['photo'] ],
-		type:'article'
-	}
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "커피한잔 하실래요?",
-		url: "http://goo.gl/FSBT3",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
 
 
 dataDrink = [

@@ -1,13 +1,51 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,imgWidth = M('#wrapper').css('clientWidth')
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '나와 어울리는 슈퍼카';
+	data.url = 'http://goo.gl/PKcvE';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	
+	idx = process(database)
+	price = database[idx]['price'] + ' '
+	if (price == ' 짜리 ') {
+		price = ''
+	}
+
+	post += '[' + data.title + ']\n\n';
+	post += userName + '님의 애마는 \n';
+	post += price + database[idx]['company'] + ' ' + database[idx]['car'] + '입니다.\n';
+	if (price == '') {
+		post += '가격정보 없음';
+	}
+
+	data.post = post;
+	
+	data.desc = database[idx]['company'] + ' ' + database[idx]['car'];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + database[idx]['photo'];
+
+	sendData(data);
+}
+
+
+
+
+var  imgWidth = M('#wrapper').css('clientWidth')
 	,screenX = M.screen().width/2 - 23
 	,cuIdx = 0
 	,indiCount = 0
@@ -39,8 +77,8 @@ function initPage(){
 	
 	
 	M('#btnNext').on('click', function(){
-		if (cuIdx == data.length-1) {
-			alert('마지막입니다\n카스에 추천 부탁드려요~^^')
+		if (cuIdx == database.length-1) {
+			alert('마지막입니다\nSNS에 추천 부탁드려요~^^')
 			return;
 		}
 		cuIdx++;
@@ -48,15 +86,12 @@ function initPage(){
 	})
 	M('#btnPrev').on('click', function(){
 		if (cuIdx == 0) {
-			alert('첫번째 사진입니다\n카스에 추천 부탁드려요~^^')
+			alert('첫번째 사진입니다\nSNS에 추천 부탁드려요~^^')
 			return;
 		}
 		cuIdx--;
 		appendImg()
 	})
-
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
 }
 
 // 초기화
@@ -66,7 +101,7 @@ function init() {
 
 function appendImg() {
 	var  str = ''
-		,price = data[cuIdx]['price'].replace(' 짜리', '')
+		,price = database[cuIdx]['price'].replace(' 짜리', '')
 
 	if (price == '') {
 		price = '가격 정보 없음'
@@ -78,11 +113,11 @@ function appendImg() {
 	setTimeout(function(){
 		M('#wrapper')
 			.append('img', {
-				 'src':'../img/'+data[cuIdx]['gallery']
+				 'src':'../img/'+database[cuIdx]['gallery']
 				,'id':'kimg'
 			})
 
-		str += data[cuIdx]['company'] +' '+ data[cuIdx]['car'] + '<br>'
+		str += database[cuIdx]['company'] +' '+ database[cuIdx]['car'] + '<br>'
 		str += '가격: ' + price
 		M('.carInfo').html(str)
 		M('#kimg').css('width', imgWidth+'px');	
@@ -90,64 +125,8 @@ function appendImg() {
 	
 }
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-		,dataRan = Math.floor(Math.random() * data.length)
-		,price = data[dataRan]['price'] + ' '
 
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
-		return false;
-	}
-	
-	if (price == ' 짜리 ') {
-		price = ''
-	}
-
-	postMsg += '[나와 어울리는 슈퍼카]\n\n';
-	postMsg += userName + '님의 애마는 \n';
-	postMsg += price + data[dataRan]['company'] + ' ' + data[dataRan]['car'] + '입니다.\n\n';
-
-	if (price == '') {
-		postMsg += '가격정보 없음\n';
-	}
-	postMsg += '슈퍼카 갤러리: http://goo.gl/PKcvE\n';
-
-	urlMsg = {
-		title: '나와 어울리는 슈퍼카',
-		desc: data[dataRan]['company'] + ' ' + data[dataRan]['car'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[dataRan]['photo'] ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "나와 어울리는 슈퍼카",
-		url: "http://goo.gl/PKcvE",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
-data = [
+database = [
 	{'gallery':'scar0.jpg',  'photo': 'superCar0.jpg',  'price':'5억 7천 500만원 짜리', 'company':'람보르기니', 'car':'아벤타도르'},
 	{'gallery':'scar1.jpg',  'photo': 'superCar1.jpg',  'price':' 짜리', 'company':'페라리', 'car':'F12 베를리네타'},
 	{'gallery':'scar2.jpg',  'photo': 'superCar2.jpg',  'price':' 짜리', 'company':'람보르기니', 'car':'에고이스타 컨셉트'},

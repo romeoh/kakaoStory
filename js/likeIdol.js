@@ -18,9 +18,11 @@ function initPage(){
 	init()
 	initStart();
 
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	//btnKakao.addEventListener('click', executeURLLink, false);
-	M('[data-id="btnKakao"]').on('click', executeURLLink)
+	M('[data-id="btnKakao"]').on('click', function(){
+		var d = {}
+		d.media = 'talk'
+		action(d)
+	})
 }
 
 // 초기화
@@ -135,48 +137,40 @@ function getRanNum(arr, val){
 	}
 }
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-	
-	postMsg += '[아이돌 좋아! 싫어!]\n\n';
-	postMsg += M('#userName').val() + '님은 \n';
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '아이돌 좋아! 싫어!';
+	data.url = 'http://goo.gl/n6gU3j';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님은 \n';
 	for (var i=0; i<totalLength; i++) {
 		n = i+1
-		postMsg += n + '. ' + myLikes[i]['ename'] + ' ' + myLikes[i]['result'] + '\n';
+		post += n + '. ' + myLikes[i]['ename'] + ' ' + myLikes[i]['result'] + '\n';
 	}
-	postMsg += '\nhttp://goo.gl/n6gU3j\n';
+	data.post = post;
+	
+	data.desc = '꺆~~';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + thum;
 
-	urlMsg = {
-		title: '아이돌 좋아! 싫어!',
-		desc: '꺆~~',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + thum ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "연예인 좋아! 싫어!",
-		url: "http://goo.gl/n6gU3j",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 

@@ -1,73 +1,41 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '나와 어울리는 CF';
+	data.url = 'http://goo.gl/eK1NU';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,userName = document.querySelector('#userName').value
-		,dataProductRan = Math.floor(Math.random() * dataProduct.length)
-		,dataPartnerRan = Math.floor(Math.random() * dataPartner.length)
-		,dataPriceRan = Math.floor(Math.random() * dataPrice.length)
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	
-	postMsg += '[나와 어울리는 CF]\n\n';
-	postMsg += userName + '님, CF섭외가 들어왔습니다.\n';
-	postMsg += '제품명: ' + dataProduct[dataProductRan]['product'] + '\n'
-	postMsg += '출연료: ' + dataPrice[dataPriceRan] + '\n'
-	postMsg += '함께 출연할 연예인: ' + dataPartner[dataPriceRan] + '\n\n'
-	
-	postMsg += 'http://goo.gl/eK1NU\n';
-	
-	urlMsg = {
-		title: '나와 어울리는 CF',
-		desc: dataProduct[dataProductRan]['product'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + dataProduct[dataProductRan]['photo'] ],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	productIdx = process(dataProduct)
+	partnerIdx = process(dataPartner)
+	priceIdx = process(dataPrice)
+	
+	post += '[' + data.title + ']\n\n';
+	post += userName + '님, CF섭외가 들어왔습니다.\n';
+	post += '제품명: ' + dataProduct[productIdx]['product'] + '\n'
+	post += '출연료: ' + dataPrice[priceIdx] + '\n'
+	post += '함께 출연할 연예인: ' + dataPartner[partnerIdx];
+	data.post = post;
+	
+	data.desc = dataProduct[productIdx]['product'];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + dataProduct[productIdx]['photo'];
 
-    showad()
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "나와 어울리는 CF",
-		url: "http://goo.gl/eK1NU",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
 
 // 남자
 dataProduct = [

@@ -1,3 +1,53 @@
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '내아기 전생 알아보기';
+	data.url = 'http://goo.gl/uxpnz';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	idx = process(dataHuman)
+	areaIdx = process(dataArea)
+	longIdx = process(dataLong)
+	pointIdx = process(dataPoint)
+	likeIdx = process(dataLike)
+	hateIdx = process(dataHate)
+	
+	post += '[' + data.title + ']\n\n';
+	post += userName + ' 아기는 전생에 ' + dataHuman[idx]['name'] + ' 이었습니다.\n\n';
+	post += '생존지역: ' + dataArea[areaIdx] + '\n';
+	post += '생존기간: ' + dataLong[longIdx] + '\n';
+	post += '특징: ' + dataPoint[pointIdx] + '\n';
+	post += '좋아했던것: ' + dataLike[likeIdx] + '\n';
+	post += '싫어했던것: ' + dataHate[hateIdx];
+	data.post = post;
+	
+	data.desc = '내아기는 ' + dataHuman[idx]['name'] + ' 이었습니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + dataHuman[idx]['photo'];
+
+	sendData(data);
+}
+
+
+
+
+
+
+
 var ua = navigator.userAgent
 	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
 		(/android/gi).test(ua) ? "android" :
@@ -119,10 +169,9 @@ dataLong = [
 	'66년',
 	'68년',
 	'70년',
-	'101년',
-	'112년',
-	'210년',
-	'1300년'
+	'82년',
+	'88년',
+	'93년'
 ]
 
 dataPoint = [

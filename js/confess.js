@@ -1,104 +1,47 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '나에게 고백할 사람';
+	data.url = 'http://goo.gl/D3Yy8';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}, false);
-
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,sexType
-
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	if (M('#userName').val() == '') {
-		alert('이름을 입력하세요.');
-		return false;
-	}
-	
-	if (boySelect.className == 'checked') {
-		// 남자
+	if (sexType == 'boy') {
 		img = 'confess1.png'
 		sex = '여자'
-	} else if (girlSelect.className == 'checked') {
-		// 여자
+	} else if (sexType == 'girl') {
 		img = 'confess2.png'
 		sex = '남자'
 	}
-	storyFirst = dataFirst[Math.floor(Math.random() * dataFirst.length)]
-	storySecond = dataSecond[Math.floor(Math.random() * dataSecond.length)]
-	storyThird = dataThird[Math.floor(Math.random() * dataThird.length)]
-
-
-	postMsg += '[나에게 고백할 사람]\n\n';
-	postMsg += getRandom(1, 6) + '개월 뒤 ' + M('#userName').val() + '님에게 고백할 ' + sex + '의 초성은 \n\n';
-	postMsg += storyFirst + ' ' + storySecond + ' ' + storyThird + ' 입니다.\n\n';
+	firstIdx = process(dataFirst)
+	secondIdx = process(dataSecond)
+	thirdIdx = process(dataThird)
 	
-	postMsg += 'http://goo.gl/D3Yy8\n';
+	post += '[' + data.title + ']\n\n';
+	post += process(1, 6) + '개월 뒤 ' + M('#userName').val() + '님에게 고백할 ' + sex + '의 초성은 \n\n';
+	post += dataFirst[firstIdx] + ' ' + dataSecond[secondIdx] + ' ' + dataThird[thirdIdx] + ' 입니다.';
+	data.post = post;
 	
-	urlMsg = {
-		title: '나에게 고백할 사람',
-		desc: '정말이야? 전혀 눈치 못챘어...\n내일까지 이야기 할께~',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/' + img],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = '정말이야? 전혀 눈치 못챘어...\n내일까지 이야기 할께~';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/' + img;
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-function getRandom(min, max){
-	return Math.floor((Math.random() * (max-min) + min))
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "나에게 고백할 사람",
-		url: "http://goo.gl/D3Yy8",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
 
 
 dataFirst = [

@@ -1,23 +1,66 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
-	,title
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '날짜 계산기';
+	data.url = 'http://goo.gl/VOm5Z';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 
 
+	if (M('#selTitle').val() == '-1') {
+		alert('주제를 선택하세요.');
+		return;
+	}
+	if (M('#selTitle').val() == 'direct') {
+		title = '날짜계산: ' + M('#inpTitle').val()
+		if (M('#inpTitle').val() == '') {
+			alert('주제를 입력하세요.');
+			return;
+		}
+	}
+	if (selYear.value == '') {
+		alert('년도를 입력하세요.');
+		return;
+	}
+
+	d = new Date()
+	sy = d.getFullYear();
+	sm = d.getMonth() + 1;
+	sd = d.getDate();
+	sm < 10 ? sm = '0' + sm : sm
+	sd < 10 ? sd = '0' + sd : sd 
+	start = sy +''+ sm +''+ sd
+	ey = parseInt(M('#selYear').val(), 10);
+	em = M('#selMonth').val()
+	ed = M('#selDate').val()
+	end = ey + '' + em + '' + ed;
+
+	post += '[' + data.title + ']\n\n';
+	post += title + '\n';
+	post += dateCheck(start, end),
+	data.post = post;
+	
+	data.desc = dateCheck(start, end);
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/dday.png';
+
+	sendData(data);
+}
 
 window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
 	M('#selTitle').on('change', function(evt, mp){
 		if ( mp.val() == 'direct' ) {
 			M('#inpTitle').css('display', '')
@@ -68,93 +111,6 @@ function dateCheck(start, end) {
 	}
 	return result
 }
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,selAlpha = document.querySelector('#selAlpha')
-		,data
-	
-	if (selTitle.value == '') {
-		alert('주제를 선택하세요.');
-		return;
-	}
-	if (selTitle.value == 'direct') {
-		title = '날짜계산: ' + M('#inpTitle').val()
-		if (M('#inpTitle').val() == '') {
-			alert('주제를 입력하세요.');
-			return;
-		}
-	}
-	if (selYear.value == '') {
-		alert('년도를 입력하세요.');
-		return;
-	}
-	if (selMonth.value == '') {
-		alert('월을 선택하세요.');
-		return;
-	}
-	if (selDate.value == '') {
-		alert('일을 선택하세요.');
-		return;
-	}
-	
-	d = new Date()
-	sy = d.getFullYear();
-	sm = d.getMonth() + 1;
-	sd = d.getDate();
-	sm < 10 ? sm = '0' + sm : sm
-	sd < 10 ? sd = '0' + sd : sd 
-	start = sy +''+ sm +''+ sd
-	ey = parseInt(M('#selYear').val(), 10);
-	em = M('#selMonth').val()
-	ed = M('#selDate').val()
-	end = ey + '' + em + '' + ed;
-	
-	//dateCheck(start, end)
-
-
-	postMsg += '[날짜 계산기]\n\n';
-	postMsg += title + '\n';
-	postMsg += dateCheck(start, end) + '\n\n',
-	//postMsg += result + '\n\n';
-	
-	postMsg += 'http://goo.gl/VOm5Z\n';
-	
-	urlMsg = {
-		title: '날짜 계산기',
-		desc: dateCheck(start, end),
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/dday.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "날짜 계산기",
-		url: "http://goo.gl/VOm5Z",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
 
 
 

@@ -1,70 +1,41 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '3년뒤 나의 외제차';
+	data.url = 'http://goo.gl/yuAkj';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-		,dataRan = Math.floor(Math.random() * data.length)
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
+
+	idx = process(database)
 	
-	postMsg += '[3년뒤 나의 외제차]\n';
-	postMsg += '3년뒤 ' + userName + '님의 애마는 \n';
-	postMsg += data[dataRan]['price'] + '짜리 ' + data[dataRan]['car'] + '입니다.\n\n';
-	postMsg += 'http://goo.gl/yuAkj\n';
+	post += '[' + data.title + ']\n\n';
+	post += '3년뒤 ' + userName + '님의 애마는 \n';
+	post += database[idx]['price'] + '짜리 ' + database[idx]['car'] + '입니다.';
+	data.post = post;
+	
+	data.desc = database[idx]['car'];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + database[idx]['photo'];
 
-	urlMsg = {
-		title: '3년뒤 나의 외제차',
-		desc: data[dataRan]['car'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[dataRan]['photo'] ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "3년뒤 나의 외제차",
-		url: "http://goo.gl/yuAkj",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-data = [
+
+database = [
 	{'photo': 'overCar0.jpg',  'price':'6천만원', 'car': '크라이슬러 크로스파이어'},
 	{'photo': 'overCar1.jpg',  'price':'1억원', 'car': 'BMW Z4'},
 	{'photo': 'overCar2.jpg',  'price':'1억 천만원', 'car': '벤츠 SLK클래스 AMG'},

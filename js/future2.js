@@ -1,103 +1,48 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '미래 애인 추적기';
+	data.url = 'http://goo.gl/lmysH';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}, false);
-
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,sexType
-		,part = ''
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	if (M('#userName').val() == '') {
-		alert('이름을 입력하세요.');
-		return false;
+	if (sexType == 'boy') {
+		database = dataBoy
+		part = '아내는';
+	} else if (sexType == 'girl') {
+		database = dataGirl;
+		part = '남편은';
 	}
+
+	partner = database[process(database)]
 	
-	if (boySelect.className == 'checked') {
-		// 남자
-		partner = dataGirl[Math.floor(Math.random() * dataGirl.length)]
-		part = '아내';
-	} else if (girlSelect.className == 'checked') {
-		// 여자
-		partner = dataBoy[Math.floor(Math.random() * dataBoy.length)]
-		part = '남편';
-	}
-
-	postMsg += '[미래 애인 추적기]\n\n';
-	postMsg += M('#userName').val() + '님의 미래의 ' + part + '는\n';
-	postMsg += partner['name'] + '입니다.\n\n';
-	postMsg += 'http://goo.gl/lmysH\n';
-
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님의 미래의 ' + part + '\n';
+	post += partner['name'] + '입니다.';
+	data.post = post;
 	
-	urlMsg = {
-		title: '미래의 ' + part,
-		desc: '미리 알아보는 내 미래의 ' + part,
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgEnter/' + partner['photo']],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = '미리 알아보는 내 미래의 ' + part.replace(/는/g, '').replace(/은/g, '');
+	data.img = 'http://romeoh.github.io/kakaoStory/imgEnter/' + partner['photo'];
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-function getRandom(min, max){
-	return Math.floor((Math.random() * (max-min) + min))
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "미래 애인 추적기",
-		url: "http://goo.gl/lmysH",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-dataBoy = [
+dataGirl = [
 	{'name':'조정석', 'photo':'boy1.png'},
 	{'name':'장혁', 'photo':'boy2.png'},
 	{'name':'원빈', 'photo':'boy3.png'},
@@ -119,7 +64,7 @@ dataBoy = [
 ]
 
 
-dataGirl = [
+dataBoy = [
 	{'name':'아이유', 'photo':'girl1.png'},
 	{'name':'수지', 'photo':'girl2.png'},
 	{'name':'홍진영', 'photo':'girl3.png'},

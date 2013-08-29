@@ -1,77 +1,43 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,data
-	,lottoNum = []
-	,bonus
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '당신의 감정가';
+	data.url = 'http://goo.gl/DkT8fE';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-		,price = Math.floor(Math.random() * data.length)
-		,fast = Math.floor(Math.random() * data[price]['value'])
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	//console.log(data[price]['price'], valueData[fast], data[price]['value'])
-	postMsg += '[당신의 감정가]\n';
-	postMsg += M('#userName').val() + '님의 공시지가는 ' + data[price]['price'] + '이며,\n';
-	postMsg += '급매물시 ' + valueData[fast] + ' 입니다.\n\n';
+
+	//idx = process(database)
+	price = Math.floor(Math.random() * database.length)
+	fastIdx = Math.floor(Math.random() * database[price]['value'])
 	
-	postMsg += 'http://goo.gl/DkT8fE\n';
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님의 공시지가는 ' + database[price]['price'] + '이며,\n';
+	post += '급매물시 ' + valueData[fastIdx] + ' 입니다.';
+	data.post = post;
+	
+	data.desc = 'but, ' + valueData[fastIdx];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/price.png';
 
-	urlMsg = {
-		title: '당신의 감정가',
-		desc: 'but, ' + valueData[fast],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/price.png' ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "당신의 감정가",
-		url: "http://goo.gl/DkT8fE",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
 
-
-data = [
+database = [
 	{'value':'0', 'price': '천원'},
 	{'value':'1', 'price': '2천원'},
 	{'value':'2', 'price': '5천원'},

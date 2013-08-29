@@ -1,104 +1,51 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '10년뒤 내 아기모습';
+	data.url = 'http://goo.gl/D9B88';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-		,dataJobRan = Math.floor(Math.random() * dataJob.length)
-		,ran0 = Math.floor(Math.random() * dataStar.length)
-		,ran1 = Math.floor(Math.random() * dataStar.length)
-		,ran2 = Math.floor(Math.random() * dataStar.length)
-		,ran3 = Math.floor(Math.random() * dataStar.length)
-		,ran4 = Math.floor(Math.random() * dataStar.length)
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	
-	if (userName == '') {
-		alert('아기 이름을 입력해 주세요.');
-		return false;
-	}
-	
-	if (boySelect.className == 'checked') {
-		// 남자일 경우
+
+	if (sexType == 'boy') {
 		photo = 'babyBoy.jpg';
-	} else if (girlSelect.className == 'checked') {
-		// 여자일 경우
+	} else if (sexType == 'girl') {
 		photo = 'babyGirl.jpg';
 	}
+	idx = process(dataJob)
+	starIdx0 = process(dataStar)
+	starIdx1 = process(dataStar)
+	starIdx2 = process(dataStar)
+	starIdx3 = process(dataStar)
+	starIdx4 = process(dataStar)
+	
+	post += '[' + data.title + ']\n\n';
+	post += userName + ' 아기는 10년뒤 ' + dataJob[idx] + '\n\n';
+	post += '성격: ' + dataStar[starIdx0] + '\n';
+	post += '지능: ' + dataStar[starIdx1] + '\n';
+	post += '키: ' + dataStar[starIdx2] + '\n';
+	post += '외모: ' + dataStar[starIdx3] + '\n';
+	post += '매력도: ' + dataStar[starIdx4];
+	data.post = post;
+	
+	data.desc = userName + ' 아기는 ' + dataJob[idx];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + photo;
 
-	postMsg += userName + ' 아기는 10년뒤 ' + dataJob[dataJobRan] + '\n\n';
-	postMsg += '성격: ' + dataStar[ran0] + '\n';
-	postMsg += '지능: ' + dataStar[ran1] + '\n';
-	postMsg += '키: ' + dataStar[ran2] + '\n';
-	postMsg += '외모: ' + dataStar[ran3] + '\n';
-	postMsg += '매력도: ' + dataStar[ran4] + '\n\n';
-	postMsg += 'http://goo.gl/D9B88\n';
-console.log(postMsg)
-	urlMsg = {
-		title: '10년뒤 내 아기모습',
-		desc: userName + '는 ' + dataJob[dataJobRan],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + photo ],
-		type:'article'
-	}
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '10년뒤 내 아기모습',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "10년뒤 내 아기모습",
-		url: "http://goo.gl/D9B88",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "10년뒤 내 아기모습",
-		type: "link"
-	});
-}
-
-
 
 
 dataJob = [

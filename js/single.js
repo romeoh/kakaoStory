@@ -1,133 +1,46 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,me
-	,data
-	,jogeun0, jogeun1, jogeun2, jogeun3
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-		me = 'boy'
-		data = dataBoy
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-		me = 'girl'
-		data = dataGirl
-	}, false);
-}
+	data.title = '싱글만 해보세요.';
+	data.url = 'http://goo.gl/97oVx7';
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  resultName, resultPhoto, resultMsg
-		,end = dataEnd[Math.floor(Math.random() * dataEnd.length)]
-		,postMsg = ''
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	if (me == 'boy') {
-		postMsg += '나란 남자, \n';
-	} else {
-		postMsg += '나란 여자, \n';
+	if (sexType == 'boy') {
+		database = dataBoy
+		post += '나란 남자, \n';
+	} else if (sexType == 'girl') {
+		database = dataGirl
+		post += '나란 여자, \n';
 	}
+	me = shuffle(database)
+	end = process(dataEnd)
 	
-	jogeun0 = undefined
-	jogeun1 = undefined
-	jogeun2 = undefined
-	jogeun3 = undefined
+	post += database[0]['constinue'] + ' ';
+	post += database[1]['constinue'] + ' ';
+	post += database[2]['last'] + ' 싱글...\n' + dataEnd[end];
+	data.post = post;
+	
+	data.desc = '커플은 여기 클릭도 하지 말어!!';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/single2.png';
 
-	setRandom(data)
-	//console.log(data[jogeun0])
-	//console.log(data[jogeun1])
-	//console.log(data[jogeun2])
-	//console.log(data[jogeun3])
-	
-	postMsg += data[jogeun0]['constinue'] + ' ';
-	postMsg += data[jogeun1]['constinue'] + ' ';
-	postMsg += data[jogeun2]['last'] + ' 싱글...\n' + end + '\n\n';
-	
-	
-	postMsg += 'http://goo.gl/97oVx7';
-	
-	urlMsg = {
-		title: '싱글만 해보세요.',
-		desc: '커플은 여기 클릭도 하지 말어!!',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/single2.png'],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
-
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "싱글만 해보세요.",
-		url: "http://goo.gl/97oVx7",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-function setRandom(data){
-	var idx = Math.floor(Math.random() * data.length)
-
-	if (jogeun0 == undefined) {
-		jogeun0 = idx;
-	}
-	if (jogeun1 == undefined) {
-		if (jogeun0 == idx) {
-			setRandom(data)
-		} else {
-			jogeun1 = idx;
-		}
-	}
-	if (jogeun2 == undefined) {
-		if (jogeun0 == idx || jogeun1 == idx) {
-			setRandom(data)
-		} else {
-			jogeun2 = idx;
-			return jogeun2;
-		}
-	}
-	if (jogeun3 == undefined) {
-		if (jogeun0 == idx || jogeun1 == idx || jogeun2 == idx) {
-			setRandom(data)
-		} else {
-			jogeun3 = idx;
-			return jogeun3;
-		}
-	}
-}
 
 
 dataBoy = [

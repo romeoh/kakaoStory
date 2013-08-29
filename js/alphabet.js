@@ -1,77 +1,38 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '알파벳 심리테스트';
+	data.url = 'http://goo.gl/DC9X8';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}, false);
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,selAlpha = document.querySelector('#selAlpha')
-		,data
-	
-	if (selAlpha.value == '') {
-		alert('떠오르는 알바벳을 고르세요.');
-		return;
+	if (media == 'talk') {
+		sendData(data);
+		return false;
 	}
-	
-	data = dataAlpha[selAlpha.value]
-	
-	postMsg += '[색깔로 알아보는 심리테스트]\n\n';
-	postMsg += '나는 ' + data.alpha + '을 좋아하는\n';
-	postMsg += data.result + '입니다.\n\n';
-	
-	postMsg += 'http://goo.gl/DC9X8\n';
-	
-	urlMsg = {
-		title: '색깔로 알아보는 심리테스트',
-		desc: '나는 ' + data.result + '입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data.img],
-		type:'article'
-	}
-	console.log(postMsg)
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	idx = M('#selAlpha').val()
+	
+	post += '[' + data.title + ']\n\n';
+	post += '나는 ' + dataAlpha[idx].alpha + '을 좋아하는\n';
+	post += dataAlpha[idx].result + '입니다.';
+	data.post = post;
+	
+	data.desc = '나는 ' + dataAlpha[idx].result + '입니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + dataAlpha[idx].img;
 
-    showad()
+	sendData(data);
 }
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "뭐 내세울게 있나요?",
-		url: "http://goo.gl/DC9X8",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
-// 남자
 dataAlpha = [
 	{'img': 'alpha0.jpg', 'alpha': 'A', 'result': '금방 싫증내는 사람'},
 	{'img': 'alpha1.jpg', 'alpha': 'B', 'result': '편안한 사람'},

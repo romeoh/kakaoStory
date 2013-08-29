@@ -1,104 +1,50 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '증권가 찌라시';
+	data.url = 'http://goo.gl/gde5k';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}, false);
-
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,sexType
-
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	if (M('#userName').val() == '') {
-		alert('이름을 입력하세요.');
-		return false;
-	}
-	
-	if (boySelect.className == 'checked') {
-		// 남자
-		partner = dataGirl[Math.floor(Math.random() * dataGirl.length)]
-	} else if (girlSelect.className == 'checked') {
-		// 여자
-		partner = dataBoy[Math.floor(Math.random() * dataBoy.length)]
+	if (sexType == 'boy') {
+		database = dataBoy
+	} else if (sexType == 'girl') {
+		database = dataGirl;
 	}
 
-	news = dataNews[Math.floor(Math.random() * dataNews.length)]
+	partner = database[process(database)]
+	news = dataNews[process(dataNews)]
+	
 	newsTitle = news['title'].replace(/ME/gi, M('#userName').val()).replace(/YOU/gi, partner['name'])
 	newsArticle = news['article'].replace(/ME/gi, M('#userName').val()).replace(/YOU/gi, partner['name'])
 	
-	postMsg += newsTitle + '\n\n';
-	postMsg += newsArticle + '\n\n';
-	postMsg += 'http://goo.gl/gde5k \n';
-
+	post += '[' + data.title + ']\n\n';
+	post += newsTitle + '\n\n';
+	post += newsArticle;
+	data.post = post;
 	
-	urlMsg = {
-		title: '증권가 찌라시',
-		desc: newsTitle,
-		imageurl: ['http://romeoh.github.io/kakaoStory/imgEnter/' + partner['photo']],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.desc = newsTitle;
+	data.img = 'http://romeoh.github.io/kakaoStory/imgEnter/' + partner['photo'];
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-function getRandom(min, max){
-	return Math.floor((Math.random() * (max-min) + min))
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "증권가 찌라시",
-		url: "http://goo.gl/gde5k",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-dataBoy = [
+dataGirl = [
 	{'name':'조정석', 'photo':'boy1.png'},
 	{'name':'장혁', 'photo':'boy2.png'},
 	{'name':'원빈', 'photo':'boy3.png'},
@@ -117,7 +63,7 @@ dataBoy = [
 ]
 
 
-dataGirl = [
+dataBoy = [
 	{'name':'아이유', 'photo':'girl1.png'},
 	{'name':'수지', 'photo':'girl2.png'},
 	{'name':'홍진영', 'photo':'girl3.png'},

@@ -1,80 +1,56 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '내 얼굴 부위별 점수';
+	data.url = 'http://goo.gl/Q5o37';
 
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}, false);
-
-
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,type = getRandom(0, 3)
-
-	if (type === 0) {
-		data = dataHigh
-	} else if (type === 1) {
-		data = dataMiddle
-	} else {
-		data = dataLow
-	}
-		
-	if (M('#userName').val() == '') {
-		alert('이름을 입력하세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	
-	skin = data[Math.floor(Math.random() * data.length)]
-	eye = data[Math.floor(Math.random() * data.length)]
-	nose = data[Math.floor(Math.random() * data.length)]
-	mouse = data[Math.floor(Math.random() * data.length)]
-	line = data[Math.floor(Math.random() * data.length)]
 
-	ave = Math.floor((getScore(skin) + getScore(eye) + getScore(nose) + getScore(mouse) + getScore(line)) / 5 * 100) / 100
-
-	postMsg += '[내 얼굴 부위별 점수]\n';
-	postMsg += M('#userName').val() + '님의 얼굴 부위별 점수입니다.\n\n';
-	postMsg += '* 피부: ' + skin + '\n';
-	postMsg += '* 눈: ' + eye + '\n';
-	postMsg += '* 코: ' + nose + '\n';
-	postMsg += '* 입: ' + mouse + '\n';
-	postMsg += '* 턱선: ' + line + '\n';
-	postMsg += '* 총점: ' + ave + ' (5.0 만점)\n\n';
-	
-	postMsg += 'http://goo.gl/Q5o37\n';
-	
-	urlMsg = {
-		title: '내 얼굴 부위별 점수',
-		desc: '얼굴만으로 무릎을 꿇게하리라.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/face.png'],
-		type:'article'
+	type = process(0, 3)
+	if (type === 0) {
+		database = dataHigh
+	} else if (type === 1) {
+		database = dataMiddle
+	} else {
+		database = dataLow
 	}
-	console.log(type, postMsg, urlMsg)
 
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	skin = database[process(database)]
+	eye = database[process(database)]
+	nose = database[process(database)]
+	mouse = database[process(database)]
+	line = database[process(database)]
+	ave = Math.floor((getScore(skin) + getScore(eye) + getScore(nose) + getScore(mouse) + getScore(line)) / 5 * 100) / 100
+	
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님의 얼굴 부위별 점수입니다.\n\n';
+	post += '* 피부: ' + skin + '\n';
+	post += '* 눈: ' + eye + '\n';
+	post += '* 코: ' + nose + '\n';
+	post += '* 입: ' + mouse + '\n';
+	post += '* 턱선: ' + line + '\n';
+	post += '* 총점: ' + ave + ' (5.0 만점)';
+	data.post = post;
+	
+	data.desc = '얼굴만으로 무릎을 꿇게하리라.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/face.png';
 
-    showad()
+	sendData(data);
 }
-
-function getRandom(min, max){
-	return Math.floor((Math.random() * (max-min) + min))
-}
-
 function getScore(key){
 	if (key === '수') {
 		return 5
@@ -91,17 +67,6 @@ function getScore(key){
 	if (key === '가') {
 		return 1
 	}
-}
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "내 얼굴 부위별 점수",
-		url: "http://goo.gl/Q5o37",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
 }
 
 

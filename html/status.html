@@ -42,14 +42,17 @@ var  list = document.querySelectorAll('li a')
 
 for (var i=0; i<list.length; i++) {
 	var  urlId = list[i].getAttribute('href').replace('http://', '')
+		,page = list[i].parentNode.getAttribute('data-page')
 		,appName = list[i].innerHTML
+
 		,hour = 'http://goo.gl/#analytics/' + urlId + '/two_hours'
 		,day = 'http://goo.gl/#analytics/' + urlId + '/day'
 		,week = 'http://goo.gl/#analytics/' + urlId + '/week'
 		,month = 'http://goo.gl/#analytics/' + urlId + '/month'
 		,all = 'http://goo.gl/#analytics/' + urlId + '/all_time'
+		,testpage = 'http://docs.morpheus.kr:8080/mobileweb/user/romeoh/kakao/html/' + page + '.html'
 
-	str += '<li data-status-list><a href="' + hour + '" target="_blank">H</a> | <a href="' + day + '" target="_blank">D</a> | <a href="' + week + '" target="_blank">W</a> | <a href="' + month + '" target="_blank">M</a> | <a href="' + all + '" target="_blank">A</a> - <a href="http://' + urlId + '" target="_blank">' + appName + '</a></li>';
+	str += '<li data-status-list><a href="' + hour + '" target="_blank">H</a> | <a href="' + day + '" target="_blank">D</a> | <a href="' + week + '" target="_blank">W</a> | <a href="' + month + '" target="_blank">M</a> | <a href="' + all + '" target="_blank">A</a> | <a href="' + testpage + '" target="_blank">T</a> - <a href="http://' + urlId + '" target="_blank">' + appName + '</a></li>';
 	//console.log(urlId, appName)
 }
 M('[data-status]').html(str);

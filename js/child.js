@@ -1,40 +1,32 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
-
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  userName = document.querySelector('#userName').value
-		,message
-		,postMsg = ''
-		,children = ''
 		,count = 0
-		
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+		,children = ''
+
+	data.title = '내 자녀수 알아보기';
+	data.url = 'http://goo.gl/en4KS';
+
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-
-	postMsg += '[내 자녀수 알아보기]\n';
-	postMsg += userName + '님은 ';
-
+	
+	post += '[' + data.title + ']\n\n';
+	post += userName + '님은 ';
 	// 아들 있음
-	if (getRandom(0, 3) != 0) {
+	if (process(0, 3) != 0) {
 		boyCount = dataBoy[Math.floor(Math.random() * dataBoy.length)]
 		boy = boyCount['child']
 		count += parseInt(boyCount['count'], 10)
@@ -43,7 +35,7 @@ function executeKakaoStoryLink(){
 	}
 
 	// 딸 있음
-	if (getRandom(0, 3) != 0) {
+	if (process(0, 3) != 0) {
 		girlCount = dataGirl[Math.floor(Math.random() * dataGirl.length)]
 		girl = girlCount['child']
 		count += parseInt(girlCount['count'], 10)
@@ -52,7 +44,7 @@ function executeKakaoStoryLink(){
 	}
 
 	// 쌍둥이 있음
-	if (getRandom(0, 20) == 0) {
+	if (process(0, 20) == 0) {
 		twinCount = dataTwin[Math.floor(Math.random() * dataTwin.length)]
 		twin = twinCount['child']
 		count += parseInt(twinCount['count'], 10)
@@ -84,7 +76,7 @@ function executeKakaoStoryLink(){
 		children = '무자식';
 		special = '';
 	} else {
-		specialCount = getRandom(0, count)
+		specialCount = process(0, count)
 		scount = dataCount[specialCount]
 		if (count == 1) {
 			scount = '그 자녀'
@@ -94,48 +86,19 @@ function executeKakaoStoryLink(){
 			}
 		}
 		specialStr = dataSpecial[Math.floor(Math.random() * dataSpecial.length)]
-		special = '특히 ' + scount + '는 ' + specialStr + '\n\n'
+		special = '특히 ' + scount + '는 ' + specialStr;
 	}
 	
-	postMsg += children + ' 입니다.\n';	
-	postMsg += special
-	postMsg += 'http://goo.gl/en4KS';
+	post += children + ' 입니다.';	
+	post += special
+	data.post = post;
+	
+	data.desc = children + ' 입니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/child.png';
 
-	urlMsg = {
-		title: '내 자녀수 알아보기',
-		desc: children + ' 입니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/images/thum/child.png' ],
-		type:'article'
-	}
-
-	console.log(postMsg, urlMsg, count)
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "내 자녀수 알아보기",
-		url: "http://goo.gl/en4KS",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
 
 dataBoy = [
 	{'child': '아들 하나', 'count':'1'},
@@ -219,7 +182,6 @@ dataSpecial = [
 	'KPOP스타에서 우승하여 말만해도 공기반 소리반입니다.',
 	'어마어마한 귀요미입니다.',
 	'안티가 하나도 없는 레알 존경받는 정치인이 됩니다.',
-	'유능한 청와대 대변인이 되어 워싱턴에서 금의환향합니다.',
 	'몸짱이 되어 을지로를 평정합니다.',
 	'장충동 V라인이 됩니다.',
 	'신사동 명품 화성인이 됩니다.',

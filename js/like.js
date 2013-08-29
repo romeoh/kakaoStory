@@ -1,9 +1,4 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,data
+var  data
 	,likesList
 	,totalLength = 10
 	,current = 0
@@ -16,10 +11,11 @@ window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
 	init()
 	initStart();
-
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	//btnKakao.addEventListener('click', executeURLLink, false);
-	M('[data-id="btnKakao"]').on('click', executeURLLink)
+	M('[data-id="btnKakao"]').on('click', function(){
+		var d = {}
+		d.media = 'talk'
+		action(d)
+	})
 }
 
 // 초기화
@@ -129,48 +125,41 @@ function getRanNum(arr, val){
 	}
 }
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-	
-	postMsg += '[나의 취향을 알려드릴께요.]\n\n';
-	postMsg += M('#userName').val() + '님은 \n';
+
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '나의 취향 공유하기';
+	data.url = 'http://goo.gl/ft3k0z';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '님은 \n';
 	for (var i=0; i<totalLength; i++) {
 		n = i+1
-		postMsg += n + '. ' + myLikes[i]['title'] + ' ' + myLikes[i]['result'] + '\n';
+		post += n + '. ' + myLikes[i]['title'] + ' ' + myLikes[i]['result'] + '\n';
 	}
-	postMsg += '\nhttp://goo.gl/ft3k0z\n';
+	data.post = post;
+	
+	data.desc = '데이트 신청하실 때 참고하세요.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/like.png';
 
-	urlMsg = {
-		title: '나의 취향 공유하기',
-		desc: '데이트 신청하실 때 참고하세요.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/like.png' ],
-		type:'article'
-	}
-console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "나의 취향 공유하기",
-		url: "http://goo.gl/ft3k0z",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 

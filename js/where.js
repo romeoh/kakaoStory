@@ -1,95 +1,47 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '내반쪽은 어디있나?';
+	data.url = 'http://goo.gl/IJ4B5';
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-	}, false);
-}, false);
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,userName = document.querySelector('#userName').value
-		,job = dataJob[Math.floor(Math.random() * dataJob.length)]
-		,distance = getRandom(1, 300)
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
-		return false;
-	}
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
 
-	if (boySelect.className == 'checked') {
-		postMsg += '[내 남친은 어디있나?]\n\n';
-		postMsg += userName + '님의 남친의 직업은 ' + job + '입니다.\n';
+	idx = process(dataJob)
+	distance = process(1, 300)
 
-	} else if (girlSelect.className == 'checked') {
-		postMsg += '[내 여친은 어디있나?]\n\n';
-		postMsg += userName + '님의 여친의 직업은 ' + job + '입니다.\n';
+	if (sexType == 'boy') {
+		data.title = '내 남친은 어디있나?';
+		post += '[' + data.title + ']\n\n';
+		post += userName + '님의 남친의 직업은 ' + dataJob[idx] + '입니다.\n';
+	} else if (sexType == 'girl') {
+		data.title = '내 여친은 어디있나?';
+		post += '[' + data.title + ']\n\n';
+		post += userName + '님의 남친의 직업은 ' + dataJob[idx] + '입니다.\n';
 	}
 	
-	postMsg += '현재 ' + userName + '님과 ' + distance + 'km 떨어진곳에 있으며,\n';
-	postMsg += getRandom(1, 36) + '개월 뒤 처음으로 만날 예정입니다.\n\n';
-	postMsg += 'http://goo.gl/IJ4B5\n';
+	
+	post += '현재 ' + userName + '님과 ' + distance + 'km 떨어진곳에 있으며,\n';
+	post += getRandom(1, 36) + '개월 뒤 처음으로 만날 예정입니다.';
+	data.post = post;
+	
+	data.desc = distance + 'km 전방에 있습니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/where.jpg';
 
-	urlMsg = {
-		title: '내반쪽은 어디있나?',
-		desc: distance + 'km 전방에 있습니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/where.jpg' ],
-		type:'article'
-	}
-
-	console.log(postMsg, urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-//console.log(getRandom(10, 20))
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "내반쪽은 어디있나?",
-		url: "http://goo.gl/IJ4B5",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 

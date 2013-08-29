@@ -1,3 +1,51 @@
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '내아기와 나는 전생에 무슨 관계였나';
+	data.url = 'http://goo.gl/FSBT3';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	if (sexType == 'boy') {
+		database = dataBoy
+	} else if (sexType == 'girl') {
+		database = dataGirl;
+	}
+	idx = process(dataRelation)
+	
+	post += '[' + data.title + ']\n\n';
+	post += '나는 전생에 내아기 ' + userName + dataRelation[idx]['name'] + '\n';
+	post += '관계: ' + dataRelation[idx]['relation'];
+	data.post = post;
+	
+	data.desc = '나와 내아기는 ' + dataRelation[idx]['relation'] + '관계 였습니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/relation.jpg';
+
+	sendData(data);
+}
+
+
+
+
+
+
+
+
+
 var ua = navigator.userAgent
 	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
 		(/android/gi).test(ua) ? "android" :
@@ -31,8 +79,7 @@ function executeKakaoStoryLink(){
 		return false;
 	}
 
-	postMsg += '나는 전생에 내아기 ' + userName + dataRelation[dataRelationRan]['name'] + '\n';
-	postMsg += '관계: ' + dataRelation[dataRelationRan]['relation'] + '\n\n';
+	
 	postMsg += 'http://goo.gl/KRPGi';
 
 	urlMsg = {

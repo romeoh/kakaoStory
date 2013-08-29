@@ -1,69 +1,41 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '내가 세상에 태어난 이유';
+	data.url = 'http://goo.gl/8ns8E';
 
-
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		,userName = document.querySelector('#userName').value
-		,postMsg = ''
-		,dataRan = Math.floor(Math.random() * data.length)
-	
-	if (userName == '') {
-		alert('이름을 입력해 주세요.');
+	if (media == 'talk') {
+		sendData(data);
 		return false;
 	}
-	postMsg += '[내가 세상에 태어난 이유]\n\n';
-	postMsg += userName + '님이 세상에 태어난 이유는 \n';
-	postMsg += data[dataRan]['result'] + '\n';
-	postMsg += 'http://goo.gl/8ns8E\n';
 
-	urlMsg = {
-		title: '내가 세상에 태어난 이유',
-		desc: data[dataRan]['result'],
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/cake.jpg' ],
-		type:'article'
-	}
-console.log(urlMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	idx = process(database)
+	
+	post += '[' + data.title + ']\n\n';
+	post += userName + '님이 세상에 태어난 이유는 \n';
+	post += database[idx]['result'];
+	data.post = post;
+	
+	data.desc = database[idx]['result'];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/cake.jpg';
 
-    showad()
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "내가 세상에 태어난 이유",
-		url: "http://goo.gl/8ns8E",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
+	sendData(data);
 }
 
 
-data = [
+
+database = [
 	{'result': '돈을 많이 벌어서 잘먹고 잘살기 위해서 입니다.'},
 	{'result': '취직하기 위해서 입니다.'},
 	{'result': '영화배우가 되기 위해서 입니다.'},

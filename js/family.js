@@ -1,16 +1,9 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,who
+var  who
 	,whoIdx
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
 	,hash =  decodeURIComponent(window.location.hash.split('#')[1])
 	,names = []
 	,w
+	,platform
 
 if (hash != 'undefined') {
 	names = hash.split('=')[1].split(',')
@@ -42,9 +35,6 @@ if (hash != 'undefined') {
 
 window.addEventListener("DOMContentLoaded", initPage, false);
 function initPage(){
-	btnStory.addEventListener('click', makeUrl, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-
 	M('#speech').on('change', function(evt, mp){
 		if (mp.val() === '2') {
 			M('#direct').css('display', 'block')
@@ -55,6 +45,54 @@ function initPage(){
 		}
 	})
 }
+
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	platform = data.media
+	data.title = '가문의 영광';
+	data.url = 'http://goo.gl/fnLTih';
+
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	if (M('#speech').val() == '-1' || M('#speech').val() == '1') {
+		w = ''
+	} else if (M('#speech').val() == '2') {
+		if (M('#direct').val() == '') {
+			alert('후손들에게 직접 유언을 남기세요.');
+			return false
+		}
+		w = '&w=' + M('#direct').val()
+	} else {
+		w = '&w=' + M('#speech').val()
+	}
+	if (names.length === 0) {
+		namesParam = userName.replace(',', '');
+	} else {
+		namesParam = names + ',' + userName.replace(',', '');
+	}
+	names.push(userName.replace(',', ''));
+	page = 'http://romeoh.github.io/kakaoStory/html/family.html#n=' + encodeURIComponent(namesParam);
+	getShortUrl(page);
+}
+
+
+
 
 function makeUrl() {
 	userName = document.querySelector('#userName').value
@@ -93,17 +131,21 @@ function executeKakaoStoryLink(url){
 		,userName = document.querySelector('#userName').value
 		,appname
 		,desc
+		,data = {}
+		,post = ''
 
-	postMsg += '[가문의 영광]\n\n';
+	data.title = '가문의 영광';
+	data.url = '';
+	data.media = platform;
 	
 	if (hash == 'undefined') {
-		postMsg += '시조: ' + userName + ' (나)\n';
+		post += '시조: ' + userName + ' (나)\n';
 		appname = '시조: ' + userName
 	} else {
 		//console.log('연결')
 		for (var i=0; i<names.length; i++) {
 			if (i==0) {
-				postMsg += '시조: ' + names[i] + '\n';
+				post += '시조: ' + names[i] + '\n';
 			} else {
 				n = i + 1
 				if (i == names.length-1) {
@@ -111,17 +153,17 @@ function executeKakaoStoryLink(url){
 				} else {
 					me = ''
 				}
-				postMsg += n + '대손: ' + names[i] + me + '\n';
+				post += n + '대손: ' + names[i] + me + '\n';
 			}
 		}
 		appname = n + '대손: ' + names[names.length-1]
 	}
 	if (w != '') {
-		postMsg += '\n-잠깐만요~ 우리 ' + appname.replace(':', '') + '언니, 후손들에게 한말씀 하실께요: \n';
-		postMsg += '♡ ' + w.replace('&w=', '') + '\n';
+		post += '\n-잠깐만요~ 우리 ' + appname.replace(':', '') + '언니, 후손들에게 한말씀 하실께요: \n';
+		post += '♡ ' + w.replace('&w=', '');
 	}
 	
-	postMsg += '\n이 가문의 후손되기: ' + url + '\n';
+	post += '\n이 가문의 후손되기: ' + url;
 	
 	if (names.length < 3) {
 		desc = '신진가문'
@@ -136,42 +178,14 @@ function executeKakaoStoryLink(url){
 	} else {
 		desc = '로얄패밀리'
 	}
-	urlMsg = {
-		title: '가문의 영광',
-		desc: desc,
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/family.png' ],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
+	data.post = post;
 
-	kakao.link("story").send({   
-		post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
+	data.desc = desc;
+	data.img = 'http://romeoh.github.io/kakaoStory/img/family.png';
 
-    showad()
+	sendData(data);
 }
 
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "가문의 영광",
-		url: "http://goo.gl/fnLTih",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
-
-function getRandom(min, max){
-	return Math.floor(Math.random() * (max-min) + min)
-}
 
 function urlParser() {
 	return names.split(',');

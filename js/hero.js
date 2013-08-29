@@ -1,3 +1,43 @@
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '슈퍼 히어로';
+	data.url = 'http://goo.gl/ZuEM0';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	heroIdx = process(dataHero)
+	actionIdx = process(dataAction)
+
+	post += '[' + data.title + ']\n\n';
+	post += M('#userName').val() + '의 초능력은 ' + dataHero[heroIdx] + '\n';
+	post += '이 능력으로 ' + M('#userName').val() + '님은 ' + dataAction[actionIdx];
+	data.post = post;
+	
+	data.desc = dataAction[actionIdx];
+	data.img = 'http://romeoh.github.io/kakaoStory/img/hero.png';
+
+	sendData(data);
+}
+
+
+
+
+
 var ua = navigator.userAgent
 	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
 		(/android/gi).test(ua) ? "android" :
@@ -18,6 +58,7 @@ function initPage(){
 
 //  카카오 스토리
 function executeKakaoStoryLink(){
+	return
 	var  sexType
 		,userName = document.querySelector('#userName').value
 		,postMsg = ''

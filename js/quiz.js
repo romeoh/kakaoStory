@@ -125,7 +125,7 @@ function executeKakaoStoryLink(){
 		imageurl: ['http://romeoh.github.io/kakaoStory/img/100.jpg' ],
 		type:'article'
 	}
-	console.log(urlMsg)
+	console.log(postMsg, urlMsg)
 
 	kakao.link("story").send({   
         post : postMsg,

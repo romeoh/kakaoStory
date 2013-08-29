@@ -1,94 +1,43 @@
-var ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,userName
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,loverType = '상대방'
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
 
+	data.title = '우리 부부는 전생에 무슨 관계였나';
+	data.url = 'http://goo.gl/FSBT3';
 
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
 
-window.addEventListener("DOMContentLoaded", initPage, false);
-function initPage(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-		//document.querySelector('#userName').placeholder = '남편 이름을 입력하세요.'
+	if (sexType == 'boy') {
 		loverType = '남편'
-		document.querySelector('h1').innerHTML = '내 남편과 나의 전생관계'
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-		//document.querySelector('#userName').placeholder = '부인 이름을 입력하세요.'
-		loverType = '부인'
-		document.querySelector('h1').innerHTML = '내 부인과 나의 전생관계'
-	}, false);
-}
-
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  sexType
-		//,userName = document.querySelector('#userName').value
-		,resultName, resultPhoto, resultMsg
-		,message
-		,postMsg = ''
-		,dataRelationRan = Math.floor(Math.random() * dataRelation.length)
-		
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('상대방의 성별을 선택해 주세요.');
-		return false;
+	} else if (sexType == 'girl') {
+		loverType = '부인';
 	}
 
-	/*if (userName == '') {
-		alert(loverType + ' 이름을 입력해 주세요.');
-		return false;
-	}*/
+	idx = process(dataRelation)
+	
+	post += '[' + data.title + ']\n\n';
+	post += '나는 전생에 지금 내' + loverType + dataRelation[idx]['name'] + '\n';
+	post += '관계: ' + dataRelation[idx]['relation'];
+	data.post = post;
+	
+	data.desc = '내'+loverType+'과 나는 ' + dataRelation[idx]['relation'] + '관계 였습니다.';
+	data.img = 'http://romeoh.github.io/kakaoStory/img/relationLover.jpg';
 
-	postMsg += '나는 전생에 지금 내' + loverType + dataRelation[dataRelationRan]['name'] + '\n';
-	postMsg += '관계: ' + dataRelation[dataRelationRan]['relation'] + '\n\n';
-	postMsg += 'http://goo.gl/urccj';
-
-	urlMsg = {
-		title: '내 '+loverType+'과 나는 전생에 무슨 관계였나',
-		desc: '나와 내'+loverType+'과는 ' + dataRelation[dataRelationRan]['relation'] + '관계 였습니다.',
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/relationLover.jpg' ],
-		type:'article'
-	}
-console.log(postMsg)
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
+	sendData(data);
 }
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "우리부부는 전생에 무슨관계였나",
-		url: "http://goo.gl/urccj",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
 
 
 dataRelation = [

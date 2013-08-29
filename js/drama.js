@@ -1,33 +1,60 @@
-var  ua = navigator.userAgent
-	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
-		(/android/gi).test(ua) ? "android" :
-		(/mac/gi).test(ua) ? "macOS" : 
-		(/windows/gi).test(ua) ? "Windows" : "other"
-	,boy = document.getElementById('boy')
-	,girl = document.getElementById('girl')
-	,boySelect = document.querySelector('#boyBox a')
-	,girlSelect = document.querySelector('#girlBox a')
-	,btnStory = document.querySelector('#btnStory')
-	,btnKakao = document.querySelector('#btnKakao')
-	,dataDrink, dataMount, dataAction
-	,img
+function action(_data) {
+	var  data = _data || {}
+		,media = data.media || 'story'
+		,sexType = data.sexType || null	//boy or girl
+		,userName = data.userName || null
+		,color = data.color || null
+		,alphabet = data.alphabet || null
+		,coffee = data.coffee || null
+		,bornYear = data.bornYear || null
+		,bornMonth = data.bornMonth || null
+		,bornDate = data.bornDate || null
+		,blood = data.blood || null
+		,post = ''
+
+	data.title = '막장드라마';
+	data.url = 'http://goo.gl/CZsWG';
+
+	if (media == 'talk') {
+		sendData(data);
+		return false;
+	}
+
+	if (sexType == 'boy') {
+		sexType = 0
+	} else if (sexType == 'girl') {
+		sexType = 1
+	}
+	actorIdx = M('#selActor').val()
+	dataTitle = database[sexType][actorIdx][0]
+	dataStory = database[sexType][actorIdx][1]
+	dataWord = database[sexType][actorIdx][2]
+	title = dataTitle[process(dataTitle)]
+	story = dataStory[process(dataStory)]
+	word = dataWord[process(dataWord)]
+	
+	post += '[' + data.title + ']\n\n';
+	post += '드라마제목: ' + title.replace('_name_', M('#userName').val()) + '\n';
+	post += '주연: ' + M('#userName').val() + '\n';
+	post += '상대조연: ' + M('#userName').val() + '의 '+ database[sexType][actorIdx][3] + '\n';
+	post += '반전: ' + story + '\n';
+	post += '순간 최고시청율: ' + process(10, 90) + '%\n';
+	post += '명대사: ' + word;
+	data.post = post;
+	
+	data.desc = title.replace('_name_', M('#userName').val());
+	data.img = 'http://romeoh.github.io/kakaoStory/img/' + database[sexType][actorIdx][4];
+
+	sendData(data);
+}
 
 
-
-window.addEventListener('DOMContentLoaded', function(){
-	btnStory.addEventListener('click', executeKakaoStoryLink, false);
-	btnKakao.addEventListener('click', executeURLLink, false);
-	boySelect.addEventListener('click', function(){
-		boySelect.className = 'checked';
-		girlSelect.className = '';
-		selected(0)
-	}, false);
-	girlSelect.addEventListener('click', function(){
-		boySelect.className = '';
-		girlSelect.className = 'checked';
-		selected(1)
-	}, false);
-}, false);
+M('#boyBox a').on('click', function(){
+	selected(0)
+})
+M('#girlBox a').on('click', function(){
+	selected(1)
+})
 
 function selected(idx){
 	var  selActor = document.querySelector('#selActor')
@@ -35,7 +62,7 @@ function selected(idx){
 
 	if (idx === 0) {
 		// 남자
-		str += '<option value="">상대연기자를 선택하세요.</option>'
+		str += '<option value="-1">상대연기자를 선택하세요.</option>'
 		str += '<option value="0">내 여친</option>'
 		str += '<option value="1">내 아내</option>'
 		str += '<option value="2">내 절친</option>'
@@ -47,7 +74,7 @@ function selected(idx){
 		selActor.innerHTML = str
 	} else {
 		// 여자
-		str += '<option value="">상대연기자를 선택하세요.</option>'
+		str += '<option value="-1">상대연기자를 선택하세요.</option>'
 		str += '<option value="0">내 남친</option>'
 		str += '<option value="1">내 남편</option>'
 		str += '<option value="2">내 절친</option>'
@@ -61,90 +88,8 @@ function selected(idx){
 	
 }
 
-//  카카오 스토리
-function executeKakaoStoryLink(){
-	var  postMsg = ''
-		,sexType
 
-	
-	if (boySelect.className != 'checked' && girlSelect.className != 'checked') {
-		alert('성별을 선택해 주세요.');
-		return false;
-	}
-
-	if (M('#userName').val() == '') {
-		alert('이름을 입력하세요.');
-		return false;
-	}
-
-	if (selActor.value == '') {
-		alert('상대연기자를 선택하세요.');
-		return false;
-	}
-	
-	if (boySelect.className == 'checked') {
-		// 남자
-		sexType = 0
-	} else if (girlSelect.className == 'checked') {
-		// 여자
-		sexType = 1
-	}
-	actorIdx = M('#selActor').val()
-	dataTitle = data[sexType][actorIdx][0]
-	dataStory = data[sexType][actorIdx][1]
-	dataWord = data[sexType][actorIdx][2]
-	storyTitle = dataTitle[Math.floor(Math.random() * dataTitle.length)]
-	storyData = dataStory[Math.floor(Math.random() * dataStory.length)]
-	storyWord = dataWord[Math.floor(Math.random() * dataWord.length)]
-
-
-	postMsg += '[' + storyTitle.replace('_name_', M('#userName').val()) + '의 시놉시스]\n\n';
-	postMsg += '드라마제목: ' + storyTitle.replace('_name_', M('#userName').val()) + '\n';
-	postMsg += '주연: ' + M('#userName').val() + '\n';
-	postMsg += '상대조연: ' + M('#userName').val() + '의 '+ data[sexType][actorIdx][3] + '\n';
-	postMsg += '반전: ' + storyData + '\n';
-	postMsg += '순간 최고시청율: ' + getRandom(10, 90) + '%\n';
-	postMsg += '명대사: ' + storyWord + '\n\n';
-	
-	postMsg += 'http://goo.gl/CZsWG\n';
-	
-	urlMsg = {
-		title: '막장드라마',
-		desc: storyTitle.replace('_name_', M('#userName').val()),
-		imageurl: ['http://romeoh.github.io/kakaoStory/img/' + data[sexType][actorIdx][4]],
-		type:'article'
-	}
-	console.log(postMsg, urlMsg)
-
-	kakao.link("story").send({   
-        post : postMsg,
-        appid : 'funnyApp',
-		appver : '1.0',
-		appname : '깨알유머:',
-		urlinfo : JSON.stringify(urlMsg)
-    });
-
-    showad()
-}
-
-function getRandom(min, max){
-	return Math.floor((Math.random() * (max-min) + min) * 100) / 100
-}
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "막장드라마",
-		url: "http://goo.gl/CZsWG",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-
-data = [
+database = [
 	// 남자
 	[
 		// 내여친
