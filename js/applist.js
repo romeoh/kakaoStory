@@ -1,11 +1,12 @@
 var  appList = ''
 	,totalApp = 103
 
-appList += '<li data-app="104" data-page="saju">			<a href="http://goo.gl/gWKOkz">관상</a>								<span class="ico new"></span></li>';
+appList += '<li data-app="105" data-page="street">			<a href="http://goo.gl/4bxN0D">스트리트파이터2</a>						<span class="ico new"></span></li>';
+appList += '<li data-app="104" data-page="saju">			<a href="http://goo.gl/gWKOkz">관상</a>								<span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="103" data-page="skin">			<a href="http://goo.gl/O4PZ7B">피부나이 테스트</a>						<span class="ico new"></span></li>';
 appList += '<li data-app="102" data-page="tomboy">			<a href="http://goo.gl/WhJ2Xc">@말괄량이@ 길들이기</a>					<span class="ico new"></span></li>';
 appList += '<li data-app="101" data-page="interview">		<a href="http://goo.gl/jfCdVj">섹션카스 연예통신</a>						<span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="100" data-page="ban">				<a href="http://goo.gl/yGRU4N">꽃보다 우리반</a>						<span class="ico new"></span></li>';
+appList += '<li data-app="100" data-page="ban">				<a href="http://goo.gl/yGRU4N">꽃보다 우리반</a>						</li>';
 appList += '<li data-app="99"  data-page="chosun">			<a href="http://goo.gl/1cvuIf">타임인조선 (조선시대 계급)</a>				<span class="ico hot"></span></li>';
 appList += '<li data-app="98"  data-page="b">				<a href="http://goo.gl/g0wLJR">B급 인생</a>							</li>';
 appList += '<li data-app="97"  data-page="lottery">			<a href="http://goo.gl/n7lwvv">랭킹 추첨기</a>							</li>';

@@ -28,7 +28,7 @@ function action(_data) {
 	post += database[idx]['charactor'] + '입니다.';
 	data.post = post;
 	
-	data.desc = '';
+	data.desc = database[idx]['ename'];
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/' + database[idx]['photo'];
 
 	sendData(data);
@@ -36,17 +36,17 @@ function action(_data) {
 
 
 database = [
-	{'photo':'street1.png', 'charactor':'캔'},
-	{'photo':'street2.png', 'charactor':'류'},
-	{'photo':'street3.png', 'charactor':'혼다'},
-	{'photo':'street4.png', 'charactor':'춘리'},
-	{'photo':'street5.png', 'charactor':'블랑카'},
-	{'photo':'street6.png', 'charactor':'장기에프'},
-	{'photo':'street7.png', 'charactor':'가일'},
-	{'photo':'street8.png', 'charactor':'달심'},
-	{'photo':'street9.png', 'charactor':'사가트'},
-	{'photo':'street10.png', 'charactor':'바이슨'},
-	{'photo':'street11.png', 'charactor':'베가'}
+	{'photo':'street1.png', 'ename':'KEN', 'charactor':'캔'},
+	{'photo':'street2.png', 'ename':'RYU', 'charactor':'류'},
+	{'photo':'street3.png', 'ename':'E. HONDA', 'charactor':'혼다'},
+	{'photo':'street4.png', 'ename':'CHUN LI', 'charactor':'춘리'},
+	{'photo':'street5.png', 'ename':'BLANKA', 'charactor':'블랑카'},
+	{'photo':'street6.png', 'ename':'ZANGIEF', 'charactor':'장기에프'},
+	{'photo':'street7.png', 'ename':'GUILE', 'charactor':'가일'},
+	{'photo':'street8.png', 'ename':'DHALSIM', 'charactor':'달심'},
+	{'photo':'street9.png', 'ename':'SAGAT', 'charactor':'사가트'},
+	{'photo':'street10.png', 'ename':'M. BISON', 'charactor':'바이슨'},
+	{'photo':'street11.png', 'ename':'VAGA', 'charactor':'베가'}
 ]
 
 
