@@ -339,7 +339,7 @@ function sendData(_obj) {
 			urlinfo : M.json(urlinfo)
 	    });
 
-		//return false;
+		return false;
 		
 		test  = '♥♥ [카스로 공유] ♥♥\n'
 		test += 'appId: ' + id + '\n'
@@ -375,7 +375,7 @@ function sendData(_obj) {
 		str += 'https://twitter.com/intent/tweet?text=';
 		str += encodeURIComponent(twit);
 		top.location.href = str;
-		//return false;
+		return false;
 
 		test  = '♥♥ [트위터로 공유] ♥♥\n'
 		test += 'twit: \n'
@@ -407,7 +407,7 @@ function sendData(_obj) {
 		str += '&new_post[tags]='
 		str += encodeURIComponent(tag)
 		top.location.href = str;
-		//return false;
+		return false;
 
 		test  = '♥♥ [미투데이로 공유] ♥♥\n'
 		test += 'post: \n'
@@ -508,6 +508,7 @@ function sendData(_obj) {
 				}
 			}, {'scope': scope});
 
+			return false;
 			test  = '♥♥ [페이스북으로 공유] ♥♥\n'
 			test += 'feed: ' + feed + '\n'
 			test += 'method: ' + method + '\n'
