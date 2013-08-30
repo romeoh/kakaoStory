@@ -576,6 +576,28 @@ function getDataType(_value) {
 	return undefined;
 }
 
+if (M('#snsBox').selector.length > 0) {
+	var  appNo = M('[data-list]').data('list')
+		,appName = M('[data-app="' + appNo + '"]').data('page')
+
+	M('#snsBox').append('div', {
+		'className': 'fb-like'
+	})
+	M('.fb-like')
+		.data('href', 'http://romeoh.github.io/kakaoStory/html/' + appName + '.html')
+		.data('width', '450')
+		.data('layout', 'button_count')
+		.data('showFaces', 'true')
+		.data('send', 'true')
+}
+(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1&appId=519730578083610";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
 /* 
 http://goo.gl/BNYgT
 http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.hippop
