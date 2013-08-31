@@ -2,7 +2,7 @@ var  appList = ''
 	,totalApp = 106
 
 appList += '<li data-app="107" data-page="song">			<a href="http://goo.gl/IO4XYf">@나의@ 결혼식 축가</a>					<span class="ico new"></span></li>';
-appList += '<li data-app="106" data-page="street">			<a href="http://goo.gl/SWjv9m">@나의@ 전투력</a>						<span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="106" data-page="fighting">		<a href="http://goo.gl/SWjv9m">@나의@ 전투력</a>						<span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="105" data-page="street">			<a href="http://goo.gl/4bxN0D">스트리트파이터2</a>						<span class="ico new"></span></li>';
 appList += '<li data-app="104" data-page="saju">			<a href="http://goo.gl/gWKOkz">관상</a>								<span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="103" data-page="skin">			<a href="http://goo.gl/O4PZ7B">피부나이 테스트</a>						<span class="ico new"></span></li>';
