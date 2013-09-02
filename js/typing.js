@@ -51,7 +51,7 @@ function nextRound() {
 M('#inType')
 	.on('keyup', checkValue)
 	.on('focus', function(){
-		M.scroll(200);
+		M.scroll(210);
 		M('#myword').html('');
 	})
 
