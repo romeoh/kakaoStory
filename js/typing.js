@@ -43,7 +43,7 @@ function nextRound() {
 		.text(word)
 	M('#myword')
 		.data('value', '')
-		.html('')
+		.html('마지막에 "스페이스"를 누르세요')
 	M('#inType').val('')
 }
 
@@ -51,7 +51,8 @@ function nextRound() {
 M('#inType')
 	.on('keyup', checkValue)
 	.on('focus', function(){
-		M.scroll(200)
+		M.scroll(200);
+		M('#myword').html('');
 	})
 
 function checkValue(evt, mp) {
@@ -130,7 +131,7 @@ function action(_data) {
 	post += '[' + data.title + ']\n\n';
 	post += '평균타수: ' + aveTime + '\n';
 	post += '정확도: ' + allRate + '%\n';
-	post += '최고 타수: ' + M.storage('io.github.romeoh.user.ave') + '\n';
+	post += '최고 타수: ' + M.storage('io.github.romeoh.user.ave');
 	data.post = post;
 	
 	data.desc = '평균타수: ' + aveTime;

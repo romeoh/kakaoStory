@@ -1,11 +1,12 @@
 var  appList = ''
-	,totalApp = 106
+	,totalApp = 107
 
+appList += '<li data-app="108" data-page="typing">			<a href="http://goo.gl/cmTCK9">타자연습</a>							<span class="ico new"></span></li>';
 appList += '<li data-app="107" data-page="song">			<a href="http://goo.gl/IO4XYf">@나의@ 결혼식 축가</a>					<span class="ico new"></span></li>';
 appList += '<li data-app="106" data-page="fighting">		<a href="http://goo.gl/SWjv9m">@나의@ 전투력</a>						<span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="105" data-page="street">			<a href="http://goo.gl/4bxN0D">스트리트파이터2</a>						<span class="ico new"></span></li>';
 appList += '<li data-app="104" data-page="saju">			<a href="http://goo.gl/gWKOkz">관상</a>								<span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="103" data-page="skin">			<a href="http://goo.gl/O4PZ7B">피부나이 테스트</a>						<span class="ico new"></span></li>';
+appList += '<li data-app="103" data-page="skin">			<a href="http://goo.gl/O4PZ7B">피부나이 테스트</a>						</li>';
 appList += '<li data-app="102" data-page="tomboy">			<a href="http://goo.gl/WhJ2Xc">@말괄량이@ 길들이기</a>					</li>';
 appList += '<li data-app="101" data-page="interview">		<a href="http://goo.gl/jfCdVj">섹션카스 연예통신</a>					<span class="ico hot"></span></li>';
 appList += '<li data-app="100" data-page="ban">				<a href="http://goo.gl/yGRU4N">꽃보다 우리반</a>						</li>';
