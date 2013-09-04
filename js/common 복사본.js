@@ -18,10 +18,91 @@ if (M('[data-list]').selector.length > 0) {
 	}
 	alist = alist.replace(/@/g, '');
 
-	M('[data-list]').html(alist);
+	M('[data-list]')
+		.html(alist)
 	M('[data-app="' + currentApp + '"]').prepend('span', {
 		'className': 'ico sel'
 	})
+
+	M('.appList h2')
+		.after('div', {
+			'className': 'listbox'
+		})
+		.after('a', {
+			'id': 'viewCategory'
+		})
+
+	var  category = M.storage('io.github.romeoh.user.category') || 'hot'
+		,str = ''
+		,categoryText
+
+	M.storage('io.github.romeoh.user.category', category);
+	if (category === 'all') {
+		M('[data-page]').css('display', 'block')
+	} else {
+		M('[data-' + category + ']').css('display', 'block');
+	}
+
+	str += '<ul>'
+	str += '<li data-category="all">모두</li>'
+	str += '<li data-category="hot">인기</li>'
+	str += '<li data-category="new">신규</li>'
+	str += '<li data-category="recommand">추천</li>'
+	str += '<li data-category="me">자기애</li>'
+	str += '<li data-category="love">연애</li>'
+	str += '<li data-category="game">게임</li>'
+	str += '<li data-category="fun">재미</li>'
+	str += '<li data-category="heart">심리테스트</li>'
+	str += '</ul>'
+
+	M('.listbox')
+		.html(str)
+	
+	categoryText = M('[data-category="' + category + '"]')
+		.addClass('sel')
+		.text()
+	
+	M('#viewCategory')
+		//.attr('href', '#')
+		.addClass('btn_rlist')
+		.data('isopen', 'false')
+		.text(categoryText)
+		.on('click', listBoxListener)
+
+	M('[data-category]').on('click', function(evt, mp){
+		M('[data-category]').removeClass('sel')
+		category = mp.addClass('sel').data('category')
+		M('#viewCategory')
+			.removeClass('sel')
+			.data('isopen', 'false')
+			.text(mp.text())
+		M('.listbox').css('display', 'none');
+		M.storage('io.github.romeoh.user.category', category);
+		M('[data-page]').css('display', 'none')
+		
+		if (category === 'all') {
+			M('[data-page]').css('display', 'block')
+		} else {
+			M('[data-' + category + ']').css('display', 'block');
+		}
+	})
+}
+
+function listBoxListener(evt, mp){
+	if (M('#viewCategory').data('isopen') === 'false') {
+		M('#viewCategory')
+			.data('isopen', 'true')
+			.addClass('sel')
+
+		M('.listbox').css('display', 'block')
+
+	} else {
+		M('#viewCategory')
+			.data('isopen', 'false')
+			.removeClass('sel')
+
+		M('.listbox').css('display', 'none')
+	}
 }
 
 M('#btnMacao').on('click', function(){
