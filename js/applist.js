@@ -14,8 +14,8 @@ appList += '<li data-app="99"  data-page="chosun" data-hot data-fun><a href="htt
 appList += '<li data-app="98"  data-page="b" data-me><a href="http://goo.gl/g0wLJR">B급 인생</a></li>';
 appList += '<li data-app="97"  data-page="lottery" data-page data-game data-fun><a href="http://goo.gl/n7lwvv">랭킹 추첨기</a></li>';
 appList += '<li data-app="96"  data-page="truth" data-hot data-fun><a href="http://goo.gl/mJYRGS">진실의 입</a><span class="ico hot"></span></li>';
-appList += '<li data-app="95"  data-page="marriage" data-hot data-me data-love><a href="http://goo.gl/ZElb5R">@나는@ 몇번의 결혼을 하나</a></li>';
-appList += '<li data-app="94"  data-page="ghost" data-fun data-me><a href="http://goo.gl/qy9Yj2">@나에게@ 붙어있는 귀신</a><span class="ico hot"></span></li>';
+appList += '<li data-app="95"  data-page="marriage" data-me data-love><a href="http://goo.gl/ZElb5R">@나는@ 몇번의 결혼을 하나</a></li>';
+appList += '<li data-app="94"  data-page="ghost" data-hot data-fun data-me><a href="http://goo.gl/qy9Yj2">@나에게@ 붙어있는 귀신</a><span class="ico hot"></span></li>';
 appList += '<li data-app="93"  data-page="zooma" data-fun><a href="http://goo.gl/U5T02V">아저씨/아줌마 테스트</a></li>';
 appList += '<li data-app="92"  data-page="emoticon" data-hot data-fun><a href="http://goo.gl/lvj1TZ">이모티콘 투하</a><span class="ico hot"></span></li>';
 appList += '<li data-app="91"  data-page="play" data-hot data-me><a href="http://goo.gl/msnF7L">@나는@ 몇다리까지 걸치나</a><span class="ico hot"></span></li>';
@@ -23,7 +23,7 @@ appList += '<li data-app="90"  data-page="exo" data-fun><a href="http://goo.gl/o
 appList += '<li data-app="89"  data-page="single" data-love data-fun><a href="http://goo.gl/97oVx7">싱글만 해보세요.</a></li>';
 appList += '<li data-app="88"  data-page="lol" data-fun><a href="http://goo.gl/Zr0JGC">LOL 챔피언 동맹맺기</a></li>';
 appList += '<li data-app="87"  data-page="fairy" data-me><a href="http://goo.gl/oBhFz2">동화속 주인공</a></li>';
-appList += '<li data-app="86"  data-page="circle" data-game data-recommand><a href="http://goo.gl/Gpld3p">원판돌리기</a><span class="ico command"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="86"  data-page="circle" data-hot data-game data-recommand><a href="http://goo.gl/Gpld3p">원판돌리기</a><span class="ico command"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="85"  data-page="likeIdol" data-hot data-fun><a href="http://goo.gl/n6gU3j">아이돌 좋아! 싫어!</a><span class="ico hot"></span></li>';
 appList += '<li data-app="84"  data-page="twin" data-fun><a href="http://goo.gl/rhEs43">닮은꼴 연예인 찾기</a></li>';
 appList += '<li data-app="83"  data-page="train" data-hot data-fun><a href="http://goo.gl/T9VG8G">설국열차</a><span class="ico hot"></span></li>';
