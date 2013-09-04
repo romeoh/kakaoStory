@@ -32,7 +32,7 @@ if (M('[data-list]').selector.length > 0) {
 			'id': 'viewCategory'
 		})
 
-	var  category = M.storage('io.github.romeoh.user.category') || 'hot'
+	var  category = M.storage('io.github.romeoh.user.category') || 'all'
 		,str = ''
 		,categoryText
 
@@ -42,11 +42,11 @@ if (M('[data-list]').selector.length > 0) {
 	} else {
 		M('[data-' + category + ']').css('display', 'block');
 	}
+	M('[data-new]').css('display', 'block');
 
 	str += '<ul>'
 	str += '<li data-category="all">모두</li>'
 	str += '<li data-category="hot">인기</li>'
-	str += '<li data-category="new">신규</li>'
 	str += '<li data-category="recommand">추천</li>'
 	str += '<li data-category="me">자기애</li>'
 	str += '<li data-category="love">연애</li>'
@@ -85,6 +85,7 @@ if (M('[data-list]').selector.length > 0) {
 		} else {
 			M('[data-' + category + ']').css('display', 'block');
 		}
+		M('[data-new]').css('display', 'block');
 	})
 }
 
