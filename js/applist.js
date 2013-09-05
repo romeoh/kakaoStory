@@ -1,7 +1,7 @@
 var  appList = ''
 	,totalApp = 109
 
-appList += '<li data-app="110" data-page="iden" data-new data-fun><a href="http://goo.gl/rf22aX">이번주의 행운</a><span class="ico new"></span></li>';
+appList += '<li data-app="110" data-page="number" data-new data-fun><a href="http://goo.gl/rf22aX">이번주의 행운</a><span class="ico new"></span></li>';
 appList += '<li data-app="109" data-page="iden" data-new data-me><a href="http://goo.gl/IYiDpn">성격특징그래프</a><span class="ico new"></span></li>';
 appList += '<li data-app="108" data-page="typing" data-new data-game data-recommand><a href="http://goo.gl/cmTCK9">타자연습</a><span class="ico new"></span><span class="ico command"></span></li>';
 appList += '<li data-app="107" data-page="song" data-new data-me><a href="http://goo.gl/IO4XYf">@나의@ 결혼식 축가</a><span class="ico new"></span></li>';
