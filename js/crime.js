@@ -12,7 +12,7 @@ function action(_data) {
 		,blood = data.blood || null
 		,post = ''
 
-	data.title = '내 주위에 변태는 몇명?';
+	data.title = '내 주위에 변태는 몇명인가?';
 	data.url = 'http://goo.gl/Ju0mNm';
 
 	if (media == 'talk') {
