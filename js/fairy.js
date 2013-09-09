@@ -11,7 +11,6 @@ function action(_data) {
 		,bornDate = data.bornDate || null
 		,blood = data.blood || null
 		,post = ''
-		,twit = ''
 
 	data.title = '동화속 주인공';
 	data.url = 'http://goo.gl/oBhFz2';
@@ -31,14 +30,7 @@ function action(_data) {
 	post += '[' + data.title + ']\n\n';
 	post += M('#userName').val() + '님의 동화속 주인공은\n';
 	post += database[idx]['name'] + ' 입니다.';
-
-	twit += '[' + data.title + ']\n\n';
-	twit += M('#userName').val() + '님의 동화속 주인공은\n';
-	twit += database[idx]['name'] + ' 입니다.\n';
-	twit += '(' + database[idx]['ment'] + ')';
-
 	data.post = post;
-	data.twit = twit;
 	
 	data.desc = database[idx]['ment'];
 	data.img = 'http://romeoh.github.io/kakaoStory/img/' + database[idx]['photo'];
