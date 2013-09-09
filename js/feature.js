@@ -13,7 +13,7 @@ function action(_data) {
 		,post = ''
 
 	data.title = '연예인과 외모대결';
-	data.url = 'http://goo.gl/r66cA';
+	data.url = 'http://goo.gl/QR0VEv';
 
 	if (media == 'talk') {
 		sendData(data);
