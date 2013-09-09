@@ -470,7 +470,7 @@ function sendData(_obj) {
 	if (media == 'me2day') {
 		var  str = ''
 			,post =  obj.twit || obj.post || ''
-			,tag = obj.tag || '깨알유머 SNS 테스트 심리테스트'
+			,tag = obj.tag || '미투데이를 더 재미있게 깨알유머 SNS 테스트 심리테스트'
 			,urlLength = url.length + 5
 			,postLength = post.length + urlLength + 1
 			,textLimit = 150
