@@ -469,7 +469,7 @@ function sendData(_obj) {
 
 	if (media == 'me2day') {
 		var  str = ''
-			,post = obj.post || ''
+			,post =  obj.twit || obj.post || ''
 			,tag = obj.tag || '깨알유머 SNS 테스트 심리테스트'
 			,urlLength = url.length + 5
 			,postLength = post.length + urlLength + 1
