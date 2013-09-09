@@ -297,6 +297,7 @@ function executeKakaoStoryLink(){
 function sendToKakao() {
 	var  data = {}
 		,post = ''
+		,twit = ''
 
 	cbCount++
 	if (cbCount == 3) {
@@ -316,7 +317,15 @@ function sendToKakao() {
 		post += '① 가위 (선택: ' + answer1 + ')\n';
 		post += '② 바위 (선택: ' + answer2 + ')\n';
 		post += '③ 보 (선택: ' + answer3 + ')';
+
+		// twitter
+		twit += '[' + data.title + ']\n\n';
+		twit += '① 가위 (선택: ' + answer1 + ')\n';
+		twit += '② 바위 (선택: ' + answer2 + ')\n';
+		twit += '③ 보 (선택: ' + answer3 + ')';
+
 		data.post = post;
+		data.twit = twit;
 
 
 		data.desc = '대결 기회는 단한번뿐입니다.\n게임에 이겼을때 인증메세지를 카스에 올리지 않으면 무효입니다.';

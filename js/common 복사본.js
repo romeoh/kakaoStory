@@ -441,7 +441,7 @@ function sendData(_obj) {
 
 	if (media == 'twitter') {
 		var  str = ''
-			,post = obj.post || ''
+			,post = obj.twit || obj.post || ''
 			,urlLength = url.length + 5
 			,postLength = post.length + urlLength + 1
 			,textLimit = 140
