@@ -11,6 +11,7 @@ function action(_data) {
 		,bornDate = data.bornDate || null
 		,blood = data.blood || null
 		,post = ''
+		,twit = ''
 
 	data.title = '연애의 온도';
 	data.url = 'http://goo.gl/Xr6KF';
@@ -31,11 +32,22 @@ function action(_data) {
 	post += userName + '님의 연애의 온도: \n\n';
 	post += '첫만남 : ' + test1 + '도씨 (' + getString(test1, 0) + ')\n';
 	post += '고백 : ' + test2 + '도씨 (' + getString(test2, 1) + ')\n';
-	post += '시킨쉽 : ' + test3 + '도씨 (' + getString(test3, 2) + ')\n';
+	post += '스킨쉽 : ' + test3 + '도씨 (' + getString(test3, 2) + ')\n';
 	post += '권태기 : ' + test4 + '도씨 (' + getString(test4, 3) + ')\n';
 	post += '이별 : ' + test5 + '도씨 (' + getString(test5, 4) + ')\n';
 	post += '연애의 온도 : ' + total + '도씨';
+
+	twit += '[' + data.title + ']\n\n';
+	twit += userName + '님의 연애의 온도: \n\n';
+	twit += '첫만남 : ' + test1 + '도씨\n';
+	twit += '고백 : ' + test2 + '도씨\n';
+	twit += '스킨쉽 : ' + test3 + '도씨\n';
+	twit += '권태기 : ' + test4 + '도씨\n';
+	twit += '이별 : ' + test5 + '도씨\n';
+	twit += '연애의 온도 : ' + total + '도씨';
+
 	data.post = post;
+	data.twit = twit;
 	
 	data.desc = total + '도씨';
 	data.img = 'http://romeoh.github.io/kakaoStory/img/fick.png';
@@ -61,24 +73,6 @@ function getString(str, idx) {
 		return strData[idx][4]
 	}
 }
-
-
-// 카톡
-function executeURLLink() {
-	kakao.link("talk").send({
-		msg: "연애의 온도",
-		url: "http://goo.gl/Xr6KF",
-		appid: "funnyApp",
-		appver: "1.0",
-		appname: "깨알유머:",
-		type: "link"
-	});
-}
-
-function getRandom(min, max){
-	return Math.floor((Math.random() * (max-min) + min))
-}
-
 
 
 strData = [
