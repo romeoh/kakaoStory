@@ -27,8 +27,8 @@ function action(_data) {
 	}
 	idx = process(database)
 	nameIdx = process(dataName)
-	born = getRandom(1392, 1910)
-	age = getRandom(20, 80)
+	born = process(1392, 1910)
+	age = process(20, 80)
 
 	post += '[' + data.title + ']\n\n';
 	post += M('#userName').val() + '님은 조선시대 ' + database[idx]['title'] + '\n\n';
