@@ -11,7 +11,6 @@ function action(_data) {
 		,bornDate = data.bornDate || null
 		,blood = data.blood || null
 		,post = ''
-		,twit = ''
 
 	data.title = '키스의 세기';
 	data.url = 'http://goo.gl/bmTFF';
@@ -34,17 +33,7 @@ function action(_data) {
 	post += '※' + database[idx]['kiss'] + '란?\n';
 	post += database[idx]['exp'] + '\n';
 
-	twit += '[' + data.title + ']\n\n';
-	twit += userName + '님과 맞는 키스는?\n';
-	twit += '◇ 종류: ' + database[idx]['kiss'] + '\n';
-	twit += '◇ 로멘스: ' + process(1,99) + '점\n';
-	twit += '◇ 무드: ' + process(1,99) + '점\n';
-	twit += '◇ 에로틱: ' + process(1,99) + '점\n';
-	twit += '◇ 큐티: ' + process(1,99) + '점\n';
-	twit += '◇ 러블리: ' + process(1,99) + '점\n\n';
-
 	data.post = post;
-	data.twit = twit;
 	
 	data.desc = database[idx]['kiss'] + '\n느낌 아니깐~';
 	data.img = 'http://romeoh.github.io/kakaoStory/img/' + database[idx]['photo'];
