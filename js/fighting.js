@@ -30,7 +30,7 @@ function action(_data) {
 	post += userName + '님의 전투력은 ' + M.toCurrency(level) + '입니다. \n';
 	post += '서열: ' + line + '위\n';
 	post += '필살기: ' + dataFight[fightIdx] + '\n';
-	post += '최대 1:' + team + '까지 대적 가능';
+	post += '최대 ' + team + ':1 까지 대적 가능';
 	
 	data.post = post;
 	
