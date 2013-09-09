@@ -11,6 +11,7 @@ function action(_data) {
 		,bornDate = data.bornDate || null
 		,blood = data.blood || null
 		,post = ''
+		,twit = ''
 
 	data.title = '성격특징그래프';
 	data.url = 'http://goo.gl/IYiDpn';
@@ -43,8 +44,21 @@ function action(_data) {
 	post += '❋　협동심: ' + getGraph(value8) + ' '+value8 + '%\n';
 	post += '❋　표현력: ' + getGraph(value9) + ' '+value9 + '%\n';
 	post += '❋　성실도: ' + getGraph(value10) + ' '+value10 + '%';
+
+	twit += '[' + data.title + ']\n';
+	twit += '의지력: '+value1 + '%\n';
+	twit += '사교력: '+value2 + '%\n';
+	twit += '인내력: '+value3 + '%\n';
+	twit += '독립심: '+value4 + '%\n';
+	twit += '신뢰성: '+value5 + '%\n';
+	twit += '배려심: '+value6 + '%\n';
+	twit += '유머감각: '+value7 + '%\n';
+	twit += '협동심: '+value8 + '%\n';
+	twit += '표현력: '+value9 + '%\n';
+	twit += '성실도:  '+value10 + '%';
 	
 	data.post = post;
+	data.twit = twit;
 	
 	data.desc = '성격을 파악하는 특징 10가지';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/iden.png';
