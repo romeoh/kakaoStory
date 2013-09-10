@@ -134,7 +134,7 @@ database = [
 	{'gallery':'scar4.jpg',  'photo': 'superCar4.jpg',  'price':'1억 360만원 짜리', 'company':'미쯔오카', 'car':'히미코'},
 	{'gallery':'scar5.jpg',  'photo': 'superCar5.jpg',  'price':' 짜리', 'company':'쉘비', 'car':'슈퍼카 투아타라'},
 	{'gallery':'scar6.jpg',  'photo': 'superCar6.jpg',  'price':' 짜리', 'company':'페라리', 'car':'라페라리'},
-	{'gallery':'scar7.jpg',  'photo': 'superCar7.jpg',  'price':' 짜리', 'company':'람보르기니', 'car':'베네노'},
+	{'gallery':'scar7.jpg',  'photo': 'superCar7.jpg',  'price':'42억 5천만원 짜리', 'company':'람보르기니', 'car':'베네노'},
 	{'gallery':'scar8.jpg',  'photo': 'superCar8.jpg',  'price':'3억 5천 600만원 짜리', 'company':'람보르기니', 'car':'가야르도 스파이더'},
 	{'gallery':'scar9.jpg',  'photo': 'superCar9.jpg',  'price':'3억 7천 900만원 짜리', 'company':'페라리', 'car':'458 이탈리아'},
 	{'gallery':'scar10.jpg', 'photo': 'superCar10.jpg', 'price':'3억 2천 400만원 짜리', 'company':'람보르기니', 'car':'가야르도'},
