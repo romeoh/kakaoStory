@@ -11,6 +11,7 @@ function action(_data) {
 		,bornDate = data.bornDate || null
 		,blood = data.blood || null
 		,post = ''
+		,twit = ''
 
 	data.title = userName + ' 사용설명서';
 	data.url = 'http://goo.gl/gSloK';
@@ -37,7 +38,16 @@ function action(_data) {
 	post += '1. ' + ginung[0] + '\n';
 	post += '2. ' + ginung[1] + '\n';
 	post += '3. ' + ginung[2];
+
+	twit += '[' + data.title + ']\n\n';
+	twit += '- 좋아하는것: ' + dataLike[likeIdx] + '\n';
+	twit += '- 싫어하는것: ' + dataHate[hateIdx] + '\n';
+	twit += '- 주연료: ' + dataFuel[fuelIdx] + '\n';
+	twit += '- 평상시 관리법: ' + dataManage[manageIdx] + '\n';
+	twit += '- 고장시 대처요령: ' + dataBroken[brokenIdx];
+	
 	data.post = post;
+	data.twit = twit;
 	
 	data.desc = dataManage[manageIdx];
 	data.img = 'http://romeoh.github.io/kakaoStory/img/manual.jpg';
