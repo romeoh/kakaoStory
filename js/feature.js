@@ -35,9 +35,9 @@ function action(_data) {
 	post += userName + ': ' + getGraph(meVal) + ' (' + meVal + '점)\n\n';
 
 	if (meVal > youVal) {
-		post += '후후, ' + database[idx]['name'] + ' 쯤이야..';
+		post += '후후, ' + database[idx]['name'].replace(/　/g, '') + ' 쯤이야..';
 	} else if (meVal < youVal) {
-		post += '아깝다. ' + database[idx]['name'] + '한테 지다니..';
+		post += '아깝다. ' + database[idx]['name'].replace(/　/g, '') + '한테 지다니..';
 	} else {
 		post += '오~ 막강한데..';
 	}
