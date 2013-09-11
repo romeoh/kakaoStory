@@ -59,15 +59,15 @@ function getGraph(value){
 // 남자
 dataBoy = [
 	{'photo': 'featureB1.png', 'name': '정준영'},
-	{'photo': 'featureB2.png', 'name': '허각'},
-	{'photo': 'featureB3.png', 'name': '주원'},
+	{'photo': 'featureB2.png', 'name': '허　각'},
+	{'photo': 'featureB3.png', 'name': '주　원'},
 	{'photo': 'featureB4.png', 'name': '서인국'},
 	{'photo': 'featureB5.png', 'name': '이종석'},
-	{'photo': 'featureB6.png', 'name': '타오'},
+	{'photo': 'featureB6.png', 'name': '타　오'},
 	{'photo': 'featureB7.png', 'name': '시우민'},
-	{'photo': 'featureB8.png', 'name': '엘'},
+	{'photo': 'featureB8.png', 'name': '　엘　'},
 	{'photo': 'featureB9.png', 'name': '스윙스'},
-	{'photo': 'featureB10.png', 'name': '승리'},
+	{'photo': 'featureB10.png', 'name': '승　리'},
 	{'photo': 'featureB11.png', 'name': '양상국'},
 	{'photo': 'featureB12.png', 'name': '김성규'},
 	{'photo': 'featureB13.png', 'name': '송영길'},
@@ -75,8 +75,8 @@ dataBoy = [
 	{'photo': 'featureB15.png', 'name': '정형돈'},
 	{'photo': 'featureB16.png', 'name': '김경진'},
 	{'photo': 'featureB17.png', 'name': '김제동'},
-	{'photo': 'featureB18.png', 'name': '존박'},
-	{'photo': 'featureB19.png', 'name': '민호'}
+	{'photo': 'featureB18.png', 'name': '존　박'},
+	{'photo': 'featureB19.png', 'name': '민　호'}
 ]
 
 // 여자
@@ -88,12 +88,12 @@ dataGirl = [
 	{'photo': 'featureG5.png', 'name': '유하나'},
 	{'photo': 'featureG6.png', 'name': '구하라'},
 	{'photo': 'featureG7.png', 'name': '정은지'},
-	{'photo': 'featureG8.png', 'name': '허민'},
+	{'photo': 'featureG8.png', 'name': '허　민'},
 	{'photo': 'featureG9.png', 'name': '한보름'},
-	{'photo': 'featureG10.png', 'name': '태연'},
+	{'photo': 'featureG10.png', 'name': '태　연'},
 	{'photo': 'featureG11.png', 'name': '서효림'},
 	{'photo': 'featureG12.png', 'name': '전소민'},
-	{'photo': 'featureG13.png', 'name': '민아'},
+	{'photo': 'featureG13.png', 'name': '민　아'},
 	{'photo': 'featureG14.png', 'name': '맹승지'},
 	{'photo': 'featureG15.png', 'name': '김지민'},
 	{'photo': 'featureG16.png', 'name': '김혜선'},
