@@ -34,14 +34,14 @@ function action(_data) {
 	post += '✦ 행운의 숫자는: ' + process(0, 9) + '\n';
 	post += '✦ 행운의 칼라는: ' + dataColor[colorIdx] + '\n';
 	post += '✦ 행운의 보석은: ' + dataJewely[jewelyIdx] + '\n';
-	post += '✦ 행운의 향기은: ' + dataSmell[smellIdx] + '\n';
+	post += '✦ 행운의 향기는: ' + dataSmell[smellIdx] + '\n';
 	post += '✦ 행운의 꽃은: ' + dataFlower[flowerIdx];
 
 	twit += userName + '님의 ' + month + '월 ' + week + '주의 행운\n';
 	twit += '✦ 행운의 숫자는: ' + process(0, 9) + '\n';
 	twit += '✦ 행운의 칼라는: ' + dataColor[colorIdx] + '\n';
 	twit += '✦ 행운의 보석은: ' + dataJewely[jewelyIdx] + '\n';
-	twit += '✦ 행운의 향기은: ' + dataSmell[smellIdx] + '\n';
+	twit += '✦ 행운의 향기는: ' + dataSmell[smellIdx] + '\n';
 	twit += '✦ 행운의 꽃은: ' + dataFlower[flowerIdx];
 
 	data.post = post;
