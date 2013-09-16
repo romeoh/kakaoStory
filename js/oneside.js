@@ -29,7 +29,7 @@ function action(_data) {
 	total = process(0, 30)
 	high = process(0, total)
 	last = process(0, high)
-	when = process(30, 100)
+	when = Math.round(process(10, 60)/10)*10
 	
 	post += '[' + data.title.replace(/사람은/g, sex+'는') + ']\n\n';
 
@@ -48,7 +48,7 @@ function action(_data) {
 				post += '조만간 ' + userName + '님에게 고백할 '+sex+'는 없어 보입니다.';
 			} else {
 				post += '많으며, \n';
-				post += '특히 ' + last + '명은 ' + when + '일내에 ' + userName + '님에게 고백할 것으로 같습니다.';
+				post += '특히 ' + last + '명은 약 ' + when + '여일내에 ' + userName + '님에게 고백할 것으로 보입니다.';
 			}
 		}
 	}
