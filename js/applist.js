@@ -1,12 +1,13 @@
 var  appList = ''
-	,totalApp = 115
+	,totalApp = 116
 
+appList += '<li data-app="117" data-page="montage" data-new data-me><a href="http://goo.gl/dSNme7">현상수배</a> <span class="ico new"></span></li>';
 appList += '<li data-app="116" data-page="planet" data-new data-me><a href="http://goo.gl/X8VBsn">너는 어느별에서 왔니?</a> <span class="ico new"></span></li>';
-appList += '<li data-app="115" data-page="oneside" data-new data-me><a href="http://goo.gl/KShKyt">나에게 관심있는 사람은</a> <span class="ico new"></span></li>';
+appList += '<li data-app="115" data-page="oneside" data-hot data-new data-me><a href="http://goo.gl/KShKyt">나에게 관심있는 사람은</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="114" data-page="eyebrow" data-new data-fun><a href="http://goo.gl/dp5IlS">눈썹관상</a> <span class="ico new"></span></li>';
-appList += '<li data-app="113" data-page="snu" data-new data-fun><a href="http://goo.gl/6FaoL6">서울대에 갈 확률</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="112" data-page="feature" data-new data-fun><a href="http://goo.gl/QR0VEv">연예인과 외모대결</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="111" data-page="crime" data-fun><a href="http://goo.gl/Ju0mNm">내 주위에 변태는 몇명인가?</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="113" data-page="snu" data-hot data-new data-fun><a href="http://goo.gl/6FaoL6">서울대에 갈 확률</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="112" data-page="feature" data-hot data-fun><a href="http://goo.gl/QR0VEv">연예인과 외모대결</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="111" data-page="crime" data-hot data-fun><a href="http://goo.gl/Ju0mNm">내 주위에 변태는 몇명인가?</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="110" data-page="number" data-fun><a href="http://goo.gl/rf22aX">이번주의 행운</a></li>';
 appList += '<li data-app="109" data-page="iden" data-me><a href="http://goo.gl/IYiDpn">성격특징그래프</a></li>';
 appList += '<li data-app="108" data-page="typing" data-game data-recommand><a href="http://goo.gl/cmTCK9">타자연습</a> <span class="ico command"></span></li>';
