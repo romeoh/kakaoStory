@@ -28,7 +28,7 @@ function action(_data) {
 	post += '[' + data.title + ']\n\n';
 	post += '안녕\n';
 	post += '나는 ' + dataPlanet[planet]['planet'] + '에서 온 ' + nameStr + '라고해\n';
-	post += '내가 온 곳은 여기서 약 ' + dataPlanet[planet]['distance'] + ' 정도 떨어져 있어.\n';
+	post += '내가 온 곳은 여기서 약 ' + dataPlanet[planet]['distance'] + ' 정도 떨어져 있어.\n\n';
 	post += '그 곳에서는 \n';
 	post += point[0]['and'] + '\n';
 	post += point[1]['and'] + '\n';
