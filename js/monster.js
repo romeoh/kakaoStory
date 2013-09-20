@@ -22,15 +22,16 @@ function action(_data) {
 
 	monIdx = process(dataMon)
 	skilIdx = process(dataSkil)
+	photoIdx = process(dataPhoto)
 	
 	post += '[' + data.title + ']\n\n';
 	post += M('#userName').val() + '님의 겁주기 신공입니다.\n\n';
-	post += '겁주기 지수: ' + dataMon[monIdx] + '\n';
-	post += '전공 겁주기: ' + dataSkil[skilIdx];
+	post += '◇ 겁주기 지수: ' + dataMon[monIdx] + '\n';
+	post += '◇ 전공 겁주기: ' + dataSkil[skilIdx];
 	data.post = post;
 	
 	data.desc = '니 오늘 몇건 했니?\n한건도 몬했다고? 너 밥먹기 시르니?';
-	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/monster1.png';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/' + dataPhoto[photoIdx];
 
 	sendData(data);
 }
@@ -63,6 +64,13 @@ dataSkil = [
 	'핸드폰 잠깐 빌려서 잊어 버렸다고 겁주기',
 	'내 이빨에서 독침 발사된다고 구라쳐서 겁주기',
 	'친구한테 전화해서 돈이 인출되었다고 당황시켜서 겁주기'
+]
+
+dataPhoto = [
+	'monster1.png',
+	'monster2.png',
+	'monster3.png',
+	'monster4.png'
 ]
 
 
