@@ -1,11 +1,12 @@
 var  appList = ''
-	,totalApp = 117
+	,totalApp = 118
 
+appList += '<li data-app="119" data-page="monUni" data-new data-fun><a href="http://goo.gl/8TAZnZ">나의 겁주기 신공</a> <span class="ico new"></span></li>';
 appList += '<li data-app="118" data-page="childBlood" data-new data-heart><a href="http://goo.gl/po4gKm">내 아기 혈액형 알아보기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="117" data-page="montage" data-hot data-new data-me><a href="http://goo.gl/dSNme7">현상수배</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="116" data-page="planet" data-new data-me><a href="http://goo.gl/X8VBsn">너는 어느별에서 왔니?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="115" data-page="oneside" data-hot data-new data-me><a href="http://goo.gl/KShKyt">나에게 관심있는 사람은</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="114" data-page="eyebrow" data-new data-fun><a href="http://goo.gl/dp5IlS">눈썹관상</a> <span class="ico new"></span></li>';
+appList += '<li data-app="114" data-page="eyebrow" data-fun><a href="http://goo.gl/dp5IlS">눈썹관상</a> </li>';
 appList += '<li data-app="113" data-page="snu" data-hot data-fun><a href="http://goo.gl/6FaoL6">서울대에 갈 확률</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="112" data-page="feature" data-hot data-fun><a href="http://goo.gl/QR0VEv">연예인과 외모대결</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="111" data-page="crime" data-hot data-fun><a href="http://goo.gl/Ju0mNm">내 주위에 변태는 몇명인가?</a> <span class="ico hot"></span></li>';
