@@ -43,7 +43,7 @@ function action(_data) {
 	post += result + '의 확률입니다.';
 	data.post = post;
 	
-	data.desc = 'result';
+	data.desc = result;
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/childBlood.png';
 
 	sendData(data);
