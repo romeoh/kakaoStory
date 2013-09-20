@@ -13,7 +13,7 @@ function action(_data) {
 		,post = ''
 
 	data.title = '나의 겁주기 신공';
-	data.url = 'http://goo.gl/1f1mRN';
+	data.url = 'http://goo.gl/8TAZnZ';
 
 	if (media == 'talk') {
 		sendData(data);
