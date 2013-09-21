@@ -13,7 +13,7 @@ appList += '<li data-app="111" data-page="crime" data-hot data-fun><a href="http
 appList += '<li data-app="110" data-page="number" data-fun><a href="http://goo.gl/rf22aX">이번주의 행운</a></li>';
 appList += '<li data-app="109" data-page="iden" data-me><a href="http://goo.gl/IYiDpn">성격특징그래프</a></li>';
 appList += '<li data-app="108" data-page="typing" data-game data-recommand><a href="http://goo.gl/cmTCK9">타자연습</a> <span class="ico command"></span></li>';
-appList += '<li data-app="107" data-page="song" data-me><a href="http://goo.gl/IO4XYf">@나의@ 결혼식 축가</a></li>';
+appList += '<li data-app="107" data-page="song" data-new data-me><a href="http://goo.gl/IO4XYf">@나의@ 결혼식 축가</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="106" data-page="fighting" data-hot data-me><a href="http://goo.gl/SWjv9m">@나의@ 전투력</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="105" data-page="street" data-fun><a href="http://goo.gl/4bxN0D">스트리트파이터2</a></li>';
 appList += '<li data-app="104" data-page="saju" data-hot data-fun data-me><a href="http://goo.gl/gWKOkz">관상</a> <span class="ico hot"></span></li>';
