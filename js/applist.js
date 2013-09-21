@@ -30,7 +30,7 @@ appList += '<li data-app="94"  data-page="ghost" data-hot data-fun data-me><a hr
 appList += '<li data-app="93"  data-page="zooma" data-fun><a href="http://goo.gl/U5T02V">아저씨/아줌마 테스트</a></li>';
 appList += '<li data-app="92"  data-page="emoticon" data-hot data-fun><a href="http://goo.gl/lvj1TZ">이모티콘 투하</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="91"  data-page="play" data-hot data-me><a href="http://goo.gl/msnF7L">@나는@ 몇다리까지 걸치나</a> <span class="ico hot"></span></li>';
-appList += '<li data-app="90"  data-page="exo" data-fun><a href="http://goo.gl/omEoZI">엑소 월드컵</a></li>';
+appList += '<li data-app="90"  data-page="exo" data-hot data-fun><a href="http://goo.gl/omEoZI">엑소 월드컵</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="89"  data-page="single" data-love data-fun><a href="http://goo.gl/97oVx7">싱글만 해보세요.</a></li>';
 appList += '<li data-app="88"  data-page="lol" data-fun><a href="http://goo.gl/Zr0JGC">LOL 챔피언 동맹맺기</a></li>';
 appList += '<li data-app="87"  data-page="fairy" data-me><a href="http://goo.gl/oBhFz2">동화속 주인공</a></li>';
