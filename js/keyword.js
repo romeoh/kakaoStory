@@ -11,6 +11,7 @@ function action(_data) {
 		,bornDate = data.bornDate || null
 		,blood = data.blood || null
 		,post = ''
+		,twit = ''
 		,space = ''
 
 	data.title = '나의 연관검색어';
@@ -35,14 +36,20 @@ function action(_data) {
 	post += '┃' + userName + space + '▼ [검색]\n';
 	post += '┡━━━━━━━━━━━━━━━━━━━━━━━━\n';
 
+	twit += userName + '   ▼ [검색]\n';
+	twit += '───── \n';
+	
 	for (var i=0; i<5; i++) {
 		post += '│' + userName + ' ' + word[i]['key'] + ' \n';
+		twit += userName + ' ' + word[i]['key'] + ' \n';
+		twit += '───── \n';
 		if (i != 4) {
 			post += '├────────────────────────\n';
 		}
 	}
 	post += '└────────────────────────';
 	data.post = post;
+	data.twit = twit;
 	
 	data.desc = '악플금지!!\n안보인다 막말마라 추적하면 다나온다.';
 	data.img = 'http://romeoh.github.io/kakaoStory/img/keyword.png';
