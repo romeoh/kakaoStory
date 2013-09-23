@@ -13,7 +13,7 @@ function action(_data) {
 		,post = ''
 
 	data.title = '미래애인 외모점수';
-	data.url = 'http://goo.gl/30aQEX';
+	data.url = 'http://goo.gl/DCtJJJ';
 
 	if (media == 'talk') {
 		sendData(data);
