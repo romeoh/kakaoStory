@@ -139,6 +139,7 @@ function action(_data) {
 		,bornDate = data.bornDate || null
 		,blood = data.blood || null
 		,post = ''
+		,twit = ''
 
 	data.title = '나의 취향 공유하기';
 	data.url = 'http://goo.gl/ft3k0z';
@@ -150,11 +151,15 @@ function action(_data) {
 
 	post += '[' + data.title + ']\n\n';
 	post += M('#userName').val() + '님은 \n';
+
+	twit += '[취향공유]\n';
 	for (var i=0; i<totalLength; i++) {
 		n = i+1
 		post += n + '. ' + myLikes[i]['title'] + ' ' + myLikes[i]['result'] + '\n';
+		twit += '※ ' + myLikes[i]['title'].replace(/을/g, '').replace(/를/g, '') + ' ' + myLikes[i]['result'].replace(/좋아합니다./g, '좋아').replace(/싫어합니다./g, '싫어') + '\n';
 	}
 	data.post = post;
+	data.twit = twit;
 	
 	data.desc = '데이트 신청하실 때 참고하세요.';
 	data.img = 'http://romeoh.github.io/kakaoStory/img/like.png';

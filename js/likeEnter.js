@@ -144,6 +144,7 @@ function action(_data) {
 		,bornDate = data.bornDate || null
 		,blood = data.blood || null
 		,post = ''
+		,twit = ''
 
 	data.title = '연예인 좋아! 싫어!';
 	data.url = 'http://goo.gl/oJeIIL';
@@ -155,11 +156,16 @@ function action(_data) {
 
 	post += '[' + data.title + ']\n\n';
 	post += M('#userName').val() + '님은 \n';
+
+	twit += '[연예인 싫어/좋아]\n';
+	
 	for (var i=0; i<totalLength; i++) {
 		n = i+1
 		post += n + '. ' + myLikes[i]['ename'] + ' ' + myLikes[i]['result'] + '\n';
+		twit += '※ ' + myLikes[i]['ename'].replace(/을/g, '').replace(/를/g, '') + ' ' + myLikes[i]['result'].replace(/좋아합니다./g, '좋아').replace(/싫어합니다./g, '싫어') + '\n';
 	}
 	data.post = post;
+	data.twit = twit;
 	
 	data.desc = '그들은 날 좋아할까?';
 	data.img = 'http://romeoh.github.io/kakaoStory/img/' + thum;
