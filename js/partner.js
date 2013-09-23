@@ -43,7 +43,7 @@ function action(_data) {
 	}
 	
 	post += '[' + data.title + ']\n\n';
-	post += userName + '님의 미래 ' + pt + ' 얼굴 점수는 ' + faceScore + '점 입니다.\n';
+	post += userName + '님의 미래' + pt + ' 얼굴점수는 ' + faceScore + '점 입니다.\n';
 	post += '몸매점수는 ' + bodyScore + '점 입니다.';
 
 	data.post = post;
