@@ -574,6 +574,7 @@ function sendData(_obj) {
 			FB.login(function(response) {
 				if (response.authResponse) {
 					FB.api(/me/ + feed, method, message, function (response) {
+						console.log(response);
 						if (!response || response.error) {
 							if (error) {
 								alert('오류가 발생했습니다.');
