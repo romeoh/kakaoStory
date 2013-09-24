@@ -576,15 +576,15 @@ function sendData(_obj) {
 					FB.api(/me/ + feed, method, message, function (response) {
 						console.log(response);
 						if (!response || response.error) {
-							if (error) {
-								alert('오류가 발생했습니다.');
+							//if (error) {
+							alert('죄송합니다.\n오류가 발생했습니다.');
 								//error();
-							}
+							//}
 						} else {
-							if (success) {
-								alert('등록 되었습니다.');
+							//if (success) {
+							alert('페이스북에 등록 되었습니다.');
 								//success();
-							}
+							//}
 						}
 					});
 				}
