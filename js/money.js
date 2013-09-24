@@ -14,7 +14,7 @@ function action(_data) {
 		,val = ''
 
 	data.title = '내가 하루에 쓸수있는 돈';
-	data.url = 'http://goo.gl/FXg8EL';
+	data.url = 'http://goo.gl/p3TY9G';
 
 	if (media == 'talk') {
 		sendData(data);
