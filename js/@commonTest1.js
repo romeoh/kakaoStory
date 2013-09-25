@@ -499,30 +499,24 @@ function sendData(_obj) {
 		return false;
 	}
 
-	if (media == 'band') {
-		var  src = ''
+	// facebook sharer
+	if (media == 'facebookSharer') {//
+		var  str = ''
 			,post = obj.post || ''
-			,urlLength = url.length + 3
-			,postLength = post.length + urlLength + 1
-			,textLimit = 300
-
-		bandPost += '[' + app + ']\n'
-		bandPost += title + ': ' + post
-
-		if (postLength >= textLimit) {
-			b = bandPost.substr(0, (textLimit-urlLength)) + '...' + url;
-		} else {
-			b = bandPost + ' ' + url;
-		}
-
-		src += 'bandapp://create/post?text=';
-		src += encodeURIComponent(bandPost);
-		src += '#Intent;package=com.nhn.android.band;end;';
-		top.location = str;
+			,img = obj.img || ''
+		
+		str += 'http://www.facebook.com/sharer.php';
+		str += '?s=100';
+		str += '&p[title]=' + encodeURIComponent( post.replace(/\[.+\]/g, '') );
+		str += '&p[summary]=' + encodeURIComponent( title );
+		str += '&p[url]=' + encodeURIComponent(url);
+		str += '&p[images][0]=' + encodeURIComponent(img);
+		top.location.href = str;
 		return false;
 	}
 
-	if (media == 'facebook') {
+	// facebook open API
+	if (media == 'facebook') {//API
 		M('body').prepend('script', {
 			'src':'https://connect.facebook.net/en_US/all.js',
 			'type': 'text/javascript',
@@ -602,6 +596,29 @@ function sendData(_obj) {
 			console.log(test)
 
 		})
+		return false;
+	}
+
+	if (media == 'band') {
+		var  src = ''
+			,post = obj.post || ''
+			,urlLength = url.length + 3
+			,postLength = post.length + urlLength + 1
+			,textLimit = 300
+
+		bandPost += '[' + app + ']\n'
+		bandPost += title + ': ' + post
+
+		if (postLength >= textLimit) {
+			b = bandPost.substr(0, (textLimit-urlLength)) + '...' + url;
+		} else {
+			b = bandPost + ' ' + url;
+		}
+
+		src += 'bandapp://create/post?text=';
+		src += encodeURIComponent(bandPost);
+		src += '#Intent;package=com.nhn.android.band;end;';
+		top.location = str;
 		return false;
 	}
 }
