@@ -40,6 +40,7 @@ if (M('[data-list]').selector.length > 0) {
 	if (category === 'all') {
 		M('[data-page]').css('display', 'block')
 	} else {
+		M('[data-page]').css('display', 'none')
 		M('[data-' + category + ']').css('display', 'block');
 	}
 	M('[data-new]').css('display', 'block');
