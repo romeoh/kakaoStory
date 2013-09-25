@@ -219,7 +219,7 @@ nav .nav li a {display: block;font-weight: 600;font-size: 14px;color: #245465;te
 .inbox {border:none; margin-bottom:0; padding:0 10px}
 
 
-
+.fb-comments, .fb-comments span[style], .fb-comments iframe[style] {width: 100% !important;}
 
 
 
