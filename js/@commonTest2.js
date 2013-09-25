@@ -23,15 +23,15 @@ if (M('[data-list]').selector.length > 0) {
 	M('[data-app="' + currentApp + '"]').prepend('span', {
 		'className': 'ico sel'
 	})
-
-	M('.appList h2')
-		.after('div', {
+	
+	M('#eventContainer')
+		.before('div', {
 			'className': 'listbox'
 		})
-		.after('a', {
+		.before('a', {
 			'id': 'viewCategory'
 		})
-
+	
 	var  category = M.storage('io.github.romeoh.user.category') || 'all'
 		,str = ''
 		,categoryText
@@ -88,6 +88,46 @@ if (M('[data-list]').selector.length > 0) {
 		M('[data-new]').css('display', 'block');
 	})
 }
+
+
+var eventList = M.storage('event_list') || 'EVENT';
+
+// 이벤트 리스트 처리
+M.storage('event_list', eventList);
+if (eventList === 'EVENT') {
+	M('#btnEvent').addClass('on');
+	M('#eventContainer').css('display', 'block');
+	M('#replyContainer').css('display', 'none');
+} else if(eventList === 'REPLY') {
+	M('#btnReply').addClass('on');
+	M('#eventContainer').css('display', 'none');
+	M('#replyContainer').css('display', 'block');
+	M('#viewCategory').css('display', 'none');
+}
+
+// 이벤트 버튼 리스너
+M('#btnEvent').on('click', function(){
+	eventList = 'EVENT';
+	M.storage('event_list', eventList);
+	M('#btnEvent').addClass('on');
+	M('#btnReply').removeClass('on');
+	M('#eventContainer').css('display', 'block');
+	M('#replyContainer').css('display', 'none');
+	M('#viewCategory').css('display', 'block');
+})
+
+M('#btnReply').on('click', function(){
+	eventList = 'REPLY';
+	M.storage('event_list', eventList);
+	M('#btnReply').addClass('on');
+	M('#btnEvent').removeClass('on');
+	M('#eventContainer').css('display', 'none');
+	M('#replyContainer').css('display', 'block');
+	M('#viewCategory').css('display', 'none');
+	M('#viewCategory').removeClass('sel');
+	M('.listbox').css('display', 'none');
+})
+
 
 function listBoxListener(evt, mp){
 	if (M('#viewCategory').data('isopen') === 'false') {
