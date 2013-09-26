@@ -165,7 +165,7 @@ function getRandom(min, max){
 }
 
 
-var  ua = navigator.userAgent
+/*var  ua = navigator.userAgent
 	,os = (/iphone|ipad|ipod/gi).test(ua) ? "ios" : 
 		(/android/gi).test(ua) ? "android" :
 		(/mac/gi).test(ua) ? "macOS" : 
@@ -183,6 +183,12 @@ if (os === 'android') {
 		.css('display', 'block')
 		.html(eventTxt[idx])
 }
+*/
+eventTxt = ['<a href="http://goo.gl/A2UOmW">깨알유머 페이스북 페이지 오픈했단깨유~</a>']
+M('nav')
+		.css('display', 'block')
+		.html(eventTxt[0])
+		
 
 M('#userName')
 	.on('change', function(evt, mp){
