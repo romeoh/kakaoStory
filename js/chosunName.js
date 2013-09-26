@@ -13,7 +13,7 @@ function action(_data) {
 		,post = ''
 
 	data.title = '조선시대 노비식 이름짓기';
-	data.url = 'http://goo.gl/rvLdMg';
+	data.url = 'http://goo.gl/dWBr7y';
 
 	if (media == 'talk') {
 		sendData(data);
