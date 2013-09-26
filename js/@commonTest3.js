@@ -184,11 +184,11 @@ if (os === 'android') {
 		.html(eventTxt[idx])
 }
 */
-eventTxt = ['<a href="http://goo.gl/A2UOmW">깨알유머 페이스북 페이지 오픈했단깨유~</a>']
+eventTxt = ['<a href="http://goo.gl/A2UOmW">깨유 페이스북 페이지 오픈했단깨유~</a>']
 M('nav')
 		.css('display', 'block')
 		.html(eventTxt[0])
-		
+
 
 M('#userName')
 	.on('change', function(evt, mp){
