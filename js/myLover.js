@@ -21,13 +21,13 @@ function action(_data) {
 	}
 
 	if (sexType == 'boy') {
-		database = dataBoy
-		data.title = '내 남친의 조건';
-		photo = 'loverMan.jpg'
-	} else if (sexType == 'girl') {
 		database = dataGirl;
 		data.title = '내 여친의 조건';
 		photo = 'loverWoman.jpg'
+	} else if (sexType == 'girl') {
+		database = dataBoy
+		data.title = '내 남친의 조건';
+		photo = 'loverMan.jpg'
 	}
 	idx = process(database)
 	

@@ -260,6 +260,7 @@ function validation(_data) {
 		} else if (M('#girlBox a').hasClass('checked')) {
 			data.sexType = 'girl'
 		}
+		M.storage('io.github.romeoh.user.sexType', data.sexType);
 	}
 
 	if (M('#userName').selector.length > 0) {
@@ -295,14 +296,16 @@ function validation(_data) {
 			alert('생년을 입력해 주세요.');
 			return false;
 		}
-		data.bornYear = M('#userAge').val()
+		data.bornYear = M('#userAge').val();
+		M.storage('io.github.romeoh.user.bornYear', M('#userAge').val());
 	}
 	if (M('#selYear').selector.length > 0) {
 		if (M('#selYear').val() === '-1') {
 			alert('생년을 선택해 주세요.');
 			return false;
 		}
-		data.bornYear = M('#selYear').val()
+		data.bornYear = M('#selYear').val();
+		M.storage('io.github.romeoh.user.bornYear', M('#selYear').val());
 	}
 	if (M('#selMonth').selector.length > 0) {
 		if (M('#selMonth').val() === '-1') {
@@ -310,6 +313,7 @@ function validation(_data) {
 			return false;
 		}
 		data.bornMonth = M('#selMonth').val()
+		M.storage('io.github.romeoh.user.bornMonth', M('#selMonth').val());
 	}
 	if (M('#selDate').selector.length > 0) {
 		if (M('#selDate').val() === '-1') {
@@ -317,6 +321,7 @@ function validation(_data) {
 			return false;
 		}
 		data.bornDate = M('#selDate').val()
+		M.storage('io.github.romeoh.user.selDate', M('#selDate').val());
 	}
 	if (M('#selBlood').selector.length > 0) {
 		if (M('#selBlood').val() === '-1') {
