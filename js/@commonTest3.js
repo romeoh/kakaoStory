@@ -16,7 +16,22 @@ if (M('[data-list]').selector.length > 0) {
 					.replace(/@내@/g, '@' + nameStr0 + '@')
 					.replace(/@말괄량이@/g, '@' + nameStr0 + '@')
 	}
-	alist = alist.replace(/@/g, '');
+
+	// 이달의 운세 처리
+	var  d = new Date()
+		,month = d.getMonth() + 1
+		,date = d.getDate()
+
+	if (date > 15) {
+		if (month == 12) {
+			month = 1;
+		} else {
+			month = month + 1;
+		}
+	}
+
+	alist = alist.replace(/@/g, '').replace(/이달의/, month + '월의');
+
 
 	M('[data-list]')
 		.html(alist)
