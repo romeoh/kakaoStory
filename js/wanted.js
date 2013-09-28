@@ -21,9 +21,9 @@ function action(_data) {
 	}
 
 	if (sexType == 'boy') {
-		database = dataBoy
-	} else if (sexType == 'girl') {
 		database = dataGirl;
+	} else if (sexType == 'girl') {
+		database = dataBoy
 	}
 	idx = process(database)
 	
