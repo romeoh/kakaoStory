@@ -1,7 +1,7 @@
 var  appList = ''
 	,totalApp = 123
 
-appList += '<li data-app="124" data-page="month" data-new data-heart><a href="http://goo.gl/K1vMJP">이달의 운세</a> <span class="ico new"></span></li>';
+appList += '<li data-app="124" data-page="month" data-hot data-new data-heart><a href="http://goo.gl/K1vMJP">이달의 운세</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="123" data-page="flower" data-new data-heart><a href="http://goo.gl/3vlw8H">나의 탄생화</a> <span class="ico new"></span></li>';
 appList += '<li data-app="122" data-page="chosunName" data-new data-me><a href="http://goo.gl/KnuEWo">조선시대 노비식 이름짓기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="121" data-page="money1" data-new data-hot data-fun><a href="http://goo.gl/cZKI7Z">내가 하루에 쓸수있는 돈</a> <span class="ico new"></span><span class="ico hot"></span></li>';
