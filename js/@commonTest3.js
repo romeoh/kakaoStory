@@ -321,7 +321,7 @@ function validation(_data) {
 			return false;
 		}
 		data.bornDate = M('#selDate').val()
-		M.storage('io.github.romeoh.user.selDate', M('#selDate').val());
+		M.storage('io.github.romeoh.user.bornMonth', M('#selDate').val());
 	}
 	if (M('#selBlood').selector.length > 0) {
 		if (M('#selBlood').val() === '-1') {
