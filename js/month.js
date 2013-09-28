@@ -41,6 +41,10 @@ function action(_data) {
 	d4 = process(database4)
 	d5 = process(1, 31)
 	d6 = process(1, 31)
+	
+	if (d5 == d6) {
+		d6 = process(1, 31)	
+	}
 
 	post += '[' + data.title + ']\n\n';
 	post += M('#userName').val() + '님의 ' + month + '월 운세입니다.\n\n';
