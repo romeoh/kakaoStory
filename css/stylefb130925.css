@@ -220,7 +220,7 @@ nav .nav li a {display: block;font-weight: 600;font-size: 14px;color: #245465;te
 
 
 .fb-comments, .fb-comments span[style], .fb-comments iframe[style] {width: 100% !important;}
-
+select {float: none;width: 70%;height: 31px;margin-left: 6px;margin-bottom: 15px;background: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#f6f6f6));background-size: 30px 12px,auto auto;line-height: 29px;font-size: 15px;color: #555;-webkit-background-size: 30px 12px,auto auto}
 
 
 

@@ -9,6 +9,7 @@
 <link rel="image_src" href="http://romeoh.github.io/kakaoStory/images/thum/logo.png" />
 
 <link rel="stylesheet" type="text/css" href="../css/styleClick.css">
+<link rel="stylesheet" type="text/css" href="../css/stylefb130925.css">
 
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-2760623096296279";
@@ -217,7 +218,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <div id="share" class="btnBox">
 	<button id="btnStory" class="button">팀순위 보기</button>
 	<button id="btnKakao" class="button">카톡친구 초대</button>
-	<div id="snsBox"></div>
+	<div id="snsBox" style="margin-top:10px"></div>
 </div>
 <!--p class="macao" id=""><a href="http://goo.gl/HMF8gs">마카오스토리에서 작전짜기</a></p-->
 
@@ -235,10 +236,18 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </div>
 
-<div class="appList">
-	<h2>다른 미니앱 보기</h2>
-	<ul data-list="55"></ul>
-</div>
+<section class="event_box">
+	<ul class="tab_area">
+		<li id="btnEvent"><a>다른 미니앱</a></li>
+		<li id="btnReply"><a>댓글</a></li>
+	</ul>
+	<div class="list_area">
+		<ul id="eventContainer" class="list_con" data-list="55"></ul>
+		<div id="replyContainer" class="list_con">
+			<div class="fb-comments" data-href="http://romeoh.github.io/kakaoStory/html/baseball.html" data-width="320"></div>
+		</div>
+	</div>
+</section>
 
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-2760623096296279";
@@ -262,7 +271,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <script type="text/javascript" src="../js/jquery-2.0.0.min.js"></script>
 <script type="text/javascript" src="../js/mpui.js"></script>
 <script type="text/javascript" src="../js/applist.js"></script>
-<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/common130925.js"></script>
 <script type="text/javascript" src="../js/baseball.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
