@@ -21,18 +21,18 @@ function action(_data) {
 	}
 
 	if (sexType == 'boy') {
+		data.title = '내 여친의 조건';
+		face = dataGirlFace[process(dataGirlFace)]
+		char = dataCha[process(dataCha)]
+		body = dataBody[process(dataBody)]
+		enter = dataGirl[process(dataGirl)]
+	} else if (sexType == 'girl') {
 		data.title = '내 남친의 조건';
 		database = dataBoy
 		face = dataBoyFace[process(dataBoyFace)]
 		char = dataCha[process(dataCha)]
 		body = dataBody[process(dataBody)]
 		enter = dataBoy[process(dataBoy)]
-	} else if (sexType == 'girl') {
-		data.title = '내 여친의 조건';
-		face = dataGirlFace[process(dataGirlFace)]
-		char = dataCha[process(dataCha)]
-		body = dataBody[process(dataBody)]
-		enter = dataGirl[process(dataGirl)]
 	}
 	
 	post += '[' + data.title + ']\n\n';
