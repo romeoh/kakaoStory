@@ -24,11 +24,11 @@ function action(_data) {
 	distance = process(1, 300)
 
 	if (sexType == 'boy') {
-		data.title = '내 남친은 어디있나?';
+		data.title = '내 여친은 어디있나?';
 		post += '[' + data.title + ']\n\n';
 		post += userName + '님의 남친의 직업은 ' + dataJob[idx] + '입니다.\n';
 	} else if (sexType == 'girl') {
-		data.title = '내 여친은 어디있나?';
+		data.title = '내 남친은 어디있나?';
 		post += '[' + data.title + ']\n\n';
 		post += userName + '님의 남친의 직업은 ' + dataJob[idx] + '입니다.\n';
 	}
