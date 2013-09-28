@@ -1,11 +1,12 @@
 var  appList = ''
-	,totalApp = 122
+	,totalApp = 123
 
+appList += '<li data-app="124" data-page="month" data-new data-heart><a href="http://goo.gl/K1vMJP">이달의 운세</a> <span class="ico new"></span></li>';
 appList += '<li data-app="123" data-page="flower" data-new data-heart><a href="http://goo.gl/3vlw8H">나의 탄생화</a> <span class="ico new"></span></li>';
 appList += '<li data-app="122" data-page="chosunName" data-new data-me><a href="http://goo.gl/KnuEWo">조선시대 노비식 이름짓기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="121" data-page="money1" data-new data-hot data-fun><a href="http://goo.gl/cZKI7Z">내가 하루에 쓸수있는 돈</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="120" data-page="partner1" data-new data-love><a href="http://goo.gl/DCtJJJ">미래애인 외모점수</a> <span class="ico new"></span></li>';
-appList += '<li data-app="119" data-page="monUni" data-new data-fun><a href="http://goo.gl/8TAZnZ">나의 겁주기 신공</a> <span class="ico new"></span></li>';
+appList += '<li data-app="119" data-page="monUni" data-fun><a href="http://goo.gl/8TAZnZ">나의 겁주기 신공</a></li>';
 appList += '<li data-app="118" data-page="childBlood" data-heart><a href="http://goo.gl/po4gKm">내 아기 혈액형 알아보기</a></li>';
 appList += '<li data-app="117" data-page="montage" data-hot data-me><a href="http://goo.gl/dSNme7">현상수배</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="116" data-page="planet" data-hot data-me><a href="http://goo.gl/X8VBsn">너는 어느별에서 왔니?</a> <span class="ico hot"></span></li>';

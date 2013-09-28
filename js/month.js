@@ -1,3 +1,17 @@
+var  d = new Date()
+	,month = d.getMonth() + 1
+	,date = d.getDate()
+
+if (date > 15) {
+	if (month == 12) {
+		month = 1;
+	} else {
+		month = month + 1;
+	}
+}
+M('h2').text(month + '월의 운세')
+
+
 function action(_data) {
 	var  data = _data || {}
 		,media = data.media || 'story'
@@ -11,17 +25,7 @@ function action(_data) {
 		,bornDate = data.bornDate || null
 		,blood = data.blood || null
 		,post = ''
-		,d = new Date()
-		,month = d.getMonth() + 1
-		,date = d.getDate()
-
-	if (date > 15) {
-		if (month == 12) {
-			month = 1;
-		} else {
-			month = month + 1;
-		}
-	}
+		
 	
 	data.title = month + '월의 운세';
 	data.url = 'http://goo.gl/K1vMJP';
