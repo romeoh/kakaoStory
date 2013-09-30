@@ -128,7 +128,56 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 
 
 
-
+var rankList = [
+	{
+		'idx': '111',
+		'type': 'B',
+		'hot': 'true',
+		'category': '',
+		'title': '제일 좋아하는 커피',
+		'q': '아메리카노, 카페라떼, 카푸치노, 모카라떼 중에 누가 제일 좋아요?',
+		'url': 'http://goo.gl/RPVB5',
+		'list': [
+			{'title': '아메리카노'},
+			{'title': '카페라떼'},
+			{'title': '카푸치노'},
+			{'title': '모카라떼'}
+		]
+	},
+	{
+		'idx': '112',
+		'type': 'A',
+		'hot': '',
+		'category': '',
+		'title': 'EXO VS 샤이니',
+		'q': 'EXO, 샤이니중에 누가 더 좋아요?',
+		'url': 'http://goo.gl/RPVB5',
+		'list': [
+			{
+				'photo': '../images/thum/ban1.png',
+				'title': 'EXO'
+			},
+			{
+				'photo': '../images/thum/ban2.png',
+				'title': '샤이니'
+			},
+		]
+	},
+	{
+		'idx': '113',
+		'type': 'B',
+		'hot': 'true',
+		'category': '',
+		'title': '제일 인기있는 아이돌',
+		'q': 'EXO, 샤이니, FX중에 누가 제일 좋아요?',
+		'url': 'http://goo.gl/RPVB5',
+		'list': [
+			{'title': 'EXO'},
+			{'title': '샤이니'},
+			{'title': 'F(x)'},
+		]
+	}
+]
 
 
 
