@@ -28,7 +28,7 @@ function action(_data) {
 		score = 100 - (pull - push);
 	}
 	if (score > 70) {
-		commant = '적절한 시점에 밀고 당기기를 잘하는 연예고수!!'
+		commant = '적절한 시점에 밀고 당기기를 잘하는 연애고수!!'
 	} else if (score < 30) {
 		commant = '한가지에 치우쳐서 상대에게 끌려가는 스타일입니다.'
 	} else {
