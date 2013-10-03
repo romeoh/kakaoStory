@@ -1,3 +1,4 @@
+// 테스트 리스트 처리
 if (M('[data-list]').selector.length > 0) {
 	var  currentApp = M('[data-list]').data('list')
 		,alist = appList
@@ -103,6 +104,28 @@ if (M('[data-list]').selector.length > 0) {
 		}
 		M('[data-new]').css('display', 'block');
 	})
+
+	if (M('#snsBox').selector.length > 0) {
+		var  appNo = M('[data-list]').data('list')
+			,appName = M('[data-app="' + appNo + '"]').data('page')
+
+		M('#snsBox').append('div', {
+			'className': 'fb-like'
+		})
+		M('.fb-like')
+			.data('href', 'http://romeoh.github.io/kakaoStory/html/' + appName + '.html')
+			.data('width', '450')
+			.data('layout', 'button_count')
+			.data('showFaces', 'true')
+			.data('send', 'true')
+	}
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1&appId=519730578083610";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
 }
 
 
@@ -202,7 +225,7 @@ if (os === 'android') {
 eventTxt = ['<a href="http://goo.gl/A2UOmW">깨유 페이스북 페이지 오픈했단깨유~</a>']
 M('nav')
 		.css('display', 'block')
-		.html(eventTxt[0])
+		//.html(eventTxt[0])
 
 
 M('#userName')
@@ -742,62 +765,159 @@ function getDataType(_value) {
 	return undefined;
 }
 
-if (M('#snsBox').selector.length > 0) {
-	var  appNo = M('[data-list]').data('list')
-		,appName = M('[data-app="' + appNo + '"]').data('page')
 
-	M('#snsBox').append('div', {
-		'className': 'fb-like'
+// 랭킹 컨텐츠
+window.addEventListener('hashchange', function(){
+	window.location.reload();
+})
+
+window.addEventListener('load', initPoll, false);
+function initPoll() {
+	if (M('[data-poll]').selector.length > 0) {
+		var  hash = window.location.hash.replace('#', '')
+			,cuRank 
+			,str = ''
+
+		if (hash === '') {
+			window.location.hash = rankList[0]['idx'];
+			window.location.reload();
+			return false;
+		}
+		for (var i=0; i<rankList.length; i++) {
+			if (rankList[i]['idx'] == hash) {
+				cuRank = rankList[i];
+				continue;
+			}
+		}
+		if (cuRank == undefined) {
+			window.location.hash = rankList[0]['idx'];
+			window.location.reload();
+			return false;
+		}
+
+		M('#rankTitle h2').html(cuRank['title'].replace(/ VS /g, ' <span class="vs">VS</span> '));
+		M('#question').html('<span class="ico_q">Q</span>' + cuRank['q']);
+		
+		if (cuRank['type'] === 'A') {
+			// A 타입 (사진)
+			M('#pollType').addClass('poll_content')
+			for (var i=0; i<cuRank['list'].length; i++) {
+				if (i != 0) {
+					str += '<div class="ico_ent ico_vs">VS</div>';
+				}
+				str += '<div class="plist">';
+				str += '	<span><img src="' + cuRank['list'][i]['photo'] + '" width="80px"></span>';
+				str += '	<p>' + cuRank['list'][i]['title'] + '</p>';
+				str += '	<div class="btn_poll pround" data-a="' + i + '"><div class="inner_poll">투표하기</div></div>';
+				str += '</div>';
+				//console.log(cuRank['list'][i])
+			}
+			M('#pcontent').html(str)
+		} else {
+			// B타입 (리스트)
+			M('#pollType').addClass('poll_content_list')
+			for (var i=0; i<cuRank['list'].length; i++) {
+				str += '<div class="plist" data-b="' + i + '">';
+				str += '	<div class="inner_item">';
+				str += '		<span class="txt_g">' + cuRank['list'][i]['title'] + '</span>';
+				str += '		<span class="check_item"><span class="ico_ent ico_check"></span></span>';
+				str += '	</div>';
+				str += '</div>';
+			}
+			str += '<div class="btn_poll pround" data-submit-b=""><div class="inner_poll">투표하기</div></div>';
+			M('#pcontent').html(str)
+		}
+		M('[data-poll]').data('poll', cuRank['idx']);
+	}
+
+
+	// 랭킹 리스트 처리
+	if (M('[data-rank-list]').selector.length > 0) {
+		var  str = ''
+
+		for (var i=0; i<rankList.length; i++) {
+			str += '<li data-rank-idx="' + rankList[i]['idx'] + '" ';
+			if (i<5){
+				str += 'data-new ';
+			}
+			if (rankList[i]['hot'] === 'true') {
+				str += 'data-hot ';
+			}
+			str += 'data-' + rankList[i]['category'];
+			str += '>';
+			if (hash === rankList[i]['idx']) {
+				str += '<span class="ico sel"></span>';
+			}
+			str += '<a href="' + rankList[i]['url'] + '">' + rankList[i]['title'] + '</a> ';
+			if (i<5) {
+				str += '<span class="ico new"></span>';
+			}
+			if (rankList[i]['hot'] === 'true') {
+				str += '<span class="ico hot"></span>';
+			}
+			str += '</li>';
+		}
+		M('[data-rank-list]').html(str);
+	}
+
+
+	/* Ranking */
+	var polldata = M.storage('io.github.romeoh.poll') || '{}'
+	polldata = M.json(polldata);
+	M('[data-a]').on('click', function(evt, mp){
+		var  poll = mp.data('a')
+		
+		checkPoll()
+		submitPoll(poll);
 	})
-	M('.fb-like')
-		.data('href', 'http://romeoh.github.io/kakaoStory/html/' + appName + '.html')
-		.data('width', '450')
-		.data('layout', 'button_count')
-		.data('showFaces', 'true')
-		.data('send', 'true')
-}
-(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1&appId=519730578083610";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
 
-/* 
-http://goo.gl/BNYgT
-http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.hippop
-market://details?id=com.hetory.kakao.hippop
+	M('[data-b]').on('click', function(evt, mp){
+		M('[data-b]').removeClass('on')
+		mp.addClass('on');
+		M('[data-submit-b]').data('submit-b', mp.data('b'))
+	})
 
+	M('[data-submit-b]').on('click', function(evt, mp){
+		var poll = mp.data('submit-b')
+		if(!checkPoll()) {
+			return false;
+		}
+		if (poll === '') {
+			alert('한가지를 선택해주세요.');
+			return false;
+		}
+		submitPoll(poll)
+	})
 
-http://goo.gl/WrRJr
-http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.buam
-market://details?id=com.hetory.kakao.buam
+	function checkPoll() {
+		var pollIndex = M('[data-poll]').data('poll')
+		
+		if (polldata[pollIndex]) {
+			alert('이미 투표한 랭킹입니다.');
+			return false;
+		}
+		polldata[pollIndex] = 'true';
+		console.log(polldata)
+		M.storage('io.github.romeoh.poll', M.json(polldata));
+	}
 
-http://goo.gl/otEy6
-http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.dance
-market://details?id=com.hetory.kakao.dance
-
-http://goo.gl/qldVb
-http://romeoh.github.io/kakaoStory/html/applink.html#com.hetory.kakao.alice
-market://details?id=com.hetory.kakao.alice
-
-*/
-
-
-
-
-
-
-/*
-
-if (sexType == 'boy') {
-	database = dataBoy
-} else if (sexType == 'girl') {
-	database = dataGirl;
+	function submitPoll(poll) {
+		var pollIndex = M('[data-poll]').data('poll')
+		//M.storage('io.github.romeoh.poll', )
+		//console.log(pollIndex)
+		M('.tinfo')
+			.css('display', 'block')
+			.html('<div><span class="ico i"></span> 반영되었습니다. <br>감사합니다. 아래 SNS로 결과를 확인하세요.</div>')
+		
+		console.log(poll)
+	}
 }
 
 
 
 
-*/
+
+
+
+
+
