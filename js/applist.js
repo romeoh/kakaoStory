@@ -1,11 +1,12 @@
 var  appList = ''
-	,totalApp = 129
+	,totalApp = 130
 
+appList += '<li data-app="131" data-page="peter" data-new data-heart><a href="http://goo.gl/Qabeuk">피터팬 증후군 테스트</a> <span class="ico new"></span></li>';
 appList += '<li data-app="130" data-page="sense2" data-new data-heart><a href="http://goo.gl/RQaAyd">4차원 테스트</a> <span class="ico new"></span></li>';
 appList += '<li data-app="129" data-page="sense" data-new data-heart><a href="http://goo.gl/eZm1sl">뻘짓 테스트</a> <span class="ico new"></span></li>';
 appList += '<li data-app="128" data-page="stone" data-new data-heart><a href="http://goo.gl/lYsA3C">나의 탄생석 알아보기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="127" data-page="second" data-new data-fun><a href="http://goo.gl/bYvEen">을의 연애</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="126" data-page="self" data-new data-fun><a href="http://goo.gl/xsbgQr">나의 자숙기간</a> <span class="ico new"></span></li>';
+appList += '<li data-app="126" data-page="self" data-fun><a href="http://goo.gl/xsbgQr">나의 자숙기간</a></li>';
 appList += '<li data-app="125" data-page="beauty" data-hot data-fun><a href="http://goo.gl/feJNad">내 주위에 미남/미녀는 몇명인가?</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="124" data-page="month" data-hot data-heart><a href="http://goo.gl/K1vMJP">이달의 운세</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="123" data-page="flower" data-heart><a href="http://goo.gl/3vlw8H">나의 탄생화</a></li>';
