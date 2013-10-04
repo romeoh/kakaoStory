@@ -24,9 +24,10 @@ nav a {color:#fff;; margin:0 10px}
 .buttons {padding:10px;}
 .share {display: table;width: 100%;margin: 0;border-radius: 3px;-webkit-box-shadow: 0 1px 0 0 rgba(0,0,0,0.1);box-shadow: 0 1px 0 0 rgba(0,0,0,0.1);}
 .share li {display: table-cell;width: 25%;}
-.share li a {display: inline-block;width: 100%;height: 33px;border: 1px solid #909296;border-radius: 3px;background: #fff;text-align: center;}
+.share li a {display: inline-block;width: 100%;height: 33px;border: 1px solid #909296;border-radius: 3px;background: #fff;text-align: center;;border-right: 1px solid #909296}
 .share li a span {display: block;height: 31px;margin: 1px;background: #fafbfb;background: -moz-linear-gradient(top,#fafbfb 0%,#f2f1f1 100%);background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#fafbfb),color-stop(100%,#f2f1f1));background: -webkit-linear-gradient(top,#fafbfb 0%,#f2f1f1 100%);background: -o-linear-gradient(top,#fafbfb 0%,#f2f1f1 100%);background: -ms-linear-gradient(top,#fafbfb 0%,#f2f1f1 100%);background: linear-gradient(to bottom,#fafbfb 0%,#f2f1f1 100%);line-height: 32px;font-size: 15px;font-weight: bold;color: #000;letter-spacing: -1px;vertical-align: top;}
 .share li:first-child a {position: relative;z-index: 3;border-top-right-radius: 0;border-bottom-right-radius: 0;border-right: 1px solid #909296}
+.share li:nth-child(2) a {position: relative;z-index: 3;border-radius: 0;border-right: 1px solid #909296}
 .share li:last-child a {position: static;border-left: 0;border-top-left-radius: 0;border-bottom-left-radius: 0;border-top-right-radius: 3px !important;border-bottom-right-radius: 3px !important;border-right: 1px solid #909296 !important;}
 .share li a em {display: inline-block;overflow: hidden;width: 14px;height: 14px;background: url(../imgApp/sp_btn.png) no-repeat;background-size: 250px 250px;vertical-align: middle;-webkit-background-size: 250px 250px;}
 .share li a em.ico_star_check {height: 15px;margin: -4px 5px 0 0;background-position: -82px -19px;}
