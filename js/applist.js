@@ -1,11 +1,12 @@
 var  appList = ''
-	,totalApp = 126
+	,totalApp = 127
 
-appList += '<li data-app="127" data-page="second" data-new data-fun><a href="http://goo.gl/bYvEen">을의 연애</a> <span class="ico new"></span></li>';
+appList += '<li data-app="128" data-page="stone" data-new data-heart><a href="http://goo.gl/lYsA3C">나의 탄생석 알아보기</a> <span class="ico new"></span></li>';
+appList += '<li data-app="127" data-page="second" data-new data-fun><a href="http://goo.gl/bYvEen">을의 연애</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="126" data-page="self" data-new data-fun><a href="http://goo.gl/xsbgQr">나의 자숙기간</a> <span class="ico new"></span></li>';
 appList += '<li data-app="125" data-page="beauty" data-new data-fun><a href="http://goo.gl/feJNad">내 주위에 미남/미녀는 몇명인가?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="124" data-page="month" data-hot data-new data-heart><a href="http://goo.gl/K1vMJP">이달의 운세</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="123" data-page="flower" data-new data-heart><a href="http://goo.gl/3vlw8H">나의 탄생화</a> <span class="ico new"></span></li>';
+appList += '<li data-app="123" data-page="flower" data-heart><a href="http://goo.gl/3vlw8H">나의 탄생화</a></li>';
 appList += '<li data-app="122" data-page="chosunName" data-me><a href="http://goo.gl/KnuEWo">조선시대 노비식 이름짓기</a></li>';
 appList += '<li data-app="121" data-page="money1" data-hot data-fun><a href="http://goo.gl/cZKI7Z">내가 하루에 쓸수있는 돈</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="120" data-page="partner1" data-love><a href="http://goo.gl/DCtJJJ">미래애인 외모점수</a></li>';
