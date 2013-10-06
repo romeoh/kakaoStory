@@ -785,9 +785,7 @@ function initEvent() {
 			,str = ''
 
 		if (hash === '') {
-			window.location.hash = eventList[0]['idx'];
-			window.location.reload();
-			return false;
+			hash = eventList[0]['idx'];
 		}
 		for (var i=0; i<eventList.length; i++) {
 			if (eventList[i]['idx'] == hash) {
@@ -883,300 +881,53 @@ function initEvent() {
 
 	M('#btnEventStory').on('click', function(){
 		var data = {}
+		console.log(cuEvent)
 		data.media = 'story'
-		data.title = '스토리제목'
-		data.post = '스토리로 공유하자'
-		data.url = 'http://goo.gl/'
-		data.img = 'http://goo.gl/'
-		data.desc = '스토리로 공유하자'
+		data.title = cuEvent['title']
+		data.post = '[이벤트]\n' + cuEvent['title']
+		data.url = cuEvent['url']
+		data.img = cuEvent['thum']
+		data.desc = cuEvent['title']
 		shareEvent(data)
 	});
 	M('#btnEventTwitter').on('click', function(){
 		var data = {}
 		data.media = 'twitter'
+		data.post = '[이벤트]\n' + cuEvent['title']
+		data.msg = cuEvent['title']
+		data.url = cuEvent['url']
 		shareEvent(data)
 	});
 	M('#btnEventFacebook').on('click', function(){
 		var data = {}
 		data.media = 'facebook'
+		data.post = '[이벤트]\n' + cuEvent['title']
+		data.msg = cuEvent['title']
+		data.url = cuEvent['url']
 		shareEvent(data)
 	});
 	M('#btnEventMe2day').on('click', function(){
 		var data = {}
 		data.media = 'me2day'
+		data.post = '[이벤트]\n' + cuEvent['title']
+		data.msg = cuEvent['title']
+		data.url = cuEvent['url']
 		shareEvent(data)
 	});
 	M('#btnEventKakao').on('click', function(){
 		var data = {}
 		data.media = 'talk'
-		data.msg = '카카오톡으로 공유하자'
-		data.url = 'http://goo.gl/'
-		shareAction(data);
+		data.post = '[이벤트]\n' + cuEvent['title']
+		data.msg = cuEvent['title']
+		data.url = cuEvent['url']
+		sendData(data);
 	});
 
 	function shareEvent(_data) {
 		var data = _data || {}
 
 		M.storage('io.github.romeoh.user.platform', data.media);
-		shareAction(data);
-	}
-
-	function shareAction(_obj) {
-		var  obj = _obj || {}
-			,media = obj.media || 'story'
-			,id = obj.id || 'gaeyou'
-			,ver = obj.ver || '1.0'
-			,app = obj.app || '깨알유머:'
-			,title = obj.title || ''
-			,url = obj.url || ''
-		
-		if (media == 'talk') {
-			var  msg = obj.msg || title || ''
-
-			kakao.link('talk').send({
-				msg: msg,
-				url: url,
-				appid: id,
-				appver: ver,
-				appname: app,
-				type: 'link'
-			});
-			//return false;
-
-			test  = '♥♥ [카톡친구 초대] ♥♥\n'
-			test += 'appId: ' + id + '\n'
-			test += 'appVersion: ' + ver + '\n'
-			test += 'appName: ' + app + '\n'
-			test += 'msg: \n'
-			test += '-----------\n'
-			test += msg + '\n'
-			test += '-----------\n'
-			test += 'url: ' + url + '\n'
-			test += '--------------------------------------------\n'
-			console.log(test)
-			return false;
-		}
-
-		if (media == 'story') {
-			var  post = obj.post || ''
-				,desc = obj.desc || ''
-				,img = obj.img || ''
-				,urlinfo = {
-					'title': title,
-					'desc': desc,
-					'imageurl': [img],
-					'type': 'article'
-				}
-			post = post + '\n\n' + url;
-			
-			kakao.link("story").send({   
-		        appid : id,
-				appver : ver,
-				appname : app,
-		        post : post,
-				urlinfo : M.json(urlinfo)
-		    });
-			//return false;
-			
-			test  = '♥♥ [카스로 공유] ♥♥\n'
-			test += 'appId: ' + id + '\n'
-			test += 'appVersion: ' + ver + '\n'
-			test += 'appName: ' + app + '\n'
-			test += 'post: \n'
-			test += '-----------\n'
-			test += post + '\n'
-			test += '-----------\n'
-			test += 'title: ' + title + '\n'
-			test += 'desc: ' + desc + '\n'
-			test += 'img: ' + img + '\n'
-			test += '--------------------------------------------\n'
-			console.log(test);
-			
-			return false;
-		}
-
-		if (media == 'twitter') {
-			var  str = ''
-				,post = obj.twit || obj.post || ''
-				,urlLength = url.length + 5
-				,postLength = post.length + urlLength + 1
-				,textLimit = 140
-			
-			if (postLength >= textLimit) {
-				twit = post.substr(0, (textLimit-urlLength)) + '...\n' + url;
-			} else {
-				twit = post + '\n' + url;
-			}
-			twit = twit.replace(/\n\n/g, '\n')
-
-			str += 'https://twitter.com/intent/tweet?text=';
-			str += encodeURIComponent(twit);
-			top.location.href = str;
-			//return false;
-
-			test  = '♥♥ [트위터로 공유] ♥♥\n'
-			test += 'twit: \n'
-			test += '-----------\n'
-			test += twit + '\n'
-			test += '-----------\n'
-			console.log(test)
-			return false;
-		}
-
-		if (media == 'me2day') {
-			var  str = ''
-				,post =  obj.twit || obj.post || ''
-				,tag = obj.tag || '미투데이를 더 재미있게 깨알유머 SNS 테스트 심리테스트'
-				,urlLength = url.length + 5
-				,postLength = post.length + urlLength + 1
-				,textLimit = 150
-
-			if (postLength >= textLimit) {
-				me2 = post.substr(0, (textLimit-urlLength)) + '...\n' + url;
-			} else {
-				me2 = post + '\n' + url;
-			}
-			me2 = me2.replace(/\n\n/g, '\n')
-
-			str += 'http://me2day.net/posts/new';
-			str += '?new_post[body]=';
-			str += encodeURIComponent(me2)
-			str += '&new_post[tags]='
-			str += encodeURIComponent(tag)
-			top.location.href = str;
-			//return false;
-
-			test  = '♥♥ [미투데이로 공유] ♥♥\n'
-			test += 'post: \n'
-			test += '-----------\n'
-			test += me2 + '\n'
-			test += '-----------\n'
-			console.log(test)
-			return false;
-		}
-
-		// facebook sharer
-		if (media == 'facebookSharer') {//
-			var  str = ''
-				,post = obj.post || ''
-				,img = obj.img || ''
-			
-			str += 'http://www.facebook.com/sharer.php';
-			str += '?s=100';
-			str += '&p[title]=' + encodeURIComponent( post.replace(/\[.+\]/g, '') );
-			str += '&p[summary]=' + encodeURIComponent( title );
-			str += '&p[url]=' + encodeURIComponent(url);
-			str += '&p[images][0]=' + encodeURIComponent(img);
-			top.location.href = str;
-			return false;
-		}
-
-		// facebook open API
-		if (media == 'facebook') {//API
-			M('body').prepend('script', {
-				'src':'https://connect.facebook.net/en_US/all.js',
-				'type': 'text/javascript',
-				'id': 'facebookScript'
-			})
-
-			M('#facebookScript').on('load', function(evt, mp){
-				var  obj = _obj || {}
-					,mode = obj.mode || 'real'
-					,feed = obj.feed || 'feed'
-					,method = obj.method || 'post'
-					,img = obj.img || ''
-					,photo = obj.photo || obj.img || ''
-					,post = obj.post || ''
-					,scope = obj.scope || 'publish_actions, user_photos'
-					,success = obj.success || null
-					,error = obj.error || null
-					,faceappid
-					,message = {}
-
-				post = post + '\n\n' + url;
-
-				if (mode == 'real') {
-					faceappid = '575459299155222';
-				} else {
-					faceappid = '199304076906232';
-				}
-
-				if (feed == 'feed') {
-					message = {
-						'message': post,
-						'picture': photo
-					}
-				} else if (feed == 'photo') {
-					message = {
-						'message': post,
-						'url': photo
-					}
-				}
-
-				FB.init({
-					'appId'     : faceappid, // App ID
-					'channelUrl': '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
-					'status'    : true, // check login status
-					'cookie'    : true, // enable cookies to allow the server to access the session
-					'xfbml'     : true  // parse XFBML
-				})
-
-				FB.login(function(response) {
-					if (response.authResponse) {
-						FB.api(/me/ + feed, method, message, function (response) {
-							console.log(response);
-							if (!response || response.error) {
-								//if (error) {
-								alert('죄송합니다.\n오류가 발생했습니다.');
-									//error();
-								//}
-							} else {
-								//if (success) {
-								alert('페이스북에 등록 되었습니다.');
-									//success();
-								//}
-							}
-						});
-					}
-				}, {'scope': scope});
-
-				//return false;
-				test  = '♥♥ [페이스북으로 공유] ♥♥\n'
-				test += 'feed: ' + feed + '\n'
-				test += 'method: ' + method + '\n'
-				test += 'photo: ' + photo + '\n'
-				test += 'message: \n'
-				test += '-----------\n'
-				test += post + '\n'
-				test += '-----------\n'
-				console.log(test)
-
-			})
-			return false;
-		}
-
-		if (media == 'band') {
-			var  src = ''
-				,post = obj.post || ''
-				,urlLength = url.length + 3
-				,postLength = post.length + urlLength + 1
-				,textLimit = 300
-
-			bandPost += '[' + app + ']\n'
-			bandPost += title + ': ' + post
-
-			if (postLength >= textLimit) {
-				b = bandPost.substr(0, (textLimit-urlLength)) + '...' + url;
-			} else {
-				b = bandPost + ' ' + url;
-			}
-
-			src += 'bandapp://create/post?text=';
-			src += encodeURIComponent(bandPost);
-			src += '#Intent;package=com.nhn.android.band;end;';
-			top.location = str;
-			return false;
-		}
+		sendData(data);
 	}
 }
 
