@@ -520,7 +520,7 @@ function sendData(_obj) {
 		test += 'appName: ' + app + '\n'
 		test += 'post: \n'
 		test += '-----------\n'
-		test += post + '\n\n\n' + '★ 깨유 이벤트 참여하기 ★\nhttp://goo.gl/3MF37z\n'
+		test += post + '\n\n\n' + '★ 깨유 플친되고 선물받자 ★\nhttp://goo.gl/ElNRl3\n'
 		test += '-----------\n'
 		test += 'title: ' + title + '\n'
 		test += 'desc: ' + desc + '\n'
