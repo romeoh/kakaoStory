@@ -202,7 +202,7 @@ var eventList = [
 		'title': '드런큰 스냅백을 쏜다!!',
 		'product': '스냅백',
 		'url': 'http://goo.gl/3MF37z',
-		'thum': '../images/e/2000b.png',
+		'thum': '../images/e/2000_thum.png',
 		'event': [
 			'깨알유머 카스플친 오픈기념 이벤트',
 			'★ 공유하기+소식받기 ★',
@@ -211,7 +211,7 @@ var eventList = [
 			'✎ 발표일: 월요일 오후 2시! (10월 7일)',
 			'✎ 대상: 1명 랜덤 추첨',
 			'소식받으러 가기 http://goo.gl/ElNRl3',
-			'../images/e/2000a.png',
+			'../images/e/2000_detail.png',
 			'소식받으러 가기 http://goo.gl/ElNRl3'
 		],
 		'result': {
