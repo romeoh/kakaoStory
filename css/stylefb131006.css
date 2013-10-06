@@ -11,7 +11,7 @@ header .gnbMain {background-position:0px 0px; display:block; position:absolute; 
 header .gnbMacao {background-position:129px 0px; display:block; position:absolute; top:5px; right:5px; width:107px; height:32px; display:none}
 header h1 {text-align:center; padding-top:7px}
 
-nav {display: none;width: 100%;background: #74b1c4;background: -webkit-gradient(radial,50% 50%,0px,50% 50%,100%,color-stop(0%,#81b8c9),color-stop(40%,#7fb6c8),color-stop(100%,#74b1c4));line-height: 34px;-webkit-box-shadow: inset 0 2px 3px 0 rgba(0,0,0,.2),inset 0 -1px 0 0 rgba(0,0,0,.1);table-layout: fixed; color:white;}
+nav {width: 100%;background: #74b1c4;background: -webkit-gradient(radial,50% 50%,0px,50% 50%,100%,color-stop(0%,#81b8c9),color-stop(40%,#7fb6c8),color-stop(100%,#74b1c4));line-height: 34px;-webkit-box-shadow: inset 0 2px 3px 0 rgba(0,0,0,.2),inset 0 -1px 0 0 rgba(0,0,0,.1);table-layout: fixed; color:white;}
 nav a {color:#fff;; margin:0 10px}
 .wrap {position: relative;z-index: 10;margin-bottom: -1px;border-top: 1px solid #ced1d7;border-bottom: 1px solid #979ba5;background: #dcdfe3; padding:20px 0}
 .wrap h2 {color:#333; font-size:22px}
@@ -281,31 +281,32 @@ nav .nav li a {display: block;font-weight: 600;font-size: 14px;color: #245465;te
 nav .notice {padding:5px; background:#f4f4f4; border-bottom:1px solid #979ba6}
 nav .notice a {color:#28272c;}
 
-.event_box {margin: 5px 5px 15px; border: 1px solid #979ba5; border-radius: 5px; box-shadow: 0 0 1px rgba(0,0,0,.3);}
-.event_box .tit_area {position: relative;padding-left: 15px;border-bottom: 1px solid #979ba5;border-top-left-radius: 5px;border-top-right-radius: 5px;line-height: 35px;box-shadow: inset 1px 1px 0 #f5f6f7,inset -1px 0 0 #f5f6f7;}
-.event_box .tit_area h2 {font-size: 15px;color: #29282c;letter-spacing: -1px;text-shadow: 0 1px 0 rgba(255,255,255,.55);text-align:left;}
-.event_box .event_area {padding: 15px 10px 13px;background: #fff;border-bottom: 1px solid;background: #fff;}
-.event_box .list_area {padding: 5px 0px 13px;background: #fff;border-bottom: 1px solid; border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;background: #fff}
-.event_box .list_area .list_con {display:none;}
-.event_box .list_area li {padding: 0px 20px 0px 16px;border-top: 1px solid #dddddf; list-style:none;}
-.event_box .list_area li:first-child {border-top: none;}
-.event_box .list_area li a {display: block;}
-.event_box .list_area li a .thum {float:left;}
-.event_box .list_area li a dl {padding-left:75px; display: block;-webkit-margin-before: 10px;-webkit-margin-after: 10px;-webkit-margin-start: 0px;-webkit-margin-end: 0px;}
-.event_box .list_area li a dt {margin-bottom: 3px;font-size: 16px;font-weight: bold;color: #43646b;letter-spacing: -1px;}
-.event_box .list_area li a dd {position: relative;padding-left: 45px;font-size: 14px;line-height: 20px;color: #29282c;}
-.event_box .list_area li a dd span {position: absolute;left: 0;color: #999;}
-.event_box .list_area li a dd strong {display: inline-block;overflow: hidden;max-width: 100%;letter-spacing: 0px;text-overflow: ellipsis;}
 
-.event_box .share_area {padding: 10px 0 1px 0;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;background: #fff;}
-.event_box .tab_area {display: table;width: 100%;table-layout: fixed;}
-.event_box .tab_area li {display: table-cell; border-bottom: 1px solid #979ba5;}
-.event_box .tab_area li:first-child {border-top-left-radius: 5px; box-shadow: inset 1px 1px 0 #f5f6f7;}
-.event_box .tab_area li:last-child {border-top-right-radius: 5px;border-left: 1px solid #979ba5;box-shadow: inset -1px 1px 0 #f5f6f7;}
-.event_box .tab_area li.on {border-bottom: none;background: #fff;}
-.event_box .tab_area li:first-child.on,
-.event_box .tab_area li:last-child.on {box-shadow: none;}
-.event_box .tab_area li a {display: block;line-height: 35px;font-size: 15px;font-weight: bold;color: #29282c;letter-spacing: -1px;text-align: center;text-shadow: 0 1px 0 rgba(255,255,255,.55);}
+.event_box1 {margin: 5px 5px 15px; border: 1px solid #979ba5; border-radius: 5px; box-shadow: 0 0 1px rgba(0,0,0,.3);}
+.event_box1 .tit_area {position: relative;padding-left: 15px;border-bottom: 1px solid #979ba5;border-top-left-radius: 5px;border-top-right-radius: 5px;line-height: 35px;box-shadow: inset 1px 1px 0 #f5f6f7,inset -1px 0 0 #f5f6f7;}
+.event_box1 .tit_area h2 {font-size: 15px;color: #29282c;letter-spacing: -1px;text-shadow: 0 1px 0 rgba(255,255,255,.55);text-align:left;}
+.event_box1 .event_area {padding: 15px 10px 13px;background: #fff;border-bottom: 1px solid;background: #fff;}
+.event_box1 .list_area {padding: 5px 0px 13px;background: #fff;border-bottom: 1px solid; border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;background: #fff}
+.event_box1 .list_area .list_con {display:none;}
+.event_box1 .list_area li {padding: 0px 20px 0px 16px;border-top: 1px solid #dddddf; list-style:none;}
+.event_box1 .list_area li:first-child {border-top: none;}
+.event_box1 .list_area li a {display: block;}
+.event_box1 .list_area li a .thum {float:left;}
+.event_box1 .list_area li a dl {padding-left:75px; display: block;-webkit-margin-before: 10px;-webkit-margin-after: 10px;-webkit-margin-start: 0px;-webkit-margin-end: 0px;}
+.event_box1 .list_area li a dt {margin-bottom: 3px;font-size: 16px;font-weight: bold;color: #43646b;letter-spacing: -1px;}
+.event_box1 .list_area li a dd {position: relative;padding-left: 45px;font-size: 14px;line-height: 20px;color: #29282c;}
+.event_box1 .list_area li a dd span {position: absolute;left: 0;color: #999;}
+.event_box1 .list_area li a dd strong {display: inline-block;overflow: hidden;max-width: 100%;letter-spacing: 0px;text-overflow: ellipsis;}
+
+.event_box1 .share_area {padding: 10px 0 1px 0;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;background: #fff;}
+.event_box1 .tab_area {display: table;width: 100%;table-layout: fixed;}
+.event_box1 .tab_area li {display: table-cell; border-bottom: 1px solid #979ba5;}
+.event_box1 .tab_area li:first-child {border-top-left-radius: 5px; box-shadow: inset 1px 1px 0 #f5f6f7;}
+.event_box1 .tab_area li:last-child {border-top-right-radius: 5px;border-left: 1px solid #979ba5;box-shadow: inset -1px 1px 0 #f5f6f7;}
+.event_box1 .tab_area li.on {border-bottom: none;background: #fff;}
+.event_box1 .tab_area li:first-child.on,
+.event_box1 .tab_area li:last-child.on {box-shadow: none;}
+.event_box1 .tab_area li a {display: block;line-height: 35px;font-size: 15px;font-weight: bold;color: #29282c;letter-spacing: -1px;text-align: center;text-shadow: 0 1px 0 rgba(255,255,255,.55);}
 .inbox {border:none; margin-bottom:0; padding:0 10px}
 .result_box {border-top:1px solid #979ba5; padding:10px 0;}
 .result_box .container {position: relative; background:#eceef0; padding:10px;overflow: hidden;margin: 5px 5px 0;border: 1px solid #979ba5;border-radius: 5px;box-shadow: 0 0 1px rgba(0,0,0,.3); display:none;}
