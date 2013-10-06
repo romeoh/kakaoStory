@@ -192,105 +192,30 @@ var rankList = [
 
 var eventList = [
 	{
-		'idx': '211',
-		'start': '2013.10.03 14:00',
-		'end': '2013.10.03 14:00',
-		'announce': '2013.10.03 오후 2시이후',
-		'platform': 'story',
+		'idx': '2000',
+		'start': '2013.10.06 16:00',
+		'end': '2013.10.07 14:00',
+		'announce': '10월7일 오후 2시이후',
+		'platform': '카스플친',
 		'ing': 'true',
 		'eventlink': 'http://goo.gl/RPVB5',
-		'title': '화장품 냉장고를 드려요!!',
-		'product': '화장품 냉장고',
-		'url': 'http://goo.gl/RPVB5',
-		'thum': '../images/e/20131014t.png',
+		'title': '드런큰 스냅백을 쏜다!!',
+		'product': '스냅백',
+		'url': 'http://goo.gl/3MF37z',
+		'thum': '../images/e/2000b.png',
 		'event': [
-			'공유하기 누르면 화장품 냉장고를 드려요',
-			'../images/e/20131014a.png',
-			'../images/e/20131014b.jpg',
-			'http://goo.gl/RPVB5',
-			'바로가기 http://goo.gl/RPVB5',
-			'공유하기 누르면 화장품 냉장고를 드려요'
+			'깨알유머 카스플친 오픈기념 이벤트',
+			'★ 공유하기+소식받기 ★',
+			'깨유 소식받기 + 공유하고 스냅백 득템하자 ♥',
+			'✎ 참여방법: 공유+소식받기하면 끝!!',
+			'✎ 발표일: 월요일 오후 2시! (10월 7일)',
+			'✎ 대상: 1명 랜덤 추첨',
+			'소식받으러 가기 http://goo.gl/ElNRl3',
+			'../images/e/2000a.png',
+			'소식받으러 가기 http://goo.gl/ElNRl3'
 		],
 		'result': {
 			'announce': 'false',
-			'prize': 'romeoh@naver.com',
-			'congraturation': '../images/e/20131014a.png',
-			'notice': '당첨되신분은 메일을 발송해드립니다. \n상품수령에 필요한 정보를 알려주시면 되겠습니다. \n다시 한번 축하드려요~^^'
-		}
-	},
-	{
-		'idx': '212',
-		'start': '2013.10.03 14:00',
-		'end': '2013.10.03 14:00',
-		'announce': '2013.10.03 오후 2시이후',
-		'platform': 'story',
-		'ing': 'true',
-		'eventlink': 'http://goo.gl/RPVB5',
-		'title': '아디다스 저지',
-		'product': '화장품 냉장고',
-		'url': 'http://goo.gl/RPVB5',
-		'thum': '../images/e/20131014t.png',
-		'event': [
-			'공유하기 누르면 화장품 냉장고를 드려요',
-			'../images/e/20131014a.png',
-			'../images/e/20131014b.png',
-			'http://goo.gl/RPVB5',
-			'공유하기 누르면 화장품 냉장고를 드려요'
-		],
-		'result': {
-			'announce': 'false',
-			'prize': 'romeoh@naver.com',
-			'congraturation': '../images/e/20131014a.png',
-			'notice': '당첨되신분은 메일을 발송해드립니다. \n상품수령에 필요한 정보를 알려주시면 되겠습니다. \n다시 한번 축하드려요~^^'
-		}
-	},
-	{
-		'idx': '213',
-		'start': '2013.10.03 14:00',
-		'end': '2013.10.03 14:00',
-		'announce': '2013.10.03 오후 2시이후',
-		'platform': 'story',
-		'ing': 'false',
-		'eventlink': 'http://goo.gl/RPVB5',
-		'title': '스마트시계',
-		'product': '화장품 냉장고',
-		'url': 'http://goo.gl/RPVB5',
-		'thum': '../images/e/20131014t.png',
-		'event': [
-			'공유하기 누르면 화장품 냉장고를 드려요',
-			'../images/e/20131014a.png',
-			'../images/e/20131014b.png',
-			'http://goo.gl/RPVB5',
-			'공유하기 누르면 화장품 냉장고를 드려요'
-		],
-		'result': {
-			'announce': 'true',
-			'prize': 'romeoh@naver.com',
-			'congraturation': '../images/e/20131014a.png',
-			'notice': '당첨되신분은 메일을 발송해드립니다. \n상품수령에 필요한 정보를 알려주시면 되겠습니다. \n다시 한번 축하드려요~^^'
-		}
-	},
-	{
-		'idx': '214',
-		'start': '2013.10.03 14:00',
-		'end': '2013.10.03 14:00',
-		'announce': '2013.10.03 오후 2시이후',
-		'platform': 'story',
-		'ing': 'false',
-		'eventlink': 'http://goo.gl/RPVB5',
-		'title': '갤럭시 기어',
-		'product': '화장품 냉장고',
-		'url': 'http://goo.gl/RPVB5',
-		'thum': '../images/e/20131014t.png',
-		'event': [
-			'공유하기 누르면 화장품 냉장고를 드려요',
-			'../images/e/20131014a.png',
-			'../images/e/20131014b.png',
-			'http://goo.gl/RPVB5',
-			'공유하기 누르면 화장품 냉장고를 드려요'
-		],
-		'result': {
-			'announce': 'true',
 			'prize': 'romeoh@naver.com',
 			'congraturation': '../images/e/20131014a.png',
 			'notice': '당첨되신분은 메일을 발송해드립니다. \n상품수령에 필요한 정보를 알려주시면 되겠습니다. \n다시 한번 축하드려요~^^'
