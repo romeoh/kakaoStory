@@ -248,7 +248,7 @@ var eventList = [
 			'announce': 'true',
 			'prize': '글귀수연',
 			'congraturation': '../images/e/2000_result.png',
-			'notice': '글귀수연님~ 당첨을 축하합니다.\n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / All Black / Black,White 중 갖고싶은 색상을 하나 선택해서 <a href="mailto:romeoh78@gmail.com">romeoh78@gmail.com</a>으로 보내주세용.\n다시 한번 축하드려용~^^'
+			'notice': '글귀수연님~ 당첨을 축하합니다.\n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / All Black / Black,White 중 갖고싶은 색상을 하나 선택해서 메일로 보내주세용.\n다시 한번 축하드려용~^^'
 		}
 	}
 ]
