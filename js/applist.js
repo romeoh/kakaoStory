@@ -218,9 +218,9 @@ var eventList = [
 		],
 		'result': {
 			'announce': 'false',
-			'prize': 'romeoh@naver.com',
-			'congraturation': '../images/e/20131014a.png',
-			'notice': '당첨되신분은 메일을 발송해드립니다. \n상품수령에 필요한 정보를 알려주시면 되겠습니다. \n다시 한번 축하드려요~^^'
+			'prize': '글귀수연',
+			'congraturation': '../images/e/2000_result.png',
+			'notice': '글귀수연님~ 당첨을 축하합니다.\n\n1. 주소, 이름, 전화번호와 함께 \n2. White / All Black / Black,White 중 갖고싶은 색상을 하나 선택해서 <a href="mailto:romeoh78@gmail.com">romeoh78@gmail.com</a>으로 보내주세요.\n다시 한번 축하드려요~^^'
 		}
 	}
 ]

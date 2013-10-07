@@ -812,9 +812,10 @@ function initEvent() {
 			var resultStr = ''
 			M('.container').css('display', 'block')
 			M('#prizeTitle').text(cuEvent['title'])
-			M('#lucky').text(cuEvent['result']['prize'].substr(0, 4) + '****')
+			//M('#lucky').text(cuEvent['result']['prize'].substr(0, 4) + '****')
+			M('#lucky').text(cuEvent['result']['prize'])
 			if (cuEvent['result']['congraturation']) {
-				resultStr += '<div class="resultImg"><img src="' + cuEvent['result']['congraturation'] +'" alt=""></div>'
+				resultStr += '<div class="resultImg"><img src="' + cuEvent['result']['congraturation'] +'" alt="" width="100%"></div>'
 			}
 			if (cuEvent['result']['notice']) {
 				resultStr += '<p class="resultTxt">' + cuEvent['result']['notice'].replace(/\n/g, '<br>') + '</p>'

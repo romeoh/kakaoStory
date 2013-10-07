@@ -237,7 +237,7 @@ nav .nav li a {display: block;font-weight: 600;font-size: 14px;color: #245465;te
 
 
 .event_box .event_area {padding: 15px 10px 13px;background: #fff;border-bottom: 1px solid #aaa;background: #fff;}
-.event_box .list_area {position:relative; padding:15px 10px 13px;background: #fff;border-bottom: 1px solid; border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;background: #fff}
+.event_box .list_area {position:relative; padding:15px 0px 13px;background: #fff;border-bottom: 1px solid; border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;background: #fff}
 .event_box .list_area .list_con {display:none;}
 #eventContainer {margin-top:30px}
 .event_box .list_area li {padding: 8px 15px;border-top: 1px solid #dddddf; list-style:none;}
@@ -294,7 +294,7 @@ nav .notice a {color:#28272c;}
 .event_box1 .list_area li a .thum {float:left;}
 .event_box1 .list_area li a dl {padding-left:75px; display: block;-webkit-margin-before: 10px;-webkit-margin-after: 10px;-webkit-margin-start: 0px;-webkit-margin-end: 0px;}
 .event_box1 .list_area li a dt {margin-bottom: 3px;font-size: 16px;font-weight: bold;color: #43646b;letter-spacing: -1px;}
-.event_box1 .list_area li a dd {position: relative;padding-left: 45px;font-size: 14px;line-height: 20px;color: #29282c;}
+.event_box1 .list_area li a dd {position: relative;padding-left: 35px;font-size: 14px;line-height: 20px;color: #29282c;}
 .event_box1 .list_area li a dd span {position: absolute;left: 0;color: #999;}
 .event_box1 .list_area li a dd strong {display: inline-block;overflow: hidden;max-width: 100%;letter-spacing: 0px;text-overflow: ellipsis;}
 
@@ -314,7 +314,7 @@ nav .notice a {color:#28272c;}
 .result_box .info_w .ico_prize {overflow: hidden;position: absolute;top: 0;left: 0;width: 51px;height: 51px;background: url(../images/img/sp_pop.png) no-repeat 0 -115px;background-size: 200px 166px;line-height: 999px;-webkit-background-size: 200px 166px;}
 .result_box .info_w h3 {overflow: hidden;padding-top: 7px;font-size: 17px;font-weight: bold;color: #29282c;white-space: nowrap;text-overflow: ellipsis;}
 .result_box .info_w .info {display: table;margin-top: 5px;font-size: 13px;}
-.result_box .lucky {position: relative; background:#fff; padding:10px;overflow: hidden;margin: 5px auto 0;border: 1px solid #979ba5;border-radius: 5px;box-shadow: 0 0 1px rgba(0,0,0,.3); width:100px}
+.result_box .lucky {position: relative; background:#fff; padding:10px;overflow: hidden;margin: 5px auto 0;border: 1px solid #979ba5;border-radius: 5px;box-shadow: 0 0 1px rgba(0,0,0,.3); width:100px; text-align:center;}
 .result_box .resultImg {text-align:center; padding:10px}
 .result_box .resultTxt {text-align:center; padding:10px}
 
