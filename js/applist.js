@@ -3,7 +3,7 @@ var  appList = ''
 
 M('#btnTest').attr('href', 'http://goo.gl/Va1Byu');
 appList += '<li data-app="133" data-page="wang" data-new data-heart><a href="http://goo.gl/Va1Byu">학교 따돌림 테스트</a> <span class="ico new"></span></li>';
-appList += '<li data-app="132" data-page="pana" data-new data-heart><a href="http://goo.gl/sNtQUL">편집증 테스트</a> <span class="ico new"></span></li>';
+appList += '<li data-app="132" data-page="pana" data-new data-heart><a href="http://goo.gl/sNtQUL">과대망상 테스트</a> <span class="ico new"></span></li>';
 appList += '<li data-app="131" data-page="peter" data-new data-hot data-heart><a href="http://goo.gl/Qabeuk">피터팬 증후군 테스트</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="130" data-page="sense2" data-new data-hot data-heart><a href="http://goo.gl/RQaAyd">4차원 테스트</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="129" data-page="sense" data-new data-heart><a href="http://goo.gl/eZm1sl">뻘짓 테스트</a> <span class="ico new"></span></li>';

@@ -105,7 +105,7 @@ function action(_data) {
 		,post = ''
 		,twit = ''
 
-	data.title = '편집증 테스트';
+	data.title = '과대망상 테스트';
 	data.url = 'http://goo.gl/sNtQUL';
 
 	if (media == 'talk') {
@@ -115,12 +115,12 @@ function action(_data) {
 	s = Math.floor(score / 80 * 100)
 
 	post += '[' + data.title + ']\n\n';
-	post += userName + '님의 편집증 테스트 점수는 "' + s + '점" 입니다.\n\n';
+	post += userName + '님의 과대망상 테스트 점수는 "' + s + '점" 입니다.\n\n';
 	post += '♥ 결과: "' + resultTxt +'"';
 
 	data.post = post;
 	
-	data.desc = '편집증: 현재 사용되는 의미와는 혼돈스러운 면이 있으나 과거 편집증(paranoia)으로 불렸던 질환으로, 괴이하지 않은 망상이 주 증상이며, 다른 정신과적 질환보다는 사회적 직업적 기능이 상대적으로 유지되는 경향을 보인다.';
+	data.desc = '과대망상: 자신의 현재 상태를 실제보다 터무니없이 크게 과장하여 마치 그것을 사실인 것처럼 믿는 것이다.';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/pana.png';
 
 	sendData(data);
