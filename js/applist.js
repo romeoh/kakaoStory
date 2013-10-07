@@ -219,7 +219,7 @@ var eventList = [
 			'announce': 'false',
 			'prize': '',
 			'congraturation': '../images/e/2001_result.png',
-			'notice': '님~ 당첨을 축하합니다.\n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / All Black / Black,White 중 갖고싶은 색상을 하나 선택해서 <a href="mailto:romeoh78@gmail.com">romeoh78@gmail.com</a>으로 보내주세용.\n다시 한번 축하드려용~^^'
+			'notice': ''
 		}
 	},
 	{
@@ -228,7 +228,7 @@ var eventList = [
 		'end': '2013.10.07 14:00',
 		'announce': '월요일 오후 9시! (10월 7일)',
 		'platform': '카스플친',
-		'ing': 'true',
+		'ing': 'false',
 		'title': '드런큰 스냅백을 쏜다!!',
 		'product': '스냅백',
 		'url': 'http://goo.gl/3MF37z',
@@ -245,7 +245,7 @@ var eventList = [
 			'소식받으러 가기 http://goo.gl/ElNRl3'
 		],
 		'result': {
-			'announce': 'false',
+			'announce': 'true',
 			'prize': '글귀수연',
 			'congraturation': '../images/e/2000_result.png',
 			'notice': '글귀수연님~ 당첨을 축하합니다.\n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / All Black / Black,White 중 갖고싶은 색상을 하나 선택해서 <a href="mailto:romeoh78@gmail.com">romeoh78@gmail.com</a>으로 보내주세용.\n다시 한번 축하드려용~^^'
