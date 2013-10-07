@@ -194,13 +194,41 @@ var rankList = [
 
 var eventList = [
 	{
+		'idx': '2001',
+		'start': '2013.10.07 20:00',
+		'end': '2013.10.08 21:00',
+		'announce': '화요일 오후 9시! (10월 8일)',
+		'platform': '카스플친',
+		'ing': 'true',
+		'title': '소니정품 헤드폰이 무료!!',
+		'product': '소니정품 헤드폰',
+		'url': 'http://goo.gl/GhHWAA',
+		'thum': '../images/e/2001_thum.png',
+		'event': [
+			'깨알유머 카스플친 오픈기념 이벤트',
+			'★ 공유하기+소식받기 ★',
+			'깨유 소식받기 + 공유하면 소니정품 헤드폰이 무료 ♥',
+			'✎ 참여방법: 공유+소식받기하면 끝!! (이메일 써주세요~^^)',
+			'✎ 발표일: 화요일 오후 9시! (10월 8일)',
+			'✎ 대상: 1명 랜덤 추첨',
+			'소식받으러 가기 http://goo.gl/ElNRl3',
+			'../images/e/2001_detail.png',
+			'소식받으러 가기 http://goo.gl/ElNRl3'
+		],
+		'result': {
+			'announce': 'false',
+			'prize': '',
+			'congraturation': '../images/e/2001_result.png',
+			'notice': '님~ 당첨을 축하합니다.\n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / All Black / Black,White 중 갖고싶은 색상을 하나 선택해서 <a href="mailto:romeoh78@gmail.com">romeoh78@gmail.com</a>으로 보내주세용.\n다시 한번 축하드려용~^^'
+		}
+	},
+	{
 		'idx': '2000',
 		'start': '2013.10.06 16:00',
 		'end': '2013.10.07 14:00',
 		'announce': '월요일 오후 9시! (10월 7일)',
 		'platform': '카스플친',
 		'ing': 'true',
-		'eventlink': 'http://goo.gl/RPVB5',
 		'title': '드런큰 스냅백을 쏜다!!',
 		'product': '스냅백',
 		'url': 'http://goo.gl/3MF37z',
@@ -220,7 +248,7 @@ var eventList = [
 			'announce': 'false',
 			'prize': '글귀수연',
 			'congraturation': '../images/e/2000_result.png',
-			'notice': '글귀수연님~ 당첨을 축하합니다.\n\n1. 주소, 이름, 전화번호와 함께 \n2. White / All Black / Black,White 중 갖고싶은 색상을 하나 선택해서 <a href="mailto:romeoh78@gmail.com">romeoh78@gmail.com</a>으로 보내주세요.\n다시 한번 축하드려요~^^'
+			'notice': '글귀수연님~ 당첨을 축하합니다.\n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / All Black / Black,White 중 갖고싶은 색상을 하나 선택해서 <a href="mailto:romeoh78@gmail.com">romeoh78@gmail.com</a>으로 보내주세용.\n다시 한번 축하드려용~^^'
 		}
 	}
 ]
