@@ -945,9 +945,7 @@ function initPoll() {
 			,str = ''
 
 		if (hash === '') {
-			window.location.hash = rankList[0]['idx'];
-			window.location.reload();
-			return false;
+			hash = rankList[0]['idx'];
 		}
 		for (var i=0; i<rankList.length; i++) {
 			if (rankList[i]['idx'] == hash) {

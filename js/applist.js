@@ -140,7 +140,7 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 
 var rankList = [
 	{
-		'idx': '111',
+		'idx': '1000',
 		'type': 'B',
 		'hot': 'true',
 		'category': '',
@@ -155,7 +155,7 @@ var rankList = [
 		]
 	},
 	{
-		'idx': '112',
+		'idx': '1001',
 		'type': 'A',
 		'hot': '',
 		'category': '',
@@ -174,7 +174,7 @@ var rankList = [
 		]
 	},
 	{
-		'idx': '113',
+		'idx': '1002',
 		'type': 'B',
 		'hot': 'true',
 		'category': '',
@@ -199,7 +199,7 @@ var eventList = [
 		'end': '2013.10.08 21:00',
 		'announce': '화요일 오후 9시! (10월 8일)',
 		'platform': '카스플친',
-		'ing': 'true',
+		'ing': 'false',
 		'title': '소니정품 헤드폰이 무료!!',
 		'product': '소니정품 헤드폰',
 		'url': 'http://goo.gl/GhHWAA',
@@ -216,10 +216,10 @@ var eventList = [
 			'소식받으러 가기 http://goo.gl/ElNRl3'
 		],
 		'result': {
-			'announce': 'false',
-			'prize': '',
+			'announce': 'true',
+			'prize': '미정♡',
 			'congraturation': '../images/e/2001_result.png',
-			'notice': ''
+			'notice': '미정♡님~ 당첨을 축하합니다.\n\n왜 이메일 안 남겨셨데요?ㅎ \n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / Black / Red / Blue 중 갖고싶은 색상을 하나 선택해서 <a href="mailto:romeoh78@gmail.com">메일</a>로 보내주세용.\n\n다시 한번 축하드려용~^^'
 		}
 	},
 	{
