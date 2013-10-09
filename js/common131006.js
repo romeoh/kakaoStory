@@ -1150,9 +1150,9 @@ function initPoll() {
 		M('#pollKakao').on('click', function(){
 			var data = {}
 			data.media = 'talk'
-			data.post = '[이벤트]\n' + cuEvent['title']
-			data.msg = cuEvent['title']
-			data.url = cuEvent['url']
+			data.post = '깨알랭킹'
+			data.msg = '깨알랭킹'
+			data.url = 'http://goo.gl/ug4md4'
 			sendData(data);
 		});
 

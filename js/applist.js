@@ -137,24 +137,79 @@ appList += '<li data-app="2"   data-page="company" data-fun><a href="http://goo.
 appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http://goo.gl/RPVB5">@나와@ 커피마시고 싶어하는 연예인</a> <span class="ico hot"></span></li>';
 
 
-
+// A: 사진
+// B: 리스트
 var rankList = [
 	{
-		'idx': '1000',
+		'idx': '1003',
 		'type': 'B',
-		'hot': 'true',
+		'hot': '',
 		'category': '',
-		'title': '제일 좋아하는 커피',
-		'q': '아메리카노, 카페라떼, 카푸치노, 모카라떼 중에 뭐가 제일 좋아요?',
-		'url': 'http://goo.gl/RPVB5',
+		'title': 'EXO',
+		'q': 'EXO 멤버중 가장 좋아하는 멤버는?',
+		'url': 'http://goo.gl/4YcYP3',
 		'list': [
-			{'title': '아메리카노'},
-			{'title': '카페라떼'},
-			{'title': '카푸치노'},
-			{'title': '모카라떼'}
+			{'title': '카이'},
+			{'title': '루한'},
+			{'title': '타오'},
+			{'title': '첸'},
+			{'title': '세훈'},
+			{'title': '레이'},
+			{'title': '시우민'},
+			{'title': '백현'},
+			{'title': '디오'},
+			{'title': '수호'},
+			{'title': '크리스'},
+			{'title': '찬열'}
 		]
 	},
 	{
+		'idx': '1002',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '가장 좋아하는 무한도전 멤버',
+		'q': '무한도전에서 제일 좋아하는 멤버는?',
+		'url': 'http://goo.gl/oHKHlS',
+		'list': [
+			{'title': '유재석'},
+			{'title': '박명수'},
+			{'title': '노홍철'},
+			{'title': '정준하'},
+			{'title': '하하'},
+			{'title': '정형돈'},
+			{'title': '길'},
+			{'title': '김태호PD'}
+		]
+	},
+	{
+		'idx': '1001',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '아이유 신곡',
+		'q': '"아이유 신곡" 노래 어때요?',
+		
+		'url': 'http://goo.gl/rNRw3y',
+		'list': [
+			{'title': '좋아요.'},
+			{'title': '실망했어요.'}
+		]
+	},
+	{
+		'idx': '1000',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': 'K팝스타3',
+		'q': '"K팝스타3" 심사위원 유희열 어때요?',
+		'url': 'http://goo.gl/5MT4Sx',
+		'list': [
+			{'title': '기대되요.'},
+			{'title': '글쎄요.'}
+		]
+	}
+	/*{
 		'idx': '1001',
 		'type': 'A',
 		'hot': '',
@@ -172,21 +227,7 @@ var rankList = [
 				'title': '샤이니'
 			},
 		]
-	},
-	{
-		'idx': '1002',
-		'type': 'B',
-		'hot': 'true',
-		'category': '',
-		'title': '제일 인기있는 아이돌',
-		'q': 'EXO, 샤이니, FX중에 누가 제일 좋아요?',
-		'url': 'http://goo.gl/RPVB5',
-		'list': [
-			{'title': 'EXO'},
-			{'title': '샤이니'},
-			{'title': 'F(x)'},
-		]
-	}
+	},*/
 ]
 
 
