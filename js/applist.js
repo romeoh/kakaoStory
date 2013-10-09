@@ -194,6 +194,35 @@ var rankList = [
 
 var eventList = [
 	{
+		'idx': '2002',
+		'start': '2013.10.09 13:30',
+		'end': '2013.10.11 21:00',
+		'announce': '금요일 오후 9시! (10월 11일)',
+		'platform': '카스플친',
+		'ing': 'true',
+		'title': '자나 봉제인형 받아가자!!',
+		'product': '자나 캐릭터 봉제인형',
+		'url': 'http://goo.gl/JVW0Vz',
+		'thum': '../images/e/2002_thum.png',
+		'event': [
+			'깨알유머 세번째 이벵',
+			'★ 공유하기+소식받기 ★',
+			'깨유 소식받기 + 공유하면 자나 봉제인형이 무료 ♥',
+			'✎ 참여방법: 공유+소식받기하면 끝!! (이메일 써주세요~^^)',
+			'✎ 발표일: 금요일 오후 9시! (10월 11일)',
+			'✎ 대상: 1명 랜덤 추첨',
+			'소식받으러 가기 http://goo.gl/ElNRl3',
+			'../images/e/2002_detail.png',
+			'소식받으러 가기 http://goo.gl/ElNRl3'
+		],
+		'result': {
+			'announce': 'false',
+			'prize': '',
+			'congraturation': '../images/e/2002_result.png',
+			'notice': '님~ 당첨을 축하합니다.\n\n왜 이메일 안 남겨셨데요?ㅎ \n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / Black / Red / Blue 중 갖고싶은 색상을 하나 선택해서 <a href="mailto:romeoh78@gmail.com">메일</a>로 보내주세용.\n\n다시 한번 축하드려용~^^'
+		}
+	},
+	{
 		'idx': '2001',
 		'start': '2013.10.07 20:00',
 		'end': '2013.10.08 21:00',
