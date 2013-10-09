@@ -1127,6 +1127,7 @@ function initPoll() {
 						M('.tinfo')
 							.css('display', 'block')
 							.html('<div><span class="ico i"></span> 반영되었습니다. <br>감사합니다. 아래 SNS로 결과를 확인하세요.</div>');
+						M('[data-b]').removeClass('on')
 
 						checkPoll();
 					}
@@ -1243,7 +1244,7 @@ function initPoll() {
 					totalPoll += parseInt(value[i], 10);
 				}
 				for (var i=0; i<value.length; i++) {
-					var val = value[i] / totalPoll * 100
+					var val = Math.round(value[i] / totalPoll * 100)
 					//console.log(value[i], totalPoll, val, cuRank)
 					if (platform === 'twit') {
 						str += '\n- ' + val + '% (' + value[i] + '명): ' + cuRank['list'][i]['title'] + ''
