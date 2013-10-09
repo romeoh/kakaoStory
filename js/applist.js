@@ -189,7 +189,6 @@ var rankList = [
 		'category': '',
 		'title': '아이유 신곡',
 		'q': '"아이유 신곡" 노래 어때요?',
-		
 		'url': 'http://goo.gl/rNRw3y',
 		'list': [
 			{'title': '좋아요.'},
