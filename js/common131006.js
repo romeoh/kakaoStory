@@ -882,7 +882,7 @@ function initEvent() {
 
 	M('#btnEventStory').on('click', function(){
 		var data = {}
-		console.log(cuEvent)
+		//console.log(cuEvent)
 		data.media = 'story'
 		data.title = cuEvent['title']
 		data.post = '[이벤트]\n' + cuEvent['title']
@@ -1079,17 +1079,16 @@ function initPoll() {
 
 		function submitPoll(poll) {
 			var token = M.storage('rank.token') || undefined
-
-			if (!token) {
-				getToken()
-			} else {
-				sendPoll()
-			}
+			getToken()
 			
 			function getToken() {
 				var bodyData = {
-					'body':{},
 					'head':{}
+				}
+				bodyData['body'] = {}
+				
+				if (token) {
+					bodyData['body']['token'] = token;
 				}
 
 				$.ajax({
@@ -1099,7 +1098,7 @@ function initPoll() {
 					,'type': 'POST'
 					,'success': function(data){
 						data = M.json(data)
-						console.log(data['body']['token'])
+						//console.log(data['body']['token'])
 						M.storage('rank.token', data['body']['token']);
 						sendPoll();
 					}
@@ -1176,7 +1175,16 @@ function initPoll() {
 						,data = {}
 						,post = ''
 						,twit = ''
+						,d = new Date()
+						,y = d.getFullYear()
+						,m = d.getMonth() + 1
+						,dd = d.getDate()
+						,h = d.getHours()
 
+					if (result.length === 0) {
+						alert('아직 투표한 사람이 없습니다.\n제일 먼저 투표해보세요.');
+						return false;
+					}
 					post += '[깨알랭킹]\n\n'
 					post += '<' + cuRank['title'] + '>\n';
 					post += cuRank['q'] + '\n\n'
@@ -1193,7 +1201,7 @@ function initPoll() {
 						data.post = post
 						data.url = cuRank['url']
 						data.img = cuRank['thum']
-						data.desc = '2003년 1월 20일 현재 투표결과입니다.'
+						data.desc = y + '년 ' + m + '월 ' + dd + '일 ' + h + '시 현재 투표결과입니다.'
 						sendData(data);
 						return false;
 					}
