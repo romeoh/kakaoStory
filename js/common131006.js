@@ -939,6 +939,7 @@ window.addEventListener('hashchange', function(){
 	window.location.reload();
 })
 function initPoll() {
+	// 투표리스트 내용처리
 	if (M('[data-poll]').selector.length > 0) {
 		var  hash = window.location.hash.replace('#', '')
 			,cuRank 
@@ -1024,56 +1025,243 @@ function initPoll() {
 		M('[data-rank-list]').html(str);
 	}
 
-
-	/* Ranking */
-	var polldata = M.storage('io.github.romeoh.poll') || '{}'
-	polldata = M.json(polldata);
-	M('[data-a]').on('click', function(evt, mp){
-		var  poll = mp.data('a')
+	if (M('[data-poll]').selector.length > 0) {
+		/* 랭킹 투표 */
+		var polldata = M.storage('io.github.romeoh.poll') || '{}'
+		polldata = M.json(polldata);
 		
-		checkPoll()
-		submitPoll(poll);
-	})
-
-	M('[data-b]').on('click', function(evt, mp){
-		M('[data-b]').removeClass('on')
-		mp.addClass('on');
-		M('[data-submit-b]').data('submit-b', mp.data('b'))
-	})
-
-	M('[data-submit-b]').on('click', function(evt, mp){
-		var poll = mp.data('submit-b')
-		if(!checkPoll()) {
-			return false;
-		}
-		if (poll === '') {
-			alert('한가지를 선택해주세요.');
-			return false;
-		}
-		submitPoll(poll)
-	})
-
-	function checkPoll() {
+		// 이미 투표한 랭킹
 		var pollIndex = M('[data-poll]').data('poll')
-		
 		if (polldata[pollIndex]) {
-			alert('이미 투표한 랭킹입니다.');
-			return false;
+			M('.tinfo')
+				.css('display', 'block')
+				.html('<div><span class="ico i"></span> 이미 투표한 랭킹입니다. <br>아래 SNS로 결과를 확인하세요.</div>');
 		}
-		polldata[pollIndex] = 'true';
-		console.log(polldata)
-		M.storage('io.github.romeoh.poll', M.json(polldata));
-	}
 
-	function submitPoll(poll) {
-		var pollIndex = M('[data-poll]').data('poll')
-		//M.storage('io.github.romeoh.poll', )
-		//console.log(pollIndex)
-		M('.tinfo')
-			.css('display', 'block')
-			.html('<div><span class="ico i"></span> 반영되었습니다. <br>감사합니다. 아래 SNS로 결과를 확인하세요.</div>')
-		
-		console.log(poll)
+		M('[data-a]').on('click', function(evt, mp){
+			var  poll = mp.data('a')
+			if(!checkPoll()) {
+				alert('이미 투표한 랭킹입니다.');
+				return false;
+			}
+			submitPoll(poll);
+		})
+
+		M('[data-b]').on('click', function(evt, mp){
+			M('[data-b]').removeClass('on')
+			mp.addClass('on');
+			M('[data-submit-b]').data('submit-b', mp.data('b'))
+		})
+
+		M('[data-submit-b]').on('click', function(evt, mp){
+			var poll = mp.data('submit-b')
+			if(!checkPoll()) {
+				alert('이미 투표한 랭킹입니다.')
+				return false;
+			}
+			if (poll === '') {
+				alert('한가지를 선택해주세요.');
+				return false;
+			}
+			submitPoll(poll)
+		})
+
+		// 투표여부 확인
+		function checkPoll() {
+			var pollIndex = M('[data-poll]').data('poll')
+			if (polldata[pollIndex]) {
+				return false;
+			}
+			polldata[pollIndex] = 'true';
+			M.storage('io.github.romeoh.poll', M.json(polldata));
+			return true;
+		}
+
+		function submitPoll(poll) {
+			var token = M.storage('rank.token') || undefined
+
+			if (!token) {
+				getToken()
+			} else {
+				sendPoll()
+			}
+			
+			function getToken() {
+				var bodyData = {
+					'body':{},
+					'head':{}
+				}
+
+				$.ajax({
+					 'url': 'http://romeoh78.appspot.com/api/rank/token'
+					,'contentType': 'text/plain'
+					,'data': M.json(bodyData)
+					,'type': 'POST'
+					,'success': function(data){
+						data = M.json(data)
+						console.log(data['body']['token'])
+						M.storage('rank.token', data['body']['token']);
+						sendPoll();
+					}
+				})
+			}
+
+			function sendPoll() {
+				var sendPollData = {
+						'idx': cuRank['idx'],
+						'poll': poll,
+						'total': cuRank['list'].length,
+						'token': M.storage('rank.token')
+					}
+
+				var bodyData = {
+						'body':sendPollData,
+						'head':{}
+					}
+
+				$.ajax({
+					 'url': 'http://romeoh78.appspot.com/api/rank/set'
+					,'contentType': 'text/plain'
+					,'data': M.json(bodyData)
+					,'type': 'POST'
+					,'success': function(data){
+						M('.tinfo')
+							.css('display', 'block')
+							.html('<div><span class="ico i"></span> 반영되었습니다. <br>감사합니다. 아래 SNS로 결과를 확인하세요.</div>');
+
+						checkPoll();
+					}
+				})
+			}
+		}
+
+		M('#pollStory').on('click', function(){
+			getPoll('story')
+		});
+		M('#pollTwitter').on('click', function(){
+			getPoll('twitter');
+		});
+		M('#pollFacebook').on('click', function(){
+			getPoll('facebook');
+		});
+		M('#pollMe2day').on('click', function(){
+			getPoll('me2day');
+		});
+		M('#pollKakao').on('click', function(){
+			var data = {}
+			data.media = 'talk'
+			data.post = '[이벤트]\n' + cuEvent['title']
+			data.msg = cuEvent['title']
+			data.url = cuEvent['url']
+			sendData(data);
+		});
+
+		function getPoll(platform) {
+			var sendPollData = {
+					'idx': cuRank['idx']
+				}
+
+			var bodyData = {
+					'body':sendPollData,
+					'head':{}
+				}
+
+			$.ajax({
+				 'url': 'http://romeoh78.appspot.com/api/rank/get'
+				,'contentType': 'text/plain'
+				,'data': M.json(bodyData)
+				,'type': 'POST'
+				,'success': function(result){
+					var  result = M.json(result)['body']['result']
+						,data = {}
+						,post = ''
+						,twit = ''
+
+					post += '[깨알랭킹]\n\n'
+					post += '<' + cuRank['title'] + '>\n';
+					post += cuRank['q'] + '\n\n'
+					post += '[결과]\n'
+					post += getResultString(result);
+
+					twit += '[깨알랭킹]\n\n'
+					twit += cuRank['q'] + '\n\n'
+					twit += getResultString(result, 'twit').replace(/□/gi, '').replace(/■/gi, '');
+
+					if (platform === 'story') {
+						data.media = platform
+						data.title = cuRank['title']
+						data.post = post
+						data.url = cuRank['url']
+						data.img = cuRank['thum']
+						data.desc = '2003년 1월 20일 현재 투표결과입니다.'
+						sendData(data);
+						return false;
+					}
+
+					if (platform === 'twitter') {
+						data.media = platform
+						data.title = cuRank['title']
+						data.post = twit
+						data.url = cuRank['url']
+						sendData(data);
+						return false;
+					}
+
+					if (platform === 'me2day') {
+						data.media = platform
+						data.title = cuRank['title']
+						data.post = twit
+						data.url = cuRank['url']
+						sendData(data);
+						return false;
+					}
+
+					if (platform === 'facebook') {
+						data.media = platform
+						data.title = cuRank['title']
+						data.post = post
+						data.url = cuRank['url']
+						sendData(data);
+						return false;
+					}
+				}
+			})
+
+			function getResultString(value, platform) {
+				var  str = ''
+					,totalPoll = 0
+
+				for (var i=0; i<value.length; i++) {
+					totalPoll += parseInt(value[i], 10);
+				}
+				for (var i=0; i<value.length; i++) {
+					var val = value[i] / totalPoll * 100
+					//console.log(value[i], totalPoll, val, cuRank)
+					if (platform === 'twit') {
+						str += '\n- ' + val + '% (' + value[i] + '명): ' + cuRank['list'][i]['title'] + ''
+					} else {
+						str += '\n' + getGraph(val) + ' ' + val + '% (' + value[i] + '명): ' + cuRank['list'][i]['title'] + ''
+					}
+				}
+				return str.replace(/\n/, '');
+			}
+			function getGraph(value){
+				var dataGraph = [
+					'□□□□□□□□□□',
+					'■□□□□□□□□□',
+					'■■□□□□□□□□',
+					'■■■□□□□□□□',
+					'■■■■□□□□□□',
+					'■■■■■□□□□□',
+					'■■■■■■□□□□',
+					'■■■■■■■□□□',
+					'■■■■■■■■□□',
+					'■■■■■■■■■□',
+					'■■■■■■■■■■'
+				]
+				return dataGraph[Math.round(value/10)];
+			}
+		}
 	}
 }
 
