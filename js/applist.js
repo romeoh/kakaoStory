@@ -166,7 +166,7 @@ var rankList = [
 	{
 		'idx': '1002',
 		'type': 'B',
-		'hot': '',
+		'hot': 'true',
 		'category': '',
 		'title': '가장 좋아하는 무한도전 멤버',
 		'q': '무한도전에서 제일 좋아하는 멤버는?',
