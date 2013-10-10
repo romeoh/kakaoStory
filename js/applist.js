@@ -148,7 +148,7 @@ var rankList = [
 		'type': 'A',
 		'hot': '',
 		'category': '',
-		'title': '슈퍼스타K5 TOP8',
+		'title': '슈퍼스타 K5 TOP8',
 		'q': '슈퍼스타K5, TOP8에 들어갈 마지막 팀은 누구일까요?',
 		'url': 'http://goo.gl/6M3Yfr',
 		'list': [
