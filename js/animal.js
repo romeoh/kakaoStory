@@ -13,7 +13,7 @@ function action(_data) {
 		,post = ''
 
 	data.title = '나의 형상동물';
-	data.url = 'http://goo.gl/yi3PU';
+	data.url = 'http://goo.gl/FJ2rcr';
 
 	if (media == 'talk') {
 		sendData(data);
