@@ -1,7 +1,7 @@
 var  appList = ''
-	,totalApp = 133
+	,totalApp = 134
 
-M('#btnTest').attr('href', 'http://goo.gl/Jp9Qdh');
+M('#btnTest').attr('href', 'http://goo.gl/sLU9oD');
 appList += '<li data-app="135" data-page="tuning" data-new data-fun><a href="http://goo.gl/sLU9oD">나의 튜닝점수</a> <span class="ico new"></span></li>';
 appList += '<li data-app="134" data-page="wedding" data-new data-fun><a href="http://goo.gl/Jp9Qdh">나의 우결 상대는?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="133" data-page="wang" data-new data-hot data-heart><a href="http://goo.gl/Va1Byu">학교 따돌림 테스트</a> <span class="ico new"></span><span class="ico hot"></span></li>';
