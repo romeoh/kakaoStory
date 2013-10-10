@@ -110,7 +110,7 @@ function action(_data) {
 
 	data.post = post;
 	
-	data.desc = '재미있고, 간단한 4차원 테스트';
+	data.desc = '간단한 조울증 자가진단 테스트입니다.';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/sense2.png';
 
 	sendData(data);
