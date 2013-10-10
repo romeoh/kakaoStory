@@ -2,11 +2,12 @@ var  appList = ''
 	,totalApp = 133
 
 M('#btnTest').attr('href', 'http://goo.gl/Jp9Qdh');
+appList += '<li data-app="135" data-page="tuning" data-new data-fun><a href="http://goo.gl/sLU9oD">나의 튜닝점수</a> <span class="ico new"></span></li>';
 appList += '<li data-app="134" data-page="wedding" data-new data-fun><a href="http://goo.gl/Jp9Qdh">나의 우결 상대는?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="133" data-page="wang" data-new data-hot data-heart><a href="http://goo.gl/Va1Byu">학교 따돌림 테스트</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="132" data-page="pana" data-new data-heart><a href="http://goo.gl/sNtQUL">과대망상 테스트</a> <span class="ico new"></span></li>';
 appList += '<li data-app="131" data-page="peter" data-new data-hot data-heart><a href="http://goo.gl/Qabeuk">피터팬 증후군 테스트</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="130" data-page="sense2" data-new data-hot data-heart><a href="http://goo.gl/RQaAyd">4차원 테스트</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="130" data-page="sense2" data-hot data-heart><a href="http://goo.gl/RQaAyd">4차원 테스트</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="129" data-page="sense" data-heart><a href="http://goo.gl/eZm1sl">뻘짓 테스트</a></li>';
 appList += '<li data-app="128" data-page="stone" data-heart><a href="http://goo.gl/lYsA3C">나의 탄생석 알아보기</a></li>';
 appList += '<li data-app="127" data-page="second" data-fun><a href="http://goo.gl/bYvEen">을의 연애</a> <span class="ico hot"></span></li>';
