@@ -144,6 +144,24 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 // B: 리스트
 var rankList = [
 	{
+		'idx': '1005',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '슈퍼스타K5 TOP8',
+		'q': '슈퍼스타K5, 누가 우승할것 같아요?',
+		'url': 'http://goo.gl/6M3Yfr',
+		'list': [
+			{'title': '김민지'},
+			{'title': '박시환'},
+			{'title': '박재정'},
+			{'title': '송희진'},
+			{'title': '장원기'},
+			{'title': '정은우'},
+			{'title': '플랜비'}
+		]
+	},
+	{
 		'idx': '1004',
 		'type': 'B',
 		'hot': '',
