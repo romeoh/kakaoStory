@@ -304,7 +304,7 @@ var eventList = [
 			'announce': 'true',
 			'prize': '미정♡',
 			'congraturation': '../images/e/2001_result.png',
-			'notice': '미정♡님~ 당첨을 축하합니다.\n\n왜 이메일 안 남겨셨데요?ㅎ \n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / Black / Red / Blue 중 갖고싶은 색상을 하나 선택해서 <a href="mailto:romeoh78@gmail.com">메일</a>로 보내주세용.\n\n다시 한번 축하드려용~^^'
+			'notice': '미정♡님~ 당첨을 축하합니다.\n\n왜 이메일 안 남겨셨데요?ㅎ \n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / Black / Red / Blue 중 갖고싶은 색상을 하나 선택해서 <a href="#">메일</a>로 보내주세용.\n\n다시 한번 축하드려용~^^'
 		}
 	},
 	{
