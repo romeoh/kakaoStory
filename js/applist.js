@@ -145,20 +145,21 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 var rankList = [
 	{
 		'idx': '1005',
-		'type': 'B',
+		'type': 'A',
 		'hot': '',
 		'category': '',
 		'title': '슈퍼스타K5 TOP8',
-		'q': '슈퍼스타K5, 누가 우승할것 같아요?',
+		'q': '슈퍼스타K5, TOP8에 들어갈 마지막 팀은 누구일까요?',
 		'url': 'http://goo.gl/6M3Yfr',
 		'list': [
-			{'title': '김민지'},
-			{'title': '박시환'},
-			{'title': '박재정'},
-			{'title': '송희진'},
-			{'title': '장원기'},
-			{'title': '정은우'},
-			{'title': '플랜비'}
+			{
+				'photo': '../images/rank/superk1.png',
+				'title': '마시브로'
+			},
+			{
+				'photo': '../images/rank/superk2.png',
+				'title': '임순영'
+			},
 		]
 	},
 	{
