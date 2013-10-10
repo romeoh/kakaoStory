@@ -143,6 +143,20 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 // B: 리스트
 var rankList = [
 	{
+		'idx': '1004',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '나의 수목드라마',
+		'q': '가장 재미있는 수목드라마는 무엇인가요?',
+		'url': 'http://goo.gl/ETgoWP',
+		'list': [
+			{'title': 'KBS2 비밀'},
+			{'title': 'SBS 상속자들'},
+			{'title': 'MBC 메디컬탑팀'}
+		]
+	},
+	{
 		'idx': '1003',
 		'type': 'B',
 		'hot': '',
