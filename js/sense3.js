@@ -111,7 +111,7 @@ function action(_data) {
 	data.post = post;
 	
 	data.desc = '간단한 조울증 자가진단 테스트입니다.';
-	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/sense2.png';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/single2.png';
 
 	sendData(data);
 }
