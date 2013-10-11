@@ -204,7 +204,7 @@ nav .nav li a {display: block;font-weight: 600;font-size: 14px;color: #245465;te
 /* type A */
 .event_box .poll_content {text-align:center; margin-top:20px}
 .event_box .poll_content .pcontent {}
-.event_box .poll_content .pcontent .plist {display:inline-block; width:150px; vertical-align:top}
+.event_box .poll_content .pcontent .plist {display:inline-block; width:130px; vertical-align:top}
 .event_box .poll_content .pcontent .btn_poll {overflow: hidden;margin: 8px 3px;border-radius: 3px;background-color: #bdb7b7;background-image: -webkit-gradient(linear,left top,left bottom,from(#ccc5c5),to(#b1acac));background-image: -moz-linear-gradient(top,#ccc5c5,#b1acac);background-image: -o-linear-gradient(top,#ccc5c5,#b1acac);background-image: linear-gradient(to bottom,#ccc5c5,#b1acac);box-shadow: 0 1px 1px rgba(0,0,0,0.1);-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1); cursor:pointer;}
 .event_box .poll_content .pcontent .pround {display: inline-block;padding: 1px;border-radius: 3px;font-size: 12px;text-decoration: none;}
 .event_box .poll_content .pcontent .btn_poll .inner_poll {overflow: hidden;border-radius: 3px;padding: 4px 15px 2px;font-size: 1.2em;color: #444;letter-spacing: -1px;background-color: #f9f9f9;background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f4f4f4));background-image: -moz-linear-gradient(top,#fff,#f4f4f4);background-image: -o-linear-gradient(top,#fff,#f4f4f4);background-image: linear-gradient(to bottom,#fff,#f4f4f4);}
