@@ -146,9 +146,28 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 // B: 리스트
 var rankList = [
 	{
-		'idx': '1005',
+		'idx': '1006',
 		'type': 'A',
 		'hot': '',
+		'category': '',
+		'title': 'WHO IS NEXT : WIN',
+		'q': 'YG의 차세대 신인 남자그룹 서바이벌, 당신의 선택은?',
+		'url': 'http://goo.gl/c46ynz',
+		'list': [
+			{
+				'photo': '../images/rank/win1.png',
+				'title': '윈 A팀'
+			},
+			{
+				'photo': '../images/rank/win2.png',
+				'title': '윈 B팀'
+			},
+		]
+	},
+	{
+		'idx': '1005',
+		'type': 'A',
+		'hot': 'true',
 		'category': '',
 		'title': '슈퍼스타 K5 TOP8',
 		'q': '슈퍼스타K5, TOP8에 들어갈 마지막 팀은 누구일까요?',
@@ -246,25 +265,6 @@ var rankList = [
 			{'title': '글쎄요.'}
 		]
 	}
-	/*{
-		'idx': '1001',
-		'type': 'A',
-		'hot': '',
-		'category': '',
-		'title': 'EXO VS 샤이니',
-		'q': 'EXO, 샤이니중에 누가 더 좋아요?',
-		'url': 'http://goo.gl/RPVB5',
-		'list': [
-			{
-				'photo': '../images/thum/ban1.png',
-				'title': 'EXO'
-			},
-			{
-				'photo': '../images/thum/ban2.png',
-				'title': '샤이니'
-			},
-		]
-	},*/
 ]
 
 
