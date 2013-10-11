@@ -30,7 +30,7 @@ function action(_data) {
 	idx = process(database)
 	n = process(0, 3)
 	if (n === 0) {
-		m = process(0, 2)
+		m = process(0, 3)
 	} else if (n === 1) {
 		m = process(0, 7)
 	} else {
