@@ -76,7 +76,7 @@ function executeKakaoStoryLink(url){
 	post += '카스주소만들기: ' + kurl;
 	data.post = post;
 	
-	data.desc = '나만의 카카오스토리 주소를 가지자.';
+	data.desc = '나만의 카카오스토리 주소를 만들자.';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/url.png';
 
 	sendData(data);
