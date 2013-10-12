@@ -1,6 +1,7 @@
 var  platform
 	,uName
 	,kurl
+	,ktitle
 
 function action(_data) {
 	var  data = _data || {}
@@ -16,8 +17,8 @@ function action(_data) {
 		,blood = data.blood || null
 		,post = ''
 
-	data.title = '나의 장점/단점';
-	data.url = 'http://goo.gl/AigRi';
+	data.title = '카카오스토리 주소만들기';
+	data.url = 'http://goo.gl/uIDOIF';
 
 	if (media == 'talk') {
 		sendData(data);
@@ -27,6 +28,7 @@ function action(_data) {
 	kasid = M('#kasid').val();
 	uName = userName;
 	kurl = data.url;
+	ktitle = data.title
 
 	if (kasid === '') {
 		alert('카카오스토리 아이디를 입력하세요.')
@@ -63,12 +65,12 @@ function executeKakaoStoryLink(url){
 	var  data = {}
 		,post = ''
 
-	data.title = '카카오스토리 주소만들기';
+	data.title = ktitle;
 	data.url = '';
 	data.media = platform;
 
 	post += '[' + data.title + ']\n\n';
-	post += '나의 카카오스토리 주소입니다. \n';
+	post += uName + '님의 카카오스토리 주소입니다. \n';
 	post += '친구들에게 복사해서 알려주세요~ \n\n';
 	post += uName + '님의 카스주소: ' + url + '\n\n\n';
 	post += '카스주소만들기: ' + kurl;
