@@ -147,6 +147,25 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 // B: 리스트
 var rankList = [
 	{
+		'idx': '1007',
+		'type': 'A',
+		'hot': '',
+		'category': '',
+		'title': '대한민국 VS 브라질',
+		'q': '국가대표팀 평가전 대한민국과 브라질 승리자는?',
+		'url': 'http://goo.gl/KBq2lF',
+		'list': [
+			{
+				'photo': '../images/rank/soccer1.png',
+				'title': '대한민국'
+			},
+			{
+				'photo': '../images/rank/soccer2.png',
+				'title': '브라질'
+			},
+		]
+	},
+	{
 		'idx': '1006',
 		'type': 'A',
 		'hot': '',
