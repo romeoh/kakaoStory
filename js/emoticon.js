@@ -26,7 +26,7 @@ function action(_data) {
 	post +=  database[idx];
 	data.post = post;
 	
-	data.desc = userName + '님과 ' + database[idx]['name'] + '님의 스캔들 사건';
+	data.desc = '귀여운 이모티콘 퍼가기!';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/emoticon.png';
 
 	sendData(data);
