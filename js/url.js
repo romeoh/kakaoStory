@@ -72,7 +72,7 @@ function executeKakaoStoryLink(url){
 	post += '[' + data.title + ']\n\n';
 	post += uName + '님의 카카오스토리 주소입니다. \n';
 	post += '친구들에게 복사해서 알려주세요~ \n\n';
-	post += uName + '님의 카스주소: ' + url + '\n\n\n';
+	post += '★ ' + uName + '님의 카스주소: ' + url + '\n\n\n';
 	post += '카스주소만들기: ' + kurl;
 	data.post = post;
 	
