@@ -278,7 +278,7 @@ var eventList = [
 		'end': '2013.10.11 21:00',
 		'announce': '금요일 오후 9시! (10월 11일)',
 		'platform': '카스플친',
-		'ing': 'true',
+		'ing': 'false',
 		'title': '자나 봉제인형 받아가자!!',
 		'product': '자나 캐릭터 봉제인형',
 		'url': 'http://goo.gl/JVW0Vz',
@@ -295,10 +295,10 @@ var eventList = [
 			'소식받으러 가기 http://goo.gl/ElNRl3'
 		],
 		'result': {
-			'announce': 'false',
-			'prize': '',
+			'announce': 'true',
+			'prize': 'えrうr운규남',
 			'congraturation': '../images/e/2002_result.png',
-			'notice': '님~ 당첨을 축하합니다.\n\n왜 이메일 안 남겨셨데요?ㅎ \n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / Black / Red / Blue 중 갖고싶은 색상을 하나 선택해서 <a href="mailto:romeoh78@gmail.com">메일</a>로 보내주세용.\n\n다시 한번 축하드려용~^^'
+			'notice': 'えrうr운규남님~ \n축하해요~♥\n'
 		}
 	},
 	{
