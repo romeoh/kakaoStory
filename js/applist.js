@@ -1,12 +1,13 @@
 var  appList = ''
-	,totalApp = 139
+	,totalApp = 140
 
 M('#btnTest').attr('href', 'http://goo.gl/uIDOIF');
+appList += '<li data-app="141" data-page="myTwin" data-new data-fun><a href="http://goo.gl/9B3HHj">나의 애인 닮은 연예인</a> <span class="ico new"></span></li>';
 appList += '<li data-app="140" data-page="url" data-new data-fun><a href="http://goo.gl/uIDOIF">카카오스토리 주소만들기</a> <span class="ico new"></span></li>';
-appList += '<li data-app="139" data-page="many" data-new data-fun><a href="http://goo.gl/6IgL9x">나 때문에 싸우는 사람은 몇명인가?</a> <span class="ico new"></span></li>';
+appList += '<li data-app="139" data-page="many" data-new data-hot data-fun><a href="http://goo.gl/6IgL9x">나 때문에 싸우는 사람은 몇명인가?</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="138" data-page="life" data-new data-fun><a href="http://goo.gl/MCMFBk">나는 제명(除命)에 죽나?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="137" data-page="sense3" data-new data-hot data-heart><a href="http://goo.gl/K3atYI">조울증 테스트</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="136" data-page="animal" data-new data-fun><a href="http://goo.gl/FJ2rcr">나의 형상동물</a> <span class="ico new"></span></li>';
+appList += '<li data-app="136" data-page="animal" data-fun><a href="http://goo.gl/FJ2rcr">나의 형상동물</a></li>';
 appList += '<li data-app="135" data-page="tuning" data-fun><a href="http://goo.gl/sLU9oD">나의 튜닝점수</a></li>';
 appList += '<li data-app="134" data-page="wedding" data-hot data-fun><a href="http://goo.gl/Jp9Qdh">나의 우결 상대는?</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="133" data-page="wang" data-hot data-heart><a href="http://goo.gl/Va1Byu">학교 따돌림 테스트</a> <span class="ico hot"></span></li>';
