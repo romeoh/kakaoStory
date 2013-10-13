@@ -149,6 +149,20 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 // B: 리스트
 var rankList = [
 	{
+		'idx': '1009',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '런닝맨, 오늘의 승자는',
+		'q': '런닝맨, 오늘의 승리팀은 누구일까요?',
+		'url': 'http://goo.gl/T98PZw',
+		'list': [
+			{'title': '날라리高'},
+			{'title': '호랑이高'},
+			{'title': '배신高'}
+		]
+	},
+	{
 		'idx': '1008',
 		'type': 'A',
 		'hot': '',
