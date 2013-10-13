@@ -1,12 +1,13 @@
 var  appList = ''
-	,totalApp = 140
+	,totalApp = 141
 
-M('#btnTest').attr('href', 'http://goo.gl/uIDOIF');
+M('#btnTest').attr('href', 'http://goo.gl/UHwPdK');
+appList += '<li data-app="142" data-page="bbum" data-new data-fun><a href="http://goo.gl/UHwPdK">뿜 엔터테인먼트</a> <span class="ico new"></span></li>';
 appList += '<li data-app="141" data-page="myTwin" data-new data-fun><a href="http://goo.gl/9B3HHj">나의 애인 닮은 연예인</a> <span class="ico new"></span></li>';
 appList += '<li data-app="140" data-page="url" data-new data-fun><a href="http://goo.gl/uIDOIF">카카오스토리 주소만들기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="139" data-page="many" data-new data-hot data-fun><a href="http://goo.gl/6IgL9x">나 때문에 싸우는 사람은 몇명인가?</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="138" data-page="life" data-new data-fun><a href="http://goo.gl/MCMFBk">나는 제명(除命)에 죽나?</a> <span class="ico new"></span></li>';
-appList += '<li data-app="137" data-page="sense3" data-new data-hot data-heart><a href="http://goo.gl/K3atYI">조울증 테스트</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="137" data-page="sense3" data-hot data-heart><a href="http://goo.gl/K3atYI">조울증 테스트</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="136" data-page="animal" data-fun><a href="http://goo.gl/FJ2rcr">나의 형상동물</a></li>';
 appList += '<li data-app="135" data-page="tuning" data-fun><a href="http://goo.gl/sLU9oD">나의 튜닝점수</a></li>';
 appList += '<li data-app="134" data-page="wedding" data-hot data-fun><a href="http://goo.gl/Jp9Qdh">나의 우결 상대는?</a> <span class="ico hot"></span></li>';
@@ -148,6 +149,21 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 // A: 사진
 // B: 리스트
 var rankList = [
+	{
+		'idx': '1010',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '2013 프로야구 우승팀은?',
+		'q': '2013년 프로야구 우승팀은 누가 될까요?',
+		'url': 'http://goo.gl/LLeL7F',
+		'list': [
+			{'title': '삼성 라이온즈'},
+			{'title': 'LG 트윈스'},
+			{'title': '넥센 히어로즈'},
+			{'title': '두산 베어스'}
+		]
+	},
 	{
 		'idx': '1009',
 		'type': 'B',
