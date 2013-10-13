@@ -148,6 +148,25 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 // B: 리스트
 var rankList = [
 	{
+		'idx': '1008',
+		'type': 'A',
+		'hot': '',
+		'category': '',
+		'title': '에버랜드 VS 롯데월드',
+		'q': '놀이공원, 롯데월드와 에버랜드 어디가 더 좋아요?',
+		'url': 'http://goo.gl/n7uZSt',
+		'list': [
+			{
+				'photo': '../images/rank/play1.png',
+				'title': '에버랜드'
+			},
+			{
+				'photo': '../images/rank/play2.png',
+				'title': '롯데월드'
+			},
+		]
+	},
+	{
 		'idx': '1007',
 		'type': 'A',
 		'hot': '',
