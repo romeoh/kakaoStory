@@ -503,7 +503,7 @@ function sendData(_obj) {
 				'imageurl': [img],
 				'type': 'article'
 			}
-		post = post + '\n\n' + url + '\n\n\n' + '★ 깨유 플친되고 선물받자 ★\nhttp://goo.gl/ElNRl3\n';
+		post = post + '\n\n' + url + '\n\n\n\n\n\n\n' + '★ 깨유 플친되고 선물받자 ★\nhttp://goo.gl/ElNRl3\n';
 		
 		kakao.link("story").send({   
 	        appid : id,
