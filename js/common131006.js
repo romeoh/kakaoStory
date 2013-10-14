@@ -31,7 +31,7 @@ if (M('[data-list]').selector.length > 0) {
 		}
 	}
 
-	alist = alist.replace(/@/g, '').replace(/이달의/, month + '월의');
+	alist = alist.replace(/@/g, '').replace(/이달의/, month + '월의').replace(/오늘의 운세/, month + '월 ' + date + '일 오늘의 운세');
 
 
 	M('[data-list]')

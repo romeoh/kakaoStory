@@ -1,3 +1,8 @@
+var  d = new Date();
+	yy = d.getFullYear()
+	mm = d.getMonth() + 1
+	dd = d.getDate()
+
 function action(_data) {
 	var  data = _data || {}
 		,media = data.media || 'story'
@@ -13,7 +18,7 @@ function action(_data) {
 		,post = ''
 
 	data.title = '매일 매일 오늘의 운세';
-	data.url = 'http://goo.gl/DC9X8';
+	data.url = 'http://goo.gl/vza69y';
 
 	if (media == 'talk') {
 		sendData(data);
@@ -22,10 +27,6 @@ function action(_data) {
 
 	yearIdx = (bornYear - 1936) % 12
 	animal = ani[yearIdx]
-	d = new Date();
-	yy = d.getFullYear()
-	mm = d.getMonth() + 1
-	dd = d.getDate()
 	dataVal = yy + mm + dd
 	forInx = ( dataVal + getUni(userName) + yearIdx ) % database.length
 	
@@ -40,6 +41,8 @@ function action(_data) {
 
 	sendData(data);
 }
+
+M('h2').text(mm + '월 ' + dd + '일 오늘의 운세');
 
 function getUni(_val) {
 	if (!_val) {
