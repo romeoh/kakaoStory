@@ -1,7 +1,7 @@
 var  appList = ''
 	,totalApp = 143
 
-M('#btnTest').attr('href', 'http://goo.gl/UHwPdK');
+M('#btnTest').attr('href', 'http://goo.gl/zru5pG');
 appList += '<li data-app="144" data-page="university" data-new data-fun><a href="http://goo.gl/zru5pG">내가 유학갈 대학교</a> <span class="ico new"></span></li>';
 appList += '<li data-app="143" data-page="fortune" data-new data-fun><a href="http://goo.gl/vza69y">오늘의 운세</a> <span class="ico new"></span></li>';
 appList += '<li data-app="142" data-page="bbum" data-new data-fun><a href="http://goo.gl/UHwPdK">뿜 엔터테인먼트</a> <span class="ico new"></span></li>';
@@ -151,6 +151,25 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 // A: 사진
 // B: 리스트
 var rankList = [
+	{
+		'idx': '1011',
+		'type': 'A',
+		'hot': '',
+		'category': '',
+		'title': 'GD VS 형돈',
+		'q': 'GD와 형돈이, 진정한 패션종결자는 누구인가요?',
+		'url': 'http://goo.gl/TrsO0E',
+		'list': [
+			{
+				'photo': '../images/rank/fashion1.png',
+				'title': 'GD'
+			},
+			{
+				'photo': '../images/rank/fashion2.png',
+				'title': '형돈'
+			},
+		]
+	},
 	{
 		'idx': '1010',
 		'type': 'B',
