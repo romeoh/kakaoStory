@@ -29,7 +29,7 @@ function action(_data) {
 	post += '열공하고 오세요~';
 	data.post = post;
 	
-	data.desc = database[idx]['school'] + ' 졸업생';
+	data.desc = '우와~ ' + database[idx]['school'] + ' 나오셨네요~';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/' + database[idx]['photo'];
 
 	sendData(data);
