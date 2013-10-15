@@ -370,7 +370,7 @@ var eventList = [
 		'end': '2013.10.15 21:00',
 		'announce': '오늘 오후 9시! (10월 15일)',
 		'platform': '카스플친',
-		'ing': 'true',
+		'ing': 'false',
 		'title': '바나나맛 우유 5명에게 드려요.',
 		'product': '바나나맛 우유',
 		'url': 'http://goo.gl/myBdHT',
@@ -387,10 +387,10 @@ var eventList = [
 			'소식받으러 가기 http://goo.gl/ElNRl3'
 		],
 		'result': {
-			'announce': 'false',
-			'prize': [''],
+			'announce': 'true',
+			'prize': ['영묵', '장향란', '최인규', 'qlalf성or욱', '창원장미'],
 			'congraturation': '../images/e/2004_result.png',
-			'notice': '\n축하해요~♥\n'
+			'notice': '모두 모두 축하해요~♥\n'
 		}
 	},
 	{
@@ -399,7 +399,7 @@ var eventList = [
 		'end': '2013.10.15 21:00',
 		'announce': '오늘 오후 9시! (10월 15일)',
 		'platform': '카스플친',
-		'ing': 'true',
+		'ing': 'false',
 		'title': '파인트 아이스크림',
 		'product': '베스킨 라빈스 파인트 아이스크림',
 		'url': 'http://goo.gl/5Rpi3Q',
@@ -416,10 +416,10 @@ var eventList = [
 			'소식받으러 가기 http://goo.gl/ElNRl3'
 		],
 		'result': {
-			'announce': 'false',
-			'prize': [''],
+			'announce': 'true',
+			'prize': ['최훈석'],
 			'congraturation': '../images/e/2003_result.png',
-			'notice': '\n축하해요~♥\n'
+			'notice': '최훈석님 축하해요~♥\n'
 		}
 	},
 	{
