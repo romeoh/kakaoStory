@@ -365,6 +365,35 @@ var rankList = [
 
 var eventList = [
 	{
+		'idx': '2004',
+		'start': '2013.10.15 18:00',
+		'end': '2013.10.15 21:00',
+		'announce': '오늘 오후 9시! (10월 15일)',
+		'platform': '카스플친',
+		'ing': 'true',
+		'title': '바나나맛 우유 5명에게 드려요.',
+		'product': '바나나맛 우유',
+		'url': 'http://goo.gl/myBdHT',
+		'thum': '../images/e/2004_thum.png',
+		'event': [
+			'깨알유머 다섯번째 이벵',
+			'★ 공유하기+소식받기 ★',
+			'깨유 소식받기 + 공유하면 바나나맛 우유 5명에게 드려요 ♥',
+			'✎ 참여방법: 공유+소식받기하면 끝!! (카톡 아이디 써주세요~^^)',
+			'✎ 발표일: 오늘 오후 9시! (10월 15일)',
+			'✎ 대상: 5명 랜덤 추첨',
+			'소식받으러 가기 http://goo.gl/ElNRl3',
+			'../images/e/2004_detail.png',
+			'소식받으러 가기 http://goo.gl/ElNRl3'
+		],
+		'result': {
+			'announce': 'false',
+			'prize': '',
+			'congraturation': '../images/e/2004_result.png',
+			'notice': '\n축하해요~♥\n'
+		}
+	},
+	{
 		'idx': '2003',
 		'start': '2013.10.15 08:30',
 		'end': '2013.10.15 21:00',
@@ -387,7 +416,7 @@ var eventList = [
 			'소식받으러 가기 http://goo.gl/ElNRl3'
 		],
 		'result': {
-			'announce': 'fals',
+			'announce': 'false',
 			'prize': '',
 			'congraturation': '../images/e/2003_result.png',
 			'notice': '\n축하해요~♥\n'
