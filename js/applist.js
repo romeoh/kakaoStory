@@ -2,7 +2,7 @@ var  appList = ''
 	,totalApp = 144
 
 M('#btnTest').attr('href', 'http://goo.gl/kb813M');
-appList += '<li data-app="145" data-page="halloween" data-new data-fun><a href="http://goo.gl/kb813M">나의 할로윈데이 캐릭터</a> <span class="ico new"></span></li>';
+appList += '<li data-app="145" data-page="halloween" data-hot data-new data-fun><a href="http://goo.gl/kb813M">나의 할로윈데이 캐릭터</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="144" data-page="university" data-new data-fun><a href="http://goo.gl/zru5pG">내가 유학갈 대학교</a> <span class="ico new"></span></li>';
 appList += '<li data-app="143" data-page="fortune" data-new data-fun><a href="http://goo.gl/vza69y">오늘의 운세</a> <span class="ico new"></span></li>';
 appList += '<li data-app="142" data-page="bbum" data-new data-fun><a href="http://goo.gl/UHwPdK">뿜 엔터테인먼트</a> <span class="ico new"></span></li>';
