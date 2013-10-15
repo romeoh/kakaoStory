@@ -54,7 +54,12 @@ database = [
 	{'photo':'halloween18.png', 'char':'큐티 유령'},
 	{'photo':'halloween19.png', 'char':'호박유령'},
 	{'photo':'halloween20.png', 'char':'오렌지스타'},
-	{'photo':'halloween21.png', 'char':'럭셔리 망토'}
+	{'photo':'halloween21.png', 'char':'럭셔리 망토'},
+	{'photo':'halloween22.png', 'char':'빨간마스크'},
+	{'photo':'halloween23.png', 'char':'홍콩할매귀신'},
+	{'photo':'halloween24.png', 'char':'캐리비언 해적'},
+	{'photo':'halloween25.png', 'char':'해적'},
+	{'photo':'halloween26.png', 'char':'호박귀신'}
 ]
 
 
