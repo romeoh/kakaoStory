@@ -388,7 +388,7 @@ var eventList = [
 		],
 		'result': {
 			'announce': 'false',
-			'prize': '',
+			'prize': [''],
 			'congraturation': '../images/e/2004_result.png',
 			'notice': '\n축하해요~♥\n'
 		}
@@ -417,7 +417,7 @@ var eventList = [
 		],
 		'result': {
 			'announce': 'false',
-			'prize': '',
+			'prize': [''],
 			'congraturation': '../images/e/2003_result.png',
 			'notice': '\n축하해요~♥\n'
 		}
@@ -446,7 +446,7 @@ var eventList = [
 		],
 		'result': {
 			'announce': 'true',
-			'prize': 'えrうr운규남',
+			'prize': ['えrうr운규남'],
 			'congraturation': '../images/e/2002_result.png',
 			'notice': 'えrうr운규남님~ \n축하해요~♥\n'
 		}
@@ -475,7 +475,7 @@ var eventList = [
 		],
 		'result': {
 			'announce': 'true',
-			'prize': '미정♡',
+			'prize': ['미정♡'],
 			'congraturation': '../images/e/2001_result.png',
 			'notice': '미정♡님~ 당첨을 축하합니다.\n\n왜 이메일 안 남겨셨데요?ㅎ \n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / Black / Red / Blue 중 갖고싶은 색상을 하나 선택해서 <a href="#">메일</a>로 보내주세용.\n\n다시 한번 축하드려용~^^'
 		}
@@ -504,7 +504,7 @@ var eventList = [
 		],
 		'result': {
 			'announce': 'true',
-			'prize': '글귀수연',
+			'prize': ['글귀수연'],
 			'congraturation': '../images/e/2000_result.png',
 			'notice': '글귀수연님~ 당첨을 축하합니다.\n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / All Black / Black,White 중 갖고싶은 색상을 하나 선택해서 메일로 보내주세용.\n다시 한번 축하드려용~^^'
 		}
