@@ -891,16 +891,18 @@ function initEvent() {
 		//console.log(cuEvent)
 		data.media = 'story'
 		data.title = cuEvent['title']
-		data.post = '[이벤트]\n' + cuEvent['title']
+		data.post = '[깨알이벤트]\n' + cuEvent['title']
 		data.url = cuEvent['url']
-		data.img = cuEvent['thum']
+		data.img = cuEvent['thum'].replace(/../, 'http://romeoh.github.io/kakaoStory/')
 		data.desc = cuEvent['title']
+		sendData(data);
+
 		shareEvent(data)
 	});
 	M('#btnEventTwitter').on('click', function(){
 		var data = {}
 		data.media = 'twitter'
-		data.post = '[이벤트]\n' + cuEvent['title']
+		data.post = '[깨알이벤트]\n' + cuEvent['title']
 		data.msg = cuEvent['title']
 		data.url = cuEvent['url']
 		shareEvent(data)
@@ -908,7 +910,7 @@ function initEvent() {
 	M('#btnEventFacebook').on('click', function(){
 		var data = {}
 		data.media = 'facebook'
-		data.post = '[이벤트]\n' + cuEvent['title']
+		data.post = '[깨알이벤트]\n' + cuEvent['title']
 		data.msg = cuEvent['title']
 		data.url = cuEvent['url']
 		shareEvent(data)
@@ -916,7 +918,7 @@ function initEvent() {
 	M('#btnEventMe2day').on('click', function(){
 		var data = {}
 		data.media = 'me2day'
-		data.post = '[이벤트]\n' + cuEvent['title']
+		data.post = '[깨알이벤트]\n' + cuEvent['title']
 		data.msg = cuEvent['title']
 		data.url = cuEvent['url']
 		shareEvent(data)
@@ -924,7 +926,7 @@ function initEvent() {
 	M('#btnEventKakao').on('click', function(){
 		var data = {}
 		data.media = 'talk'
-		data.post = '[이벤트]\n' + cuEvent['title']
+		data.post = '[깨알이벤트]\n' + cuEvent['title']
 		data.msg = cuEvent['title']
 		data.url = cuEvent['url']
 		sendData(data);
