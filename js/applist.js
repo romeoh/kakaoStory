@@ -155,6 +155,23 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 // B: 리스트
 var rankList = [
 	{
+		'idx': '1012',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': 'SM에서 제일 좋아하는 가수는?',
+		'q': 'SM엔터테인먼트 소속 가수중 누가 제일 좋아요?',
+		'url': 'http://goo.gl/VJOfXp',
+		'list': [
+			{'title': '동방신기'},
+			{'title': '슈퍼주니어'},
+			{'title': '소녀시대'},
+			{'title': '샤이니'},
+			{'title': 'f(x)'},
+			{'title': 'EXO'},
+			{'title': '보아'}
+		]
+	},{
 		'idx': '1011',
 		'type': 'A',
 		'hot': '',
@@ -172,8 +189,7 @@ var rankList = [
 				'title': '형돈'
 			},
 		]
-	},
-	{
+	},{
 		'idx': '1010',
 		'type': 'B',
 		'hot': '',
@@ -187,8 +203,7 @@ var rankList = [
 			{'title': '넥센 히어로즈'},
 			{'title': '두산 베어스'}
 		]
-	},
-	{
+	},{
 		'idx': '1009',
 		'type': 'B',
 		'hot': '',
@@ -201,8 +216,7 @@ var rankList = [
 			{'title': '호랑이高'},
 			{'title': '배신高'}
 		]
-	},
-	{
+	},{
 		'idx': '1008',
 		'type': 'A',
 		'hot': '',
@@ -220,8 +234,7 @@ var rankList = [
 				'title': '롯데월드'
 			},
 		]
-	},
-	{
+	},{
 		'idx': '1007',
 		'type': 'A',
 		'hot': '',
@@ -239,8 +252,7 @@ var rankList = [
 				'title': '브라질'
 			},
 		]
-	},
-	{
+	},{
 		'idx': '1006',
 		'type': 'A',
 		'hot': '',
@@ -258,8 +270,7 @@ var rankList = [
 				'title': '윈 B팀'
 			},
 		]
-	},
-	{
+	},{
 		'idx': '1005',
 		'type': 'A',
 		'hot': 'true',
@@ -277,8 +288,7 @@ var rankList = [
 				'title': '임순영'
 			},
 		]
-	},
-	{
+	},{
 		'idx': '1004',
 		'type': 'B',
 		'hot': '',
@@ -291,8 +301,7 @@ var rankList = [
 			{'title': 'SBS 상속자들'},
 			{'title': 'MBC 메디컬탑팀'}
 		]
-	},
-	{
+	},{
 		'idx': '1003',
 		'type': 'B',
 		'hot': '',
@@ -314,8 +323,7 @@ var rankList = [
 			{'title': '크리스'},
 			{'title': '찬열'}
 		]
-	},
-	{
+	},{
 		'idx': '1002',
 		'type': 'B',
 		'hot': 'true',
@@ -333,8 +341,7 @@ var rankList = [
 			{'title': '길'},
 			{'title': '김태호PD'}
 		]
-	},
-	{
+	},{
 		'idx': '1001',
 		'type': 'B',
 		'hot': '',
@@ -346,8 +353,7 @@ var rankList = [
 			{'title': '좋아요.'},
 			{'title': '실망했어요.'}
 		]
-	},
-	{
+	},{
 		'idx': '1000',
 		'type': 'B',
 		'hot': '',
@@ -394,8 +400,7 @@ var eventList = [
 			'congraturation': '../images/e/2004_result.png',
 			'notice': '모두 모두 축하해요~♥\n'
 		}
-	},
-	{
+	},{
 		'idx': '2003',
 		'start': '2013.10.15 08:30',
 		'end': '2013.10.15 21:00',
@@ -423,8 +428,7 @@ var eventList = [
 			'congraturation': '../images/e/2003_result.png',
 			'notice': '최훈석님 축하해요~♥\n'
 		}
-	},
-	{
+	},{
 		'idx': '2002',
 		'start': '2013.10.09 13:30',
 		'end': '2013.10.11 21:00',
@@ -452,8 +456,7 @@ var eventList = [
 			'congraturation': '../images/e/2002_result.png',
 			'notice': 'えrうr운규남님~ \n축하해요~♥\n'
 		}
-	},
-	{
+	},{
 		'idx': '2001',
 		'start': '2013.10.07 20:00',
 		'end': '2013.10.08 21:00',
@@ -481,8 +484,7 @@ var eventList = [
 			'congraturation': '../images/e/2001_result.png',
 			'notice': '미정♡님~ 당첨을 축하합니다.\n\n왜 이메일 안 남겨셨데요?ㅎ \n\n1. 주소, 이름, 전화번호, 이메일과 함께 \n2. White / Black / Red / Blue 중 갖고싶은 색상을 하나 선택해서 <a href="#">메일</a>로 보내주세용.\n\n다시 한번 축하드려용~^^'
 		}
-	},
-	{
+	},{
 		'idx': '2000',
 		'start': '2013.10.06 16:00',
 		'end': '2013.10.07 14:00',
