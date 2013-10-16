@@ -1,12 +1,13 @@
 var  appList = ''
-	,totalApp = 145
+	,totalApp = 146
 
-M('#btnTest').attr('href', 'http://goo.gl/kb813M');
+M('#btnTest').attr('href', 'http://goo.gl/DuqqNh');
+appList += '<li data-app="147" data-page="reply" data-new data-fun><a href="http://goo.gl/DuqqNh">마법의 댓글</a> <span class="ico new"></span></li>';
 appList += '<li data-app="146" data-page="kissTime" data-new data-fun><a href="http://goo.gl/xSCsJr">키스하는데 걸리는 시간</a> <span class="ico new"></span></li>';
 appList += '<li data-app="145" data-page="halloween" data-hot data-new data-fun><a href="http://goo.gl/kb813M">나의 할로윈데이 캐릭터</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="144" data-page="university" data-new data-fun><a href="http://goo.gl/zru5pG">내가 유학갈 대학교</a> <span class="ico new"></span></li>';
 appList += '<li data-app="143" data-page="fortune" data-new data-fun><a href="http://goo.gl/vza69y">오늘의 운세</a> <span class="ico new"></span></li>';
-appList += '<li data-app="142" data-page="bbum" data-new data-fun><a href="http://goo.gl/UHwPdK">뿜 엔터테인먼트</a> <span class="ico new"></span></li>';
+appList += '<li data-app="142" data-page="bbum" data-hot data-fun><a href="http://goo.gl/UHwPdK">뿜 엔터테인먼트</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="141" data-page="myTwin"  data-fun><a href="http://goo.gl/9B3HHj">나의 애인 닮은 연예인</a></li>';
 appList += '<li data-app="140" data-page="url" data-fun><a href="http://goo.gl/uIDOIF">카카오스토리 주소만들기</a></li>';
 appList += '<li data-app="139" data-page="many" data-hot data-fun><a href="http://goo.gl/6IgL9x">나 때문에 싸우는 사람은 몇명인가?</a> <span class="ico hot"></span></li>';
