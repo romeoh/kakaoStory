@@ -462,7 +462,7 @@ function sendData(_obj) {
 		,media = obj.media || 'story'
 		,id = obj.id || 'gaeyou'
 		,ver = obj.ver || '1.0'
-		,app = obj.app || '깨알유머:'
+		,app = obj.app || '★깨알유머★를 검색하세요!!'
 		,title = obj.title || ''
 		,url = obj.url || ''
 	
