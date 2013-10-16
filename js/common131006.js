@@ -1207,7 +1207,7 @@ function initPoll() {
 						data.title = cuRank['title']
 						data.post = post
 						data.url = cuRank['url']
-						data.img = 'http://romeoh.github.io/kakaoStory/images/thum/rank.png'
+						data.img = 'http://romeoh.github.io/kakaoStory/images/thum/rank1.png'
 						data.desc = y + '년 ' + m + '월 ' + dd + '일 ' + h + '시 현재 투표결과입니다.'
 						sendData(data);
 						return false;
