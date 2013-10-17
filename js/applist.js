@@ -1,12 +1,13 @@
 var  appList = ''
-	,totalApp = 147
+	,totalApp = 148
 
-M('#btnTest').attr('href', 'http://goo.gl/DuqqNh');
-appList += '<li data-app="148" data-page="sense4" data-new data-heart><a href="http://goo.gl/aowKjE">스트레스 자가진단 테스트</a> <span class="ico new"></span></li>';
-appList += '<li data-app="147" data-page="reply" data-hot data-new data-fun><a href="http://goo.gl/DuqqNh">마법의 댓글</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+M('#btnTest').attr('href', 'http://goo.gl/gl4nkd');
+appList += '<li data-app="149" data-page="eng" data-new data-fun><a href="http://goo.gl/gl4nkd">영어이름 만들기</a> <span class="ico new"></span></li>';
+appList += '<li data-app="148" data-page="sense4" data-new data-hot data-heart><a href="http://goo.gl/aowKjE">스트레스 자가진단 테스트</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="147" data-page="reply" data-new data-hot data-fun><a href="http://goo.gl/DuqqNh">마법의 댓글</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="146" data-page="kissTime" data-new data-fun><a href="http://goo.gl/xSCsJr">키스하는데 걸리는 시간</a> <span class="ico new"></span></li>';
 appList += '<li data-app="145" data-page="halloween" data-hot data-new data-fun><a href="http://goo.gl/kb813M">나의 할로윈데이 캐릭터</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="144" data-page="university" data-new data-fun><a href="http://goo.gl/zru5pG">내가 유학갈 대학교</a> <span class="ico new"></span></li>';
+appList += '<li data-app="144" data-page="university" data-fun><a href="http://goo.gl/zru5pG">내가 유학갈 대학교</a></li>';
 appList += '<li data-app="143" data-page="fortune" data-fun><a href="http://goo.gl/vza69y">오늘의 운세</a></li>';
 appList += '<li data-app="142" data-page="bbum" data-hot data-fun><a href="http://goo.gl/UHwPdK">뿜 엔터테인먼트</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="141" data-page="myTwin"  data-fun><a href="http://goo.gl/9B3HHj">나의 애인 닮은 연예인</a></li>';
