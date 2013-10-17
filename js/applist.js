@@ -156,6 +156,23 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 // B: 리스트
 var rankList = [
 	{
+		'idx': '1013',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '무한도전 가요제',
+		'q': '2013 무한도전 가요제 누가 우승할까요?',
+		'url': 'http://goo.gl/9holOK',
+		'list': [
+			{'title': '유재석&유희열의 하우두유둘'},
+			{'title': '박명수&프라이머리의 거머리'},
+			{'title': '정준하&김씨의 더블플레이'},
+			{'title': '정형돈&지드래곤의 형용돈죵'},
+			{'title': '노홍철&장미여관의 장미하관'},
+			{'title': '하하&장기하와얼굴들 세븐티핑거스'},
+			{'title': '길&보아의 갑(GAB)'}
+		]
+	},{
 		'idx': '1012',
 		'type': 'B',
 		'hot': '',
