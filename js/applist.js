@@ -160,7 +160,7 @@ var rankList = [
 		'type': 'B',
 		'hot': '',
 		'category': '',
-		'title': '무한도전 가요제',
+		'title': '2013 무한도전 가요제 우승자는?',
 		'q': '2013 무한도전 가요제 누가 우승할까요?',
 		'url': 'http://goo.gl/9holOK',
 		'list': [
