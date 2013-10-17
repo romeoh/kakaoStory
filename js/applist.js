@@ -155,9 +155,30 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 
 // A: 사진
 // B: 리스트
-//http://romeoh.github.io/kakaoStory/r/rank.html#1013
+//http://romeoh.github.io/kakaoStory/r/rank.html#1015
 var rankList = [
-	/*{
+	{
+		'idx': '1015',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '가장 좋아하는 여자 아이돌',
+		'q': '가장 좋아하는 여자 아이돌은 누구에요?',
+		'url': 'http://goo.gl/iYtMha',
+		'list': [
+			{'title': '소녀시대'},
+			{'title': '에이핑크'},
+			{'title': '걸스데이'},
+			{'title': '애프터스쿨'},
+			{'title': '헬로비너스'},
+			{'title': '티아라'},
+			{'title': '에프엑스'},
+			{'title': '씨스타'},
+			{'title': '포미닛'},
+			{'title': '2NE1'},
+			{'title': '크레용팝'}
+		]
+	},{
 		'idx': '1014',
 		'type': 'B',
 		'hot': '',
@@ -174,7 +195,7 @@ var rankList = [
 			{'title': '아무한테나 애교 부리는사람'},
 			{'title': '무식한 사람'}
 		]
-	},*/{
+	},{
 		'idx': '1013',
 		'type': 'B',
 		'hot': '',
