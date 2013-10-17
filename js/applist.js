@@ -156,7 +156,7 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 // B: 리스트
 //http://romeoh.github.io/kakaoStory/r/rank.html#1013
 var rankList = [
-	{
+	/*{
 		'idx': '1014',
 		'type': 'B',
 		'hot': '',
@@ -173,7 +173,7 @@ var rankList = [
 			{'title': '아무한테나 애교 부리는사람'},
 			{'title': '무식한 사람'}
 		]
-	},{
+	},*/{
 		'idx': '1013',
 		'type': 'B',
 		'hot': '',
