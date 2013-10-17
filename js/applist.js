@@ -154,8 +154,26 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 
 // A: 사진
 // B: 리스트
+//http://romeoh.github.io/kakaoStory/r/rank.html#1013
 var rankList = [
 	{
+		'idx': '1014',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '비호감 이성 순위는?',
+		'q': '완전 싫은 비호감 이성 순위는?',
+		'url': 'http://goo.gl/gfzdE9',
+		'list': [
+			{'title': '자기자랑만 심한사람'},
+			{'title': '아무 작업멘트 날리는 이성'},
+			{'title': '욕을 달고 다니는 스타일'},
+			{'title': '자뻑 심한 공주병 스타일'},
+			{'title': '패션 테러리스트'},
+			{'title': '아무한테나 애교 부리는사람'},
+			{'title': '무식한 사람'}
+		]
+	},{
 		'idx': '1013',
 		'type': 'B',
 		'hot': '',
