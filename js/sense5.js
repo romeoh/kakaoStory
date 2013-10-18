@@ -67,9 +67,9 @@ function choice() {
 function choiceResult() {
 	if (score <= 6) {
 		resultTxt = '심한 치매상태인 것으로 생각됩니다. 속히 전문가에게 치료를 받으십시오.'
-	} else if (score > 7 && score <= 11) {
+	} else if (score > 6 && score <= 11) {
 		resultTxt = '치매일 가능성이 높습니다. 전문가에게 정밀검사를 받으십시오.'
-	} else if (score > 12) {
+	} else if (score > 11) {
 		resultTxt = '정상적인 상태입니다.'
 	}
 
