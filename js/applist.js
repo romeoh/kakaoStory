@@ -426,9 +426,37 @@ var rankList = [
 
 
 
-
+// http://romeoh.github.io/kakaoStory/e/event.html#2005
 var eventList = [
 	{
+		'idx': '2005',
+		'start': '2013.10.18 18:00',
+		'end': '2013.10.19 21:00',
+		'announce': '내일 오후 9시! (10월 15일)',
+		'platform': '카스플친',
+		'ing': 'true',
+		'title': '라바인형 레드가 무료',
+		'product': '라바인형',
+		'url': 'http://goo.gl/v92sPF',
+		'thum': '../images/e/2005_thum.png',
+		'event': [
+			'깨알유머 이벤트',
+			'★ 공유하기+소식받기 ★',
+			'깨유 소식받기 + 공유하면 라바인형 레드를 드려요 ♥',
+			'✎ 참여방법: 공유+소식받기하면 끝!! (카톡 아이디 써주세요~^^)',
+			'✎ 발표일: 내일 오후 9시! (10월 19일)',
+			'✎ 대상: 1명 랜덤 추첨',
+			'소식받으러 가기 http://goo.gl/ElNRl3',
+			'../images/e/2005_detail.png',
+			'소식받으러 가기 http://goo.gl/ElNRl3'
+		],
+		'result': {
+			'announce': 'false',
+			'prize': [''],
+			'congraturation': '../images/e/2005_result.png',
+			'notice': '모두 모두 축하해요~♥\n'
+		}
+	},{
 		'idx': '2004',
 		'start': '2013.10.15 18:00',
 		'end': '2013.10.15 21:00',
