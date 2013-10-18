@@ -158,19 +158,17 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 //http://romeoh.github.io/kakaoStory/r/rank.html#1015
 var rankList = [
 	{
-		'idx': '1015',
+		'idx': '1016',
 		'type': 'B',
 		'hot': '',
 		'category': '',
 		'title': '가장 좋아하는 여자 아이돌',
 		'q': '가장 좋아하는 여자 아이돌은 누구에요?',
-		'url': 'http://goo.gl/iYtMha',
+		'url': 'http://goo.gl/L27vJd',
 		'list': [
 			{'title': '소녀시대'},
 			{'title': '에이핑크'},
 			{'title': '걸스데이'},
-			{'title': '애프터스쿨'},
-			{'title': '헬로비너스'},
 			{'title': '티아라'},
 			{'title': '에프엑스'},
 			{'title': '씨스타'},
