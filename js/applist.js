@@ -435,7 +435,7 @@ var eventList = [
 		'end': '2013.10.19 21:00',
 		'announce': '내일 오후 9시! (10월 15일)',
 		'platform': '카스플친',
-		'ing': 'true',
+		'ing': 'false',
 		'title': '라바인형 레드가 무료',
 		'product': '라바인형',
 		'url': 'http://goo.gl/v92sPF',
@@ -452,10 +452,10 @@ var eventList = [
 			'소식받으러 가기 http://goo.gl/ElNRl3'
 		],
 		'result': {
-			'announce': 'false',
-			'prize': [''],
+			'announce': 'true',
+			'prize': ['스티치'],
 			'congraturation': '../images/e/2005_result.png',
-			'notice': '모두 모두 축하해요~♥\n'
+			'notice': '스티치님, 축하해요~♥\n'
 		}
 	},{
 		'idx': '2004',
