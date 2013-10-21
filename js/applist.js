@@ -156,9 +156,27 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 
 // A: 사진
 // B: 리스트
-//http://romeoh.github.io/kakaoStory/r/rank.html#1015
+//http://romeoh.github.io/kakaoStory/r/rank.html#1017
 var rankList = [
 	{
+		'idx': '1017',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '가장 YG가수는?',
+		'q': '가장 좋아하는 YG소속 가수는 누구에요?',
+		'url': 'http://goo.gl/TbGrHu',
+		'list': [
+			{'title': '빅뱅'},
+			{'title': '2NE1'},
+			{'title': '싸이'},
+			{'title': '이하이'},
+			{'title': '세븐'},
+			{'title': '거미'},
+			{'title': '에픽하이'},
+			{'title': '강승윤'}
+		]
+	},{
 		'idx': '1016',
 		'type': 'B',
 		'hot': '',
