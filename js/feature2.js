@@ -51,7 +51,7 @@ function action(_data) {
 	data.post = post;
 	
 	data.desc = '오직 얼굴만으로 승부를 건다.';
-	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/feature2.png';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/feature3.png';
 
 	sendData(data);
 }
