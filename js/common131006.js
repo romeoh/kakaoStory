@@ -504,7 +504,7 @@ function sendData(_obj) {
 				'type': 'article'
 			}
 		//post = post + '\n\n' + url + '\n';//\n\n\n\n\n\n' + '★ 깨유 플친되고 선물받자 ★\nhttp://goo.gl/ElNRl3';
-		post = post + '\n\n' + url + '\n\n\n\n\n\n' + '★ 깨유 플친되고 선물받자 ★\nhttp://goo.gl/ElNRl3';
+		post = post + '\n\n' + url + '\n\n\n\n\n\n' + '★ 흔남 흔녀들의 필수플친! 깨유! ★\nhttp://goo.gl/ElNRl3';
 		
 		kakao.link("story").send({   
 	        appid : id,
