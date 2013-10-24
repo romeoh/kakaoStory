@@ -158,14 +158,32 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 
 // A: 사진
 // B: 리스트
-//http://romeoh.github.io/kakaoStory/r/rank.html#1017
+//http://romeoh.github.io/kakaoStory/r/rank.html#1018
 var rankList = [
 	{
+		'idx': '1018',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '좋아하는 남자 아이돌은 누구?',
+		'q': '가장 좋아하는 남자 아이돌은 누구에요?',
+		'url': 'http://goo.gl/nBB7QR',
+		'list': [
+			{'title': 'EXO'},
+			{'title': '샤이니'},
+			{'title': '인피니트'},
+			{'title': '비스트'},
+			{'title': 'B1A4'},
+			{'title': 'BAP'},
+			{'title': '틴탑'},
+			{'title': '슈퍼주니어'}
+		]
+	},{
 		'idx': '1017',
 		'type': 'B',
 		'hot': '',
 		'category': '',
-		'title': '가장 YG가수는?',
+		'title': '가장 좋아하는 YG가수는?',
 		'q': '가장 좋아하는 YG소속 가수는 누구에요?',
 		'url': 'http://goo.gl/TbGrHu',
 		'list': [
