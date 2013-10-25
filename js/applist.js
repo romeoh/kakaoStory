@@ -158,9 +158,27 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 
 // A: 사진
 // B: 리스트
-//http://romeoh.github.io/kakaoStory/r/rank.html#1018
+//http://romeoh.github.io/kakaoStory/r/rank.html#1019
 var rankList = [
 	{
+		'idx': '1019',
+		'type': 'A',
+		'hot': '',
+		'category': '',
+		'title': '롯데리아 VS 맥도날드',
+		'q': '패스트푸드, 롯데리아와 맥도날드 어디가 더 좋아요?',
+		'url': 'http://goo.gl/I7vH9O',
+		'list': [
+			{
+				'photo': '../images/rank/fast1.png',
+				'title': '롯데리아'
+			},
+			{
+				'photo': '../images/rank/fast2.png',
+				'title': '맥도날드'
+			},
+		]
+	},{
 		'idx': '1018',
 		'type': 'B',
 		'hot': '',
