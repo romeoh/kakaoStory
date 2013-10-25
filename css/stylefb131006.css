@@ -6,7 +6,7 @@ body, p, h1, h2, h3, h4, h5, ul, li, dl, dt, dd, header {margin:0; padding:0; fo
 body {background:#eceef0; margin:0}
 a {text-decoration:none; cursor:pointer;}
 li {list-style:none;}
-header {background:url(../imgApp/bg_header.png); background-size:18px 44px; height:44px; position:relative;}
+header|article>header {background:url(../imgApp/bg_header.png); background-size:18px 44px; height:44px; position:relative;}
 header .gnbMain {background-position:0px 0px; display:block; position:absolute; top:5px; left:5px; width:70px; height:32px;}
 header .gnbMacao {background-position:129px 0px; display:block; position:absolute; top:5px; right:5px; width:107px; height:32px; display:none}
 header h1 {text-align:center; padding-top:7px}
