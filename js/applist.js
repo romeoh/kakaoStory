@@ -1,12 +1,13 @@
 var  appList = ''
-	,totalApp = 151
+	,totalApp = 152
 
-M('#btnTest').attr('href', 'http://goo.gl/zx4c7m');
-appList += '<li data-app="152" data-page="feature2" data-new data-heart><a href="http://goo.gl/zx4c7m">친구와 외모대결</a> <span class="ico new"></span></li>';
+M('#btnTest').attr('href', 'http://goo.gl/IRRDYp');
+appList += '<li data-app="153" data-page="young" data-new data-heart><a href="http://goo.gl/IRRDYp">나의 연상연하 나이차이</a> <span class="ico new"></span></li>';
+appList += '<li data-app="152" data-page="feature2" data-new data-hot data-heart><a href="http://goo.gl/zx4c7m">친구와 외모대결</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="151" data-page="weight" data-new data-hot data-heart><a href="http://goo.gl/ccTXD2">나의 미래 몸무게</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="150" data-page="sense5" data-new data-heart><a href="http://goo.gl/1MdU4J">치매 진단 테스트</a> <span class="ico new"></span></li>';
 appList += '<li data-app="149" data-page="eng" data-new data-fun><a href="http://goo.gl/gl4nkd">영어이름 만들기</a> <span class="ico new"></span></li>';
-appList += '<li data-app="148" data-page="sense4" data-new data-hot data-heart><a href="http://goo.gl/aowKjE">스트레스 자가진단 테스트</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="148" data-page="sense4" data-hot data-heart><a href="http://goo.gl/aowKjE">스트레스 자가진단 테스트</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="147" data-page="reply" data-hot data-fun><a href="http://goo.gl/DuqqNh">마법의 댓글</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="146" data-page="kissTime" data-fun><a href="http://goo.gl/xSCsJr">키스하는데 걸리는 시간</a></li>';
 appList += '<li data-app="145" data-page="halloween" data-hot data-fun><a href="http://goo.gl/kb813M">나의 할로윈데이 캐릭터</a> <span class="ico hot"></span></li>';
