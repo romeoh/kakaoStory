@@ -66,7 +66,7 @@ function choice() {
 
 function choiceResult() {
 	if (score <= 5) {
-		resultTxt = '스트레스 상황애 적절히 대처하고 있습니다.'
+		resultTxt = '스트레스 상황에 적절히 대처하고 있습니다.'
 	} else if (score > 5 && score <= 10) {
 		resultTxt = '오랫동안 스트레스로 인해 어려움을 겪었던 것 같습니다. \n힘들다고 생각하면 전문가에게 도움을 요청할 수 있습니다.'
 	} else if (score > 10) {
