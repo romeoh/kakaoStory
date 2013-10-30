@@ -1,7 +1,7 @@
 var  hash = window.location.hash.replace('#', '')
 	,frame = 0
 
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('load', function(){
 	if (hash === '') {
 		// 공격전용
 		return false;
