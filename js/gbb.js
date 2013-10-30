@@ -113,7 +113,7 @@ function action(_data) {
 
 	post += '[' + data.title + ']\n\n';
 	post += '나랑 가위!바위!보! 한번해~\n';
-	post += '가위! 바위! 보!!!\n\n';
+	post += '안내면 술래~ 가위! 바위! 보!!!\n\n';
 	post += '① 가위: http://goo.gl/LZCE0L\n'
 	post += '② 바위: http://goo.gl/3Abysh\n'
 	post += '③ 보: http://goo.gl/XW5jSR\n\n'
