@@ -408,7 +408,7 @@ var rankList = [
 	},{
 		'idx': '1005',
 		'type': 'A',
-		'hot': 'true',
+		'hot': '',
 		'category': '',
 		'title': '슈퍼스타 K5 TOP8',
 		'q': '슈퍼스타K5, TOP8에 들어갈 마지막 팀은 누구일까요?',
@@ -461,7 +461,7 @@ var rankList = [
 	},{
 		'idx': '1002',
 		'type': 'B',
-		'hot': 'true',
+		'hot': '',
 		'category': '',
 		'title': '가장 좋아하는 무한도전 멤버',
 		'q': '무한도전에서 제일 좋아하는 멤버는?',
