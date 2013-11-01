@@ -162,9 +162,27 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 
 // A: 사진
 // B: 리스트
-//http://romeoh.github.io/kakaoStory/r/rank.html#1019
+//http://romeoh.github.io/kakaoStory/r/rank.html#1020
 var rankList = [
 	{
+		'idx': '1020',
+		'type': 'A',
+		'hot': '',
+		'category': '',
+		'title': '두산 베어스 VS 삼성 라이온즈',
+		'q': '한국시리즈 우승팀은?',
+		'url': 'http://goo.gl/WTkbGK',
+		'list': [
+			{
+				'photo': '../images/rank/baseball1.png',
+				'title': '두산 베어스'
+			},
+			{
+				'photo': '../images/rank/baseball2.png',
+				'title': '삼성 라이온즈'
+			},
+		]
+	},{
 		'idx': '1019',
 		'type': 'A',
 		'hot': '',
