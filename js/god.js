@@ -27,7 +27,7 @@ function action(_data) {
 	post += database[idx]['desc'] + ' "' + database[idx]['god'] + '"입니다.';
 	data.post = post;
 	
-	data.desc = database[idx]['desc'] + ' ' + database[idx]['god'];
+	data.desc = database[idx]['desc'] + ' "' + database[idx]['god'] + '"';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/god.png';
 
 	sendData(data);
@@ -68,7 +68,7 @@ database = [
 	{'god':'복수의 신(神)', 'desc':'복수를 지배하는'},
 	{'god':'거래의 신(神)', 'desc':'거래를 지배하는'},
 	{'god':'아부의 신(神)', 'desc':'아부를 지배하는'},
-	{'god':'모범의 신(神)', 'desc':'신(神)중에 모범생인'},
+	{'god':'모범의 신(神)', 'desc':'신(神)중에 가장 모범생인'},
 	{'god':'게임의 신(神)', 'desc':'게임을 지배하는'},
 	{'god':'카리스마의 신(神)', 'desc':'눈빛으로 한 번에 애들 제압해버리는'},
 	{'god':'4차원의 신(神)', 'desc':'4차원인 사람들을 지배하는'},
