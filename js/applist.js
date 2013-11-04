@@ -166,9 +166,26 @@ appList += '<li data-app="1"   data-page="enter" data-hot data-fun><a href="http
 
 // A: 사진
 // B: 리스트
-//http://romeoh.github.io/kakaoStory/r/rank.html#1020
+//http://romeoh.github.io/kakaoStory/r/rank.html#1021
 var rankList = [
 	{
+		'idx': '1021',
+		'type': 'B',
+		'hot': '',
+		'category': '',
+		'title': '가장 좋아하는 모바일게임은?',
+		'q': '가장 좋아하는 모바일 게임은 뭔가요?',
+		'url': 'http://goo.gl/PmYY6f',
+		'list': [
+			{'title': '몬스터 길들이기'},
+			{'title': '쿠키런'},
+			{'title': '모두의 마블'},
+			{'title': '캔디크러쉬사가'},
+			{'title': '윈드리너'},
+			{'title': '수호지'},
+			{'title': '우파루마운틴'}
+		]
+	},{
 		'idx': '1020',
 		'type': 'A',
 		'hot': '',
