@@ -27,7 +27,7 @@ function action(_data) {
 		dc = '그냥 지금 학교에서 열심히 하세요.'
 	} else {
 		idx = process(database);
-		str += userName + '님은 ' + database[idx]['le'] + '에 속합니다.\n'
+		str += userName + '님은 ' + database[idx]['le'] + '에 속합니다.\n\n'
 		str += database[idx]['dec']
 		dc = database[idx]['d']
 	}
