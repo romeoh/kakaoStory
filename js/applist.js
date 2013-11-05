@@ -1,12 +1,13 @@
 var  appList = ''
-	,totalApp = 159
+	,totalApp = 160
 
-M('#btnTest').attr('href', 'http://goo.gl/iPUfA4');
-appList += '<li data-app="160" data-page="jekuk" data-new data-fun><a href="http://goo.gl/iPUfA4">나는 제국고에 전학갈수 있나?</a> <span class="ico new"></span></li>';
+M('#btnTest').attr('href', 'http://goo.gl/U5nKXJ');
+appList += '<li data-app="161" data-page="skil" data-new data-love><a href="http://goo.gl/U5nKXJ">연애의 기술</a> <span class="ico new"></span></li>';
+appList += '<li data-app="160" data-page="jekuk" data-new data-hot data-fun><a href="http://goo.gl/iPUfA4">나는 제국고에 전학갈수 있나?</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="159" data-page="god" data-new data-fun><a href="http://goo.gl/WwlvAa">나는 무슨 신(神)일까?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="158" data-page="truthgame" data-new data-hot data-love><a href="http://goo.gl/n0bpBh">진실게임</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="157" data-page="first" data-new data-hot data-love><a href="http://goo.gl/9cbUAp">애인이 생기면 제일 먼저하는 일</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="156" data-page="friend" data-new data-hot data-heart><a href="http://goo.gl/BF9v8t">내주위에 진정한 친구는 몇명있나?</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="156" data-page="friend" data-hot data-heart><a href="http://goo.gl/BF9v8t">내주위에 진정한 친구는 몇명있나?</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="155" data-page="paepaero" data-hot data-love><a href="http://goo.gl/sgYsfF">빼빼로 몇개를 받을까?</a> </span><span class="ico hot"></span></li>';
 appList += '<li data-app="154" data-page="gbb" data-game><a href="http://goo.gl/BHqxmx">가위!바위!보!</a></li>';
 appList += '<li data-app="153" data-page="young" data-love><a href="http://goo.gl/IRRDYp">나의 연상연하 나이차이</a></li>';
