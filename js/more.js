@@ -22,7 +22,7 @@ function action(_data) {
 
 	m = process(0, 4)
 	if (m == 0) {
-		img = 'more1.png';
+		img = 'more3.png';
 		txt = '"축"당첨 비타500 한병더!!'
 		de = '앗싸 한병 더'
 	} else {
