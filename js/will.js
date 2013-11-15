@@ -34,20 +34,20 @@ function action(_data) {
 
 
 database = [
-	{'photo':'imo1.png', 'will':'귀엽게'},
-	{'photo':'imo1.png', 'will':'쿨하게'},
-	{'photo':'imo2.png', 'will':'밝게'},
-	{'photo':'imo2.png', 'will':'착하게'},
-	{'photo':'imo3.png', 'will':'훈훈하게'},
-	{'photo':'imo3.png', 'will':'야하게'},
-	{'photo':'imo4.png', 'will':'수줍게'},
-	{'photo':'imo4.png', 'will':'바보처럼'},
-	{'photo':'imo5.png', 'will':'질투 많게'},
-	{'photo':'imo5.png', 'will':'잘나가게'},
-	{'photo':'imo1.png', 'will':'잘 울게'},
-	{'photo':'imo2.png', 'will':'활발하게'},
-	{'photo':'imo3.png', 'will':'지각 잘하게'},
-	{'photo':'imo4.png', 'will':'좌절 잘하게'}
+	{'photo':'imot1.png', 'will':'귀엽게'},
+	{'photo':'imot1.png', 'will':'쿨하게'},
+	{'photo':'imot2.png', 'will':'밝게'},
+	{'photo':'imot2.png', 'will':'착하게'},
+	{'photo':'imot3.png', 'will':'훈훈하게'},
+	{'photo':'imot3.png', 'will':'야하게'},
+	{'photo':'imot4.png', 'will':'수줍게'},
+	{'photo':'imot4.png', 'will':'바보처럼'},
+	{'photo':'imot5.png', 'will':'질투 많게'},
+	{'photo':'imot5.png', 'will':'잘나가게'},
+	{'photo':'imot1.png', 'will':'잘 울게'},
+	{'photo':'imot2.png', 'will':'활발하게'},
+	{'photo':'imot3.png', 'will':'지각 잘하게'},
+	{'photo':'imot4.png', 'will':'좌절 잘하게'}
 ]
 
 
