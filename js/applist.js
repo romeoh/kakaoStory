@@ -1,12 +1,13 @@
 var  appList = ''
-	,totalApp = 162
+	,totalApp = 163
 
-M('#btnTest').attr('href', 'http://goo.gl/CRtZwE');
+M('#btnTest').attr('href', 'http://goo.gl/JSLe1F');
+appList += '<li data-app="164" data-page="will" data-new data-me><a href="http://goo.gl/JSLe1F">나는 앞으로 어떻게 변할까?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="163" data-page="more" data-new data-love><a href="http://goo.gl/CRtZwE">비타500 한병 더</a> <span class="ico new"></span></li>';
 appList += '<li data-app="162" data-page="goback" data-new data-love><a href="http://goo.gl/dOrlSz">나의 고백의 성공확률</a> <span class="ico new"></span></li>';
 appList += '<li data-app="161" data-page="skil" data-new data-love><a href="http://goo.gl/U5nKXJ">연애의 기술</a> <span class="ico new"></span></li>';
 appList += '<li data-app="160" data-page="jekuk" data-new data-hot data-fun><a href="http://goo.gl/iPUfA4">나는 제국고에 전학갈수 있나?</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="159" data-page="god" data-new data-hot data-fun><a href="http://goo.gl/WwlvAa">나는 무슨 신(神)일까?</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="159" data-page="god" data-hot data-fun><a href="http://goo.gl/WwlvAa">나는 무슨 신(神)일까?</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="158" data-page="truthgame" data-love><a href="http://goo.gl/n0bpBh">진실게임</a></li>';
 appList += '<li data-app="157" data-page="first" data-hot data-love><a href="http://goo.gl/9cbUAp">애인이 생기면 제일 먼저하는 일</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="156" data-page="friend" data-hot data-heart><a href="http://goo.gl/BF9v8t">내주위에 진정한 친구는 몇명있나?</a> <span class="ico hot"></span></li>';

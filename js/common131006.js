@@ -510,7 +510,7 @@ function sendData(_obj, _opt) {
 		} else {
 			post = post + '\n\n' + url;
 		}
-		post = post + '\n\n\n\n\n\n' + '★ 흔남 흔녀들의 필수플친! 깨유! ★\nhttp://goo.gl/ElNRl3';
+		//post = post + '\n\n\n\n\n\n' + '★ 흔남 흔녀들의 필수플친! 깨유! ★\nhttp://goo.gl/ElNRl3';
 		
 		kakao.link("story").send({   
 	        appid : id,
