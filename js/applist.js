@@ -2,6 +2,7 @@ var  appList = ''
 	,totalApp = 166
 
 M('#btnTest').attr('href', 'http://goo.gl/6NeUlP');
+appList += '<li><a href="http://gaeyou.com/f/">카톡/카스 친구를 만들어 보세요.</a> <span class="ico command"></span></li>';
 appList += '<li data-app="167" data-page="sense6" data-new data-heart><a href="http://goo.gl/6NeUlP">사이코패스 진단 테스트</a> <span class="ico new"></span></li>';
 appList += '<li data-app="166" data-page="idol" data-new data-fun><a href="http://goo.gl/1NnHVG">아이돌의 새멤버</a> <span class="ico new"></span></li>';
 appList += '<li data-app="165" data-page="snow" data-new data-hot data-love><a href="http://goo.gl/jtH4H4">첫눈 오는날 나는 뭘하고 있을까?</a> <span class="ico new"></span><span class="ico hot"></span></li>';
