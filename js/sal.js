@@ -28,11 +28,11 @@ function action(_data) {
 	dx6 = process(database);
 	dx7 = process(database);
 	
-	post += '[' + data.title + ']\n\n';
-	post += userName + '님은 살풀이입니다.\n';
+	post += '[' + data.title + ']\n';
+	post += userName + '님은 살풀이입니다.\n\n';
 	
 	post += '♚ 재살: ' + database[dx1] + '\n';
-	post += '  -격렬한 싸움이나 사고에 휩슬림\n\n';
+	post += '  -격렬한 싸움이나 사고에 휘말림\n\n';
 	
 	post += '♛ 월살: ' + database[dx2] + '\n';
 	post += '  -장애나 병액 등으로 불운이 생김\n\n';
@@ -64,7 +64,6 @@ database = [
 	'☆☆☆☆☆ (전혀없음)',
 	'★☆☆☆☆ (거의없음)',
 	'★★☆☆☆ (별로없음)',
-	'★★☆☆☆ (없음)',
 	'★★★☆☆ (적당히 있음)',
 	'★★★★☆ (많이있음)',
 	'★★★★★ (매우많음)'
