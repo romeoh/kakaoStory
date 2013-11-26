@@ -320,7 +320,12 @@ nav .notice a {color:#28272c;}
 .result_box .resultTxt {text-align:center; padding:10px}
 
 
-
+/* 탭메뉴 */
+.sc_tb {position: relative;overflow: hidden;padding: 3px 8px 4px;border-top: 1px solid #e4e3e3}
+.sc_tb a.on {border: 1px solid #808292;color: #191e3c;background: #dee1e8;box-shadow: inset 2px 2px 6px #97a0b3;}
+.sc_tb a {display: block;float: left;width: 50%;height: 32px;border: 1px solid #949cac;border-right: 0;border-radius: 4px 0 0 4px;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;color: #424652;letter-spacing: -1px;font-weight: bold;font-size: 14px;text-shadow: 0 1px rgba(255,255,255,0.05);line-height: 2.28em;background: -webkit-gradient(linear,0 0,0 100%,from(#fefefe),to(#e9ebed));}
+.sc_tb a.on + a {border-left: 0;}
+.sc_tb a + a {border-radius: 0 4px 4px 0;border-right: 1px solid #949cac;}
 
 
 
