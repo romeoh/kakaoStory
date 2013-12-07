@@ -8,7 +8,7 @@ var  data
 	,cuRound
 	,cuStage
 	,winner = {}
-
+	,semiWinner = {}
 
 
 window.addEventListener("DOMContentLoaded", initPage, false);
@@ -31,10 +31,6 @@ function init() {
 
 
 function initStart() {
-	M('#userName').on('keyup', function(evt, mp){
-		//M('h1').text('연예인 이상형 '+mp.val()+'컵')
-	})
-
 	M('#btnStart').click(function(){
 		data = dataMale;
 		insert32(data, 32)
@@ -110,6 +106,13 @@ function selPic(evt, mp){
 		//console.log('winner', data[mp.data('idx')]['name'])
 		winner.photo = data[mp.data('idx')]['photo']
 		winner.names = data[mp.data('idx')]['name']
+		winner.idx = mp.data('idx')
+
+		if (winner.idx == arr2[0]) {
+			semiWinner.name = data[arr2[1]]['name']
+		} else {
+			semiWinner.name = data[arr2[0]]['name']
+		}
 	}
 }
 
@@ -262,9 +265,9 @@ function action(_data) {
 	semi = dataMale[arr2[1]]['name']
 
 	post += '[' + data.title + ']\n\n';
-	post += '2014 FIFA 브라질 월드컵 최종 우승팀 \n';
+	post += '2014 FIFA 브라질 월드컵 결승전\n\n';
 	post += '최종 우승국은 ' + winner.names + '입니다.\n';
-	post += '준우승국: ' + semi;
+	post += '준우승국: ' + semiWinner['name'];
 	data.post = post;
 	
 	data.desc = '최종 우승국: ' + winner.names;
