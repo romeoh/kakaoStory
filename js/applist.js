@@ -1,13 +1,14 @@
 var  appList = ''
-	,totalApp = 169
+	,totalApp = 170
 
-M('#btnTest').attr('href', 'http://goo.gl/qFVp55');
+M('#btnTest').attr('href', 'http://goo.gl/428Vox');
 //appList += '<li><a href="http://gaeyou.com/f/">카톡/카스 친구를 만들어 보세요.</a> <span class="ico command"></span></li>';
+appList += '<li data-app="171" data-page="worldcup_brazil" data-new data-game><a href="http://goo.gl/428Vox">2014 FIFA 브라질 월드컵</a> <span class="ico new"></span></li>';
 appList += '<li data-app="170" data-page="before" data-new data-fun><a href="http://goo.gl/qFVp55">나의 전생 알아보기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="169" data-page="crime2" data-new data-hot data-fun><a href="http://goo.gl/7g0kn1">예쁜게 죄라면</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="168" data-page="sal" data-new data-hot data-fun><a href="http://goo.gl/0EkXpa">살풀이</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="167" data-page="sense6" data-new data-heart><a href="http://goo.gl/6NeUlP">사이코패스 진단 테스트</a> <span class="ico new"></span></li>';
-appList += '<li data-app="166" data-page="idol" data-new data-fun><a href="http://goo.gl/1NnHVG">아이돌의 새멤버</a> <span class="ico new"></span></li>';
+appList += '<li data-app="166" data-page="idol" data-fun><a href="http://goo.gl/1NnHVG">아이돌의 새멤버</a></li>';
 appList += '<li data-app="165" data-page="snow" data-hot data-love><a href="http://goo.gl/jtH4H4">첫눈 오는날 나는 뭘하고 있을까?</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="164" data-page="will" data-hot data-me><a href="http://goo.gl/JSLe1F">나는 앞으로 어떻게 변할까?</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="163" data-page="more" data-love><a href="http://goo.gl/CRtZwE">비타500 한병 더</a></li>';
