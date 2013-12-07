@@ -265,7 +265,7 @@ function action(_data) {
 	semi = dataMale[arr2[1]]['name']
 
 	post += '[' + data.title + ']\n\n';
-	post += '2014 FIFA 브라질 월드컵 결승전\n\n';
+	//post += '2014 FIFA 브라질 월드컵 결승전\n\n';
 	post += '최종 우승국은 ' + winner.names + '입니다.\n';
 	post += '준우승국: ' + semiWinner['name'];
 	data.post = post;
