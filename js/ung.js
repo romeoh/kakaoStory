@@ -29,7 +29,7 @@ function action(_data) {
 	post += userName + '님이 탄생한 ' + bornYear + '년에는\n\n';
 	post += '⌚ ' + db[0] + '\n\n';
 	post += '⌚ ' + db[1] + '\n\n';
-	post += '⌚ ' + db[2] + '\n\n';
+	post += '⌚ ' + db[2];
 	data.post = post;
 	
 	data.desc = '촌놈들의 전성시대';
