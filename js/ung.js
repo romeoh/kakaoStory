@@ -27,12 +27,12 @@ function action(_data) {
 
 	post += '[' + data.title + ']\n\n';
 	post += userName + '님이 탄생한 ' + bornYear + '년에는\n\n';
-	post += '⌚ ' + db[0] + '\n';
-	post += '⌚ ' + db[1] + '\n';
-	post += '⌚ ' + db[2] + '\n';
+	post += '⌚ ' + db[0] + '\n\n';
+	post += '⌚ ' + db[1] + '\n\n';
+	post += '⌚ ' + db[2] + '\n\n';
 	data.post = post;
 	
-	data.desc = '';
+	data.desc = '촌놈들의 전성시대';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/ung.png';
 
 	sendData(data);
