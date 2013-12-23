@@ -20,10 +20,16 @@ function action(_data) {
 		return false;
 	}
 
-	idx = process(database)
+	idx1 = process(database)
+	idx2 = process(database)
+	if (idx1 == idx2) {
+		idx2 = process(database)
+	}
 	
 	post += '[' + data.title + ']\n\n';
-	post += '오늘, ' + userName + '님의 기분을 업 시켜줄 플친은 "' + database[idx] + '"입니다.\n';
+	post += '오늘, ' + userName + '님을 \n';
+	post += '빵터지게 해줄 플친은 "' + database[idx1] + '"입니다.\n';
+	post += '폭풍 감동 시켜줄 플친은 "' + database[idx2] + '"입니다.';
 	data.post = post;
 	
 	data.desc = '자~ 이제 나를 웃겨보시오~\n';
