@@ -1,13 +1,14 @@
 var  appList = ''
-	,totalApp = 175
+	,totalApp = 176
 
-M('#btnTest').attr('href', 'http://goo.gl/JioSoE');
+M('#btnTest').attr('href', 'http://goo.gl/5XpBg7');
 //appList += '<li><a href="http://gaeyou.com/f/">카톡/카스 친구를 만들어 보세요.</a> <span class="ico command"></span></li>';
+appList += '<li data-app="177" data-page="chinso" data-new data-fun><a href="http://goo.gl/5XpBg7">쓸친소</a> <span class="ico new"></span></li>';
 appList += '<li data-app="176" data-page="plchin" data-new data-fun><a href="http://goo.gl/UaseUP">나의 플친</a> <span class="ico new"></span></li>';
 appList += '<li data-app="175" data-page="ung" data-new data-fun><a href="http://goo.gl/JioSoE">응답하라, 1994</a> <span class="ico new"></span></li>';
 appList += '<li data-app="174" data-page="makeme" data-new data-hot data-fun><a href="http://goo.gl/kL2DDo">신이 나를 만들때</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="173" data-page="christmas" data-new data-hot data-fun><a href="http://goo.gl/Hw6joa">크리스마스때 내가 받을 선물</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="172" data-page="cos" data-new data-fun><a href="http://goo.gl/8Ty7nM">나에게 어울리는 코스프레</a> <span class="ico new"></span></li>';
+appList += '<li data-app="172" data-page="cos" data-fun><a href="http://goo.gl/8Ty7nM">나에게 어울리는 코스프레</a></li>';
 appList += '<li data-app="171" data-page="worldcup_brazil" data-hot data-game><a href="http://goo.gl/428Vox">2014 FIFA 브라질 월드컵</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="170" data-page="before" data-fun><a href="http://goo.gl/qFVp55">나의 전생 알아보기</a></li>';
 appList += '<li data-app="169" data-page="crime2" data-hot data-fun><a href="http://goo.gl/7g0kn1">예쁜게 죄라면</a> <span class="ico hot"></span></li>';
