@@ -33,7 +33,7 @@ function action(_data) {
 	
 	data.post = post;
 	
-	data.desc = '새해 복 많이 받으세요~';
+	data.desc = '이번 학년에는 모든것이 잘될꺼야~';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/nextban.png';
 
 	sendData(data);
@@ -79,7 +79,8 @@ dataPart = [
 	'나의 고민들 잘 들어주는 친구입니다.',
 	'나와 손발이 잘 맞는 친구입니다.',
 	'나와 별로 안맞는 친구입니다.',
-	'별로 친해지지 않습니다.'
+	'별로 친해지지 않습니다.',
+	'내가 좋아하던 친구입니다.'
 ]
 
 
