@@ -2,7 +2,7 @@ var  appList = ''
 	,totalApp = 179
 
 M('#btnTest').attr('href', 'http://goo.gl/7ndn81');
-//appList += '<li><a href="http://gaeyou.com/f/">카톡/카스 친구를 만들어 보세요.</a> <span class="ico command"></span></li>';
+appList += '<li><a href="http://goo.gl/0NYrVk"><span style="font-weight:bold; color:#2C4FDA; font-size:11px">Ad</span> <span style="color:#FF00A3">나는엄마다</span> 소식받기</a> <span class="ico command"></span></li>';
 appList += '<li data-app="180" data-page="report" data-new data-fun><a href="http://goo.gl/7ndn81">2013년 성적표</a> <span class="ico new"></span></li>';
 appList += '<li data-app="179" data-page="nextban" data-new data-fun><a href="http://goo.gl/xx4PdH">나는 몇 반이 되나?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="178" data-page="newyear" data-new data-hot data-fun><a href="http://goo.gl/elsU7Z">2014년 새해 운세</a> <span class="ico new"></span><span class="ico hot"></span></li>';
