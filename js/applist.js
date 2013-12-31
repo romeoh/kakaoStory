@@ -1,13 +1,14 @@
 var  appList = ''
-	,totalApp = 178
+	,totalApp = 179
 
-M('#btnTest').attr('href', 'http://goo.gl/xx4PdH');
+M('#btnTest').attr('href', 'http://goo.gl/7ndn81');
 //appList += '<li><a href="http://gaeyou.com/f/">카톡/카스 친구를 만들어 보세요.</a> <span class="ico command"></span></li>';
-appList += '<li data-app="179" data-page="nextban" data-new data-fun><a href="http://goo.gl/xx4PdH">2014년 나는 몇 반이 되나?</a> <span class="ico new"></span></li>';
+appList += '<li data-app="180" data-page="report" data-new data-fun><a href="http://goo.gl/7ndn81">2013년 성적표</a> <span class="ico new"></span></li>';
+appList += '<li data-app="179" data-page="nextban" data-new data-fun><a href="http://goo.gl/xx4PdH">나는 몇 반이 되나?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="178" data-page="newyear" data-new data-hot data-fun><a href="http://goo.gl/elsU7Z">2014년 새해 운세</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="177" data-page="chinso" data-new data-hot data-fun><a href="http://goo.gl/5XpBg7">쓸친소</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="176" data-page="plchin" data-new data-fun><a href="http://goo.gl/UaseUP">나의 플친</a> <span class="ico new"></span></li>';
-appList += '<li data-app="175" data-page="ung" data-new data-hot data-fun><a href="http://goo.gl/JioSoE">응답하라, 1994</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="175" data-page="ung" data-hot data-fun><a href="http://goo.gl/JioSoE">응답하라, 1994</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="174" data-page="makeme" data-hot data-fun><a href="http://goo.gl/kL2DDo">신이 나를 만들때</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="173" data-page="christmas" data-hot data-fun><a href="http://goo.gl/Hw6joa">크리스마스때 내가 받을 선물</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="172" data-page="cos" data-fun><a href="http://goo.gl/8Ty7nM">나에게 어울리는 코스프레</a></li>';
