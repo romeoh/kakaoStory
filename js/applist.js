@@ -1,13 +1,14 @@
 var  appList = ''
-	,totalApp = 179
+	,totalApp = 180
 
-M('#btnTest').attr('href', 'http://goo.gl/7ndn81');
+M('#btnTest').attr('href', 'http://goo.gl/LLRD7v');
 appList += '<li><a href="http://goo.gl/0NYrVk"><span style="font-weight:bold; color:#2C4FDA; font-size:11px">Event</span> <span style="color:#FF00A3">나는엄마다</span> 소식받기</a> <span class="ico command"></span></li>';
+appList += '<li data-app="181" data-page="delivery" data-new data-fun><a href="http://goo.gl/LLRD7v">택배 왔어요</a> <span class="ico new"></span></li>';
 appList += '<li data-app="180" data-page="report" data-new data-fun><a href="http://goo.gl/7ndn81">2013년 성적표</a> <span class="ico new"></span></li>';
-appList += '<li data-app="179" data-page="nextban" data-new data-fun><a href="http://goo.gl/xx4PdH">나는 몇 반이 되나?</a> <span class="ico new"></span></li>';
+appList += '<li data-app="179" data-page="nextban" data-new data-hot data-fun><a href="http://goo.gl/xx4PdH">나는 몇 반이 되나?</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="178" data-page="newyear" data-new data-hot data-fun><a href="http://goo.gl/elsU7Z">2014년 새해 운세</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="177" data-page="chinso" data-new data-hot data-fun><a href="http://goo.gl/5XpBg7">쓸친소</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="176" data-page="plchin" data-new data-fun><a href="http://goo.gl/UaseUP">나의 플친</a> <span class="ico new"></span></li>';
+appList += '<li data-app="176" data-page="plchin" data-fun><a href="http://goo.gl/UaseUP">나의 플친</a></li>';
 appList += '<li data-app="175" data-page="ung" data-hot data-fun><a href="http://goo.gl/JioSoE">응답하라, 1994</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="174" data-page="makeme" data-hot data-fun><a href="http://goo.gl/kL2DDo">신이 나를 만들때</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="173" data-page="christmas" data-hot data-fun><a href="http://goo.gl/Hw6joa">크리스마스때 내가 받을 선물</a> <span class="ico hot"></span></li>';
