@@ -28,7 +28,7 @@ function action(_data) {
 	post += db[0] + ', ' + db[1] + ', 그리고 ' + last[0] + ' 입니다.';
 	data.post = post;
 	
-	data.desc = '정말이야? 전혀 눈치 못챘어...\n내일까지 이야기 할께~';
+	data.desc = '올해는 뭔가 잘 풀릴거같은 기분좋은 느낌';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/three.png';
 
 	sendData(data);
