@@ -68,7 +68,7 @@ function choiceResult() {
 	if (score <= 4) {
 		resultTxt = '정상입니다.'
 	} else if (score > 4 && score <= 9) {
-		resultTxt = '감성이 풍부한 사람입니다.'
+		resultTxt = '감성이 풍부한 사람으로 아직 중2병은 아닙니다.'
 	} else if (score > 9 && score <= 14) {
 		resultTxt = '아직 철이 덜 든 사람으로 중2병이 시작되는 단계입니다.'
 	} else if (score > 15) {
