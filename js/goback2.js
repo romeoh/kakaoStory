@@ -12,7 +12,7 @@ function action(_data) {
 		,blood = data.blood || null
 		,post = ''
 
-	data.title = '커플이 될 확률';
+	data.title = '그 사람과 커플이 될 확률';
 	data.url = 'http://goo.gl/NVZTWY';
 
 	if (media == 'talk') {
@@ -23,7 +23,8 @@ function action(_data) {
 	per = process(0, 101)
 	
 	post += '[' + data.title + ']\n\n';
-	post += userName + '님이 지금 맘속으로 생각하는 그분과 커플이 될 확률은 ' + per + '% 입니다.';
+	post += userName + '님이 지금 맘속으로 생각하는 \n';
+	post += '그 사람과 커플이 될 확률은 ' + per + '% 입니다.';
 	data.post = post;
 	
 	data.desc = '축하합니다.';
