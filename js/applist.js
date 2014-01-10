@@ -1,14 +1,15 @@
 var  appList = ''
-	,totalApp = 184
+	,totalApp = 185
 
 M('#btnTest').attr('href', 'http://goo.gl/NVZTWY');
 appList += '<li><a href="http://goo.gl/0NYrVk"><span style="font-weight:bold; color:#2C4FDA; font-size:11px">Event</span> <span style="color:#FF00A3">나는엄마다</span> 소식받기</a> <span class="ico command"></span></li>';
 
-appList += '<li data-app="185" data-page="goback2" data-new data-fun><a href="http://goo.gl/NVZTWY">그 사람과 커플이 될 확률</a> <span class="ico new"></span></li>';
+appList += '<li data-app="186" data-page="grade2" data-new data-fun><a href="http://goo.gl/YOZXaR">새학기 등수를 알려드립니다.</a> <span class="ico new"></span></li>';
+appList += '<li data-app="185" data-page="goback2" data-new data-hot data-fun><a href="http://goo.gl/NVZTWY">그 사람과 커플이 될 확률</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="184" data-page="bell" data-new data-fun><a href="http://goo.gl/WVZ57N">조르기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="183" data-page="sense7" data-new data-fun><a href="http://goo.gl/n85Ic5">중2병 자가 진단 테스트</a> <span class="ico new"></span></li>';
 appList += '<li data-app="182" data-page="three" data-new data-hot data-fun><a href="http://goo.gl/gcQ9Ft">당신이 얻게될 3가지</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="181" data-page="delivery" data-new data-fun><a href="http://goo.gl/LLRD7v">택배 왔어요</a> <span class="ico new"></span></li>';
+appList += '<li data-app="181" data-page="delivery" data-fun><a href="http://goo.gl/LLRD7v">택배 왔어요</a></li>';
 appList += '<li data-app="180" data-page="report" data-hot data-fun><a href="http://goo.gl/7ndn81">2013년 성적표</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="179" data-page="nextban" data-hot data-fun><a href="http://goo.gl/xx4PdH">나는 몇 반이 되나?</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="178" data-page="newyear" data-hot data-fun><a href="http://goo.gl/elsU7Z">2014년 새해 운세</a> <span class="ico hot"></span></li>';
