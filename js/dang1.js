@@ -37,7 +37,7 @@ function action(_data) {
 	data.post = post;
 	
 	data.desc = '잘 봐바..좀 닮은거 같지?';
-	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/dang1.png';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/danga1.png';
 
 	sendData(data);
 }
