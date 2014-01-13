@@ -36,7 +36,7 @@ function action(_data) {
 	post += dataRel[idx3] + ' ' + userName + '님을 "' + database[idx2] + ' 닮았다 생각합니다.';
 	data.post = post;
 	
-	data.desc = '일딴 빨리 만나길..';
+	data.desc = '잘 봐바..좀 닮은거 같지?';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/dang1.png';
 
 	sendData(data);
