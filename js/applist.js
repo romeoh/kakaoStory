@@ -2,7 +2,7 @@ var  appList = ''
 	,totalApp = 191
 
 M('#btnTest').attr('href', 'http://goo.gl/xH7Wio');
-appList += '<li><a href="https://www.facebook.com/mustseedong"><span style="font-weight:bold; color:#2C4FDA; font-size:11px">페이스북</span> 너 그거봤어? <span style="font-weight:bold; color:#48DA2C">머스트씨동영상</span></a> <span class="ico command"></span></li>';
+appList += '<li><a href="http://goo.gl/ZvrlRs"><span style="font-weight:bold; color:#2C4FDA; font-size:11px">페이스북</span> 너 그거봤어? <span style="font-weight:bold; color:#48DA2C">머스트씨동영상</span></a> <span class="ico command"></span></li>';
 
 appList += '<li data-app="192" data-page="cocacola" data-new data-fun><a href="http://goo.gl/xH7Wio">코카콜라 메세지</a> <span class="ico new"></span></li>';
 appList += '<li data-app="191" data-page="firstmeet" data-new data-hot data-fun><a href="http://goo.gl/j61fbZ">상대방이 보는 당신의 첫인상</a> <span class="ico new"></span><span class="ico hot"></span></li>';
