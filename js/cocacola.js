@@ -12,7 +12,7 @@ function action(_data) {
 		,blood = data.blood || null
 		,post = ''
 
-	data.title = '코카콜라 메세지를 전하세요';
+	data.title = '코카콜라 메세지를 전해보세요';
 	data.url = 'http://goo.gl/xH7Wio';
 
 	if (media == 'talk') {
@@ -35,7 +35,7 @@ function action(_data) {
 	post += d1 + ' ' + d2;
 	data.post = post;
 	
-	data.desc = '메세지를 전해보세요.';
+	data.desc = '소중한 사람에게 메세지를 전해보세요.';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/cocacola.png';
 
 	sendData(data);
