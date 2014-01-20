@@ -1,14 +1,15 @@
 var  appList = ''
-	,totalApp = 191
+	,totalApp = 192
 
-M('#btnTest').attr('href', 'http://goo.gl/xH7Wio');
+M('#btnTest').attr('href', 'http://goo.gl/t4gk9B');
 //appList += '<li><a href="http://goo.gl/ZvrlRs"><span style="font-weight:bold; color:#2C4FDA; font-size:11px">페이스북</span> 너 그거봤어? <span style="font-weight:bold; color:#48DA2C">머스트씨동영상</span></a> <span class="ico command"></span></li>';
 
+appList += '<li data-app="193" data-page="cookie" data-new data-fun><a href="http://goo.gl/t4gk9B">나에게 어울리는 쿠키맛은?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="192" data-page="cocacola" data-new data-fun><a href="http://goo.gl/xH7Wio">코카콜라 메세지</a> <span class="ico new"></span></li>';
 appList += '<li data-app="191" data-page="firstmeet" data-new data-hot data-fun><a href="http://goo.gl/j61fbZ">상대방이 보는 당신의 첫인상</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="189" data-page="dang3" data-new data-fun><a href="http://goo.gl/HNiYCR">당신이 생각하는 남은 방학기간</a> <span class="ico new"></span></li>';
 appList += '<li data-app="188" data-page="dang2" data-new data-fun><a href="http://goo.gl/aW0pob">당신이 생각하는 당신의 체형</a> <span class="ico new"></span></li>';
-appList += '<li data-app="187" data-page="dang1" data-new data-hot data-fun><a href="http://goo.gl/A3wL9v">당신이 생각하는 닮은 연예인</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="187" data-page="dang1" data-hot data-fun><a href="http://goo.gl/A3wL9v">당신이 생각하는 닮은 연예인</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="186" data-page="grade2" data-fun><a href="http://goo.gl/YOZXaR">새학기 등수를 알려드립니다.</a></li>';
 appList += '<li data-app="185" data-page="goback2" data-hot data-fun><a href="http://goo.gl/NVZTWY">그 사람과 커플이 될 확률</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="184" data-page="bell" data-fun><a href="http://goo.gl/WVZ57N">조르기</a></li>';
