@@ -44,7 +44,7 @@ function action(_data) {
 	post += '🎃 주위의 평가: ' + data9[idx9] + '';
 	data.post = post;
 	
-	data.desc = '정말이야? 전혀 눈치 못챘어...\n내일까지 이야기 할께~';
+	data.desc = '재미는 재미일뿐 오해하지 말자';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/samang.png';
 
 	sendData(data);
