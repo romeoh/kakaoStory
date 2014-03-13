@@ -53,13 +53,13 @@ function action(_data) {
 	motherIdx = process(dataMother);
 	myIdx = process(dataMy);
 	
-	post += '[' + data.title + ']\n\n';
-	post += '우리 연예인 가족을 소개할께요.\n';
-	post += '아빠: ' + dataFather[fatherIdx] + '\n';
-	post += '엄마: ' + dataMother[motherIdx] + '\n';
-	post += f + ': ' + fdata[fIdx] + '\n';
-	post += '나: ' + userName + ' (' + dataMy[myIdx] + ')\n';
-	post += l + ': ' + ldata[lIdx];
+	post += '[' + data.title + ']\n';
+	post += '우리 연예인 가족을 소개할께요.\n\n';
+	post += '- 아빠: ' + dataFather[fatherIdx] + '\n';
+	post += '- 엄마: ' + dataMother[motherIdx] + '\n';
+	post += '- ' + f + ': ' + fdata[fIdx] + '\n';
+	post += '- 나: ' + userName + ' (' + dataMy[myIdx] + ')\n';
+	post += '- ' + l + ': ' + ldata[lIdx];
 
 	data.post = post;
 	
