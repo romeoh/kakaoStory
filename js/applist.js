@@ -1,14 +1,15 @@
 var  appList = ''
-	,totalApp = 199
+	,totalApp = 201
 
-M('#btnTest').attr('href', 'http://goo.gl/ZxYUD7');
+M('#btnTest').attr('href', 'http://goo.gl/H19wSd');
 //appList += '<li><a href="http://goo.gl/ZvrlRs"><span style="font-weight:bold; color:#2C4FDA; font-size:11px">페이스북</span> 너 그거봤어? <span style="font-weight:bold; color:#48DA2C">머스트씨동영상</span></a> <span class="ico command"></span></li>';
 
-appList += '<li data-app="201" data-page="enterfamily" data-new data-fun><a href="http://goo.gl/ZxYUD7">연예인가족</a> <span class="ico new"></span></li>';
+appList += '<li data-app="202" data-page="enterfamily" data-new data-fun><a href="http://goo.gl/H19wSd">나의 천생연분의 초성</a> <span class="ico new"></span></li>';
+appList += '<li data-app="201" data-page="enterfamily" data-new data-hot data-fun><a href="http://goo.gl/ZxYUD7">연예인가족</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="200" data-page="star" data-new data-fun><a href="http://goo.gl/qHPzTV">별에서 온 그대</a> <span class="ico new"></span></li>';
 appList += '<li data-app="199" data-page="blood2014" data-new data-fun><a href="http://goo.gl/b33j0A">별자리로 보는 2014년 나의운명</a> <span class="ico new"></span></li>';
 appList += '<li data-app="198" data-page="gaecon" data-new data-hot data-fun><a href="http://goo.gl/cGx4dk">개그콘서트 캐릭터</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="197" data-page="frozen" data-new data-hot data-hot data-fun><a href="http://goo.gl/XGgVXB">나와 어울리는 겨울왕국 캐릭터</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="197" data-page="frozen" data-hot data-hot data-fun><a href="http://goo.gl/XGgVXB">나와 어울리는 겨울왕국 캐릭터</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="196" data-page="idolname" data-fun><a href="http://gaeyou.com/t/#4999">아이돌 이름 맞추기</a></li>';
 appList += '<li data-app="195" data-page="balentine" data-fun><a href="http://goo.gl/7aldrR">전생 사망 진단서</a></li>';
 appList += '<li data-app="194" data-page="balentine" data-fun><a href="http://goo.gl/JwXV29">누구에게 초콜렛을 받을까?</a></li>';
