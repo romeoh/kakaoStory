@@ -2,7 +2,7 @@ var  appList = ''
 	,totalApp = 201
 
 M('#btnTest').attr('href', 'http://goo.gl/H19wSd');
-//appList += '<li><a href="http://goo.gl/ZvrlRs"><span style="font-weight:bold; color:#2C4FDA; font-size:11px">페이스북</span> 너 그거봤어? <span style="font-weight:bold; color:#48DA2C">머스트씨동영상</span></a> <span class="ico command"></span></li>';
+appList += '<li><a href="http://goo.gl/3wJWJO">대~한민국★ <span style="font-weight:bold; color:#00C537">2004 브라질월드컵 일정</span></a> <span class="ico command"></span></li>';
 
 appList += '<li data-app="202" data-page="enterfamily" data-new data-fun><a href="http://goo.gl/H19wSd">나의 천생연분의 초성</a> <span class="ico new"></span></li>';
 appList += '<li data-app="201" data-page="enterfamily" data-new data-hot data-fun><a href="http://goo.gl/ZxYUD7">연예인가족</a> <span class="ico new"></span><span class="ico hot"></span></li>';
