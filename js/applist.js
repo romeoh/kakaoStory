@@ -2,7 +2,7 @@ var  appList = ''
 	,totalApp = 202
 
 M('#btnTest').attr('href', 'http://goo.gl/dfAPTw');
-appList += '<li><a href="http://goo.gl/3wJWJO">대~한민국★ <span style="font-weight:bold; color:#00C537">2004 브라질월드컵 일정</span></a> <span class="ico command"></span></li>';
+appList += '<li><a href="http://goo.gl/NEphmg">대~한민국★ <span style="font-weight:bold; color:#00C537">2004 브라질월드컵 일정</span></a> <span class="ico command"></span></li>';
 
 appList += '<li data-app="203" data-page="enterfamily" data-new data-fun><a href="http://goo.gl/dfAPTw">다음달에 애인이 생길 확률</a> <span class="ico new"></span></li>';
 appList += '<li data-app="202" data-page="enterfamily" data-new data-fun><a href="http://goo.gl/H19wSd">나의 천생연분의 초성</a> <span class="ico new"></span></li>';
