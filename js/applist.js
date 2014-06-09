@@ -1,14 +1,15 @@
 var  appList = ''
-	,totalApp = 202
+	,totalApp = 203
 
 M('#btnTest').attr('href', 'http://goo.gl/dfAPTw');
 appList += '<li><a href="http://goo.gl/NEphmg">대~한민국★ <span style="font-weight:bold; color:#00C537">2004 브라질월드컵 일정</span></a> <span class="ico command"></span></li>';
 
+appList += '<li data-app="204" data-page="enterfamily" data-new data-fun><a href="http://goo.gl/q6HtBL">나를 좋아하는 사람의 성은?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="203" data-page="enterfamily" data-new data-fun><a href="http://goo.gl/dfAPTw">다음달에 애인이 생길 확률</a> <span class="ico new"></span></li>';
 appList += '<li data-app="202" data-page="enterfamily" data-new data-fun><a href="http://goo.gl/H19wSd">나의 천생연분의 초성</a> <span class="ico new"></span></li>';
 appList += '<li data-app="201" data-page="enterfamily" data-new data-hot data-fun><a href="http://goo.gl/ZxYUD7">연예인가족</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="200" data-page="star" data-new data-fun><a href="http://goo.gl/qHPzTV">별에서 온 그대</a> <span class="ico new"></span></li>';
-appList += '<li data-app="199" data-page="blood2014" data-new data-fun><a href="http://goo.gl/b33j0A">별자리로 보는 2014년 나의운명</a> <span class="ico new"></span></li>';
+appList += '<li data-app="199" data-page="blood2014" data-fun><a href="http://goo.gl/b33j0A">별자리로 보는 2014년 나의운명</a> </li>';
 appList += '<li data-app="198" data-page="gaecon" data-hot data-fun><a href="http://goo.gl/cGx4dk">개그콘서트 캐릭터</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="197" data-page="frozen" data-hot data-hot data-fun><a href="http://goo.gl/XGgVXB">나와 어울리는 겨울왕국 캐릭터</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="196" data-page="idolname" data-fun><a href="http://gaeyou.com/t/#4999">아이돌 이름 맞추기</a></li>';
