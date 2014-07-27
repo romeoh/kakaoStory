@@ -28,7 +28,7 @@ function action(_data) {
 	data.post = post;
 	
 	data.desc = data.title;
-	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/chosong';
+	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/chosong.png';
 
 	sendData(data);
 }
