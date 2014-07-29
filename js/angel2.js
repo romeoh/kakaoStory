@@ -14,7 +14,7 @@ function action(_data) {
 		,str = ''
 
 	data.title = '천사/악마 판독기';
-	data.url = 'http://goo.gl/JwXV29';
+	data.url = 'http://goo.gl/yk25hv';
 
 	if (media == 'talk') {
 		sendData(data);
