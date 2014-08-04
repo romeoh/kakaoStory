@@ -1,5 +1,5 @@
 var  appList = ''
-	,totalApp = 208
+	,totalApp = 209
 
 M('#btnTest').attr('href', 'http://goo.gl/dfAPTw');
 //appList += '<li><a href="http://goo.gl/NEphmg">대~한민국★ <span style="font-weight:bold; color:#00C537">2004 브라질월드컵 일정</span></a> <span class="ico command"></span></li>';
@@ -7,11 +7,12 @@ M('#btnTest').attr('href', 'http://goo.gl/dfAPTw');
 //appList += '<li><a href="http://goo.gl/GtCy5q"><img src="http://romeoh.github.io/gaeyouAppJs/common/img/ic.moa.game.png" style="width:40px; float:left; margin-right:10px"> 최신게임뉴스를 한눈에 <br><span style="font-weight:bold; color:#00C537">게임뉴스 모아보기</span></a> <span class="ico command"></span></li>';
 appList += '<li><a href="http://goo.gl/TSqLQW"><img src="http://romeoh.github.io/gaeyouAppJs/common/img/ic.arcade.png" style="width:40px; float:left; margin-right:10px"> 매일매일 업데이트되는 <br><span style="font-weight:bold; color:#00C537">오락실</span> 다운받기</a> <span class="ico command"></span></li>';
 
+appList += '<li data-app="210" data-page="ghost2" data-new data-fun><a href="http://goo.gl/VtKRql">난 무슨귀신이 될까?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="209" data-page="secret" data-new data-fun><a href="http://goo.gl/OOIJx7">1학기 우리반의 비밀</a> <span class="ico new"></span></li>';
 appList += '<li data-app="208" data-page="chosun2" data-new data-fun><a href="http://goo.gl/3MLueU">조선시대 직업알아보기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="207" data-page="angel2" data-new data-hot data-fun><a href="http://goo.gl/yk25hv">천사/악마 판독기</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="206" data-page="hakki" data-new data-fun><a href="http://goo.gl/ou7igd">1학기 추억남기기</a> <span class="ico new"></span></li>';
-appList += '<li data-app="205" data-page="chosong" data-new data-hot data-fun><a href="http://goo.gl/w3Wd0J">초성 노래제목 맞추기</a> <span class="ico new"></span><span class="ico hot"></span></li>';
+appList += '<li data-app="205" data-page="chosong" data-hot data-fun><a href="http://goo.gl/w3Wd0J">초성 노래제목 맞추기</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="204" data-page="firstname" data-fun><a href="http://goo.gl/q6HtBL">나를 좋아하는 사람의 성은?</a></li>';
 appList += '<li data-app="203" data-page="couple_rate" data-fun><a href="http://goo.gl/dfAPTw">다음달에 애인이 생길 확률</a></li>';
 appList += '<li data-app="202" data-page="chun" data-fun><a href="http://goo.gl/H19wSd">나의 천생연분의 초성</a></li>';
