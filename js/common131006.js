@@ -113,7 +113,8 @@ if (M('[data-list]').selector.length > 0) {
 			'className': 'fb-like'
 		})
 		M('.fb-like')
-			.data('href', 'http://romeoh.github.io/kakaoStory/html/' + appName + '.html')
+			//.data('href', 'http://romeoh.github.io/kakaoStory/html/' + appName + '.html')
+			.data('href', 'https://www.facebook.com/gaeyou')
 			.data('width', '450')
 			.data('layout', 'button_count')
 			.data('showFaces', 'true')
