@@ -1,5 +1,5 @@
 var  appList = ''
-	,totalApp = 209
+	,totalApp = 210
 
 M('#btnTest').attr('href', 'http://goo.gl/dfAPTw');
 //appList += '<li><a href="http://goo.gl/NEphmg">대~한민국★ <span style="font-weight:bold; color:#00C537">2004 브라질월드컵 일정</span></a> <span class="ico command"></span></li>';
@@ -9,6 +9,7 @@ M('#btnTest').attr('href', 'http://goo.gl/dfAPTw');
 //appList += '<li><a href="http://goo.gl/rbxiXH"><img src="http://romeoh.github.io/gaeyouAppJs/common/img/ic_ztalk.png" style="width:40px; float:left; margin-right:10px"> 골때리는 메신져 <br><span style="font-weight:bold; color:#00C537">ㅋ톡: 관심병을던져라</span></a> <span class="ico command"></span></li>';
 appList += '<li><a href="http://goo.gl/Nj2Zbe">친구들에게 나의 장점을 물어보세요.<span class="ico command"></span></li>';
 
+appList += '<li data-app="211" data-page="newyear2015" data-new data-fun><a href="http://goo.gl/UkefDm">2015년 새해 운세</a> <span class="ico new"></span></li>';
 appList += '<li data-app="210" data-page="ghost2" data-new data-fun><a href="http://goo.gl/VtKRql">난 무슨귀신이 될까?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="209" data-page="secret" data-new data-fun><a href="http://goo.gl/OOIJx7">1학기 우리반의 비밀</a> <span class="ico new"></span></li>';
 appList += '<li data-app="208" data-page="chosun2" data-new data-fun><a href="http://goo.gl/3MLueU">조선시대 직업알아보기</a> <span class="ico new"></span></li>';
