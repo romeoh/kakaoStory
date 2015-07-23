@@ -13,7 +13,7 @@ function action(_data) {
 		,post = ''
 		
 	
-	data.title = '2015년 새해 운세';
+	data.title = '2015년 운세';
 	data.url = 'http://goo.gl/UkefDm';
 
 	if (media == 'talk') {
