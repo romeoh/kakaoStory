@@ -9,6 +9,7 @@
 <link rel="image_src" href="http://romeoh.github.io/kakaoStory/imgEnter/boy1.png" />
 
 <link rel="stylesheet" type="text/css" href="../css/stylefb131006.css">
+<link rel="stylesheet" type="text/css" href="../css/style170401.css">
 
 <script type="text/javascript"><!--
 google_ad_client = "ca-pub-2760623096296279";
@@ -102,14 +103,16 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 <section class="event_box">
 	<ul class="tab_area">
+		<li id="btnGame"><a>웹게임</a></li>
 		<li id="btnEvent"><a>다른 미니앱</a></li>
-		<li id="btnReply"><a>댓글</a></li>
+		<!--li id="btnReply"><a>댓글</a></li-->
 	</ul>
-	<div class="list_area">
+	<div class="list_area g-list">
+		<ul id="gameContainer" data-game></ul>
 		<ul id="eventContainer" class="list_con" data-list="58"></ul>
-		<div id="replyContainer" class="list_con">
+		<!--div id="replyContainer" class="list_con">
 			<div class="fb-comments" data-href="https://www.facebook.com/gaeyou" data-width="320"></div>
-		</div>
+		</div-->
 	</div>
 </section>
 
@@ -145,7 +148,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <script type="text/javascript" src="../js/kakao.link.js"></script>
 <script type="text/javascript" src="../js/mpui.js"></script>
 <script type="text/javascript" src="../js/applist.js"></script>
-<script type="text/javascript" src="../js/common131006.js"></script>
+<script type="text/javascript" src="../js/applist_game.js"></script>
+<script type="text/javascript" src="../js/common170401.js"></script>
 <script type="text/javascript" src="../js/future2.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
