@@ -1,5 +1,5 @@
 var  appList = ''
-	,totalApp = 210
+	,totalApp = 212
 
 M('#btnTest').attr('href', 'http://goo.gl/dfAPTw');
 //appList += '<li><a href="http://goo.gl/NEphmg">대~한민국★ <span style="font-weight:bold; color:#00C537">2004 브라질월드컵 일정</span></a> <span class="ico command"></span></li>';
@@ -9,13 +9,14 @@ M('#btnTest').attr('href', 'http://goo.gl/dfAPTw');
 //appList += '<li><a href="http://goo.gl/rbxiXH"><img src="http://romeoh.github.io/gaeyouAppJs/common/img/ic_ztalk.png" style="width:40px; float:left; margin-right:10px"> 골때리는 메신져 <br><span style="font-weight:bold; color:#00C537">ㅋ톡: 관심병을던져라</span></a> <span class="ico command"></span></li>';
 appList += '<li><a href="http://goo.gl/Nj2Zbe">친구들에게 나의 장점을 물어보세요.<span class="ico command"></span></li>';
 
+appList += '<li data-app="213" data-page="aein" data-new data-fun><a href="http://goo.gl/QRYWAE">내 애인은 태어나기는 한 걸까?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="212" data-page="insideout" data-new data-fun><a href="http://goo.gl/YgbqtY">인사이드아웃</a> <span class="ico new"></span></li>';
 appList += '<li data-app="211" data-page="newyear2015" data-new data-fun><a href="http://goo.gl/UkefDm">2015년 운세</a> <span class="ico new"></span></li>';
 appList += '<li data-app="210" data-page="ghost2" data-new data-fun><a href="http://goo.gl/VtKRql">난 무슨귀신이 될까?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="209" data-page="secret" data-new data-fun><a href="http://goo.gl/OOIJx7">1학기 우리반의 비밀</a> <span class="ico new"></span></li>';
 appList += '<li data-app="208" data-page="chosun2" data-new data-fun><a href="http://goo.gl/3MLueU">조선시대 직업알아보기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="207" data-page="angel2" data-new data-hot data-fun><a href="http://goo.gl/yk25hv">천사/악마 판독기</a> <span class="ico new"></span><span class="ico hot"></span></li>';
-appList += '<li data-app="206" data-page="hakki" data-fun><a href="http://goo.gl/ou7igd">1학기 추억남기기</a> <span class="ico new"></span></li>';
+appList += '<li data-app="206" data-page="hakki" data-fun><a href="http://goo.gl/ou7igd">1학기 추억남기기</a> </li>';
 appList += '<li data-app="205" data-page="chosong" data-hot data-fun><a href="http://goo.gl/w3Wd0J">초성 노래제목 맞추기</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="204" data-page="firstname" data-fun><a href="http://goo.gl/q6HtBL">나를 좋아하는 사람의 성은?</a></li>';
 appList += '<li data-app="203" data-page="couple_rate" data-fun><a href="http://goo.gl/dfAPTw">다음달에 애인이 생길 확률</a></li>';
