@@ -17,6 +17,15 @@ appList += '<li data-app="209" data-page="secret" data-new data-fun><a href="htt
 appList += '<li data-app="208" data-page="chosun2" data-new data-fun><a href="http://goo.gl/3MLueU">조선시대 직업알아보기</a> <span class="ico new"></span></li>';
 appList += '<li data-app="207" data-page="angel2" data-new data-hot data-fun><a href="http://goo.gl/yk25hv">천사/악마 판독기</a> <span class="ico new"></span><span class="ico hot"></span></li>';
 appList += '<li data-app="206" data-page="hakki" data-fun><a href="http://goo.gl/ou7igd">1학기 추억남기기</a> </li>';
+appList += '<li>';
+appList += '<div id="youtubeBanner" style="text-align:center">';
+appList += '<a href="https://youtu.be/96yrrWmrRIY" target="_blank" id="youtube1" style="display:none;"><img src="../imgYoutube/banner1.png" alt="" style="width:320px"></a>';
+appList += '<a href="https://youtu.be/KDar6lryyro" target="_blank" id="youtube2" style="display:none;"><img src="../imgYoutube/banner2.png" alt="" style="width:320px"></a>';
+appList += '<a href="https://youtu.be/8P-amOpaiyY" target="_blank" id="youtube3" style="display:none;"><img src="../imgYoutube/banner3.png" alt="" style="width:320px"></a>';
+appList += '<a href="https://youtu.be/90yfvlyeA08" target="_blank" id="youtube4" style="display:none;"><img src="../imgYoutube/banner4.png" alt="" style="width:320px"></a>';
+appList += '<a href="https://youtu.be/1zRWEy19Y0U" target="_blank" id="youtube5" style="display:none;"><img src="../imgYoutube/banner5.png" alt="" style="width:320px"></a>';
+appList += '<div>';
+appList += '</li>';
 appList += '<li data-app="205" data-page="chosong" data-hot data-fun><a href="http://goo.gl/w3Wd0J">초성 노래제목 맞추기</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="204" data-page="firstname" data-fun><a href="http://goo.gl/q6HtBL">나를 좋아하는 사람의 성은?</a></li>';
 appList += '<li data-app="203" data-page="couple_rate" data-fun><a href="http://goo.gl/dfAPTw">다음달에 애인이 생길 확률</a></li>';

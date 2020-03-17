@@ -785,6 +785,11 @@ function init() {
 
 // event
 function initEvent() {
+	// 유튜브 광고
+	var youtubeId = getRandom(1, 6)
+	M('#youtube'+youtubeId).css('display', 'block')
+	
+
 	// 이벤트 처리
 	if (M('[data-event]').selector.length > 0) {
 		var  hash = window.location.hash.replace('#', '')
