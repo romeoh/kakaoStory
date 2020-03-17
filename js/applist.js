@@ -20,11 +20,11 @@ appList += '<li data-app="207" data-page="angel2" data-new data-hot data-fun><a 
 appList += '<li data-app="206" data-page="hakki" data-fun><a href="http://goo.gl/ou7igd">1학기 추억남기기</a> </li>';
 appList += '<li>';
 appList += '<div id="youtubeBanner" style="text-align:center">';
-appList += '<a href="https://youtu.be/96yrrWmrRIY" target="_blank" id="youtube1" style="display:none;"><img src="../imgYoutube/banner1.png" alt="" style="width:320px"></a>';
-appList += '<a href="https://youtu.be/KDar6lryyro" target="_blank" id="youtube2" style="display:none;"><img src="../imgYoutube/banner2.png" alt="" style="width:320px"></a>';
-appList += '<a href="https://youtu.be/8P-amOpaiyY" target="_blank" id="youtube3" style="display:none;"><img src="../imgYoutube/banner3.png" alt="" style="width:320px"></a>';
-appList += '<a href="https://youtu.be/90yfvlyeA08" target="_blank" id="youtube4" style="display:none;"><img src="../imgYoutube/banner4.png" alt="" style="width:320px"></a>';
-appList += '<a href="https://youtu.be/1zRWEy19Y0U" target="_blank" id="youtube5" style="display:none;"><img src="../imgYoutube/banner5.png" alt="" style="width:320px"></a>';
+appList += '<a href="http://bitly.kr/ZVLdH7xe" target="_blank" id="youtube1" style="display:none;"><img src="../imgYoutube/banner1.png" alt="" style="width:320px"></a>';
+appList += '<a href="http://bitly.kr/29StuvyZ" target="_blank" id="youtube2" style="display:none;"><img src="../imgYoutube/banner2.png" alt="" style="width:320px"></a>';
+appList += '<a href="http://bitly.kr/xzt6YqF1" target="_blank" id="youtube3" style="display:none;"><img src="../imgYoutube/banner3.png" alt="" style="width:320px"></a>';
+appList += '<a href="http://bitly.kr/FSYM0rCJ" target="_blank" id="youtube4" style="display:none;"><img src="../imgYoutube/banner4.png" alt="" style="width:320px"></a>';
+appList += '<a href="http://bitly.kr/WaXbKzjG" target="_blank" id="youtube5" style="display:none;"><img src="../imgYoutube/banner5.png" alt="" style="width:320px"></a>';
 appList += '<div>';
 appList += '</li>';
 appList += '<li data-app="205" data-page="chosong" data-hot data-fun><a href="http://goo.gl/w3Wd0J">초성 노래제목 맞추기</a> <span class="ico hot"></span></li>';
