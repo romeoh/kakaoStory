@@ -779,6 +779,11 @@ function getDataType(_value) {
 
 window.addEventListener('load', init, false);
 function init() {
+	var lang = navigator.language
+	if (lang.indexOf('ja') != -1) {
+		location.href = 'https://bit.ly/395COrF'
+	}
+	
 	initEvent();
 	initPoll();
 }
