@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .gnbMacao, .gnbMain {background:url(../imgApp/ico.png); background-size:200px 150px}
-
+#adTop {display: none}
 body, p, h1, h2, h3, h4, h5, ul, li, dl, dt, dd, header {margin:0; padding:0; font-family: '나눔고딕',NanumGothic,'맑은 고딕','Malgun Gothic','돋움',Dotum,'굴림',Gulim,Helvetica,sans-serif;}
 body {background:#eceef0; margin:0}
 a {text-decoration:none; cursor:pointer;}
