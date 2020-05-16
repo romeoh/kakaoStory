@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', function(){
 			break;
 			case 'birth':
 				M('#info').text('생일을 입력하세요.')
-				M('#selYear').attr('value', '2013')
+				M('#selYear').attr('value', '2020')
 				title = '내 생일까지'
 			break;
 			case 'meet':

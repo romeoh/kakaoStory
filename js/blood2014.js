@@ -12,7 +12,7 @@ function action(_data) {
 		,blood = data.blood || null
 		,post = ''
 
-	data.title = '별자리로 보는 2014년 나의운명';
+	data.title = '별자리로 보는 2020년 나의운명';
 	data.url = 'http://goo.gl/b33j0A';
 
 	if (media == 'talk') {

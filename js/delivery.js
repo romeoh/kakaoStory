@@ -30,7 +30,7 @@ function action(_data) {
 	post += '[' + data.title + ']\n\n';
 	post += '💌 ' + userName + '고객님이 주문하신 ' + database[idx]['a'] + ' 배송준비 완료되었습니다.\n\n';
 	post += '본 상품은 주문제작 상품이므로 취소&환불&교환이 불가하니 주의해 주세요.\n\n';
-	post += '단, 2014년 특별 이벤트가 진행중이니 원하시면 ' + database[idx]['b'] + ' 무료로 교환해 드릴수 있습니다.\n\n';
+	post += '단, 2020년 특별 이벤트가 진행중이니 원하시면 ' + database[idx]['b'] + ' 무료로 교환해 드릴수 있습니다.\n\n';
 	post += '그럼 좋은 시간 보내시고, 새해 복 많이 받으세요.';
 	data.post = post;
 	

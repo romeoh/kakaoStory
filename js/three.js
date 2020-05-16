@@ -12,7 +12,7 @@ function action(_data) {
 		,blood = data.blood || null
 		,post = ''
 
-	data.title = '2014년 당신이 얻게될 3가지';
+	data.title = '2020년 당신이 얻게될 3가지';
 	data.url = 'http://goo.gl/gcQ9Ft';
 
 	if (media == 'talk') {

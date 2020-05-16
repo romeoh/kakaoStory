@@ -340,7 +340,7 @@ function executeKakaoStoryLink(mp){
 	        post : postMsg,
 	        appid : 'funnyApp',
 			appver : '1.0',
-			appname : '2013년 숫자야구 정규시즌',
+			appname : '2020년 숫자야구 정규시즌',
 			urlinfo : JSON.stringify(urlMsg)
 	    });
 
@@ -397,7 +397,7 @@ function executeURLLink() {
 		url: 'http://goo.gl/v0AFu',
 		appid: "funnyApp",
 		appver: "1.0",
-		appname: "2013년 숫자야구",
+		appname: "2020년 숫자야구",
 		type: "link"
 	});
 }

@@ -12,7 +12,7 @@ function action(_data) {
 		,blood = data.blood || null
 		,post = ''
 
-	data.title = '2013년 성적표';
+	data.title = '2020년 성적표';
 	data.url = 'http://goo.gl/7ndn81';
 
 	if (media == 'talk') {
@@ -49,16 +49,16 @@ function action(_data) {
 
 	post += '[' + data.title + ']\n';
 	post += '────────────────────\n'
-	post += userName + '님의 2013년 성적표입니다.\n\n';
+	post += userName + '님의 2020년 성적표입니다.\n\n';
 	post += '🌇 목표실행: ' + database[idx0] + ' ' + s0 + '\n';
 	post += '🌇 애　　정: ' + database[idx1] + ' ' + s1 + '\n';
 	post += '🌇 우　　정: ' + database[idx2] + ' ' + s2 + '\n';
 	post += '🌇 건강관리: ' + database[idx3] + ' ' + s3 + '\n';
 	post += '🌇 금전관리: ' + database[idx4] + ' ' + s4 + '\n\n';
-	post += '2013년 성적: ' + a + '점';
+	post += '2020년 성적: ' + a + '점';
 	data.post = post;
 	
-	data.desc = '2014년은 더 열심히 살아볼래요~';
+	data.desc = '2020년은 더 열심히 살아볼래요~';
 	data.img = 'http://romeoh.github.io/kakaoStory/images/thum/report.png';
 
 	sendData(data);

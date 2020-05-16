@@ -13,7 +13,7 @@ function action(_data) {
 		,post = ''
 		
 	
-	data.title = '2014년 나는 몇 반이 되나?';
+	data.title = '2020년 나는 몇 반이 되나?';
 	data.url = 'http://goo.gl/xx4PdH';
 
 	if (media == 'talk') {
@@ -27,7 +27,7 @@ function action(_data) {
 	p = process(dataPart);
 	
 	post += '[' + data.title + ']\n\n';
-	post += userName + '님은 2014년 새학년에 ' + ban + '반이 됩니다.\n';
+	post += userName + '님은 2020년 새학년에 ' + ban + '반이 됩니다.\n';
 	post += '담임선생님은 ' + dataHyung[h] + ' ' + dataTeacher[t] + ' 선생님이시며,\n';
 	post += '새 짝꿍은 ' + dataPart[p];
 	
