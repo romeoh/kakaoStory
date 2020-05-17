@@ -325,6 +325,14 @@ function validation(_data) {
 		data.bornYear = M('#userAge').val();
 		M.storage('io.github.romeoh.user.bornYear', M('#userAge').val());
 	}
+	if (M('#countyName').selector.length > 0) {
+		if (M('#countyName').val() === '') {
+			alert('활동하시는 동네 이름을 입력하세요.');
+			return false;
+		}
+		data.countyName = M('#countyName').val();
+		M.storage('io.github.romeoh.user.countyName', M('#countyName').val());
+	}
 	if (M('#selYear').selector.length > 0) {
 		if (M('#selYear').val() === '-1') {
 			alert('생년을 선택해 주세요.');
