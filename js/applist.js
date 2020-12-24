@@ -17,7 +17,7 @@ appList += '<li data-app="215" data-page="panty" data-new data-hot data-fun><a h
 appList += '<li data-app="214" data-page="univ" data-new data-fun><a href="univ.html">나에게 어울리는 대학교는?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="213" data-page="aein" data-new data-fun><a href="http://goo.gl/QRYWAE">내 애인은 태어나기는 한 걸까?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="212" data-page="insideout" data-new data-fun><a href="http://goo.gl/YgbqtY">인사이드아웃</a> <span class="ico new"></span></li>';
-appList += '<li data-app="211" data-page="newyear2015" data-new data-fun><a href="http://goo.gl/UkefDm">2020년 운세</a> <span class="ico new"></span></li>';
+appList += '<li data-app="211" data-page="newyear2015" data-new data-fun><a href="http://goo.gl/UkefDm">2021년 운세</a> <span class="ico new"></span></li>';
 appList += '<li data-app="210" data-page="ghost2" data-new data-fun><a href="http://goo.gl/VtKRql">난 무슨귀신이 될까?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="209" data-page="secret" data-new data-fun><a href="http://goo.gl/OOIJx7">1학기 우리반의 비밀</a> <span class="ico new"></span></li>';
 // appList += '<li>';
@@ -38,7 +38,7 @@ appList += '<li data-app="203" data-page="couple_rate" data-fun><a href="http://
 appList += '<li data-app="202" data-page="chun" data-fun><a href="http://goo.gl/H19wSd">나의 천생연분의 초성</a></li>';
 appList += '<li data-app="201" data-page="enterfamily" data-hot data-fun><a href="http://goo.gl/ZxYUD7">연예인가족</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="200" data-page="star" data-fun><a href="http://goo.gl/qHPzTV">별에서 온 그대</a></li>';
-appList += '<li data-app="199" data-page="blood2014" data-fun><a href="http://goo.gl/b33j0A">별자리로 보는 2020년 나의운명</a> </li>';
+appList += '<li data-app="199" data-page="blood2014" data-fun><a href="http://goo.gl/b33j0A">별자리로 보는 2021년 나의운명</a> </li>';
 appList += '<li data-app="198" data-page="gaecon" data-hot data-fun><a href="http://goo.gl/cGx4dk">개그콘서트 캐릭터</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="197" data-page="frozen" data-hot data-hot data-fun><a href="http://goo.gl/XGgVXB">나와 어울리는 겨울왕국 캐릭터</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="196" data-page="idolname" data-fun><a href="http://gaeyou.com/t/#4999">아이돌 이름 맞추기</a></li>';
@@ -56,9 +56,9 @@ appList += '<li data-app="184" data-page="bell" data-fun><a href="http://goo.gl/
 appList += '<li data-app="183" data-page="sense7" data-fun data-hot><a href="http://goo.gl/n85Ic5">중2병 자가 진단 테스트</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="182" data-page="three" data-hot data-fun><a href="http://goo.gl/gcQ9Ft">당신이 얻게될 3가지</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="181" data-page="delivery" data-fun><a href="http://goo.gl/LLRD7v">택배 왔어요</a></li>';
-appList += '<li data-app="180" data-page="report" data-hot data-fun><a href="http://goo.gl/7ndn81">2020년 성적표</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="180" data-page="report" data-hot data-fun><a href="http://goo.gl/7ndn81">2021년 성적표</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="179" data-page="nextban" data-hot data-fun><a href="http://goo.gl/xx4PdH">나는 몇 반이 되나?</a> <span class="ico hot"></span></li>';
-appList += '<li data-app="178" data-page="newyear" data-hot data-fun><a href="http://goo.gl/elsU7Z">2020년 새해 운세</a> <span class="ico hot"></span></li>';
+appList += '<li data-app="178" data-page="newyear" data-hot data-fun><a href="http://goo.gl/elsU7Z">2021년 새해 운세</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="177" data-page="chinso" data-hot data-fun><a href="http://goo.gl/5XpBg7">쓸친소</a> <span class="ico hot"></span></li>';
 appList += '<li data-app="176" data-page="plchin" data-fun><a href="http://goo.gl/UaseUP">나의 플친</a></li>';
 appList += '<li data-app="175" data-page="ung" data-hot data-fun><a href="http://goo.gl/JioSoE">응답하라, 1994</a> <span class="ico hot"></span></li>';

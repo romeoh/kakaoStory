@@ -13,7 +13,7 @@ function action(_data) {
 		,post = ''
 		
 	
-	data.title = '2020년 새해 운세';
+	data.title = '2021년 새해 운세';
 	data.url = 'http://goo.gl/elsU7Z';
 
 	if (media == 'talk') {
@@ -28,7 +28,7 @@ function action(_data) {
 	dx4 = process(database1);
 	
 	post += '[' + data.title + ']\n\n';
-	post += userName + '님의 2020년 운세입니다.\n\n';
+	post += userName + '님의 2021년 운세입니다.\n\n';
 	for (var i=0; i<12; i++) {
 		n = i+1
 		post += '✍ ' + n + '월: ' + database[i] + '\n';
