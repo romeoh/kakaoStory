@@ -43,14 +43,14 @@ function action(_data) {
 	} else {
 		dateType = M('#selDate option').selector[dateIdx].getAttribute('data-tb')
 	}
-	uname = selMonth.value + selDate.value;
+	uname = selMonth.value + ' ' + selDate.value;
 	cname = uniValue(uname) ? uname + '아' : uname + '야';
-	dname = uniValue(uname) ? uname + '이' : uname + '';
-	command = process(database)
+	dname = uniValue(uname) ? uname  : uname + '';
 	
 	post += '[' + data.title + ']\n\n';
-	post += userName + '님의 2021년 운세는\n\n';
+	post += userName + '님의 2021년 운세는:\n\n';
 	post += dname + '\n\n';
+	post += '축하합니다.\n';
 	data.post = post;
 	
 	data.desc = '';
