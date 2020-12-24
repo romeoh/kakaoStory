@@ -48,7 +48,7 @@ function action(_data) {
 	dname = uniValue(uname) ? uname  : uname + '';
 	
 	post += '[' + data.title + ']\n\n';
-	post += userName + '님의 2021년 운세는:\n\n';
+	post += userName + '님의 2021년 운세는:\n';
 	post += dname + '\n\n';
 	post += '축하합니다.\n';
 	data.post = post;
