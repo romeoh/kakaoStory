@@ -9,6 +9,7 @@ M('#btnTest').attr('href', 'http://goo.gl/dfAPTw');
 //appList += '<li><a href="http://goo.gl/rbxiXH"><img src="http://romeoh.github.io/gaeyouAppJs/common/img/ic_ztalk.png" style="width:40px; float:left; margin-right:10px"> 골때리는 메신져 <br><span style="font-weight:bold; color:#00C537">ㅋ톡: 관심병을던져라</span></a> <span class="ico command"></span></li>';
 //appList += '<li><a href="http://goo.gl/Nj2Zbe">친구들에게 나의 장점을 물어보세요.<span class="ico command"></span></li>';
 
+//https://bit.ly/3plx1H3
 appList += '<li data-app="219" data-page="sense9" data-new data-hot data-fun><a href="https://bit.ly/2W0aHqh">풍선색으로 알아보는 나의 연애 스타일</a> <span class="ico new"></span></li>';
 appList += '<li data-app="218" data-page="sense8" data-new data-hot data-fun><a href="https://bit.ly/2DgnWwh">샤워 습관으로 알아보는 나의 연애 스타일</a> <span class="ico new"></span></li>';
 appList += '<li data-app="217" data-page="gang" data-new data-hot data-fun><a href="https://bit.ly/2ZaXbCA">건달식 별명짓기</a> <span class="ico new"></span></li>';
