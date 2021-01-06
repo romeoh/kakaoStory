@@ -10,6 +10,7 @@ M('#btnTest').attr('href', 'http://goo.gl/dfAPTw');
 //appList += '<li><a href="http://goo.gl/Nj2Zbe">친구들에게 나의 장점을 물어보세요.<span class="ico command"></span></li>';
 
 //
+appList += '<li data-app="221" data-page="sense10" data-new data-hot data-fun><a href="https://bit.ly/3s1o0F6">남들이 생각하는 나는?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="220" data-page="newyear2020" data-new data-hot data-fun><a href="https://bit.ly/3plx1H3">생일로 알아보는 2021년 운세</a> <span class="ico new"></span></li>';
 appList += '<li data-app="219" data-page="sense9" data-new data-hot data-fun><a href="https://bit.ly/2W0aHqh">풍선색으로 알아보는 나의 연애 스타일</a> <span class="ico new"></span></li>';
 appList += '<li data-app="218" data-page="sense8" data-new data-hot data-fun><a href="https://bit.ly/2DgnWwh">샤워 습관으로 알아보는 나의 연애 스타일</a> <span class="ico new"></span></li>';
