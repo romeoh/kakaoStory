@@ -1,4 +1,9 @@
 // 테스트 리스트 처리
+if (location.href.indexOf('http:') == 0) {
+	var sUrl = location.href.replace('http:', 'https:')
+	window.location.replace(sUrl)
+}
+
 if (M('[data-list]').selector.length > 0) {
 	var  currentApp = M('[data-list]').data('list')
 		,alist = appList
