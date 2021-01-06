@@ -14,8 +14,8 @@ appList += '<li data-app="220" data-page="newyear2020" data-new data-hot data-fu
 appList += '<li data-app="219" data-page="sense9" data-new data-hot data-fun><a href="https://bit.ly/2W0aHqh">풍선색으로 알아보는 나의 연애 스타일</a> <span class="ico new"></span></li>';
 appList += '<li data-app="218" data-page="sense8" data-new data-hot data-fun><a href="https://bit.ly/2DgnWwh">샤워 습관으로 알아보는 나의 연애 스타일</a> <span class="ico new"></span></li>';
 appList += '<li data-app="217" data-page="gang" data-new data-hot data-fun><a href="https://bit.ly/2ZaXbCA">건달식 별명짓기</a> <span class="ico new"></span></li>';
-appList += '<li data-app="216" data-page="speaker" data-new data-hot data-fun><a href="http://bitly.kr/91CkndCP">대신 말해줌</a> <span class="ico new"></span></li>';
-appList += '<li data-app="215" data-page="panty" data-new data-hot data-fun><a href="http://bitly.kr/uxg8GLtN">나에게 어울리는 팬티색깔?</a> <span class="ico new"></span></li>';
+appList += '<li data-app="216" data-page="speaker" data-new data-hot data-fun><a href="http://bit.ly/2XmoXJX">대신 말해줌</a> <span class="ico new"></span></li>';
+appList += '<li data-app="215" data-page="panty" data-new data-hot data-fun><a href="http://bit.ly/3hMIw7P">나에게 어울리는 팬티색깔?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="214" data-page="univ" data-new data-fun><a href="univ.html">나에게 어울리는 대학교는?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="213" data-page="aein" data-new data-fun><a href="http://goo.gl/QRYWAE">내 애인은 태어나기는 한 걸까?</a> <span class="ico new"></span></li>';
 appList += '<li data-app="212" data-page="insideout" data-new data-fun><a href="http://goo.gl/YgbqtY">인사이드아웃</a> <span class="ico new"></span></li>';
